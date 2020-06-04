@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import './App.css'
 import {connect} from 'react-redux'
+import {Route, Switch, Link, NavLink} from 'react-router-dom'
 import OrganizationContainer from './OrganizationContainer.jsx'
 import FilterOrgs from './FilterOrgs.jsx'
 
@@ -10,6 +11,11 @@ class App extends Component {
     .then(r => r.json())
     .then((orgs) => {
       this.props.setAllOrgs(orgs)
+    })
+    fetch("http://localhost:3000/users")
+    .then(r => r.json())
+    .then((users) => {
+      this.props.setAllUsers(users)
     })
   }
 
@@ -38,15 +44,24 @@ let setSearchTerm = (search_term) => {
   }
 }
 
+let setAllUsers = (users) => {
+  return {
+    type: "SET_ALL_USERS",
+    payload: users
+  }
+}
+
 let mapDispatchToProps = {
   setAllOrgs: setAllOrgs,
-  setSearchTerm: setSearchTerm
+  setSearchTerm: setSearchTerm,
+  setAllUsers: setAllUsers
 }
 
 let mapStateToProps = (globalState) => {
   return {
     orgs: globalState.orgs,
-    search_term: globalState.search_term
+    search_term: globalState.search_term,
+    users: globalState.users
   }
 }
 
