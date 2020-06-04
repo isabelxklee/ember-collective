@@ -6,22 +6,16 @@ import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 
 let initialState = {
-  orgs: [
-   {
-     id: 1,
-     name: "Minnesota Freedom Fund",
-     website: "www.google.com"
-   },
-   {
-     id: 2,
-     name: "Bed-Stuy Strong",
-     website: "www.google.com"
-   }
-  ]
+  orgs: []
 }
 
 let reducer = (state = initialState, action) => {
   switch(action.type) {
+    case "SET_ALL_ORGS":
+      return {
+        ...state,
+        orgs: action.payload
+      }
     default:
       return state
   }
@@ -35,5 +29,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 )
-
-console.log(store.getState())
