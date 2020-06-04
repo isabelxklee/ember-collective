@@ -35,10 +35,10 @@ class Nominate extends Component {
       body: JSON.stringify(this.state)
     })
     .then(r => r.json())
-    .then(console.log)
-    // .then((newOrg) => {
-    //   this.props.propsCreateOrg(newOrg)
-    // })
+    .then((newOrg) => {
+      this.props.propsCreateOrg(newOrg)
+    })
+    console.log("You've successfully nominated a new organization!")
   }
 
   render() {

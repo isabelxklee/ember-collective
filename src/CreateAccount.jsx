@@ -36,6 +36,7 @@ class CreateAccount extends Component {
     .then((newUser) => {
       this.props.propsCreateUser(newUser)
     })
+    console.log("You've successfully created an account!")
   }
 
   render() {
