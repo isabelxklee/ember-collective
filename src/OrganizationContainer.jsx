@@ -9,6 +9,7 @@ const OrganizationContainer = (props) => {
 
   return (
     <div>
+      <p>Showing {props.orgs.length} organizations</p>
       {arr}
     </div>
   )

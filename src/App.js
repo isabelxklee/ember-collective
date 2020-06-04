@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import './App.css'
-import OrganizationContainer from './OrganizationContainer.jsx'
 import {connect} from 'react-redux'
+import OrganizationContainer from './OrganizationContainer.jsx'
+import FilterOrgs from './FilterOrgs.jsx'
 
 class App extends Component {
   componentDidMount() {
@@ -15,6 +16,8 @@ class App extends Component {
   render () {
     return (
       <div className="App">
+        <h1>Welcome to the Black Liberation Hub</h1>
+        <FilterOrgs/>
         <OrganizationContainer/>
       </div>
     )  
@@ -28,13 +31,22 @@ let setAllOrgs = (orgs) => {
   }
 }
 
+let setSearchTerm = (search_term) => {
+  return {
+    type: "SET_SEARCH_TERM",
+    payload: search_term
+  }
+}
+
 let mapDispatchToProps = {
-  setAllOrgs: setAllOrgs
+  setAllOrgs: setAllOrgs,
+  setSearchTerm: setSearchTerm
 }
 
 let mapStateToProps = (globalState) => {
   return {
-    orgs: globalState.orgs
+    orgs: globalState.orgs,
+    search_term: globalState.search_term
   }
 }
 

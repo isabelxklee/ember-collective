@@ -6,7 +6,8 @@ import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 
 let initialState = {
-  orgs: []
+  orgs: [],
+  search_term: ""
 }
 
 let reducer = (state = initialState, action) => {
@@ -16,6 +17,11 @@ let reducer = (state = initialState, action) => {
         ...state,
         orgs: action.payload
       }
+    case "SET_SEARCH_TERM":
+    return {
+      ...state,
+      search_term: action.payload
+    }
     default:
       return state
   }
