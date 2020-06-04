@@ -9,6 +9,7 @@ import OrganizationContainer from './OrganizationContainer.jsx'
 import NavBar from './NavBar.jsx'
 import CreateAccount from './CreateAccount.jsx'
 import Login from './Login.jsx'
+import Nominate from './Nominate.jsx'
 
 let initialState = {
   orgs: [],
@@ -38,6 +39,11 @@ let reducer = (state = initialState, action) => {
       ...state,
       users: [...state.users, action.payload]
     }
+    case "CREATE_ORG":
+    return {
+      ...state,
+      orgs: [...state.orgs, action.payload]
+    }
     default:
       return state
   }
@@ -52,6 +58,9 @@ ReactDOM.render(
       <Route exact path="/" component={App} />
       <Route path="/browse-the-hub">
         <OrganizationContainer/>
+      </Route>
+      <Route path="/nominate">
+        <Nominate/>
       </Route>
       <Route path="/create-account">
         <CreateAccount/>

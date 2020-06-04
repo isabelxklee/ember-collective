@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 
-class CreateAccount extends Component {
+class Nominate extends Component {
   state = {
-    username: "",
-    email_address: "",
-    password: "",
-    password_confirmation: ""
+    name: "",
+    location: "",
+    website: "",
+    donation_link: "",
+    description: ""
   }
 
   handleChange = (event) => {
@@ -19,13 +20,14 @@ class CreateAccount extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.setState({
-      username: "",
-      email_address: "",
-      password: "",
-      password_confirmation: ""
+      name: "",
+      location: "",
+      website: "",
+      donation_link: "",
+      description: ""
     })
 
-    fetch("http://localhost:3000/users", {
+    fetch("http://localhost:3000/organizations", {
       method: "POST",
       headers: {
         "Content-type": "application/json"
@@ -33,8 +35,8 @@ class CreateAccount extends Component {
       body: JSON.stringify(this.state)
     })
     .then(r => r.json())
-    .then((newUser) => {
-      this.props.propsCreateUser(newUser)
+    .then((newOrg) => {
+      this.props.propsCreateOrg(newOrg)
     })
   }
 
@@ -87,15 +89,15 @@ class CreateAccount extends Component {
   }
 }
 
-let createUser = (user) => {
+let createOrg = (org) => {
   return {
-    type: "CREATE_USER",
-    payload: user
+    type: "CREATE_ORG",
+    payload: org
   }
 }
 
 let mapDispatchToProps = {
-  propsCreateUser: createUser
+  propsCreateOrg: createOrg
 }
 
-export default connect(null, mapDispatchToProps)(CreateAccount)
+export default connect(null, mapDispatchToProps)(Nominate)
