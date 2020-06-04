@@ -35,54 +35,64 @@ class Nominate extends Component {
       body: JSON.stringify(this.state)
     })
     .then(r => r.json())
-    .then((newOrg) => {
-      this.props.propsCreateOrg(newOrg)
-    })
+    .then(console.log)
+    // .then((newOrg) => {
+    //   this.props.propsCreateOrg(newOrg)
+    // })
   }
 
   render() {
     return (
       <div>
-        <h1>Create an account</h1>
+        <h1>Nominate an Organization</h1>
+        <p>This feature is only available for users who have been on Black Liberation Hub for at least one week.</p>
         <form onSubmit={this.handleSubmit}>
         <label>
-          Username
+          Organization name
           <input
-            name="username"
+            name="name"
             type="text"
             autoComplete="off"
-            value={this.state.username}
+            value={this.state.name}
             onChange={this.handleChange} />
         </label>
         <br />
         <label>
-          Email Address
+          Location
           <input
-            name="email_address"
+            name="location"
             type="text"
             autoComplete="off"
-            value={this.state.email_address}
+            value={this.state.location}
             onChange={this.handleChange} />
         </label><br />
         <label>
-          Password
+          Website
           <input
-            name="password"
+            name="website"
             type="text"
             autoComplete="off"
-            value={this.state.password}
+            value={this.state.website}
             onChange={this.handleChange} />
         </label><br />
         <label>
-          Confirm Password
+          Donation Link
           <input
-            name="password_confirmation"
+            name="donation_link"
             type="text"
             autoComplete="off"
-            value={this.state.password_confirmation}
+            value={this.state.donation_link}
             onChange={this.handleChange} />
         </label><br />
-        <input type="submit" value="Create" />
+        <label>
+          Description
+          <textarea
+            name="description"
+            autoComplete="off"
+            value={this.state.description}
+            onChange={this.handleChange} />
+        </label><br />
+        <input type="submit" value="Nominate" />
       </form>
       </div>
     )
