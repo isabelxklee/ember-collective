@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import './App.css'
 import {connect} from 'react-redux'
-import {Route, Switch, Link, NavLink} from 'react-router-dom'
 import OrganizationContainer from './OrganizationContainer.jsx'
 import FilterOrgs from './FilterOrgs.jsx'
 

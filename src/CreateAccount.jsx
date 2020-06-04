@@ -24,8 +24,19 @@ class CreateAccount extends Component {
       password: "",
       password_confirmation: ""
     })
-    this.props.propsCreateUser(this.state)
+
+    fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(this.state)
+    })
+    .then(r => r.json())
+    .then(console.log)
   }
+
+      // this.props.propsCreateUser(this.state)
 
   render() {
     return (
@@ -37,6 +48,7 @@ class CreateAccount extends Component {
           <input
             name="username"
             type="text"
+            autoComplete="off"
             value={this.state.username}
             onChange={this.handleChange} />
         </label>
@@ -46,6 +58,7 @@ class CreateAccount extends Component {
           <input
             name="email_address"
             type="text"
+            autoComplete="off"
             value={this.state.email_address}
             onChange={this.handleChange} />
         </label><br />
@@ -54,6 +67,7 @@ class CreateAccount extends Component {
           <input
             name="password"
             type="text"
+            autoComplete="off"
             value={this.state.password}
             onChange={this.handleChange} />
         </label><br />
@@ -62,6 +76,7 @@ class CreateAccount extends Component {
           <input
             name="password_confirmation"
             type="text"
+            autoComplete="off"
             value={this.state.password_confirmation}
             onChange={this.handleChange} />
         </label><br />
