@@ -4,24 +4,8 @@ import {connect} from 'react-redux'
 class Login extends Component {
   state = {
     username: "",
-    password: "",
-    token: ""
+    password: ""
   }
-
-  // this is making sure that the user is logged in
-  // refactor this to take redux into account
-  // throw the token in global state
-  // componentDidMount() {
-  //   if (localStorage.token) {
-  //     fetch("http://localhost:3000/users/stay_logged_in", {
-  //       headers: {
-  //         "Authorization": localStorage.token
-  //       }
-  //     })
-  //     .then(r => r.json())
-  //     .then(this.handleResponse)
-  //   }
-  // }
 
   handleLoginSubmit = (event) => {
     event.preventDefault()
@@ -40,23 +24,6 @@ class Login extends Component {
     .then(r => r.json())
     .then(this.handleResponse)
   }
-
-  handleResponse = (r) => {
-    if (r.message) {
-      alert(r.message)
-    } else {
-      localStorage.token = r.token
-      // this.props.history.push("/profile")
-    }
-  }
-
-  // renderProfile = (routerProps) => {
-  //   if (this.state.token) {
-  //     return <ProfileContainer user={this.state.user} token={this.state.token} addNewSnack={this.addNewSnack}/>
-  //   } else {
-  //     this.props.history.push("/login")
-  //   }
-  // }
 
   handleChange = (event) => {
     this.setState({

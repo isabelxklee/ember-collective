@@ -14,9 +14,7 @@ import Profile from './Profile.jsx'
 
 let initialState = {
   orgs: [],
-  search_term: "",
-  users: [],
-  token: ""
+  users: []
 }
 
 let reducer = (state = initialState, action) => {
@@ -26,11 +24,6 @@ let reducer = (state = initialState, action) => {
         ...state,
         orgs: action.payload
       }
-    case "SET_SEARCH_TERM":
-    return {
-      ...state,
-      search_term: action.payload
-    }
     case "SET_ALL_USERS":
       return {
         ...state,
@@ -56,23 +49,23 @@ let store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window._
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <NavBar/>
-      <Route exact path="/" component={App} />
-      <Route path="/browse-the-hub">
-        <OrganizationContainer/>
-      </Route>
-      <Route path="/nominate">
-        <Nominate/>
-      </Route>
-      <Route path="/create-account">
-        <CreateAccount/>
-      </Route>
-      <Route path="/login">
-        <Login/>
-      </Route>
-      <Route path="/profile">
-        <Profile/>
-      </Route>
+        <NavBar/>
+        <Route exact path="/" component={App} />
+        <Route path="/browse-the-hub">
+          <OrganizationContainer/>
+        </Route>
+        <Route path="/nominate">
+          <Nominate/>
+        </Route>
+        <Route path="/create-account">
+          <CreateAccount/>
+        </Route>
+        <Route path="/login">
+          <Login/>
+        </Route>
+        <Route path="/profile">
+          <Profile/>
+        </Route>
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')

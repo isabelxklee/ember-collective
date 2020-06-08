@@ -17,6 +17,7 @@ class FilterOrgs extends Component {
           type="text"
           name="searchTerm"
           placeholder="Start typing a name, location, or description"
+          autoComplete="off"
           value={this.props.searchTerm}
           onChange={this.handleChange}
         /><br />
