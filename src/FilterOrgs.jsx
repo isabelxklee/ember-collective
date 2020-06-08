@@ -2,21 +2,12 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 
 class FilterOrgs extends Component {
-  state = {
-    searchTerm: ""
-  }
-  
   handleChange = (event) => {
-    this.setState({
-      searchTerm: event.target.value
-    })
-    console.log(event.target.value)
+    this.props.handleSearchTerm(event.target.value)
   }
 
   handleReset = () => {
-    this.setState({
-      searchTerm: ""
-    })
+    this.props.handleSearchTerm("")
   }
 
   render() {
@@ -28,7 +19,7 @@ class FilterOrgs extends Component {
           type="text"
           name="searchTerm"
           placeholder="Enter a name"
-          value={this.state.searchTerm}
+          value={this.props.searchTerm}
           onChange={this.handleChange}
         />
         <button onClick={this.handleReset}>Clear search terms</button>

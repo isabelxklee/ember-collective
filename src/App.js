@@ -5,6 +5,9 @@ import OrganizationContainer from './OrganizationContainer.jsx'
 import FilterOrgs from './FilterOrgs.jsx'
 
 class App extends Component {
+  state = {
+    searchTerm: ""
+  }
 
   componentDidMount() {
     fetch("http://localhost:3000/organizations")
@@ -19,24 +22,34 @@ class App extends Component {
     })
   }
 
+  handleSearchTerm = (inputFromChild) => {
+    this.setState({
+      searchTerm: inputFromChild
+    })
+  }
+
   filterOrgsArray = () => {
     let orgs = [...this.props.orgs]
-    if (this.props.searchTerm === "") {
+    if (this.state.searchTerm === "") {
       return orgs
     } else {
       orgs = this.props.orgs.filter((org) => {
-        return org.name.toLowerCase().includes(this.props.searchTerm)
+        return org.name.toLowerCase().includes(this.state.searchTerm)
       })
+      console.log(orgs)
     }
     return orgs
   }
 
   render () {
-    console.log(this.props.searchTerm)
+    console.log(this.state.searchTerm)
     return (
       <div className="App">
         <h1>Welcome to the Black Liberation Hub</h1>
-        <FilterOrgs/>
+        <FilterOrgs
+          searchTerm={this.state.searchTerm}
+          handleSearchTerm={this.handleSearchTerm}
+        />
         <OrganizationContainer orgs={this.filterOrgsArray()}/>
       </div>
     )  
@@ -50,13 +63,6 @@ let setAllOrgs = (orgs) => {
   }
 }
 
-let setSearchTerm = (searchTerm) => {
-  return {
-    type: "SET_SEARCH_TERM",
-    payload: searchTerm
-  }
-}
-
 let setAllUsers = (users) => {
   return {
     type: "SET_ALL_USERS",
@@ -66,14 +72,12 @@ let setAllUsers = (users) => {
 
 let mapDispatchToProps = {
   setAllOrgs: setAllOrgs,
-  setSearchTerm: setSearchTerm,
   setAllUsers: setAllUsers
 }
 
 let mapStateToProps = (globalState) => {
   return {
     orgs: globalState.orgs,
-    searchTerm: globalState.searchTerm,
     users: globalState.users
   }
 }
