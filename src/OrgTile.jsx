@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
 
 class OrgTile extends Component {
+  truncateString = (string, number) => {
+    if (string.length <= number) {
+      return string
+    }
+    return string.slice(0, number) + "..."
+  }
+
   render() {
     let {name, website, location, description, donation_link} = this.props.org
     return (
@@ -9,7 +16,7 @@ class OrgTile extends Component {
         <p>Location: {location}</p>
         <p><a href={website} target="blank">Website</a></p>
         <p><a href={donation_link} target="blank">Donate</a></p>
-        <p>{description}</p>
+        <p>{this.truncateString(description, 200)}</p>
       </div>      
     )
   }
