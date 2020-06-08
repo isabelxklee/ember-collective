@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {connect} from 'react-redux'
 
 class FilterOrgs extends Component {
   handleChange = (event) => {
@@ -27,10 +26,4 @@ class FilterOrgs extends Component {
   }
 }
 
-let mapStateToProps = (globalState) => {
-  return {
-    searchTerm: globalState.searchTerm
-  }
-}
-
-export default connect(mapStateToProps)(FilterOrgs)
+export default FilterOrgs
