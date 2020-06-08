@@ -1,24 +1,19 @@
-import React from 'react'
-import {connect} from 'react-redux'
+import React, { Component } from 'react'
 import OrgTile from './OrgTile.jsx'
 
-const OrganizationContainer = (props) => {
-  let orgsArr = props.orgs.map((org) => {
-    return <OrgTile key={org.id} org={org}/>
-  })
+class OrganizationContainer extends Component {
+  render() {
+    let orgsArr = this.props.orgs.map((org) => {
+      return <OrgTile key={org.id} org={org}/>
+    })
 
-  return (
-    <div>
-      <p>Showing {props.orgs.length} organizations</p>
-      {orgsArr}
-    </div>
-  )
-}
-
-let mapStateToProps = (globalState) => {
-  return {
-    orgs: globalState.orgs
+    return (
+      <div>
+        <p>Showing {this.props.orgs.length} organizations</p>
+        {orgsArr}
+      </div>
+    )
   }
 }
 
-export default connect(mapStateToProps)(OrganizationContainer)
+export default OrganizationContainer

@@ -6,22 +6,21 @@ class FilterOrgs extends Component {
     this.props.handleSearchTerm(event.target.value)
   }
 
-  handleReset = () => {
+  handleReset = (event) => {
     this.props.handleSearchTerm("")
   }
 
   render() {
-
     return (
       <div className="filter">
-        <label><h2>Find an organization or bail fund</h2></label>
+        <label><h2>Find an organization by name or location</h2></label>
         <input
           type="text"
           name="searchTerm"
-          placeholder="Enter a name"
+          placeholder="Start typing a name, location, or description"
           value={this.props.searchTerm}
           onChange={this.handleChange}
-        />
+        /><br />
         <button onClick={this.handleReset}>Clear search terms</button>
       </div>
     )

@@ -34,11 +34,12 @@ class App extends Component {
       return orgs
     } else {
       orgs = this.props.orgs.filter((org) => {
-        return org.name.toLowerCase().includes(this.state.searchTerm)
-      })
-      console.log(orgs)
-    }
-    return orgs
+        return Object.keys(org).some(key =>
+          typeof org[key] === "string" ? org[key].toLowerCase().includes(this.state.searchTerm) : null
+        )
+    })
+  }
+  return orgs
   }
 
   render () {
