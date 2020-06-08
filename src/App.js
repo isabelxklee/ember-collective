@@ -35,7 +35,10 @@ class App extends Component {
     } else {
       orgs = this.props.orgs.filter((org) => {
         return Object.keys(org).some(key =>
-          typeof org[key] === "string" ? org[key].toLowerCase().includes(this.state.searchTerm) : null
+          typeof org[key] === "string"
+          && org[key] !== "description"
+          ?
+          org[key].toLowerCase().includes(this.state.searchTerm.toLowerCase()) : null
         )
     })
   }
