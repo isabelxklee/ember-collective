@@ -5,6 +5,7 @@ import OrganizationContainer from './OrganizationContainer.jsx'
 import FilterOrgs from './FilterOrgs.jsx'
 
 class App extends Component {
+
   componentDidMount() {
     fetch("http://localhost:3000/organizations")
     .then(r => r.json())
@@ -18,12 +19,25 @@ class App extends Component {
     })
   }
 
+  filterOrgsArray = () => {
+    let orgs = [...this.props.orgs]
+    if (this.props.searchTerm === "") {
+      return orgs
+    } else {
+      orgs = this.props.orgs.filter((org) => {
+        return org.name.toLowerCase().includes(this.props.searchTerm)
+      })
+    }
+    return orgs
+  }
+
   render () {
+    console.log(this.props.searchTerm)
     return (
       <div className="App">
         <h1>Welcome to the Black Liberation Hub</h1>
         <FilterOrgs/>
-        <OrganizationContainer/>
+        <OrganizationContainer orgs={this.filterOrgsArray()}/>
       </div>
     )  
   }
@@ -36,10 +50,10 @@ let setAllOrgs = (orgs) => {
   }
 }
 
-let setSearchTerm = (search_term) => {
+let setSearchTerm = (searchTerm) => {
   return {
     type: "SET_SEARCH_TERM",
-    payload: search_term
+    payload: searchTerm
   }
 }
 
@@ -59,7 +73,7 @@ let mapDispatchToProps = {
 let mapStateToProps = (globalState) => {
   return {
     orgs: globalState.orgs,
-    search_term: globalState.search_term,
+    searchTerm: globalState.searchTerm,
     users: globalState.users
   }
 }

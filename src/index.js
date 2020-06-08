@@ -10,11 +10,13 @@ import NavBar from './NavBar.jsx'
 import CreateAccount from './CreateAccount.jsx'
 import Login from './Login.jsx'
 import Nominate from './Nominate.jsx'
+import Profile from './Profile.jsx'
 
 let initialState = {
   orgs: [],
   search_term: "",
-  users: []
+  users: [],
+  token: ""
 }
 
 let reducer = (state = initialState, action) => {
@@ -67,6 +69,9 @@ ReactDOM.render(
       </Route>
       <Route path="/login">
         <Login/>
+      </Route>
+      <Route path="/profile">
+        <Profile/>
       </Route>
     </BrowserRouter>
   </Provider>,

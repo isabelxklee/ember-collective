@@ -9,6 +9,7 @@ class NavBar extends Component {
         <NavLink to="/nominate" exact>Nominate an Organization</NavLink><br/>
         <NavLink to="/create-account" exact>Create Account</NavLink><br/>
         <NavLink to="/login" exact>Login</NavLink><br/>
+        <NavLink to="/profile" exact>My profile</NavLink><br/>
       </div>
     )
   }

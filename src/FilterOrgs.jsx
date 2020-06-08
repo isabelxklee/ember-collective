@@ -3,19 +3,19 @@ import {connect} from 'react-redux'
 
 class FilterOrgs extends Component {
   state = {
-    search_term: ""
+    searchTerm: ""
   }
-
+  
   handleChange = (event) => {
     this.setState({
-      search_term: event.target.value
+      searchTerm: event.target.value
     })
     console.log(event.target.value)
   }
 
   handleReset = () => {
     this.setState({
-      search_term: ""
+      searchTerm: ""
     })
   }
 
@@ -26,9 +26,9 @@ class FilterOrgs extends Component {
         <label><h2>Find an organization or bail fund</h2></label>
         <input
           type="text"
-          name="search_term"
+          name="searchTerm"
           placeholder="Enter a name"
-          value={this.state.search_term}
+          value={this.state.searchTerm}
           onChange={this.handleChange}
         />
         <button onClick={this.handleReset}>Clear search terms</button>
@@ -39,7 +39,7 @@ class FilterOrgs extends Component {
 
 let mapStateToProps = (globalState) => {
   return {
-    search_term: globalState.search_term
+    searchTerm: globalState.searchTerm
   }
 }
 

@@ -10,7 +10,7 @@ class OrgTile extends Component {
         <p><a href={website} target="blank">Website</a></p>
         <p><a href={donation_link} target="blank">Donate</a></p>
         <p>{description}</p>
-      </div>
+      </div>      
     )
   }
 }
