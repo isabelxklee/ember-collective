@@ -1,10 +1,33 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 
-export default class DonationChallenge extends Component {
+class DonationChallenge extends Component {
   state = {
-    donation_amount: "",
-    organization: "",
-    friends_username: ""
+    sender_id: this.props.currentUserId,
+    amount: "",
+    org_id: "",
+    receiver_id: ""
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    this.setState({
+      amount: "",
+      org_id: "",
+      receiver_id: ""
+    })
+
+    fetch("http://localhost:3000/donation_challenges", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(this.state)
+    })
+    .then(r => r.json())
+    .then((newDonation) => {
+      this.props.propsCreateDonation(newDonation)
+    })
   }
 
   handleChange = (event) => {
@@ -20,21 +43,21 @@ export default class DonationChallenge extends Component {
         <h2>Donation Match Challenge</h2>
         <p>Challenge your friends to match your donation!</p>
 
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label>
             Donation Amount
             <input
-              name="donation_amount"
+              name="amount"
               type="text"
               autoComplete="off"
-              value={this.state.donation_amount}
+              value={this.state.amount}
               onChange={this.handleChange} />
           </label>
           <br />
 
-          <label>Pick an Organization</label>
+          <label>Pick an Org_id</label>
 
-          <select value={this.state.organization} onChange={this.handleChange} name="organization">
+          <select value={this.state.org_id} onChange={this.handleChange} name="org_id">
             { this.props.orgs.map((org) =>
               <option key={org.id} value={org.name}>{org.name}</option>)
             }
@@ -43,11 +66,11 @@ export default class DonationChallenge extends Component {
 
           <label>Friend's Username</label>
 
-          <select value={this.state.friends_username} onChange={this.handleChange} name="friends_username">
+          <select value={this.state.receiver_id} onChange={this.handleChange} name="receiver_id">
             { this.props.users.map((user) =>
               <option key={user.id} value={user.username}>{user.username}</option>)
             }
-          </select>
+          </select><br />
 
           <input type="submit" value="Send" />
         </form>
@@ -55,3 +78,16 @@ export default class DonationChallenge extends Component {
     )
   }
 }
+
+let createDonation = (donation_challenge) => {
+  return {
+    type: "CREATE_DONATION",
+    payload: donation_challenge
+  }
+}
+
+let mapDispatchToProps = {
+  propsCreateDonation: createDonation
+}
+
+export default connect(null, mapDispatchToProps)(DonationChallenge)

@@ -49,7 +49,7 @@ class Profile extends Component {
 
   render() {
     let currentUser = this.props.userInformation
-    let {username, created_at} = currentUser
+    let {id, username, created_at} = currentUser
     console.log(currentUser, this.usersNominations())
 
     return (
@@ -62,6 +62,7 @@ class Profile extends Component {
 
         {/* <p>Verified {verifications.length} organizations</p> */}
         <DonationChallenge
+          currentUserId={id}
           users={this.props.users}
           orgs={this.props.orgs}
         />
