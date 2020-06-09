@@ -20,6 +20,11 @@ class Profile extends Component {
     .then((orgs) => {
       this.props.setAllOrganizations(orgs)
     })
+    fetch("http://localhost:3000/donation_challenges")
+    .then(r => r.json())
+    .then((donations) => {
+      this.props.setAllDonations(donations)
+    })
   }
 
   usersNominations = () => {
@@ -30,6 +35,16 @@ class Profile extends Component {
     })
 
     return nominations.length
+  }
+
+  usersDonationChallenges = () => {
+    let donations = [...this.props.donation_challenges]
+
+    donations = this.props.donation_challenges.filter((challenge) => {
+      return challenge.sender_id === this.props.userInformation.id
+    })
+
+    return donations.length
   }
 
   render() {
@@ -43,10 +58,9 @@ class Profile extends Component {
         <h3>@{username}</h3>
         <p>Joined on {created_at}</p>
         <p>Nominated <Pluralize singular={'organization'} count={this.usersNominations()} /></p>
+        <p>Sent <Pluralize singular={'challenge'} count={this.usersDonationChallenges()} donation match challenges/></p>
 
-        {/* <p>Verified {verifications.length} organizations</p>
-        <p>Sent {donations.length} donation match challenges</p> */}
-
+        {/* <p>Verified {verifications.length} organizations</p> */}
         <DonationChallenge
           users={this.props.users}
           orgs={this.props.orgs}
@@ -77,10 +91,18 @@ let setAllNominations = (nominations) => {
   }
 }
 
+let setAllDonations = (donations) => {
+  return {
+    type: "SET_ALL_DONATIONS",
+    payload: donations
+  }
+}
+
 let mapDispatchToProps = {
   setAllUsers: setAllUsers,
   setAllNominations: setAllNominations,
-  setAllOrganizations: setAllOrganizations
+  setAllOrganizations: setAllOrganizations,
+  setAllDonations: setAllDonations
 }
 
 let mapStateToProps = (globalState) => {
@@ -88,7 +110,8 @@ let mapStateToProps = (globalState) => {
     users: globalState.userInformation.users,
     userInformation: globalState.userInformation,
     nominations: globalState.nominationInformation.nominations,
-    orgs: globalState.orgInformation.orgs
+    orgs: globalState.orgInformation.orgs,
+    donation_challenges: globalState.donationInformation.donation_challenges
   }
 }
 

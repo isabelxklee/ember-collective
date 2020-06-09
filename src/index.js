@@ -23,6 +23,10 @@ let initialNominationState = {
   nominations: []
 }
 
+let initialDonationState = {
+  donation_challenges: []
+}
+
 let orgReducer = (state = initialOrgState, action) => {
   switch(action.type) {
     case "SET_ALL_ORGS":
@@ -83,10 +87,28 @@ let nominationReducer = (state = initialNominationState, action) => {
   }
 }
 
+let donationReducer = (state = initialDonationState, action) => {
+  switch(action.type) {
+    case "SET_ALL_DONATIONS":
+      return {
+        ...state,
+        donation_challenges: action.payload
+      }
+    case "CREATE_DONATION":
+    return {
+      ...state,
+      donation_challenges: [...state.donation_challenges, action.payload]
+    }
+    default:
+      return state
+  }
+}
+
 let singleObject = {
   orgInformation: orgReducer,
   userInformation : userReducer,
-  nominationInformation: nominationReducer
+  nominationInformation: nominationReducer,
+  donationInformation: donationReducer
 }
 
 let rootReducer = combineReducers(singleObject)
