@@ -32,6 +32,7 @@ let initialUserState = {
   id: 0,
   username: "",
   email_address: "",
+  created_at: "",
   token: ""
 }
 
@@ -53,7 +54,29 @@ let userReducer = (state = initialUserState, action) => {
       id: action.payload.user.id,
       username: action.payload.user.username,
       email_address: action.payload.user.email_address,
+      created_at: action.payload.user.created_at,
       token: action.payload.jwt
+    }
+    default:
+      return state
+  }
+}
+
+let initialNominationState = {
+  nominations: []
+}
+
+let nominationReducer = (state = initialNominationState, action) => {
+  switch(action.type) {
+    case "SET_ALL_NOMINATIONS":
+      return {
+        ...state,
+        nominations: action.payload
+      }
+    case "CREATE_NOMINATION":
+    return {
+      ...state,
+      nominations: [...state.nominations, action.payload]
     }
     default:
       return state
@@ -62,7 +85,8 @@ let userReducer = (state = initialUserState, action) => {
 
 let singleObject = {
   orgInformation: orgReducer,
-  userInformation : userReducer
+  userInformation : userReducer,
+  nominationInformation: nominationReducer
 }
 
 let rootReducer = combineReducers(singleObject)

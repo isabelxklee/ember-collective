@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Route} from 'react-router-dom'
+import {Route, withRouter } from 'react-router-dom'
 import './App.css'
 import {connect} from 'react-redux'
 import BrowseTheHub from './BrowseTheHub.jsx'
@@ -46,7 +46,7 @@ class App extends Component {
   handleResponse = (response) => {
     localStorage.token = response.jwt
     this.props.setUserInfo(response)
-    // this.props.history.push("/profile")
+    this.props.history.push("/profile")
   }
 
   render () {
@@ -88,8 +88,11 @@ let mapStateToProps = (globalState) => {
     id: globalState.userInformation.id,
     username: globalState.userInformation.username,
     email_address: globalState.userInformation.email_address,
+    created_at: globalState.userInformation.created_at,
     token: globalState.userInformation.token
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+let MagicalComponent = withRouter(App)
+
+export default connect(mapStateToProps, mapDispatchToProps)(MagicalComponent)
