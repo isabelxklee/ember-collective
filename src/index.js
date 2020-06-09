@@ -10,6 +10,19 @@ let initialOrgState = {
   orgs: []
 }
 
+let initialUserState = {
+  users: [],
+  id: 0,
+  username: "",
+  email_address: "",
+  created_at: "",
+  token: ""
+}
+
+let initialNominationState = {
+  nominations: []
+}
+
 let orgReducer = (state = initialOrgState, action) => {
   switch(action.type) {
     case "SET_ALL_ORGS":
@@ -25,15 +38,6 @@ let orgReducer = (state = initialOrgState, action) => {
     default:
       return state
   }
-}
-
-let initialUserState = {
-  users: [],
-  id: 0,
-  username: "",
-  email_address: "",
-  created_at: "",
-  token: ""
 }
 
 let userReducer = (state = initialUserState, action) => {
@@ -60,10 +64,6 @@ let userReducer = (state = initialUserState, action) => {
     default:
       return state
   }
-}
-
-let initialNominationState = {
-  nominations: []
 }
 
 let nominationReducer = (state = initialNominationState, action) => {
