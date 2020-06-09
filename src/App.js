@@ -22,11 +22,6 @@ class App extends Component {
       .then(r => r.json())
       .then(this.handleResponse)
     }
-    fetch("http://localhost:3000/users")
-    .then(r => r.json())
-    .then((users) => {
-      this.props.setAllUsers(users)
-    })
   }
 
   handleLoginSubmit = (userInfo) => {
@@ -46,27 +41,21 @@ class App extends Component {
   handleResponse = (response) => {
     localStorage.token = response.jwt
     this.props.setUserInfo(response)
+    console.log(response)
     this.props.history.push("/profile")
   }
 
   render () {
     return (
       <div>
-        <NavBar/>
+        <NavBar handleResponse={this.handleResponse}/>
         <Route exact path="/"> <BrowseTheHub/> </Route>
         <Route path="/nominate"> <Nominate/> </Route>
-        <Route path="/create-account"> <CreateAccount/> </Route>
+        <Route path="/create-account"> <CreateAccount handleResponse={this.handleResponse}/> </Route>
         <Route path="/login"> <Login handleLoginSubmit={this.handleLoginSubmit}/> </Route>
         <Route path="/profile"> <Profile/> </Route>
       </div>
     )  
-  }
-}
-
-let setAllUsers = (users) => {
-  return {
-    type: "SET_ALL_USERS",
-    payload: users
   }
 }
 
@@ -78,13 +67,11 @@ let setUserInfo = (response) => {
 }
 
 let mapDispatchToProps = {
-  setAllUsers: setAllUsers,
   setUserInfo: setUserInfo
 }
 
 let mapStateToProps = (globalState) => {
   return {
-    users: globalState.userInformation.users,
     id: globalState.userInformation.id,
     username: globalState.userInformation.username,
     email_address: globalState.userInformation.email_address,

@@ -33,9 +33,7 @@ class CreateAccount extends Component {
       body: JSON.stringify(this.state)
     })
     .then(r => r.json())
-    .then((newUser) => {
-      this.props.propsCreateUser(newUser)
-    })
+    .then(this.props.handleResponse)
     console.log("You've successfully created an account!")
   }
 
