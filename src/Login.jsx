@@ -7,24 +7,6 @@ class Login extends Component {
     password: ""
   }
 
-  handleLoginSubmit = (event) => {
-    event.preventDefault()
-    console.log("Login form has been submitted")
-
-    fetch("http://localhost:3000/users/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        username: this.state.username,
-        password: this.state.password
-      })
-    })
-    .then(r => r.json())
-    .then(this.handleResponse)
-  }
-
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value

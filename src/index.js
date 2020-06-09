@@ -34,6 +34,14 @@ let reducer = (state = initialState, action) => {
       ...state,
       users: [...state.users, action.payload]
     }
+    case "SET_USER_INFO":
+    return {
+      ...state,
+      id: action.payload.user.id,
+      username: action.payload.user.username,
+      email_address: action.payload.user.email_address,
+      token: action.payload.token
+    }
     case "CREATE_ORG":
     return {
       ...state,

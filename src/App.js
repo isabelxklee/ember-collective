@@ -22,6 +22,26 @@ class App extends Component {
     })
   }
 
+  handleLoginSubmit = (userInfo) => {
+    // event.preventDefault()
+    console.log("Login form has been submitted")
+
+    fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userInfo)
+    })
+    .then(r => r.json())
+    .then(this.handleResponse)
+  }
+
+  handleResponse = (response) => {
+    localStorage.token = response.token
+    // this.props.setUserInfo
+  }
+
   handleSearchTerm = (inputFromChild) => {
     this.setState({
       searchTerm: inputFromChild
@@ -74,15 +94,24 @@ let setAllUsers = (users) => {
   }
 }
 
+let setUserInfo = (response) => {
+  return {
+    type: "SET_USER_INFO",
+    payload: response
+  }
+}
+
 let mapDispatchToProps = {
   setAllOrgs: setAllOrgs,
-  setAllUsers: setAllUsers
+  setAllUsers: setAllUsers,
+  setUserInfo: setUserInfo
 }
 
 let mapStateToProps = (globalState) => {
   return {
     orgs: globalState.orgs,
-    users: globalState.users
+    users: globalState.users,
+    // token: globalState.userInfo.token
   }
 }
 
