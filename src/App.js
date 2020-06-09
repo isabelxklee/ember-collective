@@ -10,6 +10,15 @@ class App extends Component {
   }
 
   componentDidMount() {
+    if (localStorage.token) {
+      fetch("http://localhost:3000/users/stay_logged_in", {
+        headers: {
+          "Authorization": localStorage.token
+        }
+      })
+      .then(r => r.json())
+      .then(this.handleResponse)
+    }
     fetch("http://localhost:3000/organizations")
     .then(r => r.json())
     .then((orgs) => {
@@ -23,7 +32,6 @@ class App extends Component {
   }
 
   handleLoginSubmit = (userInfo) => {
-    // event.preventDefault()
     console.log("Login form has been submitted")
 
     fetch("http://localhost:3000/login", {
@@ -39,7 +47,8 @@ class App extends Component {
 
   handleResponse = (response) => {
     localStorage.token = response.token
-    // this.props.setUserInfo
+    this.props.setUserInfo(response)
+    this.props.history.push("/profile")
   }
 
   handleSearchTerm = (inputFromChild) => {
@@ -109,9 +118,9 @@ let mapDispatchToProps = {
 
 let mapStateToProps = (globalState) => {
   return {
-    orgs: globalState.orgs,
-    users: globalState.users,
-    // token: globalState.userInfo.token
+    orgs: globalState.orgInformation.orgs,
+    users: globalState.userInformation.users,
+    token: globalState.userInformation.token
   }
 }
 

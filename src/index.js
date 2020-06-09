@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import {createStore} from 'redux'
+import {createStore, combineReducers} from 'redux'
 import {Provider} from 'react-redux'
 import {BrowserRouter, Route} from 'react-router-dom'
 import App from './App'
@@ -12,18 +12,37 @@ import Login from './Login.jsx'
 import Nominate from './Nominate.jsx'
 import Profile from './Profile.jsx'
 
-let initialState = {
-  orgs: [],
-  users: []
+let initialOrgState = {
+  orgs: []
 }
 
-let reducer = (state = initialState, action) => {
+let orgReducer = (state = initialOrgState, action) => {
   switch(action.type) {
     case "SET_ALL_ORGS":
       return {
         ...state,
         orgs: action.payload
       }
+    case "CREATE_ORG":
+    return {
+      ...state,
+      orgs: [...state.orgs, action.payload]
+    }
+    default:
+      return state
+  }
+}
+
+let initialUserState = {
+  users: [],
+  id: 0,
+  username: "",
+  email_address: "",
+  token: ""
+}
+
+let userReducer = (state = initialUserState, action) => {
+  switch(action.type) {
     case "SET_ALL_USERS":
       return {
         ...state,
@@ -42,17 +61,19 @@ let reducer = (state = initialState, action) => {
       email_address: action.payload.user.email_address,
       token: action.payload.token
     }
-    case "CREATE_ORG":
-    return {
-      ...state,
-      orgs: [...state.orgs, action.payload]
-    }
     default:
       return state
   }
 }
 
-let store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+let singleObject = {
+  orgInformation: orgReducer,
+  userInformation : userReducer
+}
+
+let rootReducer = combineReducers(singleObject)
+
+let store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
   <Provider store={store}>
