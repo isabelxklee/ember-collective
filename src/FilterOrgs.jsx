@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 class FilterOrgs extends Component {
   handleChange = (event) => {
     this.props.handleSearchTerm(event.target.value)
+    console.log(event.target.value)
   }
 
   handleReset = (event) => {

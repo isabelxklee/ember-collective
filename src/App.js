@@ -1,16 +1,19 @@
 import React, {Component} from 'react'
+import {Route} from 'react-router-dom'
 import './App.css'
 import {connect} from 'react-redux'
-import OrganizationContainer from './OrganizationContainer.jsx'
-import FilterOrgs from './FilterOrgs.jsx'
+import BrowseTheHub from './BrowseTheHub.jsx'
+import NavBar from './NavBar.jsx'
+import CreateAccount from './CreateAccount.jsx'
+import Login from './Login.jsx'
+import Nominate from './Nominate.jsx'
+import Profile from './Profile.jsx'
 
 class App extends Component {
-  state = {
-    searchTerm: ""
-  }
 
   componentDidMount() {
     if (localStorage.token) {
+      console.log("there's a token")
       fetch("http://localhost:3000/users/stay_logged_in", {
         headers: {
           "Authorization": localStorage.token
@@ -19,11 +22,6 @@ class App extends Component {
       .then(r => r.json())
       .then(this.handleResponse)
     }
-    fetch("http://localhost:3000/organizations")
-    .then(r => r.json())
-    .then((orgs) => {
-      this.props.setAllOrgs(orgs)
-    })
     fetch("http://localhost:3000/users")
     .then(r => r.json())
     .then((users) => {
@@ -51,48 +49,17 @@ class App extends Component {
     this.props.history.push("/profile")
   }
 
-  handleSearchTerm = (inputFromChild) => {
-    this.setState({
-      searchTerm: inputFromChild
-    })
-  }
-
-  filterOrgsArray = () => {
-    let orgs = [...this.props.orgs]
-    if (this.state.searchTerm === "") {
-      return orgs
-    } else {
-      orgs = this.props.orgs.filter((org) => {
-        return Object.keys(org).some(key =>
-          typeof org[key] === "string"
-          && org[key] !== "description"
-          ?
-          org[key].toLowerCase().includes(this.state.searchTerm.toLowerCase()) : null
-        )
-    })
-  }
-  return orgs
-  }
-
   render () {
-    console.log(this.state.searchTerm)
     return (
-      <div className="App">
-        <h1>Welcome to the Black Liberation Hub</h1>
-        <FilterOrgs
-          searchTerm={this.state.searchTerm}
-          handleSearchTerm={this.handleSearchTerm}
-        />
-        <OrganizationContainer orgs={this.filterOrgsArray()}/>
+      <div>
+        <NavBar/>
+        <Route exact path="/"> <BrowseTheHub/> </Route>
+        <Route path="/nominate"> <Nominate/> </Route>
+        <Route path="/create-account"> <CreateAccount/> </Route>
+        <Route path="/login"> <Login/> </Route>
+        <Route path="/profile"> <Profile/> </Route>
       </div>
     )  
-  }
-}
-
-let setAllOrgs = (orgs) => {
-  return {
-    type: "SET_ALL_ORGS",
-    payload: orgs
   }
 }
 
@@ -111,14 +78,12 @@ let setUserInfo = (response) => {
 }
 
 let mapDispatchToProps = {
-  setAllOrgs: setAllOrgs,
   setAllUsers: setAllUsers,
   setUserInfo: setUserInfo
 }
 
 let mapStateToProps = (globalState) => {
   return {
-    orgs: globalState.orgInformation.orgs,
     users: globalState.userInformation.users,
     token: globalState.userInformation.token
   }
