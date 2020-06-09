@@ -34,12 +34,13 @@ class BrowseTheHub extends Component {
           ?
           org[key].toLowerCase().includes(this.state.searchTerm.toLowerCase()) : null
         )
-    })
+    })     
   }
   return orgs
   }
 
   render() {
+    console.log(this.state.searchTerm)
     return (
       <div className="App">
         <h1>Welcome to the Black Liberation Hub</h1>
