@@ -19,13 +19,14 @@ class Login extends Component {
       username: "",
       password: ""
     })
+    this.props.handleLoginSubmit(this.state)
   }
 
   render() {
     return (
       <div>
         <h1>Login</h1>
-        <form onSubmit={this.handleLoginSubmit}>
+        <form onSubmit={this.handleSubmit}>
         <label>
           Username
           <input

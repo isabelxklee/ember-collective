@@ -44,9 +44,9 @@ class App extends Component {
   }
 
   handleResponse = (response) => {
-    localStorage.token = response.token
+    localStorage.token = response.jwt
     this.props.setUserInfo(response)
-    this.props.history.push("/profile")
+    // this.props.history.push("/profile")
   }
 
   render () {
@@ -56,7 +56,7 @@ class App extends Component {
         <Route exact path="/"> <BrowseTheHub/> </Route>
         <Route path="/nominate"> <Nominate/> </Route>
         <Route path="/create-account"> <CreateAccount/> </Route>
-        <Route path="/login"> <Login/> </Route>
+        <Route path="/login"> <Login handleLoginSubmit={this.handleLoginSubmit}/> </Route>
         <Route path="/profile"> <Profile/> </Route>
       </div>
     )  
@@ -85,6 +85,9 @@ let mapDispatchToProps = {
 let mapStateToProps = (globalState) => {
   return {
     users: globalState.userInformation.users,
+    id: globalState.userInformation.id,
+    username: globalState.userInformation.username,
+    email_address: globalState.userInformation.email_address,
     token: globalState.userInformation.token
   }
 }

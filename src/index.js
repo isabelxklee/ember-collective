@@ -53,7 +53,7 @@ let userReducer = (state = initialUserState, action) => {
       id: action.payload.user.id,
       username: action.payload.user.username,
       email_address: action.payload.user.email_address,
-      token: action.payload.token
+      token: action.payload.jwt
     }
     default:
       return state
