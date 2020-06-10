@@ -62,7 +62,8 @@ class Profile extends Component {
 
         {/* <p>Verified {verifications.length} organizations</p> */}
         <DonationChallenge
-          currentUserId={id}
+          // currentUserId={id}
+          currentUser={currentUser}
           users={this.props.users}
           orgs={this.props.orgs}
         />

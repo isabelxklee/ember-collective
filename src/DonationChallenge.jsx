@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import DonationStats from './DonationStats.jsx'
 
 class DonationChallenge extends Component {
   state = {
-    sender_id: this.props.currentUserId,
+    sender_id: this.props.currentUser.id,
     amount: "",
     org_id: "",
     receiver_id: ""
@@ -38,6 +39,7 @@ class DonationChallenge extends Component {
   }
 
   render() {
+    console.log(this.props.currentUser)
     return (
       <div>
         <h2>Donation Match Challenge</h2>
@@ -55,7 +57,7 @@ class DonationChallenge extends Component {
           </label>
           <br />
 
-          <label>Pick an Org_id</label>
+          <label>Pick an Org</label>
 
           <select value={this.state.org_id} onChange={this.handleChange} name="org_id">
             { this.props.orgs.map((org) =>
@@ -74,6 +76,11 @@ class DonationChallenge extends Component {
 
           <input type="submit" value="Send" />
         </form>
+
+        <h2>Received challenges</h2>
+          {/* {this.props.currentUserId.receivers.map((challenge) => {
+            return <DonationStats key={challenge.id} challenge={challenge}/>
+          })} */}
       </div>
     )
   }

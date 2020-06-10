@@ -39,13 +39,14 @@ class App extends Component {
   }
 
   handleResponse = (response) => {
-    localStorage.token = response.jwt
+    localStorage.token = response.token
     this.props.setUserInfo(response)
     console.log(response)
     this.props.history.push("/profile")
   }
 
   render () {
+    console.log(localStorage)
     return (
       <div>
         <NavBar handleResponse={this.handleResponse}/>
