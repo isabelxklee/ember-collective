@@ -47,8 +47,6 @@ class DonationChallenge extends Component {
   }
 
   render() {
-    console.log(this.state)
-    console.log(`"USER ID: " ${this.props.id}`)
     return (
       <div>
         <h2 className="donations">Donation Match Challenge</h2>
@@ -85,9 +83,9 @@ class DonationChallenge extends Component {
         </form>
 
         <h2 className="donations">Received challenges</h2>
-          {/* {this.props.currentUser.receivers.map((challenge) => {
+          {this.props.receivers.map((challenge) => {
             return <DonationStats key={challenge.id} challenge={challenge}/>
-          })} */}
+          })}
       </div>
     )
   }

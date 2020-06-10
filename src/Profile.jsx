@@ -51,18 +51,16 @@ class Profile extends Component {
     let username = this.props.username
     let created_at = this.props.created_at
 
-    console.log(`"USER ID: " ${this.props.id}`)
-
     return (
       <div className="profile">
         
         <div className="user-info">
           <h1 className="profile">Your profile</h1><br/>
           <h3 className="username">@{username}</h3>
-          <h5>🌟 Joined on {created_at}</h5>
+          <h5><span role="img" aria-label="star">🌟</span> Joined on {created_at}</h5>
           {/* <h5>✅ Verified {verifications.length} organizations</h5> */}
-          <h5>🎉 Nominated <Pluralize singular={'organization'} count={this.usersNominations()} /></h5>
-          <h5>💵 Sent <Pluralize singular={'challenge'} count={this.usersDonationChallenges()} donation match challenges/></h5>
+          <h5><span role="img" aria-label="confetti">🎉</span> Nominated <Pluralize singular={'organization'} count={this.usersNominations()} /></h5>
+          <h5><span role="img" aria-label="money">💵</span> Sent <Pluralize singular={'challenge'} count={this.usersDonationChallenges()} donation match challenges/></h5>
         </div>
 
         <div className="donations">
@@ -70,6 +68,7 @@ class Profile extends Component {
             id={this.props.id}
             users={this.props.users}
             orgs={this.props.orgs}
+            receivers={this.props.receivers}
           />
         </div>
       </div>
@@ -118,6 +117,7 @@ let mapStateToProps = (globalState) => {
     id: globalState.userInformation.id,
     username: globalState.userInformation.username,
     created_at: globalState.userInformation.created_at,
+    receivers: globalState.userInformation.receivers,
     nominations: globalState.nominationInformation.nominations,
     orgs: globalState.orgInformation.orgs,
     donation_challenges: globalState.donationInformation.donation_challenges

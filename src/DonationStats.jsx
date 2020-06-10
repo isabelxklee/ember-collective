@@ -1,16 +1,72 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 
 class DonationStats extends Component {
+  componentDidMount() {
+    fetch("http://localhost:3000/organizations")
+    .then(r => r.json())
+    .then((orgs) => {
+      this.props.setAllOrganizations(orgs)
+    })
+    fetch("http://localhost:3000/users")
+    .then(r => r.json())
+    .then((users) => {
+      this.props.setAllUsers(users)
+    })
+  }
+
+  renderOrgName = () => {
+    let orgName = ""
+    this.props.orgs.filter((org) => {
+      return org.id === this.props.challenge.org_id ? orgName = org.name : null
+    })
+    return orgName
+  }
+
+  renderSender = () => {
+    let senderName = ""
+    this.props.users.filter((user) => {
+      return user.id === this.props.challenge.sender_id ? senderName = user.username : null
+    })
+    return senderName
+  }
+
   render() {
-    let {sender_id, receiver_id, amount, org_id } = this.props.challenge
+    let {amount} = this.props.challenge
+
     return (
       <div>
-        <p>${amount}</p>
-        <p>Organization: {org_id.name}</p>
-        <p>Sender: @{sender_id.username}</p>
+        <p>Challenge: Donate ${amount} to {this.renderOrgName()}</p>
+        <p>From: @{this.renderSender()}</p>
       </div>
     )
   }
 }
 
-export default DonationStats
+let setAllUsers = (users) => {
+  return {
+    type: "SET_ALL_USERS",
+    payload: users
+  }
+}
+
+let setAllOrganizations = (orgs) => {
+  return {
+    type: "SET_ALL_ORGS",
+    payload: orgs
+  }
+}
+
+let mapDispatchToProps = {
+  setAllUsers: setAllUsers,
+  setAllOrganizations: setAllOrganizations
+}
+
+let mapStateToProps = (globalState) => {
+  return {
+    users: globalState.userInformation.users,
+    orgs: globalState.orgInformation.orgs,
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DonationStats)

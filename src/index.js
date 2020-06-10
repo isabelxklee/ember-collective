@@ -16,7 +16,8 @@ let initialUserState = {
   username: "",
   email_address: "",
   created_at: "",
-  token: ""
+  token: "",
+  receivers: []
 }
 
 let initialNominationState = {
@@ -63,6 +64,7 @@ let userReducer = (state = initialUserState, action) => {
       username: action.payload.user.username,
       email_address: action.payload.user.email_address,
       created_at: action.payload.user.created_at,
+      receivers: action.payload.user.receivers,
       token: action.payload.token
     }
     default:
