@@ -42,6 +42,10 @@ h3 {
   margin: 16px 0px
 }
 
+h3.username {
+  font-size: 30px
+}
+
 h4 {
   font-size: 14px;
   font-family: "Montserrat", sans-serif;

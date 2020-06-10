@@ -31,7 +31,7 @@ class Profile extends Component {
     let nominations = [...this.props.nominations]
 
     nominations = this.props.nominations.filter((nom) => {
-      return nom.user_id === this.props.userInformation.id
+      return nom.user_id === this.props.id
     })
 
     return nominations.length
@@ -41,23 +41,24 @@ class Profile extends Component {
     let donations = [...this.props.donation_challenges]
 
     donations = this.props.donation_challenges.filter((challenge) => {
-      return challenge.sender_id === this.props.userInformation.id
+      return challenge.sender_id === this.props.id
     })
 
     return donations.length
   }
 
   render() {
-    let currentUser = this.props.userInformation
-    let {id, username, created_at} = currentUser
-    console.log(currentUser, this.usersNominations())
+    let username = this.props.username
+    let created_at = this.props.created_at
+
+    console.log(`"USER ID: " ${this.props.id}`)
 
     return (
       <div className="profile">
         
         <div className="user-info">
           <h1 className="profile">Your profile</h1><br/>
-          <h3>@{username}</h3>
+          <h3 className="username">@{username}</h3>
           <h5>🌟 Joined on {created_at}</h5>
           {/* <h5>✅ Verified {verifications.length} organizations</h5> */}
           <h5>🎉 Nominated <Pluralize singular={'organization'} count={this.usersNominations()} /></h5>
@@ -66,8 +67,7 @@ class Profile extends Component {
 
         <div className="donations">
           <DonationChallenge
-            // currentUserId={id}
-            currentUser={currentUser}
+            id={this.props.id}
             users={this.props.users}
             orgs={this.props.orgs}
           />
@@ -115,7 +115,9 @@ let mapDispatchToProps = {
 let mapStateToProps = (globalState) => {
   return {
     users: globalState.userInformation.users,
-    userInformation: globalState.userInformation,
+    id: globalState.userInformation.id,
+    username: globalState.userInformation.username,
+    created_at: globalState.userInformation.created_at,
     nominations: globalState.nominationInformation.nominations,
     orgs: globalState.orgInformation.orgs,
     donation_challenges: globalState.donationInformation.donation_challenges

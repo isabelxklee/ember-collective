@@ -4,31 +4,10 @@ import DonationStats from './DonationStats.jsx'
 
 class DonationChallenge extends Component {
   state = {
-    sender_id: this.props.currentUser.id,
-    amount: "",
-    org_id: "",
-    receiver_id: ""
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault()
-    this.setState({
-      amount: "",
-      org_id: "",
-      receiver_id: ""
-    })
-
-    fetch("http://localhost:3000/donation_challenges", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json"
-      },
-      body: JSON.stringify(this.state)
-    })
-    .then(r => r.json())
-    .then((newDonation) => {
-      this.props.propsCreateDonation(newDonation)
-    })
+    sender_id: this.props.id,
+    amount: 0,
+    org_id: 0,
+    receiver_id: 0
   }
 
   handleChange = (event) => {
@@ -38,8 +17,38 @@ class DonationChallenge extends Component {
     console.log(event.target.value)
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault()
+    this.setState({
+      sender_id: this.props.id,
+      amount: 0,
+      org_id: 0,
+      receiver_id: 0
+    })
+
+    let {amount, org_id, receiver_id} = this.state
+
+    fetch("http://localhost:3000/donation_challenges", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify({
+        sender_id: this.props.id,
+        amount: amount,
+        org_id: org_id,
+        receiver_id: receiver_id
+      })
+    })
+    .then(r => r.json())
+    .then((newDonation) => {
+      this.props.propsCreateDonation(newDonation)
+    })
+  }
+
   render() {
-    console.log(this.props.currentUser)
+    console.log(this.state)
+    console.log(`"USER ID: " ${this.props.id}`)
     return (
       <div>
         <h2 className="donations">Donation Match Challenge</h2>
@@ -60,7 +69,7 @@ class DonationChallenge extends Component {
           <label>Pick an Org</label><br />
           <select value={this.state.org_id} onChange={this.handleChange} name="org_id">
             { this.props.orgs.map((org) =>
-              <option key={org.id} value={org.name}>{org.name}</option>)
+              <option key={org.id} value={org.id}>{org.name}</option>)
             }
           </select>
           <br />
@@ -68,7 +77,7 @@ class DonationChallenge extends Component {
           <label>Friend's Username</label><br />
           <select value={this.state.receiver_id} onChange={this.handleChange} name="receiver_id">
             { this.props.users.map((user) =>
-              <option key={user.id} value={user.username}>{user.username}</option>)
+              <option key={user.id} value={user.id}>{user.username}</option>)
             }
           </select><br />
 
