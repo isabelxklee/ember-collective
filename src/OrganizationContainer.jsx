@@ -9,10 +9,12 @@ class OrganizationContainer extends Component {
     })
 
     return (
-      <div>
+      <>
         <p>Showing {this.props.orgs.length} organizations</p>
-        {orgsArr}
-      </div>
+        <div className="org-container">
+          {orgsArr}
+        </div>
+      </>
     )
   }
 }

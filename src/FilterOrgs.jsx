@@ -12,7 +12,7 @@ class FilterOrgs extends Component {
   render() {
     return (
       <div className="filter">
-        <label><h2>Find an organization by name or location</h2></label>
+        <label><h3>Find an organization by name or location</h3></label>
         <input
           type="text"
           name="searchTerm"

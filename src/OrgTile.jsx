@@ -13,13 +13,16 @@ class OrgTile extends Component {
   render() {
     let {name, website, location, tagline, donation_link} = this.props.org
     return (
-      <div>
+      <div className="org-tile">
         {/* <Link to={`/organizations/${id}`}> <h2>{name}</h2> </Link> */}
+        <h4>{location}</h4>
         <h2>{name}</h2>
-        <p>Location: {location}</p>
-        <p><a href={website} target="blank">Website</a></p>
-        <p><a href={donation_link} target="blank">Donate</a></p>
-        <p>{tagline}</p>
+        <p>{this.truncateString(tagline, 150)}</p>
+
+        <div className="btn-group">
+          <button className="small-button"><a href={website} target="blank">Website</a></button>
+          <button className="small-button"><a href={donation_link} target="blank">Donate</a></button>
+        </div>
       </div>
     )
   }
