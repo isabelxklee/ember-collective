@@ -10,7 +10,7 @@ class OrganizationContainer extends Component {
 
     return (
       <>
-        <p>Showing {this.props.orgs.length} organizations</p>
+        <h4 className="results">Showing {this.props.orgs.length} organizations</h4>
         <div className="org-container">
           {orgsArr}
         </div>

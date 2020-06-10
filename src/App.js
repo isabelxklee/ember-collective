@@ -48,7 +48,7 @@ class App extends Component {
   render () {
     console.log(localStorage)
     return (
-      <div>
+      <div className="app">
         <NavBar handleResponse={this.handleResponse}/>
         <Route exact path="/"> <BrowseTheHub/> </Route>
         <Route path="/nominate"> <Nominate/> </Route>

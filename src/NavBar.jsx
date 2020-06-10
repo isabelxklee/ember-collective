@@ -9,19 +9,19 @@ class NavBar extends Component {
 
   render() {
     if (localStorage.token) {
-      return <>
-        <NavLink to="/" exact>Browse the Hub</NavLink><br/>
-        <NavLink to="/nominate" exact>Nominate an Organization</NavLink><br/>
-        <NavLink to="/profile" exact>My profile</NavLink><br/>
-        <NavLink to='/' onClick={this.handleLogout}>Logout</NavLink>
-      </>
+      return <div className="header">
+        <NavLink to="/" exact className="header-link">Browse the Hub</NavLink><br/>
+        <NavLink to="/nominate" exact className="header-link">Nominate an Organization</NavLink><br/>
+        <NavLink to="/profile" exact className="header-link">My profile</NavLink><br/>
+        <NavLink to='/' onClick={this.handleLogout} className="header-link">Logout</NavLink>
+      </div>
     }
 
     return (
-      <div>
-        <NavLink to="/" exact>Browse the Hub</NavLink><br/>
-        <NavLink to="/create-account" exact>Create Account</NavLink><br/>
-        <NavLink to="/login" exact>Login</NavLink><br/>
+      <div className="header">
+        <NavLink to="/" exact className="header-link">Browse the Hub</NavLink><br/>
+        <NavLink to="/create-account" exact className="header-link">Create Account</NavLink><br/>
+        <NavLink to="/login" exact className="header-link">Login</NavLink><br/>
       </div>
     )
   }

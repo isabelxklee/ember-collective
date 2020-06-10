@@ -20,8 +20,8 @@ class OrgTile extends Component {
         <p>{this.truncateString(tagline, 150)}</p>
 
         <div className="btn-group">
-          <button className="small-button"><a href={website} target="blank">Website</a></button>
-          <button className="small-button"><a href={donation_link} target="blank">Donate</a></button>
+          <button className="small-button"><a href={website} target="blank" className="small-button">Website</a></button>
+          <button className="small-button"><a href={donation_link} target="blank" className="small-button">Donate</a></button>
         </div>
       </div>
     )

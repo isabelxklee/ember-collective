@@ -1,17 +1,41 @@
 body {
   font-family: "Karla", sans-serif;
-  margin: 40px;
+  font-family: "Karla", sans-serif;
   color: rgb(45, 45, 45);
+  background-color: rgb(255, 248, 238);
 }
 
+.header {
+  overflow: hidden;
+  background-color: rgb(43, 43, 43);
+  padding: 20px;
+  display: flex;
+}
+
+a.header-link.active, a.header-link {
+  float: left;
+  color: white;
+  padding: 4px 20px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  font-weight: 700;
+  }
+
 h1 {
-  font-size: 50px
+  font-size: 70px;
+  font-family: "Playfair Display", serif;
+  font-weight: 900;
+  margin: 60px;
+  margin-top: 120px;
+  text-align: center;
 }
 
 h2 {
   font-size: 36px;
   margin: 14px 14px 0px 0px;
-  /* font-family: "Montserrat", sans-serif; */
+  font-family: "Playfair Display", serif;
+  font-weight: 900;
 }
 
 h3 {
@@ -20,7 +44,7 @@ h3 {
 }
 
 h4 {
-  font-size: 12px;
+  font-size: 14px;
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -28,11 +52,20 @@ h4 {
   margin: 20px 0px
 }
 
+h4.results {
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+  margin: 0px 80px
+}
+
 p {
   font-size: 18px;
 }
 
-a:link, a:visited {
+a.small-button:link, a.small-button:visited {
   text-decoration: none;
   color: rgb(45, 45, 45);
 }
@@ -43,7 +76,7 @@ input {
   border-radius: 4px;
   padding: 4px 14px;
   font-size: 14px;
-  border: 1px solid #ccc;
+  border: 2px solid rgb(45, 45, 45);
 }
 
 button {
@@ -72,19 +105,25 @@ button.small-button {
 }
 
 .filter {
-  background-color: rgb(255, 248, 238);
+  /* background-color: rgb(255, 248, 238); */
   border-radius: 6px;
-  padding: 20px
+  padding: 20px;
+  text-align: center;
+  width: 50%;
+  margin: auto;
 }
 
 .org-container {
   column-count: 2;
-  column-gap: 0px;
+  margin: 80px;
+  margin-top: 40px;
+  justify-content: center;
+  text-align: center;
 }
 
 .org-tile {
-  background-color: rgb(136, 48, 0);
-  color: white;
+  background-color: rgba(136, 48, 0, 0.194);
+  border: 2px solid rgb(136, 48, 0);
   border-radius: 6px;
   padding: 20px;
   margin: 0px 0px 30px 0px;
@@ -93,5 +132,6 @@ button.small-button {
 }
 
 .org-tile:nth-child(odd) {
-  background-color: #1F2079;
+  background-color: rgba(31, 33, 121, 0.208);
+  border: 2px solid #1F2079;
 }
