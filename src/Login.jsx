@@ -27,26 +27,25 @@ class Login extends Component {
       <div>
         <h1>Login</h1>
         <form onSubmit={this.handleSubmit}>
-        <label>
-          Username
+        <label>Username</label>
+        <br />
           <input
             name="username"
             type="text"
             autoComplete="off"
             value={this.state.username}
             onChange={this.handleChange} />
-        </label>
         <br />
-        <label>
-          Password
+        <label>Password</label>
+        <br />
           <input
             name="password"
             type="text"
             autoComplete="off"
             value={this.state.password}
             onChange={this.handleChange} />
-        </label><br />
-        <input type="submit" value="Login" />
+        <br />
+        <button type="submit" className="submit-button">Login</button>
       </form>
       </div>
     )

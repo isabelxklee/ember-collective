@@ -53,20 +53,25 @@ class Profile extends Component {
     console.log(currentUser, this.usersNominations())
 
     return (
-      <div>
-        <h1>Your profile</h1>
-        <h3>@{username}</h3>
-        <p>Joined on {created_at}</p>
-        <p>Nominated <Pluralize singular={'organization'} count={this.usersNominations()} /></p>
-        <p>Sent <Pluralize singular={'challenge'} count={this.usersDonationChallenges()} donation match challenges/></p>
+      <div className="profile">
+        
+        <div className="user-info">
+          <h1 className="profile">Your profile</h1><br/>
+          <h3>@{username}</h3>
+          <h5>🌟 Joined on {created_at}</h5>
+          {/* <h5>✅ Verified {verifications.length} organizations</h5> */}
+          <h5>🎉 Nominated <Pluralize singular={'organization'} count={this.usersNominations()} /></h5>
+          <h5>💵 Sent <Pluralize singular={'challenge'} count={this.usersDonationChallenges()} donation match challenges/></h5>
+        </div>
 
-        {/* <p>Verified {verifications.length} organizations</p> */}
-        <DonationChallenge
-          // currentUserId={id}
-          currentUser={currentUser}
-          users={this.props.users}
-          orgs={this.props.orgs}
-        />
+        <div className="donations">
+          <DonationChallenge
+            // currentUserId={id}
+            currentUser={currentUser}
+            users={this.props.users}
+            orgs={this.props.orgs}
+          />
+        </div>
       </div>
     )
   }  

@@ -42,23 +42,22 @@ class DonationChallenge extends Component {
     console.log(this.props.currentUser)
     return (
       <div>
-        <h2>Donation Match Challenge</h2>
-        <p>Challenge your friends to match your donation!</p>
+        <h2 className="donations">Donation Match Challenge</h2>
+        <p className="donations">Challenge your friends to match your donation!</p>
 
         <form onSubmit={this.handleSubmit}>
-          <label>
-            Donation Amount
-            <input
-              name="amount"
-              type="text"
-              autoComplete="off"
-              value={this.state.amount}
-              onChange={this.handleChange} />
-          </label>
+
+          <label>Donation Amount</label>
+          <br />
+          <input
+            name="amount"
+            type="text"
+            autoComplete="off"
+            value={this.state.amount}
+            onChange={this.handleChange} />
           <br />
 
-          <label>Pick an Org</label>
-
+          <label>Pick an Org</label><br />
           <select value={this.state.org_id} onChange={this.handleChange} name="org_id">
             { this.props.orgs.map((org) =>
               <option key={org.id} value={org.name}>{org.name}</option>)
@@ -66,19 +65,18 @@ class DonationChallenge extends Component {
           </select>
           <br />
 
-          <label>Friend's Username</label>
-
+          <label>Friend's Username</label><br />
           <select value={this.state.receiver_id} onChange={this.handleChange} name="receiver_id">
             { this.props.users.map((user) =>
               <option key={user.id} value={user.username}>{user.username}</option>)
             }
           </select><br />
 
-          <input type="submit" value="Send" />
+          <button type="submit" className="submit-button">Send Challenge</button>
         </form>
 
-        <h2>Received challenges</h2>
-          {/* {this.props.currentUserId.receivers.map((challenge) => {
+        <h2 className="donations">Received challenges</h2>
+          {/* {this.props.currentUser.receivers.map((challenge) => {
             return <DonationStats key={challenge.id} challenge={challenge}/>
           })} */}
       </div>

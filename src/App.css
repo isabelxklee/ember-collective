@@ -1,6 +1,5 @@
 body {
   font-family: "Karla", sans-serif;
-  font-family: "Karla", sans-serif;
   color: rgb(45, 45, 45);
   background-color: rgb(255, 248, 238);
 }
@@ -52,6 +51,12 @@ h4 {
   margin: 20px 0px
 }
 
+h5 {
+  font-size: 22px;
+  margin: 12px 0px;
+  font-weight: 400;
+}
+
 h4.results {
   font-size: 14px;
   font-family: "Montserrat", sans-serif;
@@ -72,11 +77,39 @@ a.small-button:link, a.small-button:visited {
 
 input {
   height: 40px;
+  width: 30%;
+  border-radius: 4px;
+  padding: 4px 14px;
+  font-size: 14px;
+  border: 2px solid rgb(45, 45, 45);
+  margin: 20px 0px;
+  font-family: "Karla", sans-serif;
+  font-size: 18px;
+}
+
+input.filter-input {
+  height: 40px;
   width: 80%;
   border-radius: 4px;
   padding: 4px 14px;
   font-size: 14px;
   border: 2px solid rgb(45, 45, 45);
+  font-family: "Karla", sans-serif;
+  font-size: 18px;
+}
+
+input.submit-button {
+  font-family: "Karla", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 12px 14px;
+  background-color: rgb(45, 45, 45);
+  color: white;
+  border: none;
+  margin: 14px 0px;
+  width: 14%
 }
 
 button {
@@ -122,7 +155,7 @@ button.small-button {
 }
 
 .org-tile {
-  background-color: rgba(136, 48, 0, 0.194);
+  background-color: rgba(136, 48, 0, 0.15);
   border: 2px solid rgb(136, 48, 0);
   border-radius: 6px;
   padding: 20px;
@@ -132,6 +165,53 @@ button.small-button {
 }
 
 .org-tile:nth-child(odd) {
-  background-color: rgba(31, 33, 121, 0.208);
+  background-color: rgba(31, 33, 121, 0.15);
   border: 2px solid #1F2079;
+}
+
+form {
+  padding: 30px
+}
+
+label {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+div.user-info {
+  margin: 30px;
+  column-count: 2;
+  padding: 21px;
+  margin-top: 120px;
+}
+
+h1.profile {
+  text-align: left;
+  margin: 30px;
+  /* margin-top: 120px; */
+}
+
+div.donations {
+  background-color: rgb(255, 251, 246);
+  border: 2px solid rgb(238, 228, 215);
+  border-radius: 6px;
+  margin: 30px;
+  padding: 21px;
+  margin-top: 60px;
+}
+
+select {
+  height: 54px;
+  width: 32%;
+  border-radius: 4px;
+  padding: 4px 14px;
+  font-size: 14px;
+  border: 2px solid rgb(45, 45, 45);
+  margin: 20px 0px;
+  font-family: "Karla", sans-serif;
+  font-size: 18px;
+}
+
+h2.donations, p.donations {
+  padding: 0px 30px
 }

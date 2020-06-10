@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 class CreateAccount extends Component {
   state = {
@@ -33,7 +34,10 @@ class CreateAccount extends Component {
       body: JSON.stringify(this.state)
     })
     .then(r => r.json())
-    .then(this.props.handleResponse)
+    .then((response) => {
+      this.props.handleResponse(response)
+      this.props.history.push("/profile")
+    })
     console.log("You've successfully created an account!")
   }
 
@@ -42,44 +46,45 @@ class CreateAccount extends Component {
       <div>
         <h1>Create an account</h1>
         <form onSubmit={this.handleSubmit}>
-        <label>
-          Username
-          <input
-            name="username"
-            type="text"
-            autoComplete="off"
-            value={this.state.username}
-            onChange={this.handleChange} />
-        </label>
+        <label>Username</label>
         <br />
-        <label>
-          Email Address
-          <input
-            name="email_address"
-            type="text"
-            autoComplete="off"
-            value={this.state.email_address}
-            onChange={this.handleChange} />
-        </label><br />
-        <label>
-          Password
-          <input
-            name="password"
-            type="text"
-            autoComplete="off"
-            value={this.state.password}
-            onChange={this.handleChange} />
-        </label><br />
-        <label>
-          Confirm Password
+        <input
+          name="username"
+          type="text"
+          autoComplete="off"
+          value={this.state.username}
+          onChange={this.handleChange} />
+        <br />
+        
+        <label>Email Address</label><br />
+        <input
+          name="email_address"
+          type="text"
+          autoComplete="off"
+          value={this.state.email_address}
+          onChange={this.handleChange} />
+        <br />
+
+        <label>Password</label>
+        <br />
+        <input
+          name="password"
+          type="text"
+          autoComplete="off"
+          value={this.state.password}
+          onChange={this.handleChange} />
+        <br />
+
+        <label>Confirm Password</label>
+        <br />
           <input
             name="password_confirmation"
             type="text"
             autoComplete="off"
             value={this.state.password_confirmation}
             onChange={this.handleChange} />
-        </label><br />
-        <input type="submit" value="Create" />
+        <br />
+        <button type="submit" className="submit-button">Create account</button>
       </form>
       </div>
     )
@@ -97,4 +102,6 @@ let mapDispatchToProps = {
   propsCreateUser: createUser
 }
 
-export default connect(null, mapDispatchToProps)(CreateAccount)
+let MagicalComponent = withRouter(CreateAccount)
+
+export default connect(null, mapDispatchToProps)(MagicalComponent)

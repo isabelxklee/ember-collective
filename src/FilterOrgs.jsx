@@ -14,6 +14,7 @@ class FilterOrgs extends Component {
       <div className="filter">
         <label><h3>Find an organization by name or location</h3></label>
         <input
+          className="filter-input"
           type="text"
           name="searchTerm"
           placeholder="Start typing a name, location, or description"

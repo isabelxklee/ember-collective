@@ -14,6 +14,7 @@ class App extends Component {
   componentDidMount() {
     if (localStorage.token) {
       console.log("there's a token")
+      console.log(localStorage.token)
       fetch("http://localhost:3000/users/stay_logged_in", {
         headers: {
           "Authorization": localStorage.token
@@ -35,14 +36,16 @@ class App extends Component {
       body: JSON.stringify(userInfo)
     })
     .then(r => r.json())
-    .then(this.handleResponse)
+    .then((response) => {
+      this.handleResponse(response)
+      this.props.history.push("/profile")
+    })
   }
 
   handleResponse = (response) => {
     localStorage.token = response.token
     this.props.setUserInfo(response)
     console.log(response)
-    this.props.history.push("/profile")
   }
 
   render () {
