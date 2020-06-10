@@ -22,11 +22,15 @@ a.header-link.active, a.header-link {
   }
 
 h1 {
-  font-size: 70px;
+  text-align: left;
+  margin: 60px 0px 20px 0px;
+  font-size: 74px;
   font-family: "Playfair Display", serif;
   font-weight: 900;
-  margin: 60px;
-  margin-top: 120px;
+}
+
+h1.welcome {
+  margin: 140px 100px 60px;
   text-align: center;
 }
 
@@ -79,6 +83,18 @@ a.small-button:link, a.small-button:visited {
   color: rgb(45, 45, 45);
 }
 
+textarea {
+  height: 100px;
+  width: 30%;
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 2px solid rgb(45, 45, 45);
+  margin: 20px 0px;
+  font-family: "Karla", sans-serif;
+  font-size: 18px;
+}
+
 input {
   height: 40px;
   width: 30%;
@@ -114,6 +130,10 @@ input.submit-button {
   border: none;
   margin: 14px 0px;
   width: 14%
+}
+
+form {
+  margin-top: 40px
 }
 
 button {
@@ -173,10 +193,6 @@ button.small-button {
   border: 2px solid #1F2079;
 }
 
-form {
-  padding: 30px
-}
-
 label {
   font-weight: 700;
   font-size: 18px;
@@ -186,13 +202,7 @@ div.user-info {
   margin: 30px;
   column-count: 2;
   padding: 21px;
-  margin-top: 120px;
-}
-
-h1.profile {
-  text-align: left;
-  margin: 30px;
-  /* margin-top: 120px; */
+  margin-top: 100px;
 }
 
 div.donations {
@@ -216,6 +226,15 @@ select {
   font-size: 18px;
 }
 
-h2.donations, p.donations {
+p.description {
   padding: 0px 30px
+}
+
+div.container {
+  padding: 60px 100px
+}
+
+div.received-challenges, div.send-challenge {
+  padding: 0px 30px;
+  margin-bottom: 80px;
 }

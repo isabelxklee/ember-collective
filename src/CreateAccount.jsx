@@ -43,7 +43,7 @@ class CreateAccount extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>Create an account</h1>
         <form onSubmit={this.handleSubmit}>
         <label>Username</label>

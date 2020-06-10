@@ -48,9 +48,10 @@ class DonationChallenge extends Component {
 
   render() {
     return (
-      <div>
-        <h2 className="donations">Donation Match Challenge</h2>
-        <p className="donations">Challenge your friends to match your donation!</p>
+      <>
+        <div className="send-challenge">
+        <h2>Donation Match Challenge</h2>
+        <p>Challenge your friends to match your donation!</p>
 
         <form onSubmit={this.handleSubmit}>
 
@@ -81,12 +82,12 @@ class DonationChallenge extends Component {
 
           <button type="submit" className="submit-button">Send Challenge</button>
         </form>
+        </div>
 
-        <h2 className="donations">Received challenges</h2>
-          {this.props.receivers.map((challenge) => {
-            return <DonationStats key={challenge.id} challenge={challenge}/>
-          })}
-      </div>
+        {this.props.receivers.map((challenge) => {
+          return <DonationStats key={challenge.id} challenge={challenge}/>
+        })}
+      </>
     )
   }
 }

@@ -43,7 +43,7 @@ class BrowseTheHub extends Component {
     console.log(this.state.searchTerm)
     return (
       <div className="App">
-        <h1>Welcome to the Black Liberation Hub</h1>
+        <h1 className="welcome">Welcome to the Black Liberation Hub</h1>
         <FilterOrgs
           searchTerm={this.state.searchTerm}
           handleSearchTerm={this.handleSearchTerm}

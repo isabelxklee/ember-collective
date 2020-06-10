@@ -43,56 +43,64 @@ class Nominate extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>Nominate an Organization</h1>
-        <p>This feature is only available for users who have been on Black Liberation Hub for at least one week.</p>
+        <p>This feature is only available for users who have been on Black Liberation Hub for at least 2 days.</p>
         <form onSubmit={this.handleSubmit}>
-        <label>
-          Organization name
+        
+          <label>Organization name</label>
+          <br />
+          
           <input
             name="name"
             type="text"
             autoComplete="off"
             value={this.state.name}
             onChange={this.handleChange} />
-        </label>
-        <br />
-        <label>
-          Location
+          <br />
+        
+          <label>Location</label>
+          <br />
           <input
             name="location"
             type="text"
             autoComplete="off"
             value={this.state.location}
             onChange={this.handleChange} />
-        </label><br />
-        <label>
-          Website
+          <br />
+
+          <label>Website</label>
+          <br />
+
           <input
             name="website"
             type="text"
             autoComplete="off"
             value={this.state.website}
             onChange={this.handleChange} />
-        </label><br />
-        <label>
-          Donation Link
-          <input
-            name="donation_link"
-            type="text"
-            autoComplete="off"
-            value={this.state.donation_link}
-            onChange={this.handleChange} />
-        </label><br />
-        <label>
-          Description
-          <textarea
-            name="description"
-            autoComplete="off"
-            value={this.state.description}
-            onChange={this.handleChange} />
-        </label><br />
-        <input type="submit" value="Nominate" />
+        <br />
+
+        <label>Donation Link</label>
+        <br />
+        <input
+          name="donation_link"
+          type="text"
+          autoComplete="off"
+          value={this.state.donation_link}
+          onChange={this.handleChange} />
+        <br />
+
+        <label>Description</label>
+        <br />
+
+        <textarea
+          name="description"
+          autoComplete="off"
+          value={this.state.description}
+          onChange={this.handleChange} />
+        <br />
+
+        <button type="submit" className="submit-button">Nominate Organization</button>
       </form>
       </div>
     )

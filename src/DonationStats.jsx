@@ -35,9 +35,10 @@ class DonationStats extends Component {
     let {amount} = this.props.challenge
 
     return (
-      <div>
-        <p>Challenge: Donate ${amount} to {this.renderOrgName()}</p>
-        <p>From: @{this.renderSender()}</p>
+      <div className="received-challenges">
+        <h2 className="donations">Received challenges</h2>
+        <h4>From @{this.renderSender()}</h4>
+        <p>Donate ${amount} to {this.renderOrgName()}</p>
       </div>
     )
   }
