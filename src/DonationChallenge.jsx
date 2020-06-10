@@ -45,6 +45,14 @@ class DonationChallenge extends Component {
       this.props.propsCreateDonation(newDonation)
     })
   }
+  
+  renderUsers = () => {
+    let usersArr = []
+    usersArr = this.props.users.filter((user) => {
+      return user.id !== this.props.id
+    })
+    return usersArr
+  }
 
   render() {
     return (
@@ -75,7 +83,7 @@ class DonationChallenge extends Component {
 
           <label>Friend's Username</label><br />
           <select value={this.state.receiver_id} onChange={this.handleChange} name="receiver_id">
-            { this.props.users.map((user) =>
+            { this.renderUsers().map((user) =>
               <option key={user.id} value={user.id}>{user.username}</option>)
             }
           </select><br />
