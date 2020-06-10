@@ -21,7 +21,7 @@ class FilterOrgs extends Component {
           value={this.props.searchTerm}
           onChange={this.handleChange}
         /><br />
-        <button onClick={this.handleReset}>Clear search terms</button>
+        <button onClick={this.handleReset} className="small-button">Clear search terms</button>
       </div>
     )
   }
