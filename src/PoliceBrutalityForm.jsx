@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 
 class PoliceBrutalityForm extends Component {
   state = {
@@ -21,11 +22,39 @@ class PoliceBrutalityForm extends Component {
     console.log(event.target.value)
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault()
+    this.setState({
+      date: "",
+      time: "",
+      description: "",
+      address: "",
+      city: "",
+      state: "",
+      country: "",
+      police_name: "",
+      badge_number: "",
+      checked: "yes"
+    })
+
+    fetch("http://localhost:3000/events", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(this.state)
+    })
+    .then(r => r.json())
+    .then((newEvent) => {
+      this.props.createEvent(newEvent)
+    })
+  }
+
   render() {
     return (
-      <div>
+      <div className="police-form">
         <h2>Report police brutality</h2>
-        <p>Please only share what you are comfortable with. Logging an instance of police brutality will display it on the map above.</p>
+        <p>Please only share what you are comfortable sharing. Logging an instance of police brutality will display it on the map above.</p>
         <form onSubmit={this.handleSubmit}>
         <label>Date</label>
         <br />
@@ -100,13 +129,30 @@ class PoliceBrutalityForm extends Component {
         <h3>Police Information</h3>
         <label>Do you know the police officer's name or badge number?</label><br />
         <div className="radio">
-          <label>Yes
-          <input type="radio" value="yes" checked={this.state.checked === "yes"} name="checked" onChange={this.handleChange}/>
+          <label>
+          <input
+            className="radio"
+            type="radio"
+            value="yes"
+            checked={this.state.checked === "yes"}
+            name="checked"
+            onChange={this.handleChange}/>
+            Yes
           </label>
+          </div>
 
-          <label>No
-          <input type="radio" value="no" checked={this.state.checked === "no"} name="checked" onChange={this.handleChange}/>
-          </label>
+          <div className="radio">
+            <label>
+            <input
+              className="radio"
+              type="radio"
+              value="no"
+              checked={this.state.checked === "no"}
+              name="checked"
+              onChange={this.handleChange}/>
+              No
+            </label>
+      
         </div>
         <br />
 
@@ -142,4 +188,15 @@ class PoliceBrutalityForm extends Component {
   }
 }
 
-export default PoliceBrutalityForm
+let createEvent = (event) => {
+  return {
+    type: "CREATE_EVENT",
+    payload: event
+  }
+}
+
+let mapDispatchToProps = {
+  createEvent: createEvent
+}
+
+export default connect(null, mapDispatchToProps)(PoliceBrutalityForm)

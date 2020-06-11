@@ -334,3 +334,18 @@ div.map-marker {
   height: 20px;
   border-radius: 100px;
 }
+
+div.police-form {
+  border-radius: 6px;
+  padding: 30px;
+  text-align: left;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
+  background-color: rgb(255, 252, 248);
+  margin-top: 60px;
+  padding: 40px
+}
+
+input.radio {
+  height: 16px;
+  width: 6%
+}
