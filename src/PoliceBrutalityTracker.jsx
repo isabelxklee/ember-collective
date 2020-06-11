@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import GoogleMapReact from 'google-map-react'
 import MapMarker from './MapMarker.jsx'
+import PoliceBrutalityForm from './PoliceBrutalityForm.jsx'
 
 class PoliceBrutalityTracker extends Component {
   state={
@@ -15,7 +16,7 @@ class PoliceBrutalityTracker extends Component {
     return (
       <div className="container">
         <h1>Police Brutality Tracker</h1>
-          <div style={{ height: '100vh', width: '100%' }}>
+          <div style={{ height: '75vh', width: '100%' }}>
           <GoogleMapReact
             bootstrapURLKeys={{ key: "AIzaSyDrI8MOHdu_EM8ENvZ3z4Qkk7nFMR2L3ik" }}
             defaultCenter={this.state.center}
@@ -31,6 +32,8 @@ class PoliceBrutalityTracker extends Component {
             />
           </GoogleMapReact>
         </div>
+
+        <PoliceBrutalityForm />
       </div>
     )
   }
