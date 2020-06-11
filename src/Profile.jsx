@@ -47,6 +47,16 @@ class Profile extends Component {
     return donations.length
   }
 
+  renderFirstUser = () => {
+    let firstUser = this.props.users[0]
+    return firstUser === undefined ? null : firstUser["id"]
+  }
+
+  renderFirstOrg = () => {
+    let firstOrg = this.props.orgs[0]
+    return firstOrg === undefined ? null : firstOrg["id"]
+  }
+
   render() {
     let username = this.props.username
     let created_at = this.props.created_at
@@ -65,6 +75,8 @@ class Profile extends Component {
         <div className="donations">
           <DonationChallenge
             id={this.props.id}
+            firstUserId={this.renderFirstUser()}
+            firstOrgId={this.renderFirstOrg()}
             users={this.props.users}
             orgs={this.props.orgs}
             receivers={this.props.receivers}

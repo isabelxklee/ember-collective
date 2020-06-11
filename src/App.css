@@ -54,7 +54,7 @@ h2 {
   font-weight: 900;
 }
 
-h2.org-tile-title {
+h2.org-tile-title, h4.org-tile-title, p.org-tile-title {
   color: white;
 }
 

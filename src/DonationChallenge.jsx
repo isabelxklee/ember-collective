@@ -10,10 +10,27 @@ class DonationChallenge extends Component {
     receiver_id: 0
   }
 
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
+  componentDidMount() {
+    fetch("http://localhost:3000/organizations")
+    .then(r => r.json())
+    .then((orgs) => {
+      this.props.setAllOrganizations(orgs)
     })
+  }
+
+  handleChange = (event) => {
+    if (this.state.receiver_id === 0) {
+      this.setState({
+        receiver_id: this.props.firstUserId,
+        sender_id: this.props.id,
+        org_id: this.props.firstOrgId,
+      })
+    } else {
+      this.setState({
+        [event.target.name]: event.target.value,
+        sender_id: this.props.id
+      })
+    }
     console.log(event.target.value)
   }
 
@@ -26,19 +43,12 @@ class DonationChallenge extends Component {
       receiver_id: 0
     })
 
-    let {amount, org_id, receiver_id} = this.state
-
     fetch("http://localhost:3000/donation_challenges", {
       method: "POST",
       headers: {
         "Content-type": "application/json"
       },
-      body: JSON.stringify({
-        sender_id: this.props.id,
-        amount: amount,
-        org_id: org_id,
-        receiver_id: receiver_id
-      })
+      body: JSON.stringify()
     })
     .then(r => r.json())
     .then((newDonation) => {
@@ -55,6 +65,8 @@ class DonationChallenge extends Component {
   }
 
   render() {
+    console.log(this.state)
+ 
     return (
       <>
         <div className="send-challenge">
@@ -103,6 +115,13 @@ class DonationChallenge extends Component {
   }
 }
 
+let setAllOrganizations = (orgs) => {
+  return {
+    type: "SET_ALL_ORGS",
+    payload: orgs
+  }
+}
+
 let createDonation = (donation_challenge) => {
   return {
     type: "CREATE_DONATION",
@@ -111,7 +130,14 @@ let createDonation = (donation_challenge) => {
 }
 
 let mapDispatchToProps = {
-  propsCreateDonation: createDonation
+  propsCreateDonation: createDonation,
+  setAllOrganizations: setAllOrganizations,
 }
 
-export default connect(null, mapDispatchToProps)(DonationChallenge)
+let mapStateToProps = (globalState) => {
+  return {
+    orgs: globalState.orgInformation.orgs,
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DonationChallenge)
