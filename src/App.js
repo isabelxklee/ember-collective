@@ -20,6 +20,11 @@ class App extends Component {
     .then((orgs) => {
       this.props.setAllOrganizations(orgs)
     })
+    fetch("http://localhost:3000/users")
+    .then(r => r.json())
+    .then((users) => {
+      this.props.setAllUsers(users)
+    })
     if (localStorage.token) {
       console.log("there's a token")
       fetch("http://localhost:3000/users/stay_logged_in", {
@@ -63,6 +68,15 @@ class App extends Component {
     return allRoutes
   }
 
+  renderUserRoutes = () => {
+    let users = this.props.users
+    let allUsers = []
+    allUsers = users.map((user) => {
+      return <Route path={`/users/${user.id}`} key={user.id}> <Profile key={user.id} user={user}/> </Route>
+    })
+    return allUsers
+  }
+
   render () {
     return (
       <div className="app">
@@ -75,6 +89,7 @@ class App extends Component {
         <Route path="/login"> <Login handleLoginSubmit={this.handleLoginSubmit}/> </Route>
         <Route path="/profile"> <Profile/> </Route>
         {this.renderOrgRoutes()}
+        {this.renderUserRoutes()}
       </div>
     )  
   }
@@ -94,9 +109,17 @@ let setAllOrganizations = (orgs) => {
   }
 }
 
+let setAllUsers = (users) => {
+  return {
+    type: "SET_ALL_USERS",
+    payload: users
+  }
+}
+
 let mapDispatchToProps = {
   setUserInfo: setUserInfo,
-  setAllOrganizations: setAllOrganizations
+  setAllOrganizations: setAllOrganizations,
+  setAllUsers: setAllUsers
 }
 
 let mapStateToProps = (globalState) => {
@@ -107,6 +130,7 @@ let mapStateToProps = (globalState) => {
     created_at: globalState.userInformation.created_at,
     token: globalState.userInformation.token,
     orgs: globalState.orgInformation.orgs,
+    users: globalState.userInformation.users
   }
 }
 

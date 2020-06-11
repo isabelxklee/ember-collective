@@ -57,6 +57,10 @@ class OrgProfile extends Component {
       return <Tag key={tag.id} tag={tag}/>
     })
 
+    let donationStats = this.renderOrgsDonations().map((challenge) => {
+      return <OrgStats key={challenge.id} challenge={challenge}/>
+    })
+
     return (
       <div className="container">
         <div className="org-header">
@@ -75,9 +79,14 @@ class OrgProfile extends Component {
           <p>{description}</p>        
 
           <h2>Donation match challenges</h2>
-          {this.renderOrgsDonations().map((challenge) => {
-            return <OrgStats key={challenge.id} challenge={challenge}/>
-          })} 
+          {this.renderOrgsDonations().length < 1
+            ?
+            <p>This organization doesn't have any challenges yet.</p>
+            :
+            <div>
+              {donationStats}
+            </div>
+          }
         </div>
 
       </div>
