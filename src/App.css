@@ -54,6 +54,18 @@ h2 {
   font-weight: 900;
 }
 
+h2.org-tile-title {
+  color: white;
+}
+
+a, a:visited, a:active {
+  text-decoration: none;
+}
+
+a.welcome {
+  color: rgb(32, 32, 133)
+}
+
 h2.welcome {
   margin: 60px 200px 120px 160px;
   font-weight: 700;
@@ -241,24 +253,6 @@ button.filter-button {
   /* box-shadow: 0 2px 8px 0 rgba(0, 0, 87, 0.5); */
   color: rgb(212, 212, 236);
 }
-
-/* 
-.org-tile {
-  flex: 0 1 28%;
-  background-color: rgb(247, 234, 227);
-  border: 2px solid rgb(136, 48, 0);
-  color: rgb(94, 41, 0);
-  border-radius: 6px;
-  padding: 24px;
-  margin: 0px 0px 30px 0px;
-  break-inside: avoid;
-}
-
-.org-tile:nth-child(odd) {
-  background-color: rgb(226, 226, 237);
-  border: 2px solid #1F2079;
-  color: #1F2079;
-} */
 
 label {
   font-weight: 700;

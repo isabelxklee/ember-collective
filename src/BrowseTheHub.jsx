@@ -46,8 +46,7 @@ class BrowseTheHub extends Component {
       <div className="App">
         <h1 className="welcome">Welcome to the Black Liberation Hub</h1>
         <h2 className="welcome">
-          This is a place to consolidate resources for Black liberation. If you are a non-Black person in America, you must commit to Black liberation and fight for the freedom of Black folks. <Link to="/resources"> Here are some more resources</Link> on fighting racism, protesting safely, and abolishing the police.
-          
+          This is a place to consolidate resources for Black liberation. If you are a non-Black person in America, you must commit to Black liberation and fight for the freedom of Black folks. <Link to="/resources" className="welcome"> Here are some more resources</Link> on fighting racism, protesting safely, and abolishing the police.
         </h2>
         <FilterOrgs
           searchTerm={this.state.searchTerm}

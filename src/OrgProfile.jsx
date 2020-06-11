@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import Tag from './Tag.jsx'
-import DonationStats from './DonationStats.jsx'
+import OrgStats from './OrgStats.jsx'
 
 class OrgProfile extends Component {
   componentDidMount() {
@@ -76,7 +76,7 @@ class OrgProfile extends Component {
 
           <h2>Donation match challenges</h2>
           {this.renderOrgsDonations().map((challenge) => {
-            return <DonationStats key={challenge.id} challenge={challenge}/>
+            return <OrgStats key={challenge.id} challenge={challenge}/>
           })} 
         </div>
 

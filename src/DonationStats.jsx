@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 class DonationStats extends Component {
   componentDidMount() {
@@ -23,6 +24,14 @@ class DonationStats extends Component {
     return orgName
   }
 
+  renderOrgID = () => {
+    let orgID = 0
+    this.props.orgs.filter((org) => {
+      return org.id === this.props.challenge.org_id ? orgID = org.id : null
+    })
+    return orgID
+  }
+
   renderSender = () => {
     let senderName = ""
     this.props.users.filter((user) => {
@@ -37,7 +46,8 @@ class DonationStats extends Component {
     return (
       <>
         <h4>From @{this.renderSender()}</h4>
-        <p>Donate ${amount} to {this.renderOrgName()}</p>
+        <p>Donate ${amount} to <Link to={`/organizations/${this.renderOrgID()}`} className="welcome"> {this.renderOrgName()}</Link></p>
+        
       </>
     )
   }
