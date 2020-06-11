@@ -35,7 +35,12 @@ h1 {
 
 h1.welcome {
   font-size: 90px;
-  margin: 100px 180px 20px 160px;
+  margin: 80px 180px 20px 160px;
+}
+
+h1.profile {
+  font-size: 60px;
+  margin: 0px 0px 20px 0px;
 }
 
 h2 {
@@ -45,8 +50,15 @@ h2 {
   font-weight: 900;
 }
 
+h2.welcome {
+  margin: 60px 200px 120px 160px;
+  font-weight: 700;
+  font-size: 32px;
+  font-family: "Karla", sans-serif
+}
+
 h3 {
-  font-size: 26px;
+  font-size: 24px;
   margin: 16px 0px
 }
 
@@ -70,7 +82,7 @@ h5 {
 }
 
 p.results {
-  margin: 0px 80px;
+  margin: 160px 80px;
   text-align: center;
   font-weight: 900;
 }
@@ -179,11 +191,11 @@ button.filter-button {
 
 .filter {
   border-radius: 6px;
-  padding: 20px;
+  padding: 30px;
   text-align: left;
-  width: 50%;
-  margin-left: 140px;
-  margin-bottom: 30px;
+  margin: 80px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
+  background-color: rgb(255, 252, 248);
 }
 
 .org-container {
@@ -223,7 +235,7 @@ button.filter-button {
 .org-tile:nth-child(odd):hover {
   background-color: rgb(0, 0, 40);
   /* box-shadow: 0 2px 8px 0 rgba(0, 0, 87, 0.5); */
-  color: rgb(32, 32, 133);
+  color: rgb(212, 212, 236);
 }
 
 /* 
@@ -250,14 +262,17 @@ label {
 }
 
 div.user-info {
-  padding: 60px 140px;
+  background-color: rgb(255, 252, 248);
+  border-radius: 6px;
+  padding: 40px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
 }
 
 div.donations {
   background-color: rgb(255, 252, 248);
   border-radius: 6px;
-  margin: 0px 80px 80px 80px;
-  padding: 21px;
+  margin: 40px 0px;
+  padding: 20px;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
 }
 
@@ -279,7 +294,7 @@ p.description {
 }
 
 div.container {
-  padding: 60px 140px
+  padding: 30px 140px
 }
 
 div.received-challenges, div.send-challenge {

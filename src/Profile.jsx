@@ -52,11 +52,10 @@ class Profile extends Component {
     let created_at = this.props.created_at
 
     return (
-      <div className="profile">
-        
+      <div className="container">
         <div className="user-info">
-          <h1>Your profile</h1><br/>
-          <h3 className="username">@{username}</h3>
+          <h1 className="profile">Your Profile</h1>
+          <h3 className="username">Hello, @{username}! <span role="img" aria-label="star">👋</span></h3>
           <h5><span role="img" aria-label="star">🌟</span> Joined on {created_at}</h5>
           {/* <h5>✅ Verified {verifications.length} organizations</h5> */}
           <h5><span role="img" aria-label="confetti">🎉</span> Nominated <Pluralize singular={'organization'} count={this.usersNominations()} /></h5>

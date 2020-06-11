@@ -10,8 +10,10 @@ class OrganizationContainer extends Component {
 
     return (
       <>
-        <p className="results">Showing <Pluralize singular={'organization'} count={this.props.orgs.length} /></p>
         <div className="org-container">
+          <p className="results">
+            Showing <Pluralize singular={'organization'} count={this.props.orgs.length} />
+          </p>
           {orgsArr}
         </div>
       </>

@@ -92,9 +92,12 @@ class DonationChallenge extends Component {
         </form>
         </div>
 
-        {this.props.receivers.map((challenge) => {
-          return <DonationStats key={challenge.id} challenge={challenge}/>
-        })}
+        <div className="received-challenges">
+          <h2>Received challenges</h2>
+          {this.props.receivers.map((challenge) => {
+            return <DonationStats key={challenge.id} challenge={challenge}/>
+          })}
+        </div>
       </>
     )
   }

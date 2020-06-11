@@ -8,6 +8,7 @@ import CreateAccount from './CreateAccount.jsx'
 import Login from './Login.jsx'
 import Nominate from './Nominate.jsx'
 import Profile from './Profile.jsx'
+import Resources from './Resources.jsx'
 
 class App extends Component {
 
@@ -55,6 +56,7 @@ class App extends Component {
         <NavBar handleResponse={this.handleResponse}/>
         <Route exact path="/"> <BrowseTheHub/> </Route>
         <Route path="/nominate"> <Nominate/> </Route>
+        <Route path="/resources"> <Resources/> </Route>
         <Route path="/create-account"> <CreateAccount handleResponse={this.handleResponse}/> </Route>
         <Route path="/login"> <Login handleLoginSubmit={this.handleLoginSubmit}/> </Route>
         <Route path="/profile"> <Profile/> </Route>
