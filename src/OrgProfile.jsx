@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import Tag from './Tag.jsx'
+import DonationStats from './DonationStats.jsx'
 
 class OrgProfile extends Component {
   componentDidMount() {
@@ -13,6 +14,11 @@ class OrgProfile extends Component {
     .then(r => r.json())
     .then((tag_joiners) => {
       this.props.setAllTagJoiners(tag_joiners)
+    })
+    fetch("http://localhost:3000/donation_challenges")
+    .then(r => r.json())
+    .then((challenges) => {
+      this.props.setAllDonations(challenges)
     })
   }
 
@@ -34,6 +40,14 @@ class OrgProfile extends Component {
       })
     })
     return arr
+  }
+
+  renderOrgsDonations = () => {
+    let challenges = this.props.donation_challenges
+    challenges = challenges.filter((challenge) => {
+      return challenge.org_id === this.props.org.id
+    })
+    return challenges
   }
 
   render() {
@@ -58,7 +72,12 @@ class OrgProfile extends Component {
           </div>
           <p>{tagline}</p>
           <h2>Description</h2>
-          <p>{description}</p>          
+          <p>{description}</p>        
+
+          <h2>Donation match challenges</h2>
+          {this.renderOrgsDonations().map((challenge) => {
+            return <DonationStats key={challenge.id} challenge={challenge}/>
+          })} 
         </div>
 
       </div>
@@ -80,15 +99,24 @@ let setAllTagJoiners = (tag_joiners) => {
   }
 }
 
+let setAllDonations = (donations) => {
+  return {
+    type: "SET_ALL_DONATIONS",
+    payload: donations
+  }
+}
+
 let mapDispatchToProps = {
   setAllTags: setAllTags,
-  setAllTagJoiners: setAllTagJoiners
+  setAllTagJoiners: setAllTagJoiners,
+  setAllDonations: setAllDonations
 }
 
 let mapStateToProps = (globalState) => {
   return {
     tags: globalState.tagInfo.tags,
-    tag_joiners: globalState.tagInfo.tag_joiners
+    tag_joiners: globalState.tagInfo.tag_joiners,
+    donation_challenges: globalState.donationInformation.donation_challenges
   }
 }
 

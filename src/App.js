@@ -10,6 +10,7 @@ import Nominate from './Nominate.jsx'
 import Profile from './Profile.jsx'
 import Resources from './Resources.jsx'
 import OrgProfile from './OrgProfile.jsx'
+import PoliceBrutalityTracker from './PoliceBrutalityTracker'
 
 class App extends Component {
 
@@ -67,6 +68,7 @@ class App extends Component {
       <div className="app">
         <NavBar handleResponse={this.handleResponse}/>
         <Route exact path="/"> <BrowseTheHub/> </Route>
+        <Route exact path="/police-brutality-tracker"> <PoliceBrutalityTracker/> </Route>
         <Route path="/nominate"> <Nominate/> </Route>
         <Route path="/resources"> <Resources/> </Route>
         <Route path="/create-account"> <CreateAccount handleResponse={this.handleResponse}/> </Route>

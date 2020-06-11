@@ -332,3 +332,11 @@ div.org-body {
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
   background-color: rgb(255, 252, 248);
 }
+
+div.map-marker {
+  background-color: rgb(211, 0, 0);
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.5);
+  width: 20px;
+  height: 20px;
+  border-radius: 100px;
+}
