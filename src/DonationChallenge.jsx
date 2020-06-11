@@ -48,7 +48,7 @@ class DonationChallenge extends Component {
       headers: {
         "Content-type": "application/json"
       },
-      body: JSON.stringify()
+      body: JSON.stringify(this.state)
     })
     .then(r => r.json())
     .then((newDonation) => {
