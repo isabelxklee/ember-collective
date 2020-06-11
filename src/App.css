@@ -301,3 +301,15 @@ div.received-challenges, div.send-challenge {
   padding: 0px 30px;
   margin-bottom: 80px;
 }
+
+div.tag {
+  font-weight: 900;
+  margin: 0px 20px 40px 0px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: rgb(41, 41, 41);
+  color: white;
+  width: 10%;
+  text-align: center;
+  padding: 10px 0px
+}

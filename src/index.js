@@ -28,6 +28,33 @@ let initialDonationState = {
   donation_challenges: []
 }
 
+let initialTagState = {
+  tags: [],
+  tag_joiners: []
+}
+
+let tagReducer = (state = initialTagState, action) => {
+  switch(action.type) {
+    case "SET_ALL_TAGS":
+      return {
+        ...state,
+        tags: action.payload
+      }
+    case "SET_ALL_TAG_JOINERS":
+      return {
+        ...state,
+        tag_joiners: action.payload
+      }
+    case "CREATE_TAG_JOINER":
+    return {
+      ...state,
+      tag_joiners: [...state.tag_joiners, action.payload]
+    }
+    default:
+      return state
+  }
+}
+
 let orgReducer = (state = initialOrgState, action) => {
   switch(action.type) {
     case "SET_ALL_ORGS":
@@ -110,7 +137,8 @@ let singleObject = {
   orgInformation: orgReducer,
   userInformation : userReducer,
   nominationInformation: nominationReducer,
-  donationInformation: donationReducer
+  donationInformation: donationReducer,
+  tagInfo: tagReducer
 }
 
 let rootReducer = combineReducers(singleObject)

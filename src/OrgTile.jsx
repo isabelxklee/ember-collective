@@ -15,7 +15,7 @@ class OrgTile extends Component {
       <div className="org-tile">
         <h4>{location}</h4>
         <Link to={`/organizations/${id}`}> <h2>{name}</h2> </Link>
-        <p>{this.truncateString(tagline, 100)}</p>
+        <p>{this.truncateString(tagline, 175)}</p>
         <div className="btn-group">
           <button className="small-button"><a href={website} target="blank" className="small-button">Website</a></button>
           <button className="small-button"><a href={donation_link} target="blank" className="small-button">Donate</a></button>
