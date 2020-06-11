@@ -55,7 +55,7 @@ class Profile extends Component {
       <div className="profile">
         
         <div className="user-info">
-          <h1 className="profile">Your profile</h1><br/>
+          <h1>Your profile</h1><br/>
           <h3 className="username">@{username}</h3>
           <h5><span role="img" aria-label="star">🌟</span> Joined on {created_at}</h5>
           {/* <h5>✅ Verified {verifications.length} organizations</h5> */}

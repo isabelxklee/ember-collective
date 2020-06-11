@@ -1,37 +1,41 @@
 body {
   font-family: "Karla", sans-serif;
-  color: rgb(45, 45, 45);
-  background-color: rgb(255, 248, 238);
+  color: rgb(131, 46, 0);
+  background-color: rgb(241, 227, 219);
 }
 
 .header {
   overflow: hidden;
-  background-color: rgb(43, 43, 43);
-  padding: 20px;
+  padding: 40px 140px;
   display: flex;
 }
 
 a.header-link.active, a.header-link {
   float: left;
-  color: white;
-  padding: 4px 20px;
+  color: rgb(45, 45, 45);
+  padding: 4px 40px 4px 0px;
   text-decoration: none;
   font-size: 18px; 
   line-height: 25px;
   font-weight: 700;
+  transition: 0.3s;
+}
+
+a.header-link.active:hover, a.header-link:hover {
+  opacity: 0.2;
   }
 
 h1 {
   text-align: left;
-  margin: 60px 0px 20px 0px;
-  font-size: 74px;
+  margin: 40px 0px 20px 0px;
+  font-size: 80px;
   font-family: "Playfair Display", serif;
   font-weight: 900;
 }
 
 h1.welcome {
-  margin: 140px 100px 60px;
-  text-align: center;
+  font-size: 90px;
+  margin: 100px 180px 20px 160px;
 }
 
 h2 {
@@ -65,17 +69,15 @@ h5 {
   font-weight: 400;
 }
 
-h4.results {
-  font-size: 14px;
-  font-family: "Montserrat", sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-weight: 700;
-  margin: 0px 80px
+p.results {
+  margin: 0px 80px;
+  text-align: center;
+  font-weight: 900;
 }
 
 p {
-  font-size: 18px;
+  font-size: 20px;
+  line-height: 26px;
 }
 
 a.small-button:link, a.small-button:visited {
@@ -100,11 +102,12 @@ input {
   width: 30%;
   border-radius: 4px;
   padding: 4px 14px;
-  font-size: 14px;
-  border: 2px solid rgb(45, 45, 45);
   margin: 20px 0px;
+  border: 2px solid rgb(131, 46, 0);
   font-family: "Karla", sans-serif;
   font-size: 18px;
+  font-weight: 900;
+  color: rgb(45, 45, 45);
 }
 
 input.filter-input {
@@ -112,10 +115,12 @@ input.filter-input {
   width: 80%;
   border-radius: 4px;
   padding: 4px 14px;
-  font-size: 14px;
-  border: 2px solid rgb(45, 45, 45);
+  font-size: 18px;
+  border: 2px solid rgb(131, 46, 0);
   font-family: "Karla", sans-serif;
   font-size: 18px;
+  font-weight: 900;
+  color: rgb(45, 45, 45);
 }
 
 input.submit-button {
@@ -130,6 +135,10 @@ input.submit-button {
   border: none;
   margin: 14px 0px;
   width: 14%
+}
+
+::placeholder {
+  color: rgb(131, 46, 0, 0.5);
 }
 
 form {
@@ -157,52 +166,82 @@ button.small-button {
   border: 2px solid rgb(45, 45, 45);
 }
 
+button.filter-button {
+  font-size: 16px;
+  padding: 10px 16px;
+  background-color: rgb(131, 46, 0);
+  color: white;
+}
+
 .btn-group button:not(:last-child) {
   margin-right: 12px
 }
 
 .filter {
-  /* background-color: rgb(255, 248, 238); */
   border-radius: 6px;
   padding: 20px;
-  text-align: center;
+  text-align: left;
   width: 50%;
-  margin: auto;
+  margin-left: 140px;
+  margin-bottom: 30px;
 }
 
 .org-container {
+  padding: 40px;
   margin: 80px;
   margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  background-color: rgb(255, 252, 248);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
 }
 
 .org-tile {
   flex: 0 1 28%;
-  background-color: rgba(136, 48, 0, 0.15);
-  border: 2px solid rgb(136, 48, 0);
+  background-color: rgb(131, 46, 0);
+  color: white;
   border-radius: 6px;
-  padding: 20px;
+  padding: 24px;
+  margin: 0px 0px 30px 0px;
+  break-inside: avoid;
+  transition: 0.3s;
+}
+
+.org-tile:hover {
+  background-color: rgb(45, 16, 0);
+  /* box-shadow: 0 2px 8px 0 rgba(87, 38, 0, 0.5); */
+  color: rgb(237, 220, 201);
+}
+
+.org-tile:nth-child(odd) {
+  background-color: rgb(32, 32, 133);
+  color: white;
+}
+
+.org-tile:nth-child(odd):hover {
+  background-color: rgb(0, 0, 40);
+  /* box-shadow: 0 2px 8px 0 rgba(0, 0, 87, 0.5); */
+  color: rgb(32, 32, 133);
+}
+
+/* 
+.org-tile {
+  flex: 0 1 28%;
+  background-color: rgb(247, 234, 227);
+  border: 2px solid rgb(136, 48, 0);
+  color: rgb(94, 41, 0);
+  border-radius: 6px;
+  padding: 24px;
   margin: 0px 0px 30px 0px;
   break-inside: avoid;
 }
 
 .org-tile:nth-child(odd) {
-  background-color: rgba(31, 33, 121, 0.15);
+  background-color: rgb(226, 226, 237);
   border: 2px solid #1F2079;
-}
-
-/* @media screen and (min-width: 40em) {
-  .org-tile {
-     max-width: calc(50% -  1em);
-  }
-}
-
-@media screen and (min-width: 60em) {
-  .org-tile {
-      max-width: calc(25% - 1em);
-  }
+  color: #1F2079;
 } */
 
 label {
@@ -211,19 +250,17 @@ label {
 }
 
 div.user-info {
-  margin: 30px;
-  column-count: 2;
-  padding: 21px;
-  margin-top: 100px;
+  padding: 60px 140px;
 }
 
 div.donations {
-  background-color: rgb(255, 251, 246);
+  background-color: rgb(255, 252, 248);
   border: 2px solid rgb(238, 228, 215);
   border-radius: 6px;
-  margin: 30px;
+  margin: 80px;
   padding: 21px;
   margin-top: 60px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
 }
 
 select {
@@ -243,7 +280,7 @@ p.description {
 }
 
 div.container {
-  padding: 60px 100px
+  padding: 60px 140px
 }
 
 div.received-challenges, div.send-challenge {

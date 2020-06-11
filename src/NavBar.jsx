@@ -11,8 +11,8 @@ class NavBar extends Component {
     if (localStorage.token) {
       return <div className="header">
         <NavLink to="/" exact className="header-link">Browse the Hub</NavLink><br/>
-        <NavLink to="/nominate" exact className="header-link">Nominate an Organization</NavLink><br/>
-        <NavLink to="/profile" exact className="header-link">My profile</NavLink><br/>
+        <NavLink to="/nominate" exact className="header-link">Nominate</NavLink><br/>
+        <NavLink to="/profile" exact className="header-link">Profile</NavLink><br/>
         <NavLink to='/' onClick={this.handleLogout} className="header-link">Logout</NavLink>
       </div>
     }

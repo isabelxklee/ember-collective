@@ -12,7 +12,7 @@ class FilterOrgs extends Component {
   render() {
     return (
       <div className="filter">
-        <label><h3>Find an organization by name or location</h3></label>
+        <label><h3>Find an organization to support</h3></label>
         <input
           className="filter-input"
           type="text"
@@ -22,7 +22,7 @@ class FilterOrgs extends Component {
           value={this.props.searchTerm}
           onChange={this.handleChange}
         /><br />
-        <button onClick={this.handleReset} className="small-button">Clear search terms</button>
+        <button onClick={this.handleReset} className="filter-button">Clear search terms</button>
       </div>
     )
   }
