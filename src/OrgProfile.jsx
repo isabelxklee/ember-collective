@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 
 class OrgProfile extends Component {
   render() {
-    console.log("This is the profile page.")
     return (
       <div>
-        <h1>helloooo</h1>
+        <h1>{this.props.org.name}</h1>
       </div>
     )
   }
