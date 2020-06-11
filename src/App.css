@@ -255,11 +255,9 @@ div.user-info {
 
 div.donations {
   background-color: rgb(255, 252, 248);
-  border: 2px solid rgb(238, 228, 215);
   border-radius: 6px;
-  margin: 80px;
+  margin: 0px 80px 80px 80px;
   padding: 21px;
-  margin-top: 60px;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
 }
 
@@ -268,11 +266,12 @@ select {
   width: 32%;
   border-radius: 4px;
   padding: 4px 14px;
-  font-size: 14px;
-  border: 2px solid rgb(45, 45, 45);
   margin: 20px 0px;
   font-family: "Karla", sans-serif;
   font-size: 18px;
+  border: 2px solid rgb(131, 46, 0);
+  font-weight: 900;
+  color: rgb(45, 45, 45);
 }
 
 p.description {
