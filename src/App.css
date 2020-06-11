@@ -43,6 +43,10 @@ h1.profile {
   margin: 0px 0px 20px 0px;
 }
 
+h1.org-profile {
+  margin: 0px 0px 20px 0px;
+}
+
 h2 {
   font-size: 36px;
   margin: 14px 14px 0px 0px;
@@ -304,12 +308,27 @@ div.received-challenges, div.send-challenge {
 
 div.tag {
   font-weight: 900;
-  margin: 0px 20px 40px 0px;
-  cursor: pointer;
+  margin: 0px 14px 0px 0px;
   border-radius: 4px;
-  background-color: rgb(41, 41, 41);
-  color: white;
-  width: 10%;
+  background-color: white;
+  color: rgb(131, 46, 0);
   text-align: center;
-  padding: 10px 0px
+  padding: 10px 20px
+}
+
+div.tag-container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+div.org-header {
+  margin-bottom: 80px;
+}
+
+div.org-body {
+  border-radius: 6px;
+  padding: 30px;
+  text-align: left;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
+  background-color: rgb(255, 252, 248);
 }

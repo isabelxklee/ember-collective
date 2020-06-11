@@ -45,18 +45,22 @@ class OrgProfile extends Component {
 
     return (
       <div className="container">
-        <h1>{name}</h1>
-        <h4>{location}</h4>
-        <p>{tagline}</p>
-        {orgsTags}
-
-        <h2>Description</h2>
-        <p>{description}</p>
-
-        <div className="btn-group">
-          <button className="small-button"><a href={website} target="blank" className="small-button">Website</a></button>
-          <button className="small-button"><a href={donation_link} target="blank" className="small-button">Donate</a></button>
+        <div className="org-header">
+          <div className="tag-container">{orgsTags}</div>
+          <h1 className="org-profile">{name}</h1>
+          <h4>{location}</h4>
         </div>
+       
+       <div className="org-body">
+          <div className="btn-group">
+            <button className="small-button"><a href={website} target="blank" className="small-button">Website</a></button>
+            <button className="small-button"><a href={donation_link} target="blank" className="small-button">Donate</a></button>
+          </div>
+          <p>{tagline}</p>
+          <h2>Description</h2>
+          <p>{description}</p>          
+        </div>
+
       </div>
     )
   }
