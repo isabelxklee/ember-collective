@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Pluralize from 'react-pluralize'
 import DonationChallenge from './DonationChallenge'
+import Nominate from './Nominate.jsx'
 
 class Profile extends Component {
   componentDidMount() {
@@ -81,6 +82,10 @@ class Profile extends Component {
             orgs={this.props.orgs}
             receivers={this.props.receivers}
           />
+        </div>
+
+        <div className="donations">
+          <Nominate/>
         </div>
       </div>
     )

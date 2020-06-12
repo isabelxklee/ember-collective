@@ -5,7 +5,7 @@ import FilterOrgs from './FilterOrgs.jsx'
 import OrganizationContainer from './OrganizationContainer'
 import Pluralize from 'react-pluralize'
 
-class BrowseTheHub extends Component {
+class Home extends Component {
   state = {
     searchTerm: ""
   }
@@ -44,9 +44,9 @@ class BrowseTheHub extends Component {
   render() {
     return (
       <div className="App">
-        <h1 className="welcome">Resources for Black Lives Matter</h1>
+        <h1 className="welcome">Welcome to the Ember Collective <span role="img" aria-label="flame">🔥</span></h1>
         <h2 className="welcome">
-          This is a place to consolidate resources for supporting the Black Lives Matter movement. If you are a non-Black person in America, you must commit to Black liberation and fight for the freedom of Black folks. <Link to="/resources" className="welcome"> Here are some more resources</Link> on fighting racism, protesting safely, and ending the carceral state.
+          This is a place to consolidate information and resources supporting the Black Lives Matter movement. If you are a non-Black person in America, you must commit to Black liberation and fight for the freedom of Black folks. <Link to="/resources" className="welcome"> Here are some more resources</Link> on fighting racism, protesting safely, and ending the carceral state.
         </h2>
         <FilterOrgs
           searchTerm={this.state.searchTerm}
@@ -76,4 +76,4 @@ let mapStateToProps = (globalState) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BrowseTheHub)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

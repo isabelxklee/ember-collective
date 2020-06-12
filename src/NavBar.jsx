@@ -10,8 +10,7 @@ class NavBar extends Component {
   render() {
     if (localStorage.token) {
       return <div className="header">
-        <NavLink to="/" exact className="header-link">Browse the Hub</NavLink><br/>
-        <NavLink to="/nominate" exact className="header-link">Nominate</NavLink><br/>
+        <NavLink to="/" exact className="header-link">Home</NavLink><br/>
         <NavLink to="/police-brutality-tracker" exact className="header-link">Police Brutality Tracker</NavLink><br/>
         <NavLink to="/resources" exact className="header-link">Resources</NavLink><br/>
         <NavLink to="/profile" exact className="header-link">Profile</NavLink><br/>
@@ -21,7 +20,7 @@ class NavBar extends Component {
 
     return (
       <div className="header">
-        <NavLink to="/" exact className="header-link">Browse the Hub</NavLink><br/>
+        <NavLink to="/" exact className="header-link">Home</NavLink><br/>
         <NavLink to="/police-brutality-tracker" exact className="header-link">Police Brutality Tracker</NavLink><br/>
         <NavLink to="/resources" exact className="header-link">Resources</NavLink><br/>
         <NavLink to="/create-account" exact className="header-link">Create Account</NavLink><br/>

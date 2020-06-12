@@ -37,15 +37,16 @@ class Nominate extends Component {
     .then(r => r.json())
     .then((newOrg) => {
       this.props.propsCreateOrg(newOrg)
+      this.props.history.push("/")
     })
     console.log("You've successfully nominated a new organization!")
   }
 
   render() {
     return (
-      <div className="container">
-        <h1>Nominate an Organization</h1>
-        <p>This feature is only available for users who have been on Black Liberation Hub for at least 2 days.</p>
+      <div className="send-challenge">
+        <h2>Nominate an Organization</h2>
+        <p>This feature is only available for users who have been on the Ember Collective for at least 2 days.</p>
         <form onSubmit={this.handleSubmit}>
         
           <label>Organization name</label>

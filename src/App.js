@@ -2,11 +2,10 @@ import React, {Component} from 'react'
 import {Route, withRouter } from 'react-router-dom'
 import './App.css'
 import {connect} from 'react-redux'
-import BrowseTheHub from './BrowseTheHub.jsx'
+import Home from './Home.jsx'
 import NavBar from './NavBar.jsx'
 import CreateAccount from './CreateAccount.jsx'
 import Login from './Login.jsx'
-import Nominate from './Nominate.jsx'
 import Profile from './Profile.jsx'
 import Resources from './ResourceContainer.jsx'
 import OrgProfile from './OrgProfile.jsx'
@@ -26,7 +25,6 @@ class App extends Component {
       this.props.setAllUsers(users)
     })
     if (localStorage.token) {
-      console.log("there's a token")
       fetch("http://localhost:3000/users/stay_logged_in", {
         headers: {
           "Authorization": localStorage.token
@@ -81,9 +79,8 @@ class App extends Component {
     return (
       <div className="app">
         <NavBar handleResponse={this.handleResponse}/>
-        <Route exact path="/"> <BrowseTheHub/> </Route>
+        <Route exact path="/"> <Home/> </Route>
         <Route exact path="/police-brutality-tracker"> <PoliceBrutalityTracker/> </Route>
-        <Route path="/nominate"> <Nominate/> </Route>
         <Route path="/resources"> <Resources/> </Route>
         <Route path="/create-account"> <CreateAccount handleResponse={this.handleResponse}/> </Route>
         <Route path="/login"> <Login handleLoginSubmit={this.handleLoginSubmit}/> </Route>
