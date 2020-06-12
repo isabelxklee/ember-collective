@@ -21,7 +21,7 @@ class PoliceBrutalityTracker extends Component {
         <p>It is paramount that we expose this injustice and violence.</p>
           <div style={{ height: '75vh', width: '100%' }}>
           <GoogleMapReact
-            bootstrapURLKeys={{ key: "AIzaSyDrI8MOHdu_EM8ENvZ3z4Qkk7nFMR2L3ik" }}
+            bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
             defaultCenter={this.state.center}
             defaultZoom={this.state.zoom}
           >

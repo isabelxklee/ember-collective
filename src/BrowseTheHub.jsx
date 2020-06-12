@@ -41,7 +41,6 @@ class BrowseTheHub extends Component {
   }
 
   render() {
-    console.log(this.state.searchTerm)
     return (
       <div className="App">
         <h1 className="welcome">Welcome to the Black Liberation Hub</h1>
