@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Tag from './Tag.jsx'
+import CategoryTag from './CategoryTag.jsx'
 
 class ResourceTile extends Component {
   truncateString = (string, number) => {
@@ -13,9 +13,8 @@ class ResourceTile extends Component {
     let {title, author, description, link, category} = this.props.resource
     return (
     <>
-      <div className="resource-tag">
-      <Tag category={category}/>
-      </div>
+      <CategoryTag category={category}/>
+
       <div className="resource-tile">
         <h2>{title}</h2>
         <h4>By {author}</h4>

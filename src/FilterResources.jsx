@@ -17,7 +17,7 @@ class FilterResources extends Component {
           className="filter-input"
           type="text"
           name="searchTerm"
-          placeholder="Start typing in a title or author"
+          placeholder="Start typing in a tag or title"
           autoComplete="off"
           value={this.props.searchTerm}
           onChange={this.handleChange}

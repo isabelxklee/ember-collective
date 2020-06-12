@@ -52,7 +52,7 @@ class Resources extends Component {
           searchTerm={this.state.searchTerm}
           handleSearchTerm={this.handleSearchTerm}
         />
-        <p>Showing <Pluralize singular={'resource'} count={resourcesArr.length} /></p>
+        <p><strong>Showing <Pluralize singular={'resource'} count={resourcesArr.length} /></strong></p>
           <div className="resource-container">
           {resourcesArr}
         </div>
