@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import GoogleMapReact from 'google-map-react'
 import MapMarker from './MapMarker.jsx'
-import PoliceBrutalityForm from './PoliceBrutalityForm.jsx'
 
 class PoliceBrutalityTracker extends Component {
   state={
@@ -35,8 +34,6 @@ class PoliceBrutalityTracker extends Component {
             />
           </GoogleMapReact>
         </div>
-
-        <PoliceBrutalityForm />
       </div>
     )
   }

@@ -98,8 +98,7 @@ h5 {
 }
 
 p.results {
-  margin: 160px 80px;
-  text-align: center;
+  margin: 0px 80px;
   font-weight: 900;
 }
 
@@ -209,7 +208,7 @@ button.filter-button {
   border-radius: 6px;
   padding: 30px;
   text-align: left;
-  margin: 80px;
+  margin: 40px 80px;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
   background-color: rgb(255, 252, 248);
 }
@@ -348,4 +347,31 @@ div.police-form {
 input.radio {
   height: 16px;
   width: 6%
+}
+
+div.resource-tile {
+  flex: 0 1 40%;
+  background-color: rgb(245, 242, 235);
+  color: rgb(45, 45, 45);
+  border-radius: 6px;
+  padding: 30px;
+  margin: 0px 0px 30px 0px;
+  break-inside: avoid;
+  transition: 0.3s;
+}
+
+div.resource-container {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+div.resources-filter {
+  border-radius: 6px;
+  padding: 30px;
+  text-align: left;
+  margin: 40px 0px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
+  background-color: rgb(255, 252, 248);
 }

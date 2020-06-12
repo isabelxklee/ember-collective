@@ -33,6 +33,22 @@ let initialTagState = {
   tag_joiners: []
 }
 
+let initialResources = {
+  resources: []
+}
+
+let resourceReducer = (state = initialResources, action) => {
+  switch(action.type) {
+    case "SET_ALL_RESOURCES":
+      return {
+        ...state,
+        resources: action.payload
+      }
+    default:
+      return state
+  }
+}
+
 let tagReducer = (state = initialTagState, action) => {
   switch(action.type) {
     case "SET_ALL_TAGS":
@@ -138,7 +154,8 @@ let singleObject = {
   userInformation : userReducer,
   nominationInformation: nominationReducer,
   donationInformation: donationReducer,
-  tagInfo: tagReducer
+  tagInfo: tagReducer,
+  resourceInformation: resourceReducer
 }
 
 let rootReducer = combineReducers(singleObject)

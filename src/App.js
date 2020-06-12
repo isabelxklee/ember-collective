@@ -8,7 +8,7 @@ import CreateAccount from './CreateAccount.jsx'
 import Login from './Login.jsx'
 import Nominate from './Nominate.jsx'
 import Profile from './Profile.jsx'
-import Resources from './Resources.jsx'
+import Resources from './ResourceContainer.jsx'
 import OrgProfile from './OrgProfile.jsx'
 import PoliceBrutalityTracker from './PoliceBrutalityTracker'
 

@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 
 export default class Tag extends Component {
-  render() {
-  let {content} = this.props.tag
+  renderContent = () => {
+    let content = ""
+    this.props.tag ? content = this.props.tag.content : content = this.props.category
+    return content
+  }
 
+  render() {
     return (
       <div className="tag">
-        #{content}
+        #{this.renderContent()}
       </div>
     )
   }

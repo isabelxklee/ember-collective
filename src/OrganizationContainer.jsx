@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import OrgTile from './OrgTile.jsx'
-import Pluralize from 'react-pluralize'
+
 
 class OrganizationContainer extends Component {
  render() {
@@ -11,9 +11,6 @@ class OrganizationContainer extends Component {
     return (
       <>
         <div className="org-container">
-          <p className="results">
-            Showing <Pluralize singular={'organization'} count={this.props.orgs.length} />
-          </p>
           {orgsArr}
         </div>
       </>
