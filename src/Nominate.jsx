@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import {withRouter } from 'react-router-dom'
 
 class Nominate extends Component {
   state = {
@@ -7,6 +8,7 @@ class Nominate extends Component {
     location: "",
     website: "",
     donation_link: "",
+    tagline: "",
     description: ""
   }
 
@@ -24,6 +26,7 @@ class Nominate extends Component {
       location: "",
       website: "",
       donation_link: "",
+      tagline: "",
       description: ""
     })
 
@@ -49,7 +52,7 @@ class Nominate extends Component {
         <p>This feature is only available for users who have been on the Ember Collective for at least 2 days.</p>
         <form onSubmit={this.handleSubmit}>
         
-          <label>Organization name</label>
+          <label>Name of Organization</label>
           <br />
           
           <input
@@ -91,6 +94,17 @@ class Nominate extends Component {
           onChange={this.handleChange} />
         <br />
 
+        <label>Tag Line</label>
+        <p>If this organization doesn't have a readily accessible tag line, it can be the first couple sentences of the org's description.</p>
+        <br />
+        <input
+          name="tagline"
+          type="text"
+          autoComplete="off"
+          value={this.state.tagline}
+          onChange={this.handleChange} />
+        <br />
+
         <label>Description</label>
         <br />
 
@@ -119,4 +133,6 @@ let mapDispatchToProps = {
   propsCreateOrg: createOrg
 }
 
-export default connect(null, mapDispatchToProps)(Nominate)
+let MagicalComponent = withRouter(Nominate)
+
+export default connect(null, mapDispatchToProps)(MagicalComponent)
