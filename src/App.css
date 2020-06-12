@@ -350,7 +350,8 @@ input.radio {
 }
 
 div.resource-tile {
-  flex: 0 1 40%;
+  flex: 0 1 80%;
+  /* width: 80%; */
   background-color: rgb(245, 242, 235);
   color: rgb(45, 45, 45);
   border-radius: 6px;

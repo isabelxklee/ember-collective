@@ -12,13 +12,17 @@ class ResourceTile extends Component {
   render() {
     let {title, author, description, link, category} = this.props.resource
     return (
+    <>
+      <div className="resource-tag">
+      <Tag category={category}/>
+      </div>
       <div className="resource-tile">
-        <Tag category={category} />
         <h2>{title}</h2>
         <h4>By {author}</h4>
-        <p>{this.truncateString(description, 300)}</p>
+        <p>{this.truncateString(description, 200)}</p>
         <button className="small-button"><a href={link} target="blank" className="small-button">Source</a></button>
       </div>
+    </>
     )
   }
 }
