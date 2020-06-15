@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import GoogleMapReact from 'google-map-react'
 import MapMarker from './MapMarker.jsx'
 import {Link} from 'react-router-dom'
+import PoliceBrutalityTable from './PoliceBrutalityTable.jsx'
 
 class PoliceBrutalityTracker extends Component {
   state={
@@ -36,6 +37,7 @@ class PoliceBrutalityTracker extends Component {
             />
           </GoogleMapReact>
           <p>Map data source: <a href="https://mappingpoliceviolence.org/" target="blank">Mapping Police Violence</a></p>
+          <PoliceBrutalityTable/>
         </div>
       </div>
     )
