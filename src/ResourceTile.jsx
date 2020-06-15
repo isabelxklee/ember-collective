@@ -16,7 +16,7 @@ class ResourceTile extends Component {
       <CategoryTag category={category}/>
 
       <div className="resource-tile">
-        <h2>{title}</h2>
+        <a href={link} target="blank" className="small-button"><h2>{title}</h2></a>
         <h4>By {author}</h4>
         <p>{this.truncateString(description, 200)}</p>
         <button className="small-button"><a href={link} target="blank" className="small-button">Source</a></button>

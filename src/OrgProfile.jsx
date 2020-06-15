@@ -73,6 +73,7 @@ class OrgProfile extends Component {
           <div className="btn-group">
             <button className="small-button"><a href={website} target="blank" className="small-button">Website</a></button>
             <button className="small-button"><a href={donation_link} target="blank" className="small-button">Donate</a></button>
+            <button className="small-button"><a href={donation_link} target="blank" className="small-button">Verify Info</a></button>
           </div>
           <p>{tagline}</p>
           <h2>Description</h2>
