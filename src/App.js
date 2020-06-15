@@ -26,6 +26,18 @@ class App extends Component {
     .then((users) => {
       this.props.setAllUsers(users)
     })
+    // if (localStorage.token === "undefined") {
+    //   localStorage.clear()
+    //   this.props.history.push("/")
+    // } else {
+    //   fetch("http://localhost:3000/users/stay_logged_in", {
+    //     headers: {
+    //       "Authorization": localStorage.token
+    //     }
+    //   })
+    //   .then(r => r.json())
+    //   .then(this.handleResponse)
+    // }
     if (localStorage.token) {
       fetch("http://localhost:3000/users/stay_logged_in", {
         headers: {
@@ -38,8 +50,6 @@ class App extends Component {
   }
 
   handleLoginSubmit = (userInfo) => {
-    console.log("Login form has been submitted")
-
     fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {
@@ -50,13 +60,17 @@ class App extends Component {
     .then(r => r.json())
     .then((response) => {
       this.handleResponse(response)
-      this.props.history.push("/profile")
     })
   }
 
   handleResponse = (response) => {
-    localStorage.token = response.token
-    this.props.setUserInfo(response)
+    if (response.user) {
+      localStorage.token = response.token
+      this.props.setUserInfo(response)  
+      this.props.history.push("/profile") 
+    } else {
+      alert(response.message)
+    }
   }
 
   renderOrgRoutes = () => {

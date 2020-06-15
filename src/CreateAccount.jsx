@@ -7,14 +7,57 @@ class CreateAccount extends Component {
     username: "",
     email_address: "",
     password: "",
-    password_confirmation: ""
+    password_confirmation: "",
+    errors: {
+      password: "",
+      password_confirmation: "",
+      email_address: ""
+    }
   }
 
+  validEmailRegex = RegExp(/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i)
+
   handleChange = (event) => {
+    let errors = this.state.errors
+
+    switch (event.target.name) {
+      case 'email_address': 
+        errors.email_address = 
+        this.validEmailRegex.test(event.target.value)
+            ? 'Email address must be a valid format.'
+            : ''
+        break
+
+      case 'password': 
+        errors.password = 
+          event.target.value.length < 6
+            ? 'Password must be at least 6 characters long.'
+            : ''
+        break
+
+      case 'password_confirmation': 
+      errors.password_confirmation = 
+        event.target.value !== this.state.password
+          ? 'Password confirmation must match the password.'
+          : ''
+      break
+      
+      default:
+        break
+    }
+    
     this.setState({
       [event.target.name]: event.target.value
     })
     console.log(event.target.value)
+  }
+
+  validateForm = (errors) => {
+    let valid = true
+    Object.values(errors).forEach(
+      (val) => val.length > 0 && (valid = false)
+    )
+    return valid
   }
 
   handleSubmit = (event) => {
@@ -36,12 +79,12 @@ class CreateAccount extends Component {
     .then(r => r.json())
     .then((response) => {
       this.props.handleResponse(response)
-      this.props.history.push("/profile")
     })
     console.log("You've successfully created an account!")
   }
 
   render() {
+    let {errors} = this.state
     return (
       <div className="container">
         <h1>Create an account</h1>
@@ -64,6 +107,10 @@ class CreateAccount extends Component {
           value={this.state.email_address}
           onChange={this.handleChange} />
         <br />
+        {errors.email_address.length > 0 && 
+          <p className='error'>{errors.email_address}</p>
+        }
+        <br />
 
         <label>Password</label>
         <br />
@@ -73,6 +120,10 @@ class CreateAccount extends Component {
           autoComplete="off"
           value={this.state.password}
           onChange={this.handleChange} />
+        <br />
+        {errors.password.length > 0 && 
+          <p className='error'>{errors.password}</p>
+        }
         <br />
 
         <label>Confirm Password</label>
@@ -84,6 +135,11 @@ class CreateAccount extends Component {
             value={this.state.password_confirmation}
             onChange={this.handleChange} />
         <br />
+        {errors.password_confirmation.length > 0 && 
+          <p className='error'>{errors.password_confirmation}</p>
+        }
+        <br />
+
         <button type="submit" className="submit-button">Create account</button>
       </form>
       </div>
