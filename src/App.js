@@ -9,7 +9,9 @@ import Login from './Login.jsx'
 import Profile from './Profile.jsx'
 import Resources from './ResourceContainer.jsx'
 import OrgProfile from './OrgProfile.jsx'
-import PoliceBrutalityTracker from './PoliceBrutalityTracker'
+import PoliceBrutalityTracker from './PoliceBrutalityTracker.jsx'
+import About from './About.jsx'
+import Footer from './Footer.jsx'
 
 class App extends Component {
 
@@ -85,8 +87,10 @@ class App extends Component {
         <Route path="/create-account"> <CreateAccount handleResponse={this.handleResponse}/> </Route>
         <Route path="/login"> <Login handleLoginSubmit={this.handleLoginSubmit}/> </Route>
         <Route path="/profile"> <Profile/> </Route>
+        <Route path="/about"> <About/> </Route>
         {this.renderOrgRoutes()}
         {this.renderUserRoutes()}
+        <Footer/>
       </div>
     )  
   }

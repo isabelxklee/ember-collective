@@ -10,6 +10,39 @@ body {
   display: flex;
 }
 
+div.container {
+  padding: 30px 140px;
+  margin-bottom: 100px;
+  position: relative;
+  min-height: 100vh;
+}
+
+div.footer {
+  background-color: rgb(45, 45, 45);
+  overflow: hidden;
+  color: white;
+  padding: 0px 80px;
+  bottom: 0;
+}
+
+a.footer-left {
+  color: white;
+  font-size: 16px;
+  float: left;
+  padding: 10px;
+  margin-bottom: 12px;
+  font-weight: 900;
+}
+
+a.footer-right {
+  color: white;
+  font-size: 16px;
+  float: right;
+  padding: 10px;
+  margin-bottom: 12px;
+  font-weight: 900;
+}
+
 a.header-link.active, a.header-link {
   float: left;
   color: rgb(45, 45, 45);
@@ -288,11 +321,6 @@ select {
 
 p.description {
   padding: 0px 30px
-}
-
-div.container {
-  padding: 30px 140px;
-  margin-bottom: 100px;
 }
 
 div.received-challenges, div.send-challenge {
