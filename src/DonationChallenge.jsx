@@ -64,6 +64,12 @@ class DonationChallenge extends Component {
     return usersArr
   }
 
+  renderReceivers = () => {
+    this.props.receivers.map((challenge) => {
+      return <DonationStats key={challenge.id} challenge={challenge}/>
+    })
+  }
+
   render() {
     return (
       <>
@@ -104,9 +110,7 @@ class DonationChallenge extends Component {
 
         <div className="received-challenges">
           <h2>Received challenges</h2>
-          {this.props.receivers.map((challenge) => {
-            return <DonationStats key={challenge.id} challenge={challenge}/>
-          })}
+            {this.props.receivers > 0 ? this.renderReceivers() : <p>This user hasn't received any donation match challenges yet.</p>}
         </div>
       </>
     )

@@ -291,7 +291,8 @@ p.description {
 }
 
 div.container {
-  padding: 30px 140px
+  padding: 30px 140px;
+  margin-bottom: 100px;
 }
 
 div.received-challenges, div.send-challenge {
@@ -366,8 +367,8 @@ div.resource-tile {
 }
 
 div.resource-container {
-  column-count: 2;
-  column-gap: 100px;
+  /* column-count: 2;
+  column-gap: 100px; */
   margin-top: 40px;
   /* display: flex;
   flex-wrap: wrap; */
