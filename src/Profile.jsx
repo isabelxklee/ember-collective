@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import moment from 'moment';
 import Pluralize from 'react-pluralize'
 import DonationChallenge from './DonationChallenge'
 import Nominate from './Nominate.jsx'
@@ -62,12 +63,16 @@ class Profile extends Component {
     let username = this.props.username
     let created_at = this.props.created_at
 
+    let join_date = moment(created_at);
+    let now = moment();
+    
     return (
       <div className="container">
         <div className="user-info">
           <h1 className="profile">Your Profile</h1>
           <h3 className="username">Hello, @{username}! <span role="img" aria-label="star">👋</span></h3>
-          <h5><span role="img" aria-label="star">🌟</span> Joined on {created_at}</h5>
+          {/* <h5><span role="img" aria-label="star">🌟</span> {moment(created_at).format("[Joined on] LL")}</h5> */}
+          <h5><span role="img" aria-label="star">🌟</span> Joined {join_date.from(now)}</h5>
           {/* <h5>✅ Verified {verifications.length} organizations</h5> */}
           <h5><span role="img" aria-label="confetti">🎉</span> Nominated <Pluralize singular={'organization'} count={this.usersNominations()} /></h5>
           <h5><span role="img" aria-label="money">💵</span> Sent <Pluralize singular={'challenge'} count={this.usersDonationChallenges()} donation match challenges/></h5>
