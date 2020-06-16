@@ -5,7 +5,7 @@ Ember Collective 🔥
 Ember Collective is...
 
 ## Getting started
-1. Install the [Rails backend](https://github.com/stephaniezou1/news_backend)
+1. Install the [Rails backend](https://github.com/isabelxklee/ember-collective-backend)
 2. Install [Node.js and npm](https://www.npmjs.com/get-npm)
 
     ```$ brew install node```
@@ -38,7 +38,7 @@ Coming soon...
 
 ## Tech Stack
 * React.js (Frontend)
-* Ruby on Rails API (Backend: https://github.com/stephaniezou1/news_backend)
+* Ruby on Rails API (Backend: https://github.com/isabelxklee/ember-collective-backend)
 * PostgreSQL
 * HTML/CSS
 * Active Record
@@ -51,4 +51,4 @@ Coming soon...
 * [Moment.js](https://momentjs.com)
 
 
-[Link to backend](https://github.com/stephaniezou1/news_backend)
+[Link to backend](https://github.com/isabelxklee/ember-collective-backend)
