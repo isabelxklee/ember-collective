@@ -26,18 +26,6 @@ class App extends Component {
     .then((users) => {
       this.props.setAllUsers(users)
     })
-    // if (localStorage.token === "undefined") {
-    //   localStorage.clear()
-    //   this.props.history.push("/")
-    // } else {
-    //   fetch("http://localhost:3000/users/stay_logged_in", {
-    //     headers: {
-    //       "Authorization": localStorage.token
-    //     }
-    //   })
-    //   .then(r => r.json())
-    //   .then(this.handleResponse)
-    // }
     if (localStorage.token) {
       fetch("http://localhost:3000/users/stay_logged_in", {
         headers: {

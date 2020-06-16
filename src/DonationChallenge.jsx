@@ -53,6 +53,7 @@ class DonationChallenge extends Component {
     .then(r => r.json())
     .then((newDonation) => {
       this.props.propsCreateDonation(newDonation)
+      alert(newDonation.message)
     })
   }
   
