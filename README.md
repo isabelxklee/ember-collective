@@ -4,6 +4,8 @@ Ember Collective 🔥
 ## Summary
 Ember Collective is...
 
+[Link to backend](https://github.com/isabelxklee/ember-collective-backend)
+
 ## Getting started
 1. Install the [Rails backend](https://github.com/isabelxklee/ember-collective-backend)
 2. Install [Node.js and npm](https://www.npmjs.com/get-npm)
@@ -49,6 +51,3 @@ Coming soon...
 * [Google Maps API](https://developers.google.com/maps/documentation/javascript/tutorial)
 * [Geocoding API](https://developers.google.com/maps/documentation/geocoding/start)
 * [Moment.js](https://momentjs.com)
-
-
-[Link to backend](https://github.com/isabelxklee/ember-collective-backend)
