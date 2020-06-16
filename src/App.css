@@ -360,10 +360,10 @@ div.org-body {
 }
 
 div.map-marker {
-  background-color: rgb(211, 0, 0);
+  background-color: rgb(45, 45, 45);
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.5);
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   border-radius: 100px;
 }
 

@@ -41,7 +41,7 @@ class Login extends Component {
         <br />
           <input
             name="password"
-            type="text"
+            type="password"
             autoComplete="off"
             value={this.state.password}
             onChange={this.handleChange} />

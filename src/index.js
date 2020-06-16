@@ -37,6 +37,22 @@ let initialResources = {
   resources: []
 }
 
+let initialEvents = {
+  events: []
+}
+
+let eventReducer = (state = initialEvents, action) => {
+  switch(action.type) {
+    case "SET_ALL_EVENTS":
+      return {
+        ...state,
+        events: action.payload
+      }
+    default:
+      return state
+  }
+}
+
 let resourceReducer = (state = initialResources, action) => {
   switch(action.type) {
     case "SET_ALL_RESOURCES":
@@ -155,7 +171,8 @@ let singleObject = {
   nominationInformation: nominationReducer,
   donationInformation: donationReducer,
   tagInfo: tagReducer,
-  resourceInformation: resourceReducer
+  resourceInformation: resourceReducer,
+  eventInformation: eventReducer
 }
 
 let rootReducer = combineReducers(singleObject)
