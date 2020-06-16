@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import Tag from './Tag.jsx'
 import OrgStats from './OrgStats.jsx'
 
@@ -51,7 +52,7 @@ class OrgProfile extends Component {
   }
 
   render() {
-    let {name, website, donation_link, tagline, description, location} = this.props.org
+    let {id, name, website, donation_link, tagline, description, location} = this.props.org
 
     let orgsTags = this.findOrgsTags().map((tag) => {
       return <Tag key={tag.id} tag={tag}/>
@@ -73,7 +74,11 @@ class OrgProfile extends Component {
           <div className="btn-group">
             <button className="small-button"><a href={website} target="blank" className="small-button">Website</a></button>
             <button className="small-button"><a href={donation_link} target="blank" className="small-button">Donate</a></button>
-            <button className="small-button"><a href={donation_link} target="blank" className="small-button">Verify Info</a></button>
+            
+            <Link to={`/organizations/${id}/edit`}>
+              <button>Verify</button>
+            </Link>
+
           </div>
           <p>{tagline}</p>
           <h2>Description</h2>

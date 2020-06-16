@@ -12,6 +12,7 @@ import OrgProfile from './OrgProfile.jsx'
 import PoliceBrutalityTracker from './PoliceBrutalityTracker.jsx'
 import About from './About.jsx'
 import Footer from './Footer.jsx'
+import Verify from './Verify.jsx'
 
 class App extends Component {
 
@@ -65,9 +66,18 @@ class App extends Component {
     let orgs = this.props.orgs
     let allRoutes = []
     allRoutes = orgs.map((org) => {
-      return <Route path={`/organizations/${org.id}`} key={org.id}> <OrgProfile key={org.id} org={org}/> </Route>
+      return <Route exact path={`/organizations/${org.id}`} key={org.id}> <OrgProfile key={org.id} org={org}/> </Route>
     })
     return allRoutes
+  }
+
+  renderOrgEditRoutes = () => {
+    let orgs = this.props.orgs
+    let allEditRoutes = []
+    allEditRoutes = orgs.map((org) => {
+      return <Route exact path={`/organizations/${org.id}/edit`} key={org.id}> <Verify key={org.id} org={org}/> </Route>
+    })
+    return allEditRoutes
   }
 
   renderUserRoutes = () => {
@@ -92,6 +102,7 @@ class App extends Component {
         <Route path="/about"> <About/> </Route>
         {this.renderOrgRoutes()}
         {this.renderUserRoutes()}
+        {this.renderOrgEditRoutes()}
         <Footer/>
       </div>
     )  
