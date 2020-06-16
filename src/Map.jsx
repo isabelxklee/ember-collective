@@ -40,7 +40,7 @@ class Map extends Component {
       <div>
         <ReactMapGL
           {...this.state.viewport}
-          mapboxApiAccessToken={'pk.eyJ1IjoibWlzdGVyZ2hvc3QiLCJhIjoiY2tiaThneWhxMGNwNTJybno4bnd0dDg3dCJ9.9nLOE6d4gp6VT-cXYAYkAQ'}
+          mapboxApiAccessToken={{ key: process.env.REACT_APP_MAPBOX_API_KEY }}
           onViewportChange={(viewport) => this.setState({viewport})
           }
         >
