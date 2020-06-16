@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import MapMarker from './MapMarker.jsx'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import Map from './Map.jsx'
@@ -18,21 +17,8 @@ class PoliceBrutalityTracker extends Component {
       this.props.setAllEvents(mapArr)
     })
   }
-
-  renderMapMarkers = () => {
-    return this.props.events.map((event) => {
-      return <MapMarker
-        key={event["Victim's name"]}
-        lat={event["Latitude"]}
-        lng={event["Longitude"]}
-        // onClick={this.onMarkerClick}
-      />
-    })
-  }
   
-  render() {
-    console.log(this.props.events)
-    
+  render() {    
     return (
       <div className="container">
         <h1>Police Brutality Tracker</h1>
@@ -41,7 +27,7 @@ class PoliceBrutalityTracker extends Component {
         <p>It is paramount that we expose this injustice and violence. To learn more about police brutality, check out <a href="https://mappingpoliceviolence.org/" target="blank">Mapping Police Violence</a> and <Link to="/resources" className="welcome">our Resources.</Link></p>
         <p><strong>Showing {this.props.events.length} police killings from 2013–2019</strong></p>
 
-        <Map />        
+        <Map events={this.props.events} />        
 
         <p>Map data source: <a href="https://mappingpoliceviolence.org/" target="blank">Mapping Police Violence</a></p>
       </div>
