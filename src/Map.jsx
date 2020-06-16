@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import mapboxgl from 'mapbox-gl'
 import ReactMapGL, {Marker} from 'react-map-gl'
-import MapMarker from './MapMarker.jsx'
+// import mapboxgl from 'mapbox-gl'
 
 class Map extends Component {
   state = {
@@ -40,7 +39,7 @@ class Map extends Component {
       <div>
         <ReactMapGL
           {...this.state.viewport}
-          mapboxApiAccessToken={{ key: process.env.REACT_APP_MAPBOX_API_KEY }}
+          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API_KEY}
           onViewportChange={(viewport) => this.setState({viewport})
           }
         >

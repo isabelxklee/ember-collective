@@ -359,14 +359,6 @@ div.org-body {
   background-color: rgb(255, 252, 248);
 }
 
-div.map-marker {
-  background-color: rgb(45, 45, 45);
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.5);
-  width: 10px;
-  height: 10px;
-  border-radius: 100px;
-}
-
 div.police-form {
   border-radius: 6px;
   padding: 30px;
