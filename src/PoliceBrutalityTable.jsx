@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class PoliceBrutalityTable extends Component {
   componentDidMount() {
-    fetch("../map_data.json", {
+    fetch("../map_data_geocoded.json", {
       headers : { 
         'Content-Type': 'application/json',
         'Accept': 'application/json'

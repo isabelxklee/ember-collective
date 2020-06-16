@@ -15,7 +15,7 @@ class CreateAccount extends Component {
     }
   }
 
-  validEmailRegex = RegExp(/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i)
+  regex = /([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})/i
 
   handleChange = (event) => {
     let errors = this.state.errors
@@ -23,9 +23,9 @@ class CreateAccount extends Component {
     switch (event.target.name) {
       case 'email_address': 
         errors.email_address = 
-        this.validEmailRegex.test(event.target.value)
-            ? 'Email address must be a valid format.'
-            : ''
+        this.regex.test(event.target.value)
+            ? ''
+            : 'Email address must be a valid format.'
         break
 
       case 'password': 
@@ -85,6 +85,7 @@ class CreateAccount extends Component {
 
   render() {
     let {errors} = this.state
+
     return (
       <div className="container">
         <h1>Create an account</h1>
