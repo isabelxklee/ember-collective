@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import {withRouter } from 'react-router-dom'
 
-export default class Verify extends Component {
+class Verify extends Component {
 
   state = {
     name: this.props.org.name,
@@ -16,6 +18,29 @@ export default class Verify extends Component {
       [event.target.name]: event.target.value
     })
     console.log(event.target.value)
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    this.setState({
+      username: "",
+      email_address: "",
+      password: "",
+      password_confirmation: ""
+    })
+
+    fetch(`http://localhost:3000/organizations/${this.props.org.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(this.state)
+    })
+    .then(r => r.json())
+    .then((updatedOrg) => {
+      this.props.updateOrg(updatedOrg)
+      this.props.history.push(`/organizations/${this.props.org.id}`)
+    })
   }
 
   render() {
@@ -92,3 +117,18 @@ export default class Verify extends Component {
     )
   }
 }
+
+let updateOrg = (org) => {
+  return {
+    type: "UPDATE_ORG",
+    payload: org
+  }
+}
+
+let mapDispatchToProps = {
+  updateOrg: updateOrg
+}
+
+let MagicalComponent = withRouter(Verify)
+
+export default connect(null, mapDispatchToProps)(MagicalComponent)

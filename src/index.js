@@ -5,6 +5,7 @@ import {createStore, combineReducers} from 'redux'
 import {Provider} from 'react-redux'
 import {BrowserRouter} from 'react-router-dom'
 import App from './App'
+import ScrollToTop from './ScrollToTop.jsx'
 
 let initialOrgState = {
   orgs: []
@@ -99,6 +100,11 @@ let orgReducer = (state = initialOrgState, action) => {
       ...state,
       orgs: [...state.orgs, action.payload]
     }
+    case "UPDATE_ORG":
+    return {
+      ...state,
+      orgs: [...state.orgs, action.payload]
+    }
     default:
       return state
   }
@@ -182,6 +188,7 @@ let store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && wind
 ReactDOM.render(
   <Provider store={store}>    
     <BrowserRouter>
+        <ScrollToTop />
         <App />
     </BrowserRouter>
   </Provider>,
