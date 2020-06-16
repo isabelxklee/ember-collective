@@ -1,17 +1,10 @@
 import React, { Component } from 'react'
-import GoogleMapReact from 'google-map-react'
 import MapMarker from './MapMarker.jsx'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import Map from './Map.jsx'
 
 class PoliceBrutalityTracker extends Component {
-  state={
-    center: {
-      lat: 40.7,
-      lng: -73.9
-    },
-    zoom: 4
-  }
 
   componentDidMount() {
     fetch("../map_data_geocoded.json", {
@@ -36,10 +29,10 @@ class PoliceBrutalityTracker extends Component {
       />
     })
   }
-
+  
   render() {
     console.log(this.props.events)
-
+    
     return (
       <div className="container">
         <h1>Police Brutality Tracker</h1>
@@ -47,20 +40,10 @@ class PoliceBrutalityTracker extends Component {
         
         <p>It is paramount that we expose this injustice and violence. To learn more about police brutality, check out <a href="https://mappingpoliceviolence.org/" target="blank">Mapping Police Violence</a> and <Link to="/resources" className="welcome">our Resources.</Link></p>
         <p><strong>Showing {this.props.events.length} police killings from 2013–2019</strong></p>
-          <div style={{ height: '75vh', width: '100%' }}>
-          <GoogleMapReact
-            bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
-            defaultCenter={this.state.center}
-            defaultZoom={this.state.zoom}
-          >
-            <MapMarker
-              lat={33.395049}
-              lng={-110.786764}
-            />
-            {this.renderMapMarkers()}
-          </GoogleMapReact>
-          <p>Map data source: <a href="https://mappingpoliceviolence.org/" target="blank">Mapping Police Violence</a></p>
-        </div>
+
+        <Map />        
+
+        <p>Map data source: <a href="https://mappingpoliceviolence.org/" target="blank">Mapping Police Violence</a></p>
       </div>
     )
   }
