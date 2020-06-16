@@ -89,9 +89,12 @@ class Profile extends Component {
           />
         </div>
 
-        <div className="donations">
-          <Nominate/>
-        </div>
+        { now.diff(join_date, 'days') >= 2 ?
+          <div className="donations"><Nominate/></div>
+          :
+          null
+        }
+
       </div>
     )
   }  
