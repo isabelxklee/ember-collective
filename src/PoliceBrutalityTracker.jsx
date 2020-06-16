@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import Map from './Map.jsx'
+// import VerticalModal from './VerticalModal.jsx'
 
 class PoliceBrutalityTracker extends Component {
-
   componentDidMount() {
     fetch("../map_data_geocoded.json", {
       headers : { 
@@ -15,12 +15,14 @@ class PoliceBrutalityTracker extends Component {
     .then(r => r.json())
     .then((mapArr) => {
       this.props.setAllEvents(mapArr)
+      alert("Trigger warning: This page includes content relating to racial violence, murder, police violence, police brutality, and racism.")
     })
   }
   
   render() {    
     return (
       <div className="container">
+        
         <h1>Police Brutality Tracker</h1>
         <p>Police brutality is a rampant problem in America. In 2019, the police killed approximately 1,000 people. Black people are disproportionately targeted and attacked by the police, and are 3x as likely to be killed than white people. However, most incidents go unreported and unexamined, and police officers are rarely tried for their crimes.</p>
         
