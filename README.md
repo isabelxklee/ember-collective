@@ -24,13 +24,22 @@ Ember Collective is an educational resource for anti-racism and supporting the B
 ## Features
 
 ### Police Brutality Tracker
+* Displays an interactive map using the Mapbox API
+* Pulls data about police brutality events from an external dataset provided by [Mapping Police Violence](https://mappingpoliceviolence.org)
+* Converted +7,000 lines of data from a CSV file to a JSON file
 
 ### Donation Match Challenges
+* Users can challenge each other to match donations to an existing organization on the site
+* Built self-referential relationships to join the logged in user with another user
 
 ### Global state management
+* Used Redux to globally manage the application state
+
+### Nested Routing
+* Built nested routes for...
 
 ### Asynchronous fetches
-* Pulls breaking news articles from the News API using asynchronous fetches
+* Pulls data from the Rails backend using asynchronous fetches
 
 ### ActiveRecord Associations
 * Models have `has_many`, `belongs_to` and `has_many through` associations
