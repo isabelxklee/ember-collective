@@ -64,7 +64,7 @@ Coming soon...
 ## Tools
 * [Rack CORS](https://github.com/cyu/rack-cors)
 * [ActiveModel::Serializer](https://github.com/rails-api/active_model_serializers)
-* [BCrypt](https://github.com/codahale/bcrypt-ruby)
+* [BCrypt](https://github.com/codahale/bcrypt-ruby): Ruby binding the OpenBSD bcrypt() password hashing algorithm.
 * [Geocoding API](https://developers.google.com/maps/documentation/geocoding/start): The Geocoding API is a service that provides geocoding and reverse geocoding of addresses.
 * [Mapbox API](https://docs.mapbox.com/mapbox-gl-js/api/): Mapbox GL JS is a JavaScript library that uses WebGL to render interactive maps from vector tiles and Mapbox styles.
 * [Moment.js](https://momentjs.com): Parse, validate, manipulate, and display dates and times in JavaScript.
