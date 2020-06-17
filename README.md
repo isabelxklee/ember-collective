@@ -35,11 +35,9 @@ Ember Collective is an educational resource for anti-racism and supporting the B
 ### Global state management
 * Used Redux to globally manage the application state
 
-### Nested Routing
-* Built nested routes for...
-
-### Asynchronous fetches
+<!--- ### Asynchronous fetches 
 * Pulls data from the Rails backend using asynchronous fetches
+--->
 
 ### ActiveRecord Associations
 * Models have `has_many`, `belongs_to` and `has_many through` associations
