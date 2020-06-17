@@ -57,6 +57,19 @@ class Map extends Component {
     return filteredEvents
   }
 
+  resultsNumber = () => {
+    switch(this.state.selectedGender) {
+      case "All":
+        return <p><strong>Showing {this.renderEvents().length} people murdered by the police in {this.state.selectedYear}</strong></p>
+      case "Female":
+        return <p><strong>Showing {this.renderEvents().length} women murdered by the police in {this.state.selectedYear}</strong></p>
+      case "Male":
+        return <p><strong>Showing {this.renderEvents().length} men murdered by the police in {this.state.selectedYear}</strong></p>
+      default:
+        return <p><strong>Showing {this.renderEvents().length} people murdered by the police in {this.state.selectedYear}</strong></p>
+    }
+  }
+
   render() {
     return (
       <div className="map-container">
@@ -82,7 +95,7 @@ class Map extends Component {
           </div>
         </div>
 
-        <p><strong>Showing {this.renderEvents().length} murders by the police</strong></p>
+        {this.resultsNumber()}
 
         <ReactMapGL
           {...this.state.viewport}
