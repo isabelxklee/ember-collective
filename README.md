@@ -69,3 +69,4 @@ Coming soon...
 * [Mapbox API](https://docs.mapbox.com/mapbox-gl-js/api/): Mapbox GL JS is a JavaScript library that uses WebGL to render interactive maps from vector tiles and Mapbox styles.
 * [Moment.js](https://momentjs.com): Parse, validate, manipulate, and display dates and times in JavaScript.
 * [Pluralize](https://www.npmjs.com/package/react-pluralize): Display plural or singular form of a word based on a count.
+* [React Router](https://reacttraining.com/react-router/web/guides/quick-start): React Router is a collection of navigational components that compose declaratively with your application.
