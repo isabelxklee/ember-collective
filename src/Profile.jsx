@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import moment from 'moment';
+import moment from 'moment'
 import Pluralize from 'react-pluralize'
 import DonationChallenge from './DonationChallenge'
 import Nominate from './Nominate.jsx'
