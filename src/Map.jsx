@@ -5,7 +5,7 @@ import moment from 'moment'
 class Map extends Component {
   state = {
     selectedYear: 2019,
-    selectedGender: "all",
+    selectedGender: "All",
     viewport: {
       width: '100%',
       height: 600,
@@ -21,31 +21,41 @@ class Map extends Component {
     })
   }
 
-  eventsYear = () => {
-    let arr = []
+  eventsFilter = () => {
+    let filteredEventsArr = []
     let year = this.state.selectedYear
-    arr = this.props.events.filter((event, index) => {
+
+    filteredEventsArr = this.props.events.filter((event) => {
       let date = moment(event["Date of Incident"])
       let firstDay = moment(`${year}-01-01`)
       let lastDay = moment(`${year}-12-31`)      
       let boolean = moment(date).isBetween(firstDay, lastDay)
       return boolean === true
     })
-    return arr
+
+    if (this.state.selectedGender === "All") {
+      return filteredEventsArr
+    } else if (this.state.selectedGender === "Female") {
+      filteredEventsArr = filteredEventsArr.filter((event) => {
+        return event["Victim's gender"] === "Female"
+      })
+    } else {
+      filteredEventsArr = filteredEventsArr.filter((event) => {
+        return event["Victim's gender"] === "Male"
+      })
+    }
+    return filteredEventsArr
   }
 
   renderEvents = () => {
-    let arr = this.eventsYear()
-    let eventsYear = []
-    eventsYear = arr.map((event, index) => {
+    let arr = this.eventsFilter()
+    let filteredEvents = []
+
+    filteredEvents = arr.map((event, index) => {
       return <Marker key={index} latitude={event["Latitude"]} longitude={event["Longitude"]} offsetLeft={-20} offsetTop={-10}> <span role="img" aria-label="flame">⚫️</span></Marker>
     })
-    return eventsYear
-
+    return filteredEvents
   }
-
-  // "Victim's gender": "Male",
-  // "Victim's race": "White",
 
   render() {
     return (
