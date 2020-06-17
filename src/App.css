@@ -106,6 +106,13 @@ h2.welcome {
   font-family: "Karla", sans-serif
 }
 
+h2#police-brutality.welcome {
+  margin: 0px;
+  font-weight: 700;
+  font-size: 32px;
+  font-family: "Karla", sans-serif
+}
+
 h3 {
   font-size: 24px;
   margin: 16px 0px
