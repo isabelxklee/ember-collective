@@ -23,6 +23,12 @@ Ember Collective is an educational resource for anti-racism and supporting the B
 
 ## Features
 
+### Police Brutality Tracker
+
+### Donation Match Challenges
+
+### Global state management
+
 ### Asynchronous fetches
 * Pulls breaking news articles from the News API using asynchronous fetches
 
@@ -30,7 +36,7 @@ Ember Collective is an educational resource for anti-racism and supporting the B
 * Models have `has_many`, `belongs_to` and `has_many through` associations
 * Uses ActiveModelSerializers, which turns model attributes into JSON object keys
 
-### React
+### React components
 * Update the application state using React lifecycle methods
 * Organize the code structure by separating components into presentation components and container components
 * Implement inverse data flow to send props down and up between parent components and child components
