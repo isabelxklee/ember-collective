@@ -72,6 +72,7 @@ class DonationChallenge extends Component {
   }
 
   render() {
+    console.log(this.renderUsers())
     return (
       <>
         <div className="send-challenge">

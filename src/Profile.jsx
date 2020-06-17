@@ -59,20 +59,31 @@ class Profile extends Component {
     return firstOrg === undefined ? null : firstOrg["id"]
   }
 
+  accountAge = () => {
+    let created_at = this.props.created_at
+    let join_date = moment(created_at)
+    let now = moment()
+
+    return join_date.from(now)
+  }
+
+  nominateToggle = () => {
+    let created_at = this.props.created_at
+    let join_date = moment(created_at)
+    let now = moment()
+
+    return now.diff(join_date, 'days') >= 2 ? <div className="donations"><Nominate/></div> : null
+  }
+
   render() {
     let username = this.props.username
-    let created_at = this.props.created_at
-
-    let join_date = moment(created_at);
-    let now = moment();
     
     return (
       <div className="container">
         <div className="user-info">
           <h1 className="profile">Your Profile</h1>
           <h3 className="username">Hello, @{username}! <span role="img" aria-label="star">👋</span></h3>
-          {/* <h5><span role="img" aria-label="star">🌟</span> {moment(created_at).format("[Joined on] LL")}</h5> */}
-          <h5><span role="img" aria-label="star">🌟</span> Joined {join_date.from(now)}</h5>
+          <h5><span role="img" aria-label="star">🌟</span> Joined { this.accountAge() }</h5>
           {/* <h5>✅ Verified {verifications.length} organizations</h5> */}
           <h5><span role="img" aria-label="confetti">🎉</span> Nominated <Pluralize singular={'organization'} count={this.usersNominations()} /></h5>
           <h5><span role="img" aria-label="money">💵</span> Sent <Pluralize singular={'challenge'} count={this.usersDonationChallenges()} donation match challenges/></h5>
@@ -89,11 +100,7 @@ class Profile extends Component {
           />
         </div>
 
-        { now.diff(join_date, 'days') >= 2 ?
-          <div className="donations"><Nominate/></div>
-          :
-          null
-        }
+        { this.nominateToggle() }
 
       </div>
     )

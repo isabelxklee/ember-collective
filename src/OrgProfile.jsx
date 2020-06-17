@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Tag from './Tag.jsx'
 import OrgStats from './OrgStats.jsx'
+import moment from 'moment'
 
 class OrgProfile extends Component {
   componentDidMount() {
@@ -51,8 +52,20 @@ class OrgProfile extends Component {
     return challenges
   }
 
+  verifyToggle = () => {
+    let created_at = this.props.created_at
+    let join_date = moment(created_at)
+    let now = moment()
+
+    return now.diff(join_date, 'days') >= 2 ?
+    <Link to={`/organizations/${this.props.org.id}/edit`}>
+      <button>Verify information</button>
+    </Link>
+    : null
+  }
+
   render() {
-    let {id, name, website, donation_link, tagline, description, location} = this.props.org
+    let {name, website, donation_link, description, location} = this.props.org
 
     let orgsTags = this.findOrgsTags().map((tag) => {
       return <Tag key={tag.id} tag={tag}/>
@@ -69,18 +82,17 @@ class OrgProfile extends Component {
           <h1 className="org-profile">{name}</h1>
           <h4>{location}</h4>
         </div>
+
+        <div className="btn-group">
+          <button className="small-button"><a href={website} target="blank" className="small-button">Website</a></button>
+          <button className="small-button"><a href={donation_link} target="blank" className="small-button">Donate</a></button>
+          
+          { this.verifyToggle() }
+
+        </div>
        
        <div className="org-body">
-          <div className="btn-group">
-            <button className="small-button"><a href={website} target="blank" className="small-button">Website</a></button>
-            <button className="small-button"><a href={donation_link} target="blank" className="small-button">Donate</a></button>
-            
-            <Link to={`/organizations/${id}/edit`}>
-              <button>Verify</button>
-            </Link>
 
-          </div>
-          <p>{tagline}</p>
           <h2>Description</h2>
           <p>{description}</p>        
 
@@ -131,7 +143,8 @@ let mapStateToProps = (globalState) => {
   return {
     tags: globalState.tagInfo.tags,
     tag_joiners: globalState.tagInfo.tag_joiners,
-    donation_challenges: globalState.donationInformation.donation_challenges
+    donation_challenges: globalState.donationInformation.donation_challenges,
+    created_at: globalState.userInformation.created_at
   }
 }
 

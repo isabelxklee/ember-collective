@@ -42,6 +42,7 @@ class DonationStats extends Component {
 
   render() {
     let {amount} = this.props.challenge
+    console.log(this.props.challenge)
 
     return (
       <>

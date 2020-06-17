@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import Map from './Map.jsx'
 
@@ -14,7 +13,7 @@ class PoliceBrutalityTracker extends Component {
     .then(r => r.json())
     .then((mapArr) => {
       this.props.setAllEvents(mapArr)
-      // alert("Trigger warning: This page includes content relating to racial violence, murder, police violence, police brutality, and racism.")
+      alert("Trigger warning: This page includes content relating to racial violence, murder, police violence, police brutality, and racism.")
     })
   }
   

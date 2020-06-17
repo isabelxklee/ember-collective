@@ -11,7 +11,7 @@ class Map extends Component {
       height: 600,
       latitude: 39.0626831,
       longitude: -101.642682,
-      zoom: 3
+      zoom: 2
     }
   }
 

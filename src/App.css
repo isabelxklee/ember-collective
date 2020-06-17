@@ -342,7 +342,7 @@ div.tag {
   background-color: white;
   color: rgb(131, 46, 0);
   text-align: center;
-  padding: 10px 20px
+  padding: 8px 16px
 }
 
 button.cat-tag {
@@ -355,7 +355,7 @@ div.tag-container {
 }
 
 div.org-header {
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 div.org-body {
@@ -364,6 +364,7 @@ div.org-body {
   text-align: left;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
   background-color: rgb(255, 252, 248);
+  margin-top: 20px;
 }
 
 div.police-form {

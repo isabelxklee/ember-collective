@@ -22,13 +22,7 @@ class Verify extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.setState({
-      username: "",
-      email_address: "",
-      password: "",
-      password_confirmation: ""
-    })
-
+    
     fetch(`http://localhost:3000/organizations/${this.props.org.id}`, {
       method: "PATCH",
       headers: {
@@ -38,7 +32,8 @@ class Verify extends Component {
     })
     .then(r => r.json())
     .then((updatedOrg) => {
-      this.props.updateOrg(updatedOrg)
+      alert("This organization has been updated!")
+      console.log(updatedOrg)
       this.props.history.push(`/organizations/${this.props.org.id}`)
     })
   }
