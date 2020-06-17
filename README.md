@@ -50,4 +50,5 @@ Coming soon...
 * [ActiveModel::Serializer](https://github.com/rails-api/active_model_serializers): description
 * [Google Maps API](https://developers.google.com/maps/documentation/javascript/tutorial)
 * [Geocoding API](https://developers.google.com/maps/documentation/geocoding/start)
-* [Moment.js](https://momentjs.com)
+* [Mapbox API](https://docs.mapbox.com/mapbox-gl-js/api/): Mapbox GL JS is a JavaScript library that uses WebGL to render interactive maps from vector tiles and Mapbox styles.
+* [Moment.js](https://momentjs.com): Parse, validate, manipulate, and display dates and times in JavaScript.
