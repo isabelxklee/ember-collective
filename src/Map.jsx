@@ -5,6 +5,7 @@ import moment from 'moment'
 class Map extends Component {
   state = {
     selectedYear: 2019,
+    selectedGender: "all",
     viewport: {
       width: '100%',
       height: 600,
@@ -43,17 +44,32 @@ class Map extends Component {
 
   }
 
+  // "Victim's gender": "Male",
+  // "Victim's race": "White",
+
   render() {
     return (
-      <div>
-        <div className="btn-group">
-          <button onClick={this.handleChange} name="selectedYear" value="2019">2019</button>
-          <button onClick={this.handleChange} name="selectedYear" value="2018">2018</button>
-          <button onClick={this.handleChange} name="selectedYear" value="2017">2017</button>
-          <button onClick={this.handleChange} name="selectedYear" value="2016">2016</button>
-          <button onClick={this.handleChange} name="selectedYear" value="2015">2015</button>
-          <button onClick={this.handleChange} name="selectedYear" value="2014">2014</button>
-          <button onClick={this.handleChange} name="selectedYear" value="2013">2013</button>
+      <div className="map-container">
+        <div className="resources-filter">
+          <h3><strong>Filter by year</strong></h3>
+          <div className="btn-group">
+            <button onClick={this.handleChange} name="selectedYear" value="2019">2019</button>
+            <button onClick={this.handleChange} name="selectedYear" value="2018">2018</button>
+            <button onClick={this.handleChange} name="selectedYear" value="2017">2017</button>
+            <button onClick={this.handleChange} name="selectedYear" value="2016">2016</button>
+            <button onClick={this.handleChange} name="selectedYear" value="2015">2015</button>
+            <button onClick={this.handleChange} name="selectedYear" value="2014">2014</button>
+            <button onClick={this.handleChange} name="selectedYear" value="2013">2013</button>
+          </div>
+
+          <h3><strong>Filter by gender</strong></h3>
+          <p>This data does not accurately represent genderqueer people, especially trans folks, as police reports and criminal intake forms do not reflect gender options outside of the male/female binary.</p>
+
+          <div className="btn-group">
+            <button onClick={this.handleChange} name="selectedGender" value="All">All</button>
+            <button onClick={this.handleChange} name="selectedGender" value="Male">Male</button>
+            <button onClick={this.handleChange} name="selectedGender" value="Female">Female</button>
+          </div>
         </div>
 
         <p><strong>Showing {this.renderEvents().length} murders by the police</strong></p>
