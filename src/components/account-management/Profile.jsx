@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import moment from 'moment'
 import Pluralize from 'react-pluralize'
-import DonationChallenge from './DonationChallenge'
-import Nominate from './Nominate.jsx'
+import DonationChallenge from '../donations/DonationChallenge'
+import Nominate from '../organizations/Nominate.jsx'
 
 class Profile extends Component {
   componentDidMount() {

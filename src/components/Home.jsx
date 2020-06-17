@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import FilterOrgs from './FilterOrgs.jsx'
-import OrganizationContainer from './OrganizationContainer'
+import FilterOrgs from './organizations/FilterOrgs.jsx'
+import OrganizationContainer from '../components/organizations/OrganizationContainer'
 import Pluralize from 'react-pluralize'
 
 class Home extends Component {
@@ -52,7 +52,7 @@ class Home extends Component {
           searchTerm={this.state.searchTerm}
           handleSearchTerm={this.handleSearchTerm}
         />
-        <p className="results">Showing <Pluralize singular={'organization'} count={this.props.orgs.length} /></p>
+        <p className="results">Showing <Pluralize singular={'organization'} count={this.filterOrgsArray().length} /></p>
         <OrganizationContainer orgs={this.filterOrgsArray()}/>
       </div>
     )
