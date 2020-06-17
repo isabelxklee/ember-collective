@@ -39,14 +39,15 @@ Ember Collective is an educational resource for anti-racism and supporting the B
 * Pulls data from the Rails backend using asynchronous fetches
 --->
 
-### ActiveRecord Associations
-* Models have `has_many`, `belongs_to` and `has_many through` associations
-* Uses ActiveModelSerializers, which turns model attributes into JSON object keys
-
-### React components
+<!--- ### React components
 * Update the application state using React lifecycle methods
 * Organize the code structure by separating components into presentation components and container components
 * Implement inverse data flow to send props down and up between parent components and child components
+--->
+
+### ActiveRecord Associations
+* Models have `has_many`, `belongs_to` and `has_many through` associations
+* Uses ActiveModelSerializers, which turns model attributes into JSON object keys
 
 ## Domain Model
 Coming soon...
