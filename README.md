@@ -2,7 +2,7 @@ Ember Collective 🔥
 ========================
 
 ## Summary
-Ember Collective is...
+Ember Collective is a 
 
 [Link to backend](https://github.com/isabelxklee/ember-collective-backend)
 
@@ -39,7 +39,8 @@ Ember Collective is...
 Coming soon...
 
 ## Tech Stack
-* React.js (Frontend)
+* React.js
+* Redux
 * Ruby on Rails API (Backend: https://github.com/isabelxklee/ember-collective-backend)
 * PostgreSQL
 * HTML/CSS
