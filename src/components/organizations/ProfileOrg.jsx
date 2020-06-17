@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Tag from './Tag.jsx'
-import OrgStats from './OrgStats.jsx'
+import OrgDonations from './OrgDonations.jsx'
 import moment from 'moment'
 
-class OrgProfile extends Component {
+class ProfileOrg extends Component {
   componentDidMount() {
     fetch("http://localhost:3000/tags")
     .then(r => r.json())
@@ -72,7 +72,7 @@ class OrgProfile extends Component {
     })
 
     let donationStats = this.renderOrgsDonations().map((challenge) => {
-      return <OrgStats key={challenge.id} challenge={challenge}/>
+      return <OrgDonations key={challenge.id} challenge={challenge}/>
     })
 
     return (
@@ -148,4 +148,4 @@ let mapStateToProps = (globalState) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(OrgProfile)
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileOrg)

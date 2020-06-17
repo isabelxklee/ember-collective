@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {withRouter } from 'react-router-dom'
 
-class OrgTile extends Component {
+class CardOrg extends Component {
   truncateString = (string, number) => {
     if (string.length <= number) {
       return string
@@ -29,4 +29,4 @@ class OrgTile extends Component {
   }
 }
 
-export default withRouter(OrgTile)
+export default withRouter(CardOrg)

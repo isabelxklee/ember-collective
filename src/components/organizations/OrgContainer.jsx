@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import OrgTile from './OrgTile.jsx'
+import CardOrg from './CardOrg.jsx'
 
-
-class OrganizationContainer extends Component {
+class OrgContainer extends Component {
  render() {
     let orgsArr = this.props.orgs.map((org) => {
-      return <OrgTile key={org.id} org={org}/>
+      return <CardOrg key={org.id} org={org}/>
     })
 
     return (
@@ -18,4 +17,4 @@ class OrganizationContainer extends Component {
   }
 }
 
-export default OrganizationContainer
+export default OrgContainer

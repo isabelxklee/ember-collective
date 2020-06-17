@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 
-class OrgStats extends Component {
+class OrgDonations extends Component {
   componentDidMount() {
     fetch("http://localhost:3000/users")
     .then(r => r.json())
@@ -53,4 +53,4 @@ let mapStateToProps = (globalState) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(OrgStats)
+export default connect(mapStateToProps, mapDispatchToProps)(OrgDonations)

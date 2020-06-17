@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import FilterOrgs from './organizations/FilterOrgs.jsx'
-import OrganizationContainer from '../components/organizations/OrganizationContainer'
+import OrgContainer from '../components/organizations/OrgContainer'
 import Pluralize from 'react-pluralize'
 
 class Home extends Component {
@@ -53,7 +53,7 @@ class Home extends Component {
           handleSearchTerm={this.handleSearchTerm}
         />
         <p className="results">Showing <Pluralize singular={'organization'} count={this.filterOrgsArray().length} /></p>
-        <OrganizationContainer orgs={this.filterOrgsArray()}/>
+        <OrgContainer orgs={this.filterOrgsArray()}/>
       </div>
     )
   }

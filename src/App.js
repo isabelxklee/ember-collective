@@ -8,7 +8,7 @@ import CreateAccount from './components/account-management/CreateAccount.jsx'
 import Login from './components/account-management/Login.jsx'
 import Profile from './components/account-management/Profile.jsx'
 import Resources from './components/resources/ResourceContainer.jsx'
-import OrgProfile from './components/organizations/OrgProfile.jsx'
+import ProfileOrg from './components/organizations/ProfileOrg.jsx'
 import PoliceBrutalityTracker from './components/police-brutality/PoliceBrutalityTracker.jsx'
 import About from './components/About.jsx'
 import Footer from './components/Footer.jsx'
@@ -66,7 +66,7 @@ class App extends Component {
     let orgs = this.props.orgs
     let allRoutes = []
     allRoutes = orgs.map((org) => {
-      return <Route exact path={`/organizations/${org.id}`} key={org.id}> <OrgProfile key={org.id} org={org}/> </Route>
+      return <Route exact path={`/organizations/${org.id}`} key={org.id}> <ProfileOrg key={org.id} org={org}/> </Route>
     })
     return allRoutes
   }
