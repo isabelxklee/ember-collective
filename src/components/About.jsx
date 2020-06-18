@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 class About extends Component {
   peopleArr = ["Gabrielle Noel", "Xavier Carty", "Sylwia Vargas", "Eric Kim", "Annie Souza", "Randy Herasme", "Paras Memon", "Stephen Song", "Julius Tarng", "Ryan Nylander"]
@@ -12,7 +13,8 @@ class About extends Component {
   render() {
     return (
       <div className="container">
-        <h1>About</h1><br/>
+        <h1>About the Ember Collective</h1><br/>
+        <div className="resources-filter">
         <h3 className="welcome">
           Hi there! My name is Isabel K. Lee and I'm a creative technologist. My background is primarily in technology, but I've been involved in politics and activism since I was a student at McGill University.
         </h3>
@@ -22,11 +24,13 @@ class About extends Component {
         </p>
 
         <p>
-          There are small and large ways that we can all contribute to this ongoing revolution. The educational materials in the Resources section are probably more eloquent than anything I could say, but I truly believe that the revolution starts with us and ends with enacting drastic systemic changes.
+          There are small and large ways that we can all contribute to this ongoing revolution. The educational materials in the <Link to="/resources" className="welcome"> Resources</Link> section are probably more eloquent than anything I could say, but I truly believe that the revolution starts with us and ends with enacting drastic systemic changes.
         </p>        
 
         <p>
+        <h3 className="welcome">
           So, what does that look like?
+        </h3>
           <ul>
             <li>Reflect on your own privileges and biases.</li>
             <li>Let yourself be uncomfortable and challenge yourself to unlearn those racist, sexist, transphobic, etc. beliefs.</li>
@@ -43,6 +47,7 @@ class About extends Component {
 
         <p>Love,</p>
         <p>Isabel K. Lee</p>
+        </div>
 
         <div className="resources-filter">
           <h2>Acknowledgements</h2>

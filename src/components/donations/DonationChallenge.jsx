@@ -5,9 +5,9 @@ import DonationStats from './DonationStats.jsx'
 class DonationChallenge extends Component {
   state = {
     sender_id: this.props.id,
-    amount: 0,
-    org_id: 0,
-    receiver_id: 0
+    amount: "0",
+    org_id: "0",
+    receiver_id: "0"
   }
 
   componentDidMount() {
@@ -31,17 +31,10 @@ class DonationChallenge extends Component {
         sender_id: this.props.id
       })
     }
-    console.log(event.target.value)
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.setState({
-      sender_id: this.props.id,
-      amount: 0,
-      org_id: 0,
-      receiver_id: 0
-    })
 
     fetch("http://localhost:3000/donation_challenges", {
       method: "POST",
@@ -75,6 +68,7 @@ class DonationChallenge extends Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <>
         <div className="send-challenge">
