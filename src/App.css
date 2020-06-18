@@ -137,14 +137,30 @@ h5 {
   font-weight: 400;
 }
 
+p {
+  font-size: 20px;
+  line-height: 26px;
+}
+
 p.results {
   margin: 0px 80px;
   font-weight: 900;
 }
 
-p {
-  font-size: 20px;
-  line-height: 26px;
+p.description {
+  padding: 0px 30px
+}
+
+p.form-description {
+  margin: 10px 0px -10px;
+  width: 60%
+}
+
+p.error {
+  font-weight: 900;
+  font-size: 16px;
+  color: red;
+  margin: 0px 0px 20px
 }
 
 a.small-button:link, a.small-button:visited {
@@ -324,10 +340,6 @@ select {
   border: 2px solid rgb(131, 46, 0);
   font-weight: 900;
   color: rgb(45, 45, 45);
-}
-
-p.description {
-  padding: 0px 30px
 }
 
 div.received-challenges, div.send-challenge {

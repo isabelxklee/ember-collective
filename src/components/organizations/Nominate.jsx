@@ -9,14 +9,58 @@ class Nominate extends Component {
     website: "",
     donation_link: "",
     tagline: "",
-    description: ""
+    description: "",
+    errors: {
+      website: "",
+      donation_link: "",
+      description: ""
+    }
   }
 
+  expression = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi
+  regex = new RegExp(this.expression)
+
   handleChange = (event) => {
+    let errors = this.state.errors
+
+    switch (event.target.name) {
+      case 'website': 
+        errors.website = 
+        event.target.value.match(this.regex)
+            ? ''
+            : 'Website must be a valid format. Example: www.example.com'
+        break
+
+      case 'donation_link': 
+        errors.donation_link = 
+        event.target.value.match(this.regex)
+            ? ''
+            : 'Website must be a valid format. Example: www.example.com'
+        break
+
+      case 'description': 
+        errors.description = 
+        event.target.value.length < 50 || event.target.value.length > 1250
+            ? 'Description must be between 50 and 1250 characters.'
+            : ''
+        break
+
+      default:
+        break
+    }
+
     this.setState({
       [event.target.name]: event.target.value
     })
     console.log(event.target.value)
+  }
+
+  validateForm = (errors) => {
+    let valid = true
+    Object.values(errors).forEach(
+      (val) => val.length > 0 && (valid = false)
+    )
+    return valid
   }
 
   handleSubmit = (event) => {
@@ -46,6 +90,8 @@ class Nominate extends Component {
   }
 
   render() {
+    let {errors} = this.state
+
     return (
       <div className="send-challenge">
         <h2>Nominate an Organization</h2>
@@ -83,6 +129,10 @@ class Nominate extends Component {
             value={this.state.website}
             onChange={this.handleChange} />
         <br />
+        {errors.website.length > 0 && 
+          <p className='error'>{errors.website}</p>
+        }
+        <br />
 
         <label>Donation Link</label>
         <br />
@@ -93,11 +143,15 @@ class Nominate extends Component {
           value={this.state.donation_link}
           onChange={this.handleChange} />
         <br />
+        {errors.donation_link.length > 0 && 
+          <p className='error'>{errors.donation_link}</p>
+        }
+        <br />
 
         <label>Tag Line</label>
-        <p>If this organization doesn't have a readily accessible tag line, it can be the first couple sentences of the org's description.</p>
+        <p className="form-description">If this organization doesn't have a readily accessible tag line, it can be the first couple sentences of the org's description.</p>
         <br />
-        <input
+        <textarea
           name="tagline"
           type="text"
           autoComplete="off"
@@ -114,8 +168,12 @@ class Nominate extends Component {
           value={this.state.description}
           onChange={this.handleChange} />
         <br />
+        {errors.description.length > 0 && 
+          <p className='error'>{errors.description}</p>
+        }
+        <br />
 
-        <button type="submit" className="submit-button">Nominate Organization</button>
+        <button type="submit" className="submit-button">Add organization</button>
       </form>
       </div>
     )
