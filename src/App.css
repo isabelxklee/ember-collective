@@ -411,3 +411,7 @@ div.resources-filter {
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
   background-color: rgb(255, 252, 248);
 }
+
+div.acknowledgements {
+  margin: 60px 0px;
+}

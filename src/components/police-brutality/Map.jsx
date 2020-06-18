@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ReactMapGL, {Marker} from 'react-map-gl'
+import ReactMapGL, {Marker, NavigationControl} from 'react-map-gl'
 import moment from 'moment'
 
 class Map extends Component {
@@ -103,6 +103,9 @@ class Map extends Component {
           onViewportChange={(viewport) => this.setState({viewport})
           }
         >
+          <div style={{position: 'absolute', right: 0}}>
+            <NavigationControl showCompass={false}/>
+          </div>
 
         {this.renderEvents()}
         </ReactMapGL>
