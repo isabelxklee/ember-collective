@@ -3,21 +3,71 @@ import {connect} from 'react-redux'
 import {withRouter } from 'react-router-dom'
 
 class Verify extends Component {
-
   state = {
     name: this.props.org.name,
     website: this.props.org.website,
     donation_link: this.props.org.donation_link,
     tagline: this.props.org.tagline,
     description: this.props.org.description,
-    location: this.props.org.location
+    location: this.props.org.location,
+    errors: {
+      website: "",
+      donation_link: "",
+      tagline: "",
+      description: ""
+    }
   }
 
+  expression = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi
+  regex = new RegExp(this.expression)
+
   handleChange = (event) => {
+    let errors = this.state.errors
+
+    switch (event.target.name) {
+      case 'website': 
+        errors.website = 
+        event.target.value.match(this.regex)
+            ? ''
+            : 'Website must be a valid format. Example: www.example.com'
+        break
+
+      case 'donation_link': 
+        errors.donation_link = 
+        event.target.value.match(this.regex)
+            ? ''
+            : 'Website must be a valid format. Example: www.example.com'
+        break
+
+      case 'tagline': 
+        errors.tagline = 
+        event.target.value.length < 25 || event.target.value.length > 300
+            ? 'Tagline must be between 25 and 300 characters.'
+            : ''
+        break
+
+      case 'description': 
+        errors.description = 
+        event.target.value.length < 50 || event.target.value.length > 1250
+            ? 'Description must be between 50 and 1250 characters.'
+            : ''
+        break
+
+      default:
+        break
+    }
+
     this.setState({
       [event.target.name]: event.target.value
     })
-    console.log(event.target.value)
+  }
+
+  validateForm = (errors) => {
+    let valid = true
+    Object.values(errors).forEach(
+      (val) => val.length > 0 && (valid = false)
+    )
+    return valid
   }
 
   handleSubmit = (event) => {
@@ -39,6 +89,8 @@ class Verify extends Component {
   }
 
   render() {
+    let {errors} = this.state
+
     return (
       <div className="container">
         <h1>Verify this organization's information</h1>
@@ -74,6 +126,10 @@ class Verify extends Component {
             value={this.state.website}
             onChange={this.handleChange} />
         <br />
+        {errors.website.length > 0 && 
+          <p className='error'>{errors.website}</p>
+        }
+        <br />
 
         <label>Donation Link</label>
         <br />
@@ -84,15 +140,23 @@ class Verify extends Component {
           value={this.state.donation_link}
           onChange={this.handleChange} />
         <br />
+        {errors.donation_link.length > 0 && 
+          <p className='error'>{errors.donation_link}</p>
+        }
+        <br />
 
         <label>Tag Line</label>
         <br />
-        <input
+        <textarea
           name="tagline"
           type="text"
           autoComplete="off"
           value={this.state.tagline}
           onChange={this.handleChange} />
+        <br />
+        {errors.tagline.length > 0 && 
+          <p className='error'>{errors.tagline}</p>
+        }
         <br />
 
         <label>Description</label>
@@ -103,6 +167,10 @@ class Verify extends Component {
           autoComplete="off"
           value={this.state.description}
           onChange={this.handleChange} />
+        <br />
+        {errors.description.length > 0 && 
+          <p className='error'>{errors.description}</p>
+        }
         <br />
 
         <button type="submit" className="submit-button">Save changes</button>

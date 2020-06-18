@@ -66,8 +66,6 @@ class DonationChallenge extends Component {
   }
 
   renderReceivers = () => {
-    console.log(this.props.receivers)
-
     return this.props.receivers.length > 0 ?
       this.props.receivers.map((challenge) => {
         return <DonationStats key={challenge.id} challenge={challenge}/>

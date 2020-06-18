@@ -60,7 +60,6 @@ class Nominate extends Component {
     this.setState({
       [event.target.name]: event.target.value
     })
-    console.log(event.target.value)
   }
 
   validateForm = (errors) => {
@@ -91,7 +90,8 @@ class Nominate extends Component {
     })
     .then(r => r.json())
     .then((newOrg) => {
-      this.props.propsCreateOrg(newOrg)
+      console.log(newOrg)
+      this.props.createOrg(newOrg)
       this.props.history.push("/")
     })
     console.log("You've successfully nominated a new organization!")
@@ -200,7 +200,7 @@ let createOrg = (org) => {
 }
 
 let mapDispatchToProps = {
-  propsCreateOrg: createOrg
+  createOrg: createOrg
 }
 
 let MagicalComponent = withRouter(Nominate)
