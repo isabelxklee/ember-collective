@@ -13,6 +13,7 @@ class Nominate extends Component {
     errors: {
       website: "",
       donation_link: "",
+      tagline: "",
       description: ""
     }
   }
@@ -36,6 +37,13 @@ class Nominate extends Component {
         event.target.value.match(this.regex)
             ? ''
             : 'Website must be a valid format. Example: www.example.com'
+        break
+
+      case 'tagline': 
+        errors.tagline = 
+        event.target.value.length < 25 || event.target.value.length > 300
+            ? 'Tagline must be between 25 and 300 characters.'
+            : ''
         break
 
       case 'description': 
@@ -157,6 +165,10 @@ class Nominate extends Component {
           autoComplete="off"
           value={this.state.tagline}
           onChange={this.handleChange} />
+        <br />
+        {errors.tagline.length > 0 && 
+          <p className='error'>{errors.tagline}</p>
+        }
         <br />
 
         <label>Description</label>
