@@ -92,9 +92,27 @@ class Nominate extends Component {
     .then((newOrg) => {
       console.log(newOrg)
       this.props.createOrg(newOrg)
+      this.createNomination(newOrg)
       this.props.history.push("/")
     })
     console.log("You've successfully nominated a new organization!")
+  }
+
+  createNomination = (newOrg) => {
+    fetch("http://localhost:3000/nominations", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify({
+        org_id: newOrg.id,
+        user_id: this.props.id
+      })
+    })
+    .then(r => r.json())
+    .then((newNom) => {
+      this.props.createNom(newNom)
+    })
   }
 
   render() {
@@ -199,10 +217,24 @@ let createOrg = (org) => {
   }
 }
 
+let createNom = (nomination) => {
+  return {
+    type: "CREATE_NOMINATION",
+    payload: nomination
+  }
+}
+
 let mapDispatchToProps = {
-  createOrg: createOrg
+  createOrg: createOrg,
+  createNom: createNom
+}
+
+let mapStateToProps = (globalState) => {
+  return {
+    id: globalState.userInformation.id
+  }
 }
 
 let MagicalComponent = withRouter(Nominate)
 
-export default connect(null, mapDispatchToProps)(MagicalComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(MagicalComponent)

@@ -174,6 +174,7 @@ textarea {
   border-radius: 4px;
   padding: 10px 14px;
   font-size: 14px;
+  font-weight: 900;
   border: 2px solid rgb(131, 46, 0);
   margin: 20px 0px;
   font-family: "Karla", sans-serif;
@@ -426,4 +427,20 @@ div.resources-filter {
 
 div.acknowledgements {
   margin: 60px 0px;
+}
+
+ul {
+  list-style: none
+}
+
+li {
+  font-size: 20px;
+  line-height: 30px;
+  padding-left: 0rem;
+  text-indent: -1.7rem;
+  padding: 4px
+}
+
+li::before {
+  content: "🌟  ";
 }
