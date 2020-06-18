@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import ReactMapGL, {Marker, NavigationControl} from 'react-map-gl'
 import moment from 'moment'
 
-class Map extends Component {
+class Map extends PureComponent {
   state = {
     selectedYear: 2019,
     selectedGender: "All",

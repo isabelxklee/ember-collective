@@ -66,13 +66,17 @@ class DonationChallenge extends Component {
   }
 
   renderReceivers = () => {
-    this.props.receivers.map((challenge) => {
-      return <DonationStats key={challenge.id} challenge={challenge}/>
-    })
+    console.log(this.props.receivers)
+
+    return this.props.receivers.length > 0 ?
+      this.props.receivers.map((challenge) => {
+        return <DonationStats key={challenge.id} challenge={challenge}/>
+      })
+      :
+      <p>This user hasn't received any donation match challenges yet.</p>
   }
 
   render() {
-    console.log(this.renderUsers())
     return (
       <>
         <div className="send-challenge">
@@ -112,7 +116,7 @@ class DonationChallenge extends Component {
 
         <div className="received-challenges">
           <h2>Received challenges</h2>
-            {this.props.receivers > 0 ? this.renderReceivers() : <p>This user hasn't received any donation match challenges yet.</p>}
+          { this.renderReceivers() }
         </div>
       </>
     )

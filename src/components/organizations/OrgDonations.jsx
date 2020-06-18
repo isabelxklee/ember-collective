@@ -30,7 +30,7 @@ class OrgDonations extends Component {
     let {amount} = this.props.challenge
     return (
       <div>
-        <p>@{this.renderSender()} challenged @{this.renderReceiver()} to donate ${amount}</p>
+        <p><strong>@{this.renderSender()}</strong> challenged <strong>@{this.renderReceiver()}</strong> to donate ${amount}</p>
       </div>
     )
   }
