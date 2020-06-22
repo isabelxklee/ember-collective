@@ -52,12 +52,12 @@ let categoryReducer = (state = initialCategoryState, action) => {
     case "SET_ALL_CATEGORIES":
       return {
         ...state,
-        events: action.payload
+        categories: action.payload
       }
     case "SET_ALL_CATEGORY_JOINERS":
       return {
         ...state,
-        events: action.payload
+        category_joiners: action.payload
       }
     default:
       return state

@@ -23,8 +23,13 @@ class ResourceTile extends Component {
     return string.slice(0, number) + "..."
   }
 
+  renderAllCategories = () => {
+    
+  }
+
   render() {
-    let {title, author, description, link, category} = this.props.resource
+    let {title, author, description, link} = this.props.resource
+
     return (
       <div className="resource-tile">
         {/* <CategoryTag category={category}/> */}
