@@ -42,6 +42,28 @@ let initialEvents = {
   events: []
 }
 
+let initialCategoryState = {
+  categories: [],
+  category_joiners: []
+}
+
+let categoryReducer = (state = initialCategoryState, action) => {
+  switch(action.type) {
+    case "SET_ALL_CATEGORIES":
+      return {
+        ...state,
+        events: action.payload
+      }
+    case "SET_ALL_CATEGORY_JOINERS":
+      return {
+        ...state,
+        events: action.payload
+      }
+    default:
+      return state
+  }
+}
+
 let eventReducer = (state = initialEvents, action) => {
   switch(action.type) {
     case "SET_ALL_EVENTS":
@@ -178,7 +200,8 @@ let singleObject = {
   donationInformation: donationReducer,
   tagInfo: tagReducer,
   resourceInformation: resourceReducer,
-  eventInformation: eventReducer
+  eventInformation: eventReducer,
+  categoryInformation: categoryReducer
 }
 
 let rootReducer = combineReducers(singleObject)
