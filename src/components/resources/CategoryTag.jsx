@@ -4,7 +4,7 @@ class CategoryTag extends Component {
   render() {
     return (
       <button className="cat-tag">
-        #{this.props.category}
+        #{this.props.category.content}
       </button>
     )
   }

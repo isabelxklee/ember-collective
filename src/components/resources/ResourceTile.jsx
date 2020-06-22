@@ -23,17 +23,35 @@ class ResourceTile extends Component {
     return string.slice(0, number) + "..."
   }
 
-  renderAllCategories = () => {
-    
+  findCategoryJoiners = () => {
+    let joiners = []
+
+    joiners = this.props.category_joiners.filter((joiner) => {
+      return joiner.resource_id === this.props.resource.id
+    })
+    return joiners
+  }
+
+  findCategoryTags = () => {
+    let joiners = this.findCategoryJoiners()
+    let arr = []
+    joiners.forEach((joiner) => {
+      this.props.categories.filter((category) => {
+        return joiner.category_id === category.id ? arr.push(category) : null
+      })
+    })
+    return arr
   }
 
   render() {
     let {title, author, description, link} = this.props.resource
-
+    let tags = this.findCategoryTags().map((category) => {
+      return <CategoryTag key={category.id} category={category}/>
+    })
+  
     return (
       <div className="resource-tile">
-        {/* <CategoryTag category={category}/> */}
-        {/* include array of category tags */}
+        {tags}
         <a href={link} target="blank" className="small-button"><h2>{title}</h2></a>
         <h4>By {author}</h4>
         <p>{this.truncateString(description, 200)}</p>
