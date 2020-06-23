@@ -6,7 +6,6 @@ import Pluralize from 'react-pluralize'
 
 class Resources extends Component {
   state = {
-    searchTerm: "",
     selectedTag: ""
   }
 
@@ -25,12 +24,6 @@ class Resources extends Component {
     .then(r => r.json())
     .then((category_joiners) => {
       this.props.setAllCategoryJoiners(category_joiners)
-    })
-  }
-
-  handleSearchTerm = (inputFromChild) => {
-    this.setState({
-      searchTerm: inputFromChild
     })
   }
 
@@ -84,50 +77,6 @@ class Resources extends Component {
   return filteredResources
   }
 
-  // filterResources = () => {
-  //   let joiners = this.findJoiners()
-  //   let resources = this.props.resources
-  //   let filteredResources = []
-
-  //   if (this.state.searchTerm === "") {
-  //     return resources
-  //   } else if (this.state.searchTerm !== "") {
-  //     filteredResources = this.props.resources.filter((resource) => {
-  //       return Object.keys(resource).some(key =>
-  //         typeof resource[key] === "string"
-  //         ?
-  //         resource[key].toLowerCase().includes(this.state.searchTerm.toLowerCase()) : null
-  //       )
-  //   })     
-  //   } else if (this.state.selectedTag !== "") {
-  //     joiners.forEach((joiner) => {
-  //       resources.filter((resource) => {
-  //         return joiner.resource_id === resource.id ? filteredResources.push(resource) : null
-  //       })
-  //     })
-  //   } else if (this.state.selectedTag === "") {
-  //     return resources
-  //   }
-
-  // return filteredResources
-  // }
-
-  filterByCategory = () => {
-    let joiners = this.findJoiners()
-    let resources = [...this.props.resources]
-    let filteredResources = []
-
-    if (this.state.selectedTag !== "") {
-      joiners.forEach((joiner) => {
-        resources.filter((resource) => {
-          return joiner.resource_id === resource.id ? filteredResources.push(resource) : null
-        })
-      })
-    }
-
-    return filteredResources
-  }
-
   render() {
     let resourcesArr = this.filterResources()
     resourcesArr = resourcesArr.map((resource) => {
@@ -140,8 +89,6 @@ class Resources extends Component {
       <div className="container">
         <h1>Resources</h1>
         <FilterResources
-          searchTerm={this.state.searchTerm}
-          handleSearchTerm={this.handleSearchTerm}
           handleCategoryFilter={this.handleCategoryFilter}
         />
         <p><strong>Showing <Pluralize singular={'resource'} count={resourcesArr.length} /></strong></p>

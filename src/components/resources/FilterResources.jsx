@@ -16,10 +16,6 @@ class FilterResources extends Component {
     })
   }
 
-  handleChange = (event) => {
-    this.props.handleSearchTerm(event.target.value)
-  }
-
   handleReset = () => {
     this.props.handleCategoryFilter("")
   }
@@ -31,23 +27,8 @@ class FilterResources extends Component {
 
     return (
       <div className="resources-filter">
-        {/* <label><h3>Find a resource</h3></label>
-        <input
-          className="filter-input"
-          type="text"
-          name="searchTerm"
-          placeholder="Start typing in a tag or title"
-          autoComplete="off"
-          value={this.props.searchTerm}
-          onChange={this.handleChange}
-        /><br />
-
-        <button onClick={this.handleReset} className="filter-button">Clear search terms</button> */}
-
         <h3>View resources by category</h3>
-        <div className="tag-container">
-          { categories }
-        </div>
+        { categories }
         <button onClick={this.handleReset} className="filter-button">See all resources</button>
       </div>
     )

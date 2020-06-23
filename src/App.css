@@ -359,8 +359,8 @@ div.tag {
   cursor: pointer;
 }
 
-button.cat-tag {
-  cursor: default;
+button.tag {
+  margin: 14px 4px
 }
 
 div.tag-container {
