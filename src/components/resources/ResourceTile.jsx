@@ -50,30 +50,31 @@ class ResourceTile extends Component {
     })
   
     return (
-      <div className="resource-tile">
+      <div>
         {img_url
         ?
-          <>
-            <img src={img_url} alt={title} className="resource-img" />
-            <div className="resource-text">
+        <>
+          <img src={img_url} alt={title} className="resource-img" />
+            <div className="resource-tile">
               <div className="tag-container">{tags}</div>
               <a href={link} target="blank" className="small-button"><h2>{title}</h2></a>
               <h4>By {author}</h4>
               <p>{this.truncateString(description, 200)}</p>
-              <button className="small-button"><a href={link} target="blank" className="small-button">Source</a></button>
+              <button className="small-button"><a href={link} target="blank" className="small-button">See more</a></button>
             </div>
-          </>
+        </>
         :
         <>
-          <div className="tag-container">{tags}</div>
-          <a href={link} target="blank" className="small-button"><h2>{title}</h2></a>
-          <h4>By {author}</h4>
-          <p>{this.truncateString(description, 200)}</p>
-          <button className="small-button"><a href={link} target="blank" className="small-button">Source</a></button>
+          <div className="resource-tile-no-image">
+            <div className="tag-container">{tags}</div>
+            <a href={link} target="blank" className="small-button"><h2>{title}</h2></a>
+            <h4>By {author}</h4>
+            <p>{this.truncateString(description, 200)}</p>
+            <button className="small-button"><a href={link} target="blank" className="small-button">See more</a></button>
+          </div>
         </>
         }
-
-      </div>
+        </div>
     )
   }
 }

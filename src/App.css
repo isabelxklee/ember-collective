@@ -435,12 +435,12 @@ li::before {
 }
 
 img.resource-img {
-  width: 250px;
-  height: 75%;
+  width: 275px;
+  height: 400px;
   object-fit: cover;
   border-radius: 6px;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
-  float: right;
+  float: left;
 }
 
 div.resource-tile {
@@ -448,11 +448,17 @@ div.resource-tile {
   color: rgb(45, 45, 45);
   border-radius: 6px;
   padding: 30px;
-  margin: 0px 0px 30px 0px;
+  margin: 0px 0px 30px 310px;
   break-inside: avoid;
   transition: 0.3s;
 }
 
-div.resource-text {
-  width: 46%;
+div.resource-tile-no-image {
+  background-color: rgb(245, 242, 235);
+  color: rgb(45, 45, 45);
+  border-radius: 6px;
+  padding: 30px;
+  margin: 0px 0px 30px 0px;
+  break-inside: avoid;
+  transition: 0.3s;
 }
