@@ -435,8 +435,8 @@ li::before {
 }
 
 img.resource-img {
-  width: 50%;
-  height: 100%;
+  width: 250px;
+  height: 75%;
   object-fit: cover;
   border-radius: 6px;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
