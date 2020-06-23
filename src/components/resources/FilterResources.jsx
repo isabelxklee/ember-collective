@@ -21,7 +21,7 @@ class FilterResources extends Component {
   }
 
   handleReset = () => {
-    this.props.handleSearchTerm("")
+    this.props.handleCategoryFilter("")
   }
 
   render() {
@@ -31,7 +31,7 @@ class FilterResources extends Component {
 
     return (
       <div className="resources-filter">
-        <label><h3>Find a resource</h3></label>
+        {/* <label><h3>Find a resource</h3></label>
         <input
           className="filter-input"
           type="text"
@@ -42,12 +42,13 @@ class FilterResources extends Component {
           onChange={this.handleChange}
         /><br />
 
-        <button onClick={this.handleReset} className="filter-button">Clear search terms</button>
+        <button onClick={this.handleReset} className="filter-button">Clear search terms</button> */}
 
         <h3>View resources by category</h3>
         <div className="tag-container">
           { categories }
         </div>
+        <button onClick={this.handleReset} className="filter-button">See all resources</button>
       </div>
     )
   }

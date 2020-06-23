@@ -71,25 +71,61 @@ class Resources extends Component {
     let resources = this.props.resources
     let filteredResources = []
 
-    if (this.state.searchTerm === "") {
-      return resources
-    } else if (this.state.searchTerm !== "") {
-      filteredResources = this.props.resources.filter((resource) => {
-        return Object.keys(resource).some(key =>
-          typeof resource[key] === "string"
-          ?
-          resource[key].toLowerCase().includes(this.state.searchTerm.toLowerCase()) : null
-        )
-    })     
-    } else if (this.state.selectedTag !== "") {
+    if (this.state.selectedTag !== "") {
       joiners.forEach((joiner) => {
-        filteredResources = resources.filter((resource) => {
-          return joiner.resource_id === resource.id
+        resources.filter((resource) => {
+          return joiner.resource_id === resource.id ? filteredResources.push(resource) : null
+        })
+      })
+    } else if (this.state.selectedTag === "") {
+      return resources
+    }
+
+  return filteredResources
+  }
+
+  // filterResources = () => {
+  //   let joiners = this.findJoiners()
+  //   let resources = this.props.resources
+  //   let filteredResources = []
+
+  //   if (this.state.searchTerm === "") {
+  //     return resources
+  //   } else if (this.state.searchTerm !== "") {
+  //     filteredResources = this.props.resources.filter((resource) => {
+  //       return Object.keys(resource).some(key =>
+  //         typeof resource[key] === "string"
+  //         ?
+  //         resource[key].toLowerCase().includes(this.state.searchTerm.toLowerCase()) : null
+  //       )
+  //   })     
+  //   } else if (this.state.selectedTag !== "") {
+  //     joiners.forEach((joiner) => {
+  //       resources.filter((resource) => {
+  //         return joiner.resource_id === resource.id ? filteredResources.push(resource) : null
+  //       })
+  //     })
+  //   } else if (this.state.selectedTag === "") {
+  //     return resources
+  //   }
+
+  // return filteredResources
+  // }
+
+  filterByCategory = () => {
+    let joiners = this.findJoiners()
+    let resources = [...this.props.resources]
+    let filteredResources = []
+
+    if (this.state.selectedTag !== "") {
+      joiners.forEach((joiner) => {
+        resources.filter((resource) => {
+          return joiner.resource_id === resource.id ? filteredResources.push(resource) : null
         })
       })
     }
 
-  return filteredResources
+    return filteredResources
   }
 
   render() {
