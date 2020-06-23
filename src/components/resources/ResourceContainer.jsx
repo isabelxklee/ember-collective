@@ -6,7 +6,8 @@ import Pluralize from 'react-pluralize'
 
 class Resources extends Component {
   state = {
-    searchTerm: ""
+    searchTerm: "",
+    selectedTag: ""
   }
 
   componentDidMount() {
@@ -39,10 +40,37 @@ class Resources extends Component {
   return resources
   }
 
+  findCategoryJoiners = () => {
+    let joiners = []
+
+    if (this.props.joiners) {
+      this.props.joiners.filter((joiner) => {
+        return joiner.category_id === this.props.category.id ? joiners.push(joiner) : null
+      })
+    }
+
+    return joiners
+  }
+
+  filterByCategory = () => {
+    let joiners = this.findCategoryJoiners()
+    let resources = this.props.resources
+    let filteredArr = []
+
+    if (joiners.length > 0 && resources.length > 0) {
+      this.props.joiners.forEach((joiner) => {
+        this.props.resources.filter((resource) => {
+          return joiner.resource_id === resource.id ? filteredArr.push(resource) : null
+        })
+      })
+    }
+    return filteredArr
+  }
+
   render() {
     let resourcesArr = this.filterResources()
     resourcesArr = resourcesArr.map((resource) => {
-      return <ResourceTile key={resource.id} resource={resource} />
+      return <ResourceTile key={resource.id} resource={resource} resources={this.props.resources} />
     })
 
     return (

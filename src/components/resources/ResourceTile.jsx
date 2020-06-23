@@ -46,12 +46,20 @@ class ResourceTile extends Component {
   render() {
     let {title, author, description, link} = this.props.resource
     let tags = this.findCategoryTags().map((category) => {
-      return <CategoryTag key={category.id} category={category}/>
+      return <CategoryTag
+        key={category.id}
+        category={category}
+        categories={this.props.categories}
+        joiners={this.props.category_joiners}
+        resources={this.props.resources}
+      />
     })
   
     return (
       <div className="resource-tile">
-        {tags}
+        <div className="tag-container">
+          {tags}
+        </div>
         <a href={link} target="blank" className="small-button"><h2>{title}</h2></a>
         <h4>By {author}</h4>
         <p>{this.truncateString(description, 200)}</p>
