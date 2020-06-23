@@ -44,21 +44,35 @@ class ResourceTile extends Component {
   }
 
   render() {
-    let {title, author, description, link} = this.props.resource
+    let {title, author, description, link, img_url} = this.props.resource
     let tags = this.findCategoryTags().map((category) => {
       return <CategoryTag key={category.id} category={category} handleCategoryFilter={this.props.handleCategoryFilter}/>
     })
   
     return (
       <div className="resource-tile">
-        <div className="tag-container">
-          {tags}
-        </div>
-        <a href={link} target="blank" className="small-button"><h2>{title}</h2></a>
-        <h4>By {author}</h4>
-        {/* <p>{this.truncateString(description, 200)}</p> */}
-        <p>{description}</p>
-        <button className="small-button"><a href={link} target="blank" className="small-button">Source</a></button>
+        {img_url
+        ?
+          <>
+            <img src={img_url} alt={title} className="resource-img" />
+            <div className="resource-text">
+              <div className="tag-container">{tags}</div>
+              <a href={link} target="blank" className="small-button"><h2>{title}</h2></a>
+              <h4>By {author}</h4>
+              <p>{this.truncateString(description, 200)}</p>
+              <button className="small-button"><a href={link} target="blank" className="small-button">Source</a></button>
+            </div>
+          </>
+        :
+        <>
+          <div className="tag-container">{tags}</div>
+          <a href={link} target="blank" className="small-button"><h2>{title}</h2></a>
+          <h4>By {author}</h4>
+          <p>{this.truncateString(description, 200)}</p>
+          <button className="small-button"><a href={link} target="blank" className="small-button">Source</a></button>
+        </>
+        }
+
       </div>
     )
   }
