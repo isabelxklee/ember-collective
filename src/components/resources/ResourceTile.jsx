@@ -46,13 +46,7 @@ class ResourceTile extends Component {
   render() {
     let {title, author, description, link} = this.props.resource
     let tags = this.findCategoryTags().map((category) => {
-      return <CategoryTag
-        key={category.id}
-        category={category}
-        categories={this.props.categories}
-        joiners={this.props.category_joiners}
-        resources={this.props.resources}
-      />
+      return <CategoryTag key={category.id} category={category} handleCategoryFilter={this.props.handleCategoryFilter}/>
     })
   
     return (

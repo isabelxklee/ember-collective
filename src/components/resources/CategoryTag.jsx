@@ -1,20 +1,9 @@
 import React, { Component } from 'react'
 
 class CategoryTag extends Component {
-  state = {
-    selectedTag: ""
-  }
-
   handleChange = (event) => {
-    this.setState({
-      selectedTag: event.target.value
-    })
+    this.props.handleCategoryFilter(event.target.value)
   }
-
-  // we have the category, which is just a string and id
-  // find all the joiners that match that category's id
-  // extrapolate all the resources tied to those joiners
-  // render that list of resources
 
   render() {
     return (

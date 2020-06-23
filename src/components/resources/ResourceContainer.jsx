@@ -16,6 +16,16 @@ class Resources extends Component {
     .then((resources) => {
       this.props.setAllResources(resources)
     })
+    fetch("http://localhost:3000/categories")
+    .then(r => r.json())
+    .then((categories) => {
+      this.props.setAllCategories(categories)
+    })
+    fetch("http://localhost:3000/category_joiners")
+    .then(r => r.json())
+    .then((category_joiners) => {
+      this.props.setAllCategoryJoiners(category_joiners)
+    })
   }
 
   handleSearchTerm = (inputFromChild) => {
@@ -24,54 +34,71 @@ class Resources extends Component {
     })
   }
 
-  filterResources = () => {
-    let resources = [...this.props.resources]
-    if (this.state.searchTerm === "") {
-      return resources
-    } else {
-      resources = this.props.resources.filter((resource) => {
-        return Object.keys(resource).some(key =>
-          typeof resource[key] === "string"
-          ?
-          resource[key].toLowerCase().includes(this.state.searchTerm.toLowerCase()) : null
-        )
-    })     
-  }
-  return resources
+  handleCategoryFilter = (inputFromChild) => {
+    this.setState({
+      selectedTag: inputFromChild
+    })
   }
 
-  findCategoryJoiners = () => {
+  findCategory = () => {
+    let selectedCategory = ""
+
+    if (this.state.selectedTag !== "") {
+      let categories = [...this.props.categories]
+      categories.filter((category) => {
+        return category.content === this.state.selectedTag ? selectedCategory = category : null
+      })
+    }
+
+    return selectedCategory
+  }
+
+  findJoiners = () => {
     let joiners = []
+    let selectedCategory = this.findCategory()
 
-    if (this.props.joiners) {
-      this.props.joiners.filter((joiner) => {
-        return joiner.category_id === this.props.category.id ? joiners.push(joiner) : null
+    if (this.props.category_joiners) {
+      this.props.category_joiners.filter((joiner) => {
+        return joiner.category_id === selectedCategory.id ? joiners.push(joiner) : null
       })
     }
 
     return joiners
   }
 
-  filterByCategory = () => {
-    let joiners = this.findCategoryJoiners()
+  filterResources = () => {
+    let joiners = this.findJoiners()
     let resources = this.props.resources
-    let filteredArr = []
+    let filteredResources = []
 
-    if (joiners.length > 0 && resources.length > 0) {
-      this.props.joiners.forEach((joiner) => {
-        this.props.resources.filter((resource) => {
-          return joiner.resource_id === resource.id ? filteredArr.push(resource) : null
+    if (this.state.searchTerm === "") {
+      return resources
+    } else if (this.state.searchTerm !== "") {
+      filteredResources = this.props.resources.filter((resource) => {
+        return Object.keys(resource).some(key =>
+          typeof resource[key] === "string"
+          ?
+          resource[key].toLowerCase().includes(this.state.searchTerm.toLowerCase()) : null
+        )
+    })     
+    } else if (this.state.selectedTag !== "") {
+      joiners.forEach((joiner) => {
+        filteredResources = resources.filter((resource) => {
+          return joiner.resource_id === resource.id
         })
       })
     }
-    return filteredArr
+
+  return filteredResources
   }
 
   render() {
     let resourcesArr = this.filterResources()
     resourcesArr = resourcesArr.map((resource) => {
-      return <ResourceTile key={resource.id} resource={resource} resources={this.props.resources} />
+      return <ResourceTile key={resource.id} resource={resource} resources={this.props.resources} handleCategoryFilter={this.handleCategoryFilter}/>
     })
+
+    console.log(this.filterResources())
 
     return (
       <div className="container">
@@ -79,6 +106,7 @@ class Resources extends Component {
         <FilterResources
           searchTerm={this.state.searchTerm}
           handleSearchTerm={this.handleSearchTerm}
+          handleCategoryFilter={this.handleCategoryFilter}
         />
         <p><strong>Showing <Pluralize singular={'resource'} count={resourcesArr.length} /></strong></p>
           <div className="resource-container">
@@ -86,6 +114,20 @@ class Resources extends Component {
         </div>
       </div>
     )
+  }
+}
+
+let setAllCategories = (categories) => {
+  return {
+    type: "SET_ALL_CATEGORIES",
+    payload: categories
+  }
+}
+
+let setAllCategoryJoiners = (category_joiners) => {
+  return {
+    type: "SET_ALL_CATEGORY_JOINERS",
+    payload: category_joiners
   }
 }
 
@@ -97,12 +139,16 @@ let setAllResources = (resources) => {
 }
 
 let mapDispatchToProps = {
-  setAllResources: setAllResources
+  setAllResources: setAllResources,
+  setAllCategories: setAllCategories,
+  setAllCategoryJoiners: setAllCategoryJoiners
 }
 
 let mapStateToProps = (globalState) => {
   return {
-    resources: globalState.resourceInformation.resources 
+    resources: globalState.resourceInformation.resources,
+    categories: globalState.categoryInformation.categories,
+    category_joiners: globalState.categoryInformation.category_joiners
   }
 }
 

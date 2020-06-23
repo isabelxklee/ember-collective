@@ -26,7 +26,7 @@ class FilterResources extends Component {
 
   render() {
     let categories = this.props.categories.map((category) => {
-      return <CategoryTag key={category.id} category={category} />
+      return <CategoryTag key={category.id} category={category} handleCategoryFilter={this.props.handleCategoryFilter}/>
     })
 
     return (
