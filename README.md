@@ -6,6 +6,8 @@ Ember Collective is an educational resource for anti-racism and supporting the B
 
 [Link to backend](https://github.com/isabelxklee/ember-collective-backend)
 
+![Ember Collective Homepage](https://i.imgur.com/Rd25Q3W.png)
+
 ## Getting started
 1. Install the [Rails backend](https://github.com/isabelxklee/ember-collective-backend)
 2. Install [Node.js and npm](https://www.npmjs.com/get-npm)
@@ -22,6 +24,8 @@ Ember Collective is an educational resource for anti-racism and supporting the B
     ```$ npm start```
 
 ## Features
+
+![Police Brutality Tracker](https://i.imgur.com/D710TdX.png)
 
 ### Police Brutality Tracker
 * Displays an interactive map using the Mapbox API
@@ -48,6 +52,8 @@ Ember Collective is an educational resource for anti-racism and supporting the B
 ### ActiveRecord Associations
 * Models have `has_many`, `belongs_to` and `has_many through` associations
 * Uses ActiveModelSerializers, which turns model attributes into JSON object keys
+
+![Profile Page](https://i.imgur.com/SuPPdCz.png)
 
 ## Domain Model
 Coming soon...
