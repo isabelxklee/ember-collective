@@ -257,6 +257,10 @@ button {
   margin: 14px 0px
 }
 
+button.danger {
+  background-color: rgb(169, 0, 0);
+}
+
 button.small-button {
   font-size: 16px;
   padding: 10px 10px;

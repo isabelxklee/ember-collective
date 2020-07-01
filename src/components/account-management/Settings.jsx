@@ -64,9 +64,19 @@ class Settings extends Component {
     .then(r => r.json())
     .then((updatedUser) => {
       alert("Your account settings have been updated!")
-      // this.props.updateUser(updatedUser)
-      console.log(updatedUser)
-      // this.props.history.push(`/profile`)
+      this.props.history.push(`/profile`)
+    })
+  }
+
+  handleDelete = (event) => {
+    fetch(`http://localhost:3000/users/${this.props.user.id}`, {
+      method: "DELETE"
+    })
+    .then(r => r.json())
+    .then(() => {
+      alert("Your account has been deleted.")
+      localStorage.clear()
+      this.props.history.push(`/`)
     })
   }
 
@@ -136,6 +146,12 @@ class Settings extends Component {
         
       </form>
       
+      <div className="donations">
+        <h2>Danger Zone!</h2>
+        <p>If you'd like to delete your account, click on the button below. This action is permanent.</p>
+        <button className="danger" onClick={this.handleDelete}>Delete account</button>
+      </div>
+
       </div>
     )
   }
