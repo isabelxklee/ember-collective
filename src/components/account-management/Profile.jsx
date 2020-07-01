@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import moment from 'moment'
 import Pluralize from 'react-pluralize'
 import DonationChallenge from '../donations/DonationChallenge'
@@ -87,6 +88,9 @@ class Profile extends Component {
           {/* <h5>✅ Verified {verifications.length} organizations</h5> */}
           <h5><span role="img" aria-label="confetti">🎉</span> Nominated <Pluralize singular={'organization'} count={this.usersNominations()} /></h5>
           <h5><span role="img" aria-label="money">💵</span> Sent <Pluralize singular={'challenge'} count={this.usersDonationChallenges()} donation match challenges/></h5>
+          <Link exact to={`/users/${this.props.id}/edit`}>
+            <button class="small-button">Account Settings</button>
+          </Link>
         </div>
 
         <div className="donations">

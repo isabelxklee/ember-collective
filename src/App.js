@@ -13,6 +13,7 @@ import PoliceBrutalityTracker from './components/police-brutality/PoliceBrutalit
 import About from './components/About.jsx'
 import Footer from './components/Footer.jsx'
 import Verify from './components/organizations/Verify.jsx'
+import Settings from './components/account-management/Settings.jsx'
 
 class App extends Component {
 
@@ -84,7 +85,16 @@ class App extends Component {
     let users = this.props.users
     let allUsers = []
     allUsers = users.map((user) => {
-      return <Route path={`/users/${user.id}`} key={user.id}> <Profile key={user.id} user={user}/> </Route>
+      return <Route exact path={`/users/${user.id}`} key={user.id}> <Profile key={user.id} user={user}/> </Route>
+    })
+    return allUsers
+  }
+
+  renderUserSettingsRoutes = () => {
+    let users = this.props.users
+    let allUsers = []
+    allUsers = users.map((user) => {
+      return <Route exact path={`/users/${user.id}/edit`} key={user.id}> <Settings key={user.id} user={user}/> </Route>
     })
     return allUsers
   }
@@ -103,6 +113,7 @@ class App extends Component {
         {this.renderOrgRoutes()}
         {this.renderUserRoutes()}
         {this.renderOrgEditRoutes()}
+        {this.renderUserSettingsRoutes()}
         <Footer/>
       </div>
     )  
