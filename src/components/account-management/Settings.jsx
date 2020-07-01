@@ -132,7 +132,12 @@ class Settings extends Component {
         }
         <br />
 
-        <button type="submit" className="submit-button">Save changes</button>
+        { errors.username.length > 0 || errors.email_address.length > 0 || errors.password.length > 0 || errors.password_confirmation.length > 0 ?
+          <button type="submit" className="submit-button" id="invalid" disabled>Save changes</button>
+          :
+          <button type="submit" className="submit-button">Save changes</button>
+        }
+        
       </form>
       
       </div>
