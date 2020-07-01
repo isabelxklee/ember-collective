@@ -6,6 +6,10 @@ Ember Collective is an educational resource for anti-racism and supporting the B
 
 [Link to backend](https://github.com/isabelxklee/ember-collective-backend)
 
+[Project tracker](https://github.com/isabelxklee/ember-collective/projects/1)
+
+![Ember Collective Homepage](https://i.imgur.com/Rd25Q3W.png)
+
 ## Getting started
 1. Install the [Rails backend](https://github.com/isabelxklee/ember-collective-backend)
 2. Install [Node.js and npm](https://www.npmjs.com/get-npm)
@@ -23,6 +27,8 @@ Ember Collective is an educational resource for anti-racism and supporting the B
 
 ## Features
 
+![Police Brutality Tracker](https://i.imgur.com/D710TdX.png)
+
 ### Police Brutality Tracker
 * Displays an interactive map using the Mapbox API
 * Pulls data about police brutality events from an external dataset provided by [Mapping Police Violence](https://mappingpoliceviolence.org)
@@ -32,22 +38,22 @@ Ember Collective is an educational resource for anti-racism and supporting the B
 * Users can challenge each other to match donations to an existing organization on the site
 * Built self-referential relationships to join the logged in user with another user
 
+### Education Resources
+* Browse anti-racism and police abolition resources by tags
+
 ### Global state management
 * Used Redux to globally manage the application state
 
-<!--- ### Asynchronous fetches 
-* Pulls data from the Rails backend using asynchronous fetches
---->
-
-<!--- ### React components
-* Update the application state using React lifecycle methods
-* Organize the code structure by separating components into presentation components and container components
-* Implement inverse data flow to send props down and up between parent components and child components
---->
+### React components
+* Created +20 React components and organized the code structure by separating them into feature-specific folders
+* Implemented inverse data flow to send props down and up between parent components and child components
+* Used asynchronous fetches to pull data from the Rails backend
 
 ### ActiveRecord Associations
-* Models have `has_many`, `belongs_to` and `has_many through` associations
-* Uses ActiveModelSerializers, which turns model attributes into JSON object keys
+* Designed 10 database models that have `has_many`, `belongs_to` and `has_many through` associations
+* Used ActiveModelSerializers, which turns model attributes into JSON object keys
+
+![Profile Page](https://i.imgur.com/SuPPdCz.png)
 
 ## Domain Model
 Coming soon...
