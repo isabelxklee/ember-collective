@@ -4,9 +4,8 @@ import {withRouter } from 'react-router-dom'
 
 class Settings extends Component {
   state = {
-    username: this.props.user.username,
     email_address: this.props.user.email_address,
-    password: this.props.user.password,
+    password: "",
     password_confirmation: "",
 
     errors: {
@@ -17,19 +16,11 @@ class Settings extends Component {
   }
 
   email_regex = /([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})/i
-  // username_regex = /^(?=.{1,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9_]+(?<![_.])$/i
 
   handleChange = (event) => {
     let errors = this.state.errors
 
     switch (event.target.name) {
-      // case 'username': 
-      //   errors.username = 
-      //   this.username_regex.test(event.target.value)
-      //       ? ''
-      //       : 'Username must be a valid format. It can contain underscores and alphanumeric characters.'
-      //   break
-
       case 'email_address': 
         errors.email_address = 
         this.email_regex.test(event.target.value)
@@ -72,8 +63,8 @@ class Settings extends Component {
     })
     .then(r => r.json())
     .then((updatedUser) => {
+      alert("Your account settings have been updated!")
       // this.props.updateUser(updatedUser)
-      // alert("Your account settings have been updated!")
       console.log(updatedUser)
       // this.props.history.push(`/profile`)
     })
