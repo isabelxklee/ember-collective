@@ -81,14 +81,14 @@ class App extends Component {
     return allEditRoutes
   }
 
-  renderUserRoutes = () => {
-    let users = this.props.users
-    let allUsers = []
-    allUsers = users.map((user) => {
-      return <Route exact path={`/users/${user.id}`} key={user.id}> <Profile key={user.id} user={user}/> </Route>
-    })
-    return allUsers
-  }
+  // renderUserRoutes = () => {
+  //   let users = this.props.users
+  //   let allUsers = []
+  //   allUsers = users.map((user) => {
+  //     return <Route exact path={`/users/${user.id}`} key={user.id}> <Profile key={user.id} user={user}/> </Route>
+  //   })
+  //   return allUsers
+  // }
 
   renderUserSettingsRoutes = () => {
     let users = this.props.users
@@ -111,7 +111,7 @@ class App extends Component {
         <Route path="/profile"> <Profile/> </Route>
         <Route path="/about"> <About/> </Route>
         {this.renderOrgRoutes()}
-        {this.renderUserRoutes()}
+        {/* {this.renderUserRoutes()} */}
         {this.renderOrgEditRoutes()}
         {this.renderUserSettingsRoutes()}
         <Footer/>

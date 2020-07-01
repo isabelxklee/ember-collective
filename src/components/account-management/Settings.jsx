@@ -10,7 +10,6 @@ class Settings extends Component {
     password_confirmation: "",
 
     errors: {
-      username: "",
       email_address: "",
       password: "",
       password_confirmation: ""
@@ -18,18 +17,18 @@ class Settings extends Component {
   }
 
   email_regex = /([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})/i
-  username_regex = /^(?=.{1,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9_]+(?<![_.])$/i
+  // username_regex = /^(?=.{1,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9_]+(?<![_.])$/i
 
   handleChange = (event) => {
     let errors = this.state.errors
 
     switch (event.target.name) {
-      case 'username': 
-        errors.username = 
-        this.username_regex.test(event.target.value)
-            ? ''
-            : 'Username must be a valid format. It can contain underscores and alphanumeric characters.'
-        break
+      // case 'username': 
+      //   errors.username = 
+      //   this.username_regex.test(event.target.value)
+      //       ? ''
+      //       : 'Username must be a valid format. It can contain underscores and alphanumeric characters.'
+      //   break
 
       case 'email_address': 
         errors.email_address = 
@@ -61,6 +60,25 @@ class Settings extends Component {
     })
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault()
+    
+    fetch(`http://localhost:3000/users/${this.props.user.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(this.state)
+    })
+    .then(r => r.json())
+    .then((updatedUser) => {
+      // this.props.updateUser(updatedUser)
+      // alert("Your account settings have been updated!")
+      console.log(updatedUser)
+      // this.props.history.push(`/profile`)
+    })
+  }
+
   validateForm = (errors) => {
     let valid = true
     Object.values(errors).forEach(
@@ -77,19 +95,6 @@ class Settings extends Component {
         <h1>Account Settings</h1>
         
         <form onSubmit={this.handleSubmit}>
-        <label>Username</label>
-        <br />
-        <input
-          name="username"
-          type="text"
-          autoComplete="off"
-          value={this.state.username}
-          onChange={this.handleChange} />
-        <br />
-        {errors.username.length > 0 && 
-          <p className='error'>{errors.username}</p>
-        }
-        <br />
         
         <label>Email Address</label><br />
         <input
@@ -132,7 +137,7 @@ class Settings extends Component {
         }
         <br />
 
-        { errors.username.length > 0 || errors.email_address.length > 0 || errors.password.length > 0 || errors.password_confirmation.length > 0 ?
+        { errors.email_address.length > 0 || errors.password.length > 0 || errors.password_confirmation.length > 0 ?
           <button type="submit" className="submit-button" id="invalid" disabled>Save changes</button>
           :
           <button type="submit" className="submit-button">Save changes</button>
@@ -145,4 +150,17 @@ class Settings extends Component {
   }
 }
 
-export default Settings
+let updateUser = (user) => {
+  return {
+    type: "UPDATE_USER",
+    payload: user
+  }
+}
+
+let mapDispatchToProps = {
+  updateUser: updateUser
+}
+
+let MagicalComponent = withRouter(Settings)
+
+export default connect(null, mapDispatchToProps)(MagicalComponent)

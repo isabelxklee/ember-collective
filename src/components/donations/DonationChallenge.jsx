@@ -68,7 +68,6 @@ class DonationChallenge extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <>
         <div className="send-challenge">

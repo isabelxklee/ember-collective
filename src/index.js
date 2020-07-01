@@ -154,6 +154,11 @@ let userReducer = (state = initialUserState, action) => {
       receivers: action.payload.user.receivers,
       token: action.payload.token
     }
+    case "UPDATE_USER":
+      return {
+        ...state,
+        users: [...state.users, action.payload]
+      }
     default:
       return state
   }
