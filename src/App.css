@@ -20,13 +20,13 @@ div.container {
 div.footer {
   background-color: rgb(45, 45, 45);
   overflow: hidden;
-  color: white;
+  color: rgb(255, 252, 248);
   padding: 0px 80px;
   bottom: 0;
 }
 
 a.footer-left {
-  color: white;
+  color: rgb(255, 252, 248);
   font-size: 16px;
   float: left;
   padding: 10px;
@@ -35,7 +35,7 @@ a.footer-left {
 }
 
 a.footer-right {
-  color: white;
+  color: rgb(255, 252, 248);
   font-size: 16px;
   float: right;
   padding: 10px;
@@ -68,7 +68,7 @@ h1 {
 
 h1.welcome {
   font-size: 90px;
-  margin: 80px 180px 20px 160px;
+  margin: 40px 180px 20px 160px;
 }
 
 h1.profile {
@@ -87,8 +87,15 @@ h2 {
   font-weight: 900;
 }
 
-h2.org-tile-title, h4.org-tile-title, p.org-tile-title {
-  color: white;
+h2.org-tile-title, h4.org-tile-title {
+  color: rgb(255, 252, 248);
+}
+
+p.org-tile-title {
+  color: rgb(45, 45, 45);
+  margin: 0px;
+  padding: 0px 10px 10px 10px;
+  font-size: 18px;
 }
 
 a, a:visited, a:active {
@@ -100,7 +107,7 @@ a.welcome {
 }
 
 h2.welcome {
-  margin: 60px 200px 120px 160px;
+  margin: 60px 200px 80px 160px;
   font-weight: 700;
   font-size: 32px;
   font-family: "Karla", sans-serif
@@ -168,6 +175,11 @@ a.small-button:link, a.small-button:visited {
   color: rgb(45, 45, 45);
 }
 
+a.card-button:link, a.card-button:visited {
+  text-decoration: none;
+  color: rgb(255, 252, 248);
+}
+
 textarea {
   height: 100px;
   width: 30%;
@@ -215,7 +227,7 @@ input.submit-button {
   border-radius: 4px;
   padding: 12px 14px;
   background-color: rgb(45, 45, 45);
-  color: white;
+  color: rgb(255, 252, 248);
   border: none;
   margin: 14px 0px;
   width: 14%
@@ -229,7 +241,7 @@ button.submit-button#invalid {
   border-radius: 4px;
   padding: 12px 14px;
   background-color: rgba(45, 45, 45);
-  color: white;
+  color: rgb(255, 252, 248);
   border: none;
   margin: 14px 0px;
   width: 14%;
@@ -252,7 +264,7 @@ button {
   border-radius: 4px;
   padding: 12px 14px;
   background-color: rgb(45, 45, 45);
-  color: white;
+  color: rgb(255, 252, 248);
   border: none;
   margin: 14px 0px
 }
@@ -269,11 +281,18 @@ button.small-button {
   border: 2px solid rgb(45, 45, 45);
 }
 
+button.card-button {
+  font-size: 16px;
+  padding: 10px 10px;
+  background-color: rgb(45, 45, 45);
+  color: rgb(255, 252, 248);
+}
+
 button.filter-button {
   font-size: 16px;
   padding: 10px 16px;
   background-color: rgb(131, 46, 0);
-  color: white;
+  color: rgb(255, 252, 248);
 }
 
 .btn-group button:not(:last-child) {
@@ -290,44 +309,49 @@ button.filter-button {
 }
 
 .org-container {
-  padding: 40px;
   margin: 80px;
   margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+div.card-header {
+  background-color: rgb(131, 46, 0);
+  color: rgb(255, 252, 248);
+  padding: 28px;
+  border-radius: 6px 6px 0px 0px;
+}
+
+div.card-body {
   background-color: rgb(255, 252, 248);
-  border-radius: 6px;
+  padding: 24px 24px 16px 24px;
+  border-radius: 0px 0px 6px 6px;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
 }
 
 .org-tile {
-  flex: 0 1 28%;
-  background-color: rgb(131, 46, 0);
-  color: white;
-  border-radius: 6px;
-  padding: 24px;
-  margin: 0px 0px 30px 0px;
+  flex: 0 1 32%;
   break-inside: avoid;
   transition: 0.3s;
+  margin: 0px 0px 30px 0px;
 }
 
+/* 
 .org-tile:hover {
   background-color: rgb(45, 16, 0);
-  /* box-shadow: 0 2px 8px 0 rgba(87, 38, 0, 0.5); */
   color: rgb(237, 220, 201);
 }
 
 .org-tile:nth-child(odd) {
   background-color: rgb(32, 32, 133);
-  color: white;
+  color: rgb(255, 252, 248);
 }
 
 .org-tile:nth-child(odd):hover {
   background-color: rgb(0, 0, 40);
-  /* box-shadow: 0 2px 8px 0 rgba(0, 0, 87, 0.5); */
   color: rgb(212, 212, 236);
-}
+} */
 
 label {
   font-weight: 700;
@@ -378,7 +402,7 @@ div.tag {
   font-weight: 900;
   margin: 0px 14px 0px 0px;
   border-radius: 4px;
-  background-color: white;
+  background-color: rgb(255, 252, 248);
   color: rgb(131, 46, 0);
   text-align: center;
   padding: 8px 16px;
