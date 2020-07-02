@@ -56,7 +56,9 @@ class ResourceTile extends Component {
         <>
           <img src={img_url} alt={title} className="resource-img" />
             <div className="resource-tile">
-              <div className="tag-container">{tags}</div>
+              <div className="btn-group">
+                {tags}
+              </div>
               <a href={link} target="blank" className="small-button"><h2>{title}</h2></a>
               <h4>By {author}</h4>
               <p>{this.truncateString(description, 200)}</p>
@@ -66,7 +68,9 @@ class ResourceTile extends Component {
         :
         <>
           <div className="resource-tile-no-image">
-            <div className="tag-container">{tags}</div>
+            <div className="btn-group">
+              {tags}
+            </div>
             <a href={link} target="blank" className="small-button"><h2>{title}</h2></a>
             <h4>By {author}</h4>
             <p>{this.truncateString(description, 200)}</p>

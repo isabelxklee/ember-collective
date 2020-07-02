@@ -84,8 +84,8 @@ class ProfileOrg extends Component {
         </div>
 
         <div className="btn-group">
-          <button className="small-button"><a href={website} target="blank" className="small-button">Website</a></button>
-          <button className="small-button"><a href={donation_link} target="blank" className="small-button">Donate</a></button>
+          <button className="card-button"><a href={website} target="blank" className="card-button">Website</a></button>
+          <button className="card-button"><a href={donation_link} target="blank" className="card-button">Donate</a></button>
           
           { this.verifyToggle() }
 

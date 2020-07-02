@@ -8,7 +8,7 @@ class CategoryTag extends Component {
   render() {
     return (
       <button
-        className="tag"
+        className="card-button"
         onClick={this.handleChange}
         value={this.props.category.content}
       >

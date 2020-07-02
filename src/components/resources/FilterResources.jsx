@@ -28,7 +28,9 @@ class FilterResources extends Component {
     return (
       <div className="resources-filter">
         <h3>View resources by category</h3>
-        { categories }
+        <div className="btn-group">
+          { categories }
+        </div>
         <button onClick={this.handleReset} className="filter-button">See all resources</button>
       </div>
     )
