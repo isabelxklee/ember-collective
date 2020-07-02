@@ -52,7 +52,7 @@ class Profile extends Component {
 
   renderFirstUser = () => {
     let firstUser = this.props.users[0]
-    return firstUser === undefined ? null : firstUser["id"]
+    return firstUser === undefined || firstUser === null ? null : firstUser["id"]
   }
 
   renderFirstOrg = () => {
@@ -78,6 +78,7 @@ class Profile extends Component {
 
   render() {
     let username = this.props.username
+    console.log(this.renderFirstUser())
     
     return (
       <div className="container">

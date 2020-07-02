@@ -18,10 +18,19 @@ class DonationChallenge extends Component {
     })
   }
 
+  firstReceiverID = () => {
+    if (this.state.receiver_id === "0" && this.props.firstUserId !== null) {
+      this.setState({
+        receiver_id: this.props.firstUserId
+      })
+    }
+  }
+
   handleChange = (event) => {
+    this.firstReceiverID()
+    
     if (this.state.receiver_id === 0) {
       this.setState({
-        receiver_id: this.props.firstUserId,
         sender_id: this.props.id,
         org_id: this.props.firstOrgId,
       })
@@ -68,6 +77,8 @@ class DonationChallenge extends Component {
   }
 
   render() {
+    console.log(this.state)
+
     return (
       <>
         <div className="send-challenge">

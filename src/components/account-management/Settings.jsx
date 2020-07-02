@@ -17,6 +17,19 @@ class Settings extends Component {
 
   email_regex = /([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})/i
 
+  componentDidMount() {
+    fetch("http://localhost:3000/donation_challenges")
+    .then(r => r.json())
+    .then((donations) => {
+      this.props.setAllDonations(donations)
+    })
+    fetch("http://localhost:3000/users")
+    .then(r => r.json())
+    .then((users) => {
+      this.props.setAllUsers(users)
+    })
+  }
+
   handleChange = (event) => {
     let errors = this.state.errors
 
@@ -62,7 +75,7 @@ class Settings extends Component {
       body: JSON.stringify(this.state)
     })
     .then(r => r.json())
-    .then((updatedUser) => {
+    .then(() => {
       alert("Your account settings have been updated!")
       this.props.history.push(`/profile`)
     })
@@ -80,6 +93,22 @@ class Settings extends Component {
     })
   }
 
+  sentDonations = () => {
+    let userID = this.props.user.id
+    let sentDonations = this.props.donation_challenges.filter((donation) => {
+      return userID === donation.sender_id
+    })
+    return sentDonations
+  }
+
+  receivedDonations = () => {
+    let userID = this.props.user.id
+    let receivedDonations = this.props.donation_challenges.filter((donation) => {
+      return userID === donation.receiver_id
+    })
+    return receivedDonations
+  }
+
   validateForm = (errors) => {
     let valid = true
     Object.values(errors).forEach(
@@ -89,6 +118,7 @@ class Settings extends Component {
   }
 
   render() {
+    console.log(this.sentDonations(), this.receivedDonations())
     let {errors} = this.state
 
     return (
@@ -157,6 +187,20 @@ class Settings extends Component {
   }
 }
 
+let setAllUsers = (users) => {
+  return {
+    type: "SET_ALL_USERS",
+    payload: users
+  }
+}
+
+let setAllDonations = (donations) => {
+  return {
+    type: "SET_ALL_DONATIONS",
+    payload: donations
+  }
+}
+
 let updateUser = (user) => {
   return {
     type: "UPDATE_USER",
@@ -165,9 +209,18 @@ let updateUser = (user) => {
 }
 
 let mapDispatchToProps = {
-  updateUser: updateUser
+  updateUser: updateUser,
+  setAllDonations: setAllDonations,
+  setAllUsers: setAllUsers
+}
+
+let mapStateToProps = (globalState) => {
+  return {
+    users: globalState.userInformation.users,
+    donation_challenges: globalState.donationInformation.donation_challenges,
+  }
 }
 
 let MagicalComponent = withRouter(Settings)
 
-export default connect(null, mapDispatchToProps)(MagicalComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(MagicalComponent)
