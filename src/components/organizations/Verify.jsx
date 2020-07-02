@@ -85,7 +85,6 @@ class Verify extends Component {
     .then(r => r.json())
     .then((updatedOrg) => {
       alert("This organization has been updated!")
-      console.log(updatedOrg)
       this.setState({
         backToProfile: true
       })

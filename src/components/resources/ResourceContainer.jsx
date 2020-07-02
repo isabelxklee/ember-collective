@@ -83,8 +83,6 @@ class Resources extends Component {
       return <ResourceTile key={resource.id} resource={resource} resources={this.props.resources} handleCategoryFilter={this.handleCategoryFilter}/>
     })
 
-    console.log(this.filterResources())
-
     return (
       <div className="container">
         <h1>Resources</h1>

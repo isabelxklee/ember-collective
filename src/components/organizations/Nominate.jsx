@@ -90,7 +90,6 @@ class Nominate extends Component {
     })
     .then(r => r.json())
     .then((newOrg) => {
-      console.log(newOrg)
       this.props.createOrg(newOrg)
       this.createNomination(newOrg)
       this.props.history.push("/")

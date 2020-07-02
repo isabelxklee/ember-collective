@@ -77,7 +77,7 @@ class Settings extends Component {
     .then(r => r.json())
     .then(() => {
       alert("Your account settings have been updated!")
-      this.props.history.push(`/profile`)
+      this.props.history.push(`/users/${this.props.user.id}`)
     })
   }
 

@@ -57,7 +57,7 @@ class App extends Component {
     if (response.user) {
       localStorage.token = response.token
       this.props.setUserInfo(response)  
-      this.props.history.push("/profile") 
+      this.props.history.push(`/users/${this.props.username}`) 
     } else {
       alert(response.message)
     }
@@ -85,7 +85,7 @@ class App extends Component {
     let users = this.props.users
     let allUsers = []
     allUsers = users.map((user) => {
-      return <Route exact path={`/users/${user.id}`} key={user.id}> <Profile key={user.id} user={user}/> </Route>
+      return <Route exact path={`/users/${user.username}`} key={user.id}> <Profile key={user.id} user={user}/> </Route>
     })
     return allUsers
   }
@@ -94,7 +94,7 @@ class App extends Component {
     let users = this.props.users
     let allUsers = []
     allUsers = users.map((user) => {
-      return <Route exact path={`/users/${user.id}/edit`} key={user.id}> <Settings key={user.id} user={user}/> </Route>
+      return <Route exact path={`/users/${user.username}/edit`} key={user.id}> <Settings key={user.id} user={user}/> </Route>
     })
     return allUsers
   }
@@ -108,7 +108,6 @@ class App extends Component {
         <Route path="/resources"> <Resources/> </Route>
         <Route path="/create-account"> <CreateAccount handleResponse={this.handleResponse}/> </Route>
         <Route path="/login"> <Login handleLoginSubmit={this.handleLoginSubmit}/> </Route>
-        <Route path="/profile"> <Profile/> </Route>
         <Route path="/about"> <About/> </Route>
         {this.renderOrgRoutes()}
         {this.renderUserRoutes()}

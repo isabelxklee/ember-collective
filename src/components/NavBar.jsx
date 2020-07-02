@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import {NavLink, withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 class NavBar extends Component {
   handleLogout = () => {
@@ -13,7 +14,7 @@ class NavBar extends Component {
         <NavLink to="/" exact className="header-link">Home</NavLink><br/>
         <NavLink to="/police-brutality-tracker" exact className="header-link">Police Brutality Tracker</NavLink><br/>
         <NavLink to="/resources" exact className="header-link">Resources</NavLink><br/>
-        <NavLink to="/profile" exact className="header-link">Profile</NavLink><br/>
+        <NavLink to={`/users/${this.props.username}`} exact className="header-link">Profile</NavLink><br/>
         <NavLink to='/' onClick={this.handleLogout} className="header-link">Logout</NavLink>
       </div>
     }
@@ -30,4 +31,24 @@ class NavBar extends Component {
   }
 }
 
-export default withRouter(NavBar)
+let setUserInfo = (response) => {
+  return {
+    type: "SET_USER_INFO",
+    payload: response
+  }
+}
+
+let mapDispatchToProps = {
+  setUserInfo: setUserInfo
+}
+
+let mapStateToProps = (globalState) => {
+  return {
+    id: globalState.userInformation.id,
+    username: globalState.userInformation.username
+  }
+}
+
+let MagicalComponent = withRouter(NavBar)
+
+export default connect(mapStateToProps, mapDispatchToProps)(MagicalComponent)
