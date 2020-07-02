@@ -60,7 +60,7 @@ class About extends Component {
         <div className="resources-filter">
           <h2>Get in touch</h2>
           <p>If you have any questions or suggestions for improving the Ember Collective, please feel free to reach out. <span role="img" aria-label="mailbox">📪</span></p>
-          <button className="small-button"><a href="mailto:hello@isabelklee.co?subject=Reaching out about Ember Collective" className="small-button">Send an email</a></button>
+          <button className="card-button"><a href="mailto:hello@isabelklee.co?subject=Reaching out about Ember Collective" className="card-button">Send an email</a></button>
         </div>
       </div>
     )

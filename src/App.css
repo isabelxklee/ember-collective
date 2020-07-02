@@ -219,7 +219,7 @@ input.filter-input {
   color: rgb(45, 45, 45);
 }
 
-input.submit-button {
+.submit-button {
   font-family: "Karla", sans-serif;
   font-weight: 700;
   font-size: 16px;
@@ -230,10 +230,15 @@ input.submit-button {
   color: rgb(255, 252, 248);
   border: none;
   margin: 14px 0px;
-  width: 14%
+  width: 14%;
+  transition: 0.3s
 }
 
-button.submit-button#invalid {
+.submit-button:hover {
+  opacity: 0.75;
+}
+
+.submit-button#invalid {
   font-family: "Karla", sans-serif;
   font-weight: 700;
   font-size: 16px;
@@ -273,14 +278,6 @@ button.danger {
   background-color: rgb(169, 0, 0);
 }
 
-button.small-button {
-  font-size: 16px;
-  padding: 10px 10px;
-  background-color: rgb(255, 248, 238);
-  color: rgb(45, 45, 45);
-  border: 2px solid rgb(45, 45, 45);
-}
-
 button.card-button {
   font-size: 16px;
   padding: 10px 10px;
@@ -298,6 +295,11 @@ button.filter-button {
   padding: 10px 16px;
   background-color: rgb(131, 46, 0);
   color: rgb(255, 252, 248);
+  transition: 0.3s
+}
+
+button.filter-button:hover {
+  opacity: 0.75;
 }
 
 .btn-group button:not(:last-child) {
@@ -480,7 +482,7 @@ li::before {
 
 img.resource-img {
   width: 275px;
-  height: 400px;
+  height: 350px;
   object-fit: cover;
   border-radius: 6px;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);

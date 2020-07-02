@@ -76,22 +76,22 @@ class Map extends PureComponent {
         <div className="resources-filter">
           <h3><strong>Filter by year</strong></h3>
           <div className="btn-group">
-            <button onClick={this.handleChange} name="selectedYear" value="2019">2019</button>
-            <button onClick={this.handleChange} name="selectedYear" value="2018">2018</button>
-            <button onClick={this.handleChange} name="selectedYear" value="2017">2017</button>
-            <button onClick={this.handleChange} name="selectedYear" value="2016">2016</button>
-            <button onClick={this.handleChange} name="selectedYear" value="2015">2015</button>
-            <button onClick={this.handleChange} name="selectedYear" value="2014">2014</button>
-            <button onClick={this.handleChange} name="selectedYear" value="2013">2013</button>
+            <button onClick={this.handleChange} name="selectedYear" value="2019" className="card-button">2019</button>
+            <button onClick={this.handleChange} name="selectedYear" value="2018" className="card-button">2018</button>
+            <button onClick={this.handleChange} name="selectedYear" value="2017" className="card-button">2017</button>
+            <button onClick={this.handleChange} name="selectedYear" value="2016" className="card-button">2016</button>
+            <button onClick={this.handleChange} name="selectedYear" value="2015" className="card-button">2015</button>
+            <button onClick={this.handleChange} name="selectedYear" value="2014" className="card-button">2014</button>
+            <button onClick={this.handleChange} name="selectedYear" value="2013" className="card-button">2013</button>
           </div>
 
           <h3><strong>Filter by gender</strong></h3>
           <p>This data does not accurately represent genderqueer people, especially trans folks, as police reports and criminal intake forms do not reflect gender options outside of the male/female binary.</p>
 
           <div className="btn-group">
-            <button onClick={this.handleChange} name="selectedGender" value="All">All</button>
-            <button onClick={this.handleChange} name="selectedGender" value="Male">Male</button>
-            <button onClick={this.handleChange} name="selectedGender" value="Female">Female</button>
+            <button onClick={this.handleChange} name="selectedGender" value="All" className="card-button">All</button>
+            <button onClick={this.handleChange} name="selectedGender" value="Male" className="card-button">Male</button>
+            <button onClick={this.handleChange} name="selectedGender" value="Female" className="card-button">Female</button>
           </div>
         </div>
 

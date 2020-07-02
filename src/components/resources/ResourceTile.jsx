@@ -61,8 +61,7 @@ class ResourceTile extends Component {
               </div>
               <a href={link} target="blank" className="small-button"><h2>{title}</h2></a>
               <h4>By {author}</h4>
-              <p>{this.truncateString(description, 200)}</p>
-              <button className="small-button"><a href={link} target="blank" className="small-button">See more</a></button>
+              <p>{this.truncateString(description, 300)}</p>
             </div>
         </>
         :
@@ -73,8 +72,7 @@ class ResourceTile extends Component {
             </div>
             <a href={link} target="blank" className="small-button"><h2>{title}</h2></a>
             <h4>By {author}</h4>
-            <p>{this.truncateString(description, 200)}</p>
-            <button className="small-button"><a href={link} target="blank" className="small-button">See more</a></button>
+            <p>{this.truncateString(description, 300)}</p>
           </div>
         </>
         }
