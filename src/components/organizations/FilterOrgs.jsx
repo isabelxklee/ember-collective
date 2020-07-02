@@ -2,10 +2,16 @@ import React, { Component } from 'react'
 
 class FilterOrgs extends Component {
   state = {
-    selectedTag: ""
+    selectedTag: "",
+    searchTerm: ""
   }
 
-  handleChange = (event) => {
+  handleSearch = (event) => {
+    this.setState({
+      selectedTag: "",
+      searchTerm: event.target.value
+    })
+    this.props.handleCategory("")
     this.props.handleSearchTerm(event.target.value)
   }
 
@@ -35,7 +41,7 @@ class FilterOrgs extends Component {
           placeholder="Start typing a name, location, or description"
           autoComplete="off"
           value={this.props.searchTerm}
-          onChange={this.handleChange}
+          onChange={this.handleSearch}
         /><br />
 
         <label><h3>Filter by category</h3></label>

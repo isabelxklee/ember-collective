@@ -59,9 +59,6 @@ class Home extends Component {
   return orgs
   }
 
-
-  //////////////////////////////////////////////////////////////////////////////////
-
   // loop through all the tag joiners. find the ones that match the selected tag by the tag_id.
 
   findTagID = () => {
@@ -100,7 +97,7 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.filterByCategory())
+    console.log(this.state.selectedTag)
     return (
       <div className="App">
         <h1 className="welcome">Welcome to the Ember Collective <span role="img" aria-label="flame">🔥</span></h1>
