@@ -40,10 +40,40 @@ class DonationStats extends Component {
     return senderName
   }
 
+  renderReceiver = () => {
+    let receiverName = ""
+    this.props.users.filter((user) => {
+      return user.id === this.props.challenge.receiver_id ? receiverName = user.username : null
+    })
+    return receiverName
+  }
+
+  senderLoggedInStatus = () => {
+    let loggedInUser = ""
+    this.renderSender() === this.props.username ? loggedInUser = "you" : loggedInUser = this.renderSender()
+    return loggedInUser
+  }
+
+  senderSlug = () => {
+    return this.senderLoggedInStatus() === "you" ? '/profile' : `/users/${this.renderSender()}`
+  }
+
+  receiverLoggedInStatus = () => {
+    let loggedInUser = ""
+    this.renderReceiver() === this.props.username ? loggedInUser = "you" : loggedInUser = this.renderReceiver()
+    return loggedInUser
+  }
+
+  receiverSlug = () => {
+    return this.receiverLoggedInStatus() === "you" ? '/profile' : `/users/${this.renderReceiver()}`
+  }
+
   render() {
     return (
       <>
-        <h4>From @{this.renderSender()}</h4>
+        <h4>
+          From <Link to={this.senderSlug()} className="welcome">@{this.senderLoggedInStatus()}</Link> To <Link to={this.receiverSlug()} className="welcome">@{this.receiverLoggedInStatus()}</Link> 
+        </h4> 
         <p>Donate ${this.props.challenge.amount} to <Link to={`/organizations/${this.renderOrgID()}`} className="welcome"> {this.renderOrgName()}</Link></p>
       </>
     )
@@ -73,6 +103,8 @@ let mapStateToProps = (globalState) => {
   return {
     users: globalState.userInformation.users,
     orgs: globalState.orgInformation.orgs,
+    id: globalState.userInformation.id,
+    username: globalState.userInformation.username,
   }
 }
 

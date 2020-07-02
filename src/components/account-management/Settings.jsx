@@ -4,7 +4,7 @@ import {withRouter } from 'react-router-dom'
 
 class Settings extends Component {
   state = {
-    email_address: this.props.user.email_address,
+    email_address: this.props.email_address,
     password: "",
     password_confirmation: "",
 
@@ -67,7 +67,7 @@ class Settings extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     
-    fetch(`http://localhost:3000/users/${this.props.user.id}`, {
+    fetch(`http://localhost:3000/users/${this.props.id}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json"
@@ -77,12 +77,12 @@ class Settings extends Component {
     .then(r => r.json())
     .then(() => {
       alert("Your account settings have been updated!")
-      this.props.history.push(`/users/${this.props.user.id}`)
+      this.props.history.push(`/profile`)
     })
   }
 
   handleDelete = () => {
-    fetch(`http://localhost:3000/users/${this.props.user.id}`, {
+    fetch(`http://localhost:3000/users/${this.props.id}`, {
       method: "DELETE"
     })
     .then(r => r.json())
@@ -116,7 +116,7 @@ class Settings extends Component {
   }
 
   sentDonations = () => {
-    let userID = this.props.user.id
+    let userID = this.props.id
     let sentDonations = this.props.donation_challenges.filter((donation) => {
       return userID === donation.sender_id
     })
@@ -124,7 +124,7 @@ class Settings extends Component {
   }
 
   receivedDonations = () => {
-    let userID = this.props.user.id
+    let userID = this.props.id
     let receivedDonations = this.props.donation_challenges.filter((donation) => {
       return userID === donation.receiver_id
     })

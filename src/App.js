@@ -14,6 +14,7 @@ import About from './components/About.jsx'
 import Footer from './components/Footer.jsx'
 import Verify from './components/organizations/Verify.jsx'
 import Settings from './components/account-management/Settings.jsx'
+import OtherProfile from './components/account-management/OtherProfile.jsx'
 
 class App extends Component {
 
@@ -57,7 +58,7 @@ class App extends Component {
     if (response.user) {
       localStorage.token = response.token
       this.props.setUserInfo(response)  
-      this.props.history.push(`/users/${this.props.username}`) 
+      this.props.history.push(`/profile`) 
     } else {
       alert(response.message)
     }
@@ -85,16 +86,7 @@ class App extends Component {
     let users = this.props.users
     let allUsers = []
     allUsers = users.map((user) => {
-      return <Route exact path={`/users/${user.username}`} key={user.id}> <Profile key={user.id} user={user}/> </Route>
-    })
-    return allUsers
-  }
-
-  renderUserSettingsRoutes = () => {
-    let users = this.props.users
-    let allUsers = []
-    allUsers = users.map((user) => {
-      return <Route exact path={`/users/${user.username}/edit`} key={user.id}> <Settings key={user.id} user={user}/> </Route>
+      return <Route exact path={`/users/${user.username}`} key={user.id}> <OtherProfile key={user.id} user={user}/> </Route>
     })
     return allUsers
   }
@@ -109,10 +101,18 @@ class App extends Component {
         <Route path="/create-account"> <CreateAccount handleResponse={this.handleResponse}/> </Route>
         <Route path="/login"> <Login handleLoginSubmit={this.handleLoginSubmit}/> </Route>
         <Route path="/about"> <About/> </Route>
+        <Route path="/profile"> <Profile/> </Route>
+        <Route path="/account-settings">
+          <Settings
+            id={this.props.id}
+            username={this.props.username}
+            email_address={this.props.email_address}
+            created_at={this.props.created_at}
+          />
+        </Route>
         {this.renderOrgRoutes()}
         {this.renderUserRoutes()}
         {this.renderOrgEditRoutes()}
-        {this.renderUserSettingsRoutes()}
         <Footer/>
       </div>
     )  

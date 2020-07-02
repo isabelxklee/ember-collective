@@ -1,12 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
 import moment from 'moment'
 import Pluralize from 'react-pluralize'
-import DonationChallenge from '../donations/DonationChallenge'
-import Nominate from '../organizations/Nominate.jsx'
+import DonationStats from '../donations/DonationStats'
 
-class Profile extends Component {
+class OtherProfile extends Component {
   componentDidMount() {
     fetch("http://localhost:3000/nominations")
     .then(r => r.json())
@@ -30,11 +28,19 @@ class Profile extends Component {
     })
   }
 
+  accountAge = () => {
+    let created_at = this.props.created_at
+    let join_date = moment(created_at)
+    let now = moment()
+
+    return join_date.from(now)
+  }
+
   usersNominations = () => {
     let nominations = [...this.props.nominations]
 
     nominations = this.props.nominations.filter((nom) => {
-      return nom.user_id === this.props.id
+      return nom.user_id === this.props.user.id
     })
 
     return nominations.length
@@ -44,72 +50,57 @@ class Profile extends Component {
     let donations = [...this.props.donation_challenges]
 
     donations = this.props.donation_challenges.filter((challenge) => {
-      return challenge.sender_id === this.props.id
+      return challenge.sender_id === this.props.user.id
     })
 
     return donations.length
   }
 
-  renderFirstUser = () => {
-    let firstUser = this.props.users[0]
-    return firstUser === undefined || firstUser === null ? null : firstUser["id"]
+  renderReceivers = () => {
+    return this.props.user.receivers.length > 0 ?
+      this.props.user.receivers.map((challenge) => {
+        return <DonationStats key={challenge.id} challenge={challenge}/>
+      })
+      :
+      <p>This user hasn't received any donation match challenges yet.</p>
   }
 
-  renderFirstOrg = () => {
-    let firstOrg = this.props.orgs[0]
-    return firstOrg === undefined ? null : firstOrg["id"]
-  }
-
-  accountAge = () => {
-    let created_at = this.props.created_at
-    let join_date = moment(created_at)
-    let now = moment()
-
-    return join_date.from(now)
-  }
-
-  nominateToggle = () => {
-    let created_at = this.props.created_at
-    let join_date = moment(created_at)
-    let now = moment()
-
-    return now.diff(join_date, 'days') >= 2 ? <div className="donations"><Nominate/></div> : null
+  renderSenders = () => {
+    return this.props.user.senders.length > 0 ?
+      this.props.user.senders.map((challenge) => {
+        return <DonationStats key={challenge.id} challenge={challenge}/>
+      })
+      :
+      <p>This user hasn't sent any donation match challenges yet.</p>
   }
 
   render() {
-    let username = this.props.username
-    
+    let {username} = this.props.user
+
     return (
       <div className="container">
-        <div className="user-info">
-          <h1 className="profile">Your Profile</h1>
-          <h3 className="username">Hello, @{username}! <span role="img" aria-label="star">👋</span></h3>
+        <div className="other-user-info">
+          <h1 className="profile">Profile</h1>
+          <h3 className="username">Visiting @{username}! <span role="img" aria-label="star">👋</span></h3>
           <h5><span role="img" aria-label="star">🌟</span> Joined { this.accountAge() }</h5>
-          {/* <h5>✅ Verified {verifications.length} organizations</h5> */}
           <h5><span role="img" aria-label="confetti">🎉</span> Nominated <Pluralize singular={'organization'} count={this.usersNominations()} /></h5>
           <h5><span role="img" aria-label="money">💵</span> Sent <Pluralize singular={'challenge'} count={this.usersDonationChallenges()} donation match challenges/></h5>
-          <Link to={`/account-settings`}>
-            <button className="small-button">Account Settings</button>
-          </Link>
         </div>
 
         <div className="donations">
-          <DonationChallenge
-            id={this.props.id}
-            firstUserId={this.renderFirstUser()}
-            firstOrgId={this.renderFirstOrg()}
-            users={this.props.users}
-            orgs={this.props.orgs}
-            receivers={this.props.receivers}
-            senders={this.props.senders}
-          />
+          <div className="received-challenges">
+            <h2>Received challenges</h2>
+            { this.renderReceivers() }
+          </div>
+
+          <div className="received-challenges">
+            <h2>Sent challenges</h2>
+            { this.renderSenders() }
+          </div>
         </div>
-
-        { this.nominateToggle() }
-
       </div>
     )
-  }  
+  }
 }
 
 let setAllUsers = (users) => {
@@ -154,11 +145,10 @@ let mapStateToProps = (globalState) => {
     username: globalState.userInformation.username,
     created_at: globalState.userInformation.created_at,
     receivers: globalState.userInformation.receivers,
-    senders: globalState.userInformation.senders,
     nominations: globalState.nominationInformation.nominations,
     orgs: globalState.orgInformation.orgs,
     donation_challenges: globalState.donationInformation.donation_challenges
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile)
+export default connect(mapStateToProps, mapDispatchToProps)(OtherProfile)

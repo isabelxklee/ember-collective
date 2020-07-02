@@ -78,6 +78,15 @@ class DonationChallenge extends Component {
       <p>This user hasn't received any donation match challenges yet.</p>
   }
 
+  renderSenders = () => {
+    return this.props.senders.length > 0 ?
+      this.props.senders.map((challenge) => {
+        return <DonationStats key={challenge.id} challenge={challenge}/>
+      })
+      :
+      <p>This user hasn't sent any donation match challenges yet.</p>
+  }
+
   render() {
     return (
       <>
@@ -119,6 +128,11 @@ class DonationChallenge extends Component {
         <div className="received-challenges">
           <h2>Received challenges</h2>
           { this.renderReceivers() }
+        </div>
+
+        <div className="received-challenges">
+          <h2>Sent challenges</h2>
+          { this.renderSenders() }
         </div>
       </>
     )

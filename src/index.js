@@ -18,7 +18,8 @@ let initialUserState = {
   email_address: "",
   created_at: "",
   token: "",
-  receivers: []
+  receivers: [],
+  senders: []
 }
 
 let initialNominationState = {
@@ -152,6 +153,7 @@ let userReducer = (state = initialUserState, action) => {
       email_address: action.payload.user.email_address,
       created_at: action.payload.user.created_at,
       receivers: action.payload.user.receivers,
+      senders: action.payload.user.senders,
       token: action.payload.token
     }
     case "UPDATE_USER":

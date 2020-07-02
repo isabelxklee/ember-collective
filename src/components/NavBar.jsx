@@ -14,7 +14,7 @@ class NavBar extends Component {
         <NavLink to="/" exact className="header-link">Home</NavLink><br/>
         <NavLink to="/police-brutality-tracker" exact className="header-link">Police Brutality Tracker</NavLink><br/>
         <NavLink to="/resources" exact className="header-link">Resources</NavLink><br/>
-        <NavLink to={`/users/${this.props.username}`} exact className="header-link">Profile</NavLink><br/>
+        <NavLink to={`/profile`} exact className="header-link">Profile</NavLink><br/>
         <NavLink to='/' onClick={this.handleLogout} className="header-link">Logout</NavLink>
       </div>
     }
