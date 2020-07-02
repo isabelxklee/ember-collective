@@ -1,15 +1,30 @@
 import React, { Component } from 'react'
 
 class FilterOrgs extends Component {
+  state = {
+    selectedTag: ""
+  }
+
   handleChange = (event) => {
     this.props.handleSearchTerm(event.target.value)
   }
 
-  handleReset = (event) => {
-    this.props.handleSearchTerm("")
+  handleCategoryChange = (event) => {
+    this.setState({
+      selectedTag: event.target.value
+    })
+    this.props.handleCategory(event.target.value)
   }
 
-  render() {
+  handleReset = () => {
+    this.setState({
+      selectedTag: ""
+    })
+    this.props.handleSearchTerm("")
+    this.props.handleCategory("")
+  }
+
+  render() {    
     return (
       <div className="filter">
         <label><h3>Find an organization to support</h3></label>
@@ -22,6 +37,16 @@ class FilterOrgs extends Component {
           value={this.props.searchTerm}
           onChange={this.handleChange}
         /><br />
+
+        <label><h3>Filter by category</h3></label>
+        <select value={this.state.selectedTag} onChange={this.handleCategoryChange} name="selectedTag">
+          <option key="100" value="">#all</option>)
+          { this.props.tags.map((tag) =>
+            <option key={tag.id} value={tag.content}>#{tag.content}</option>)
+          }
+        </select>
+        <br />
+
         <button onClick={this.handleReset} className="filter-button">Clear search terms</button>
       </div>
     )
