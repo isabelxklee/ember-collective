@@ -84,6 +84,7 @@ class Verify extends Component {
     .then((updatedOrg) => {
       alert("This organization has been updated!")
       console.log(updatedOrg)
+      // window.location.reload(false)
       this.props.history.push(`/organizations/${this.props.org.id}`)
     })
   }

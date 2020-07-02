@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import {withRouter } from 'react-router-dom'
 import DonationStats from './DonationStats.jsx'
 
 class DonationChallenge extends Component {
@@ -28,7 +29,7 @@ class DonationChallenge extends Component {
 
   handleChange = (event) => {
     this.firstReceiverID()
-    
+
     if (this.state.receiver_id === 0) {
       this.setState({
         sender_id: this.props.id,
@@ -56,6 +57,7 @@ class DonationChallenge extends Component {
     .then((newDonation) => {
       this.props.propsCreateDonation(newDonation)
       alert(newDonation.message)
+      window.location.reload(false)
     })
   }
   
@@ -77,8 +79,6 @@ class DonationChallenge extends Component {
   }
 
   render() {
-    console.log(this.state)
-
     return (
       <>
         <div className="send-challenge">
@@ -150,4 +150,6 @@ let mapStateToProps = (globalState) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DonationChallenge)
+let MagicalComponent = withRouter(DonationChallenge)
+
+export default connect(mapStateToProps, mapDispatchToProps)(MagicalComponent)

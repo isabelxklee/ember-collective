@@ -78,7 +78,6 @@ class Profile extends Component {
 
   render() {
     let username = this.props.username
-    console.log(this.renderFirstUser())
     
     return (
       <div className="container">

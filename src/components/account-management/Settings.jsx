@@ -81,15 +81,37 @@ class Settings extends Component {
     })
   }
 
-  handleDelete = (event) => {
+  handleDelete = () => {
     fetch(`http://localhost:3000/users/${this.props.user.id}`, {
       method: "DELETE"
     })
     .then(r => r.json())
     .then(() => {
       alert("Your account has been deleted.")
+      this.deleteDonations()
       localStorage.clear()
       this.props.history.push(`/`)
+    })
+  }
+
+  deleteDonations = () => {
+    let sentDonations = this.sentDonations()
+    let receivedDonations = this.receivedDonations()
+
+    sentDonations.forEach((donation) => {
+      fetch(`http://localhost:3000/donation_challenges/${donation.id}`, {
+        method: "DELETE"
+      })
+      .then(r => r.json())
+      .then(console.log)
+    })
+
+    receivedDonations.forEach((donation) => {
+      fetch(`http://localhost:3000/donation_challenges/${donation.id}`, {
+        method: "DELETE"
+      })
+      .then(r => r.json())
+      .then(console.log)
     })
   }
 
@@ -118,7 +140,6 @@ class Settings extends Component {
   }
 
   render() {
-    console.log(this.sentDonations(), this.receivedDonations())
     let {errors} = this.state
 
     return (
