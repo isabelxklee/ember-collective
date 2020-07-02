@@ -59,7 +59,7 @@ class ProfileOrg extends Component {
 
     return now.diff(join_date, 'days') >= 2 ?
     <Link to={`/organizations/${this.props.org.id}/edit`}>
-      <button>Verify information</button>
+      <button className="card-button">Verify information</button>
     </Link>
     : null
   }
