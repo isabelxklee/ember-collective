@@ -199,7 +199,7 @@ class Settings extends Component {
       
       <div className="donations">
         <h2>Danger Zone!</h2>
-        <p>If you'd like to delete your account, click on the button below. This action is permanent.</p>
+        <p>If you'd like to delete your account, click on the button below. This action is permanent and will also remove your donation match challenges.</p>
         <button className="danger" onClick={this.handleDelete}>Delete account</button>
       </div>
 

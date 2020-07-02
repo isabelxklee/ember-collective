@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {withRouter } from 'react-router-dom'
+import {withRouter, Redirect} from 'react-router-dom'
 
 class Verify extends Component {
   state = {
@@ -10,6 +10,8 @@ class Verify extends Component {
     tagline: this.props.org.tagline,
     description: this.props.org.description,
     location: this.props.org.location,
+    backToProfile: false,
+
     errors: {
       website: "",
       donation_link: "",
@@ -84,13 +86,17 @@ class Verify extends Component {
     .then((updatedOrg) => {
       alert("This organization has been updated!")
       console.log(updatedOrg)
-      // window.location.reload(false)
-      this.props.history.push(`/organizations/${this.props.org.id}`)
+      this.setState({
+        backToProfile: true
+      })
     })
   }
 
   render() {
     let {errors} = this.state
+    if (this.state.backToProfile === true) {
+      return <Redirect to={`/organizations/${this.props.org.id}`} />
+    }
 
     return (
       <div className="container">
