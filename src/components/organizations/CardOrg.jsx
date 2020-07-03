@@ -46,30 +46,30 @@ class CardOrg extends Component {
   }
 
   render() {
-    let {id, name, website, location, tagline, donation_link} = this.props.org
+    let {id, name, website, location, donation_link} = this.props.org
     let orgsTags = this.findOrgsTags().map((tag) => {
-      // return <Tag key={tag.id} tag={tag} />
-      return `#${tag.content} `
+      return <Tag key={tag.id} tag={tag} handleCategory={this.props.handleCategory} />
     })
 
     return (
       <div className="org-tile">
-        <div className="card-header">
         <Link to={`/organizations/${id}`}>
-          <h4 className="org-tile-title">{location}</h4>
-          <h2 className="org-tile-title">{name}</h2>
+          <div className="thin-rule"/>
+          <h4 className="card">{location}</h4>
+          <h2 className="card">{name}</h2>
           </Link>
-        </div>
 
-        <div className="card-body">
-          <p className="org-tile-title">{this.truncateString(tagline, 200)}</p>
-          <div className="btn-group">
+          {/* <div className="btn-group">
             <button className="card-button"><a href={website} target="blank" className="card-button">Website</a></button>
             <button className="card-button"><a href={donation_link} target="blank" className="card-button">Donate</a></button>
+          </div> */}
+
+          {/* <div className="thin-rule"/> */}
+
+          <div className="btn-group">
+            {orgsTags}
           </div>
-          {/* {orgsTags} */}
         </div>
-      </div>
     )
   }
 }

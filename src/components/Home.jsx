@@ -113,7 +113,10 @@ class Home extends Component {
         />
         {/* <p className="results">Showing <Pluralize singular={'organization'} count={this.filterBySearch().length} /></p> */}
 
-        {this.state.selectedTag === "" ? <OrgContainer orgs={this.filterBySearch()}/> : <OrgContainer orgs={this.filterByCategory()}/>}
+        {this.state.selectedTag === "" ?
+          <OrgContainer orgs={this.filterBySearch()} handleCategory={this.handleCategory}/>
+          : <OrgContainer orgs={this.filterByCategory()} handleCategory={this.handleCategory}/>
+        }
       </div>
     )
   }

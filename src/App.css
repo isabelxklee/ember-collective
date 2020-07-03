@@ -81,21 +81,10 @@ h1.org-profile {
 }
 
 h2 {
-  font-size: 36px;
+  font-size: 40px;
   margin: 14px 14px 0px 0px;
   font-family: "Playfair Display", serif;
   font-weight: 900;
-}
-
-h2.org-tile-title, h4.org-tile-title {
-  color: rgb(255, 252, 248);
-}
-
-p.org-tile-title {
-  color: rgb(45, 45, 45);
-  margin: 0px;
-  padding: 0px 10px 10px 10px;
-  font-size: 18px;
 }
 
 a, a:visited, a:active {
@@ -136,6 +125,15 @@ h4 {
   letter-spacing: 3px;
   font-weight: 700;
   margin: 20px 0px
+}
+
+h4.card, h2.card {
+  color: rgb(43, 40, 40);
+}
+
+h2.card {
+  line-height: 42px;
+  margin-bottom: 40px;
 }
 
 h5 {
@@ -322,31 +320,34 @@ button.filter-button:hover {
   justify-content: space-between;
 }
 
-div.card-header {
-  background-color: rgb(131, 46, 0);
-  color: rgb(255, 252, 248);
-  padding: 16px 30px 30px 30px;
-  border-radius: 6px 6px 0px 0px;
-  transition: 0.3s;
-}
-
-div.card-body {
-  background-color: rgb(255, 252, 248);
-  padding: 24px 24px 16px 24px;
-  border-radius: 0px 0px 6px 6px;
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
-  min-height: 200px;
-}
-
 .org-tile {
-  flex: 0 1 32%;
-  break-inside: avoid;
-  transition: 0.3s;
+  flex: 0 1 27%;
+  background-color: rgb(215, 152, 119);
+  color: rgb(255, 252, 248) !important; 
   margin: 0px 0px 40px 0px;
+  padding: 16px 30px 30px 30px;
+  border-radius: 6px;
+  transition: 0.3s;
 }
 
-div.card-header:hover {
-  background-color: rgb(91, 21, 0)
+.org-tile:hover {
+  box-shadow: 0 2px 16px 0 rgba(70, 26, 0, 0.2);
+}
+
+.org-tile:nth-child(odd) {
+  background-color: rgb(231, 207, 200);
+}
+
+.org-tile:nth-child(odd):hover {
+  box-shadow: 0 2px 16px 0 rgba(70, 26, 0, 0.1);
+}
+
+.org-tile:nth-child(4n+0) {
+  background-color: rgb(162, 189, 184);
+}
+
+.org-tile:nth-child(4n+0):hover {
+  box-shadow: 0 2px 16px 0 rgba(0, 62, 70, 0.2);
 }
 
 label {
@@ -394,19 +395,15 @@ div.received-challenges, div.send-challenge {
   margin-bottom: 40px;
 }
 
-div.tag {
+button.tag {
   font-weight: 900;
-  margin: 0px 14px 0px 0px;
+  margin: 6px 4px 6px 0px;
   border-radius: 4px;
   background-color: rgb(255, 252, 248);
   color: rgb(131, 46, 0);
   text-align: center;
   padding: 8px 16px;
   cursor: pointer;
-}
-
-button.tag {
-  margin: 14px 4px
 }
 
 div.tag-container {
@@ -443,11 +440,7 @@ input.radio {
 }
 
 div.resource-container {
-  /* column-count: 2;
-  column-gap: 100px; */
   margin-top: 40px;
-  /* display: flex;
-  flex-wrap: wrap; */
   justify-content: space-between;
 }
 
@@ -507,4 +500,10 @@ div.resource-tile-no-image {
   margin: 0px 0px 30px 0px;
   break-inside: avoid;
   transition: 0.3s;
+}
+
+div.thin-rule {
+  width: 20%;
+  border: 3px solid rgb(45, 45, 45);
+  margin: 20px 0px 20px 0px
 }

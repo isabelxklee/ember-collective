@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 
 export default class Tag extends Component {
+  handleChange = (event) => {
+    this.props.handleCategory(event.target.value)
+  }
+
   renderContent = () => {
     let content = ""
     this.props.tag ? content = this.props.tag.content : content = this.props.category
@@ -9,9 +13,7 @@ export default class Tag extends Component {
 
   render() {
     return (
-      <div className="tag">
-        #{this.renderContent()}
-      </div>
+      <button className="tag" onClick={this.handleChange} value={this.renderContent()}>#{this.renderContent()}</button>
     )
   }
 }
