@@ -78,7 +78,7 @@ class ProfileOrg extends Component {
     return (
       <div className="container">
         <div className="org-header">
-          <div className="tag-container">{orgsTags}</div>
+          <div className="tag-container" id="org">{orgsTags}</div>
           <h1 className="org-profile">{name}</h1>
           <h4>{location}</h4>
         </div>

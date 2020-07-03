@@ -415,6 +415,10 @@ div.tag-container {
   margin-bottom: 20px;
 }
 
+div#org.tag-container {
+  pointer-events: none;
+}
+
 div.org-header {
   margin-bottom: 40px;
 }
