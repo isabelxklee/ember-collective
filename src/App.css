@@ -483,7 +483,7 @@ img.resource-img {
 }
 
 div.resource-tile {
-  background-color: rgb(245, 242, 235);
+  background-color: rgb(255, 252, 248);
   color: rgb(45, 45, 45);
   border-radius: 6px;
   padding: 30px;
@@ -492,18 +492,24 @@ div.resource-tile {
   transition: 0.3s;
 }
 
-div.resource-tile-no-image {
-  background-color: rgb(245, 242, 235);
-  color: rgb(45, 45, 45);
-  border-radius: 6px;
-  padding: 30px;
-  margin: 0px 0px 30px 0px;
-  break-inside: avoid;
-  transition: 0.3s;
-}
-
 div.thin-rule {
   width: 20%;
   border: 3px solid rgb(45, 45, 45);
   margin: 20px 0px 20px 0px
+}
+
+div.image-replacement {
+  background-color: rgb(131, 46, 0);
+  width: 275px;
+  height: 350px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
+  float: left;
+}
+
+h2.resource-tile {
+  color: rgb(255, 252, 248);
+  padding: 40px;
+  font-size: 40px;
+  line-height: 44px;
 }

@@ -66,7 +66,8 @@ class ResourceTile extends Component {
         </>
         :
         <>
-          <div className="resource-tile-no-image">
+          <div className="image-replacement"><h2 className="resource-tile">{this.truncateString(title, 30)}</h2></div>
+          <div className="resource-tile">
             <div className="btn-group">
               {tags}
             </div>
