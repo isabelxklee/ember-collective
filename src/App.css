@@ -325,7 +325,7 @@ button.filter-button:hover {
 div.card-header {
   background-color: rgb(131, 46, 0);
   color: rgb(255, 252, 248);
-  padding: 28px;
+  padding: 16px 30px 30px 30px;
   border-radius: 6px 6px 0px 0px;
   transition: 0.3s;
 }
@@ -335,13 +335,14 @@ div.card-body {
   padding: 24px 24px 16px 24px;
   border-radius: 0px 0px 6px 6px;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
+  min-height: 200px;
 }
 
 .org-tile {
   flex: 0 1 32%;
   break-inside: avoid;
   transition: 0.3s;
-  margin: 0px 0px 30px 0px;
+  margin: 0px 0px 40px 0px;
 }
 
 div.card-header:hover {
