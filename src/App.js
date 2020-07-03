@@ -51,6 +51,7 @@ class App extends Component {
     .then(r => r.json())
     .then((response) => {
       this.handleResponse(response)
+      this.props.history.push(`/profile`) 
     })
   }
 
@@ -58,7 +59,6 @@ class App extends Component {
     if (response.user) {
       localStorage.token = response.token
       this.props.setUserInfo(response)  
-      this.props.history.push(`/profile`) 
     } else {
       alert(response.message)
     }
