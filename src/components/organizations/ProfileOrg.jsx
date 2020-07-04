@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import { SocialIcon } from 'react-social-icons'
 import Tag from './Tag.jsx'
 import OrgDonations from './OrgDonations.jsx'
 import moment from 'moment'
@@ -90,6 +91,8 @@ class ProfileOrg extends Component {
           { this.verifyToggle() }
 
         </div>
+
+        <SocialIcon url="https://twitter.com/CUAPBMpls" target="blank" id="twitter"/>
        
        <div className="org-body">
 

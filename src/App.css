@@ -56,7 +56,21 @@ a.header-link.active, a.header-link {
 
 a.header-link.active:hover, a.header-link:hover {
   opacity: 0.2;
-  }
+}
+
+#twitter.social-icon {
+  width: 34px !important;
+  height: 34px !important;
+  margin: 10px 0px;
+}
+
+g.social-svg-mask {
+  fill: rgb(45, 45, 45) !important;
+}
+
+g.social-svg-icon {
+  fill: rgb(255, 252, 248) !important;
+}
 
 h1 {
   text-align: left;
