@@ -127,13 +127,13 @@ h4 {
   margin: 20px 0px
 }
 
-h4.card, h2.card {
+h4.card, h2.card, p.card {
   color: rgb(43, 40, 40);
 }
 
 h2.card {
   line-height: 42px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 h5 {
@@ -145,6 +145,12 @@ h5 {
 p {
   font-size: 20px;
   line-height: 26px;
+}
+
+p.card {
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 20px;
 }
 
 p.results {

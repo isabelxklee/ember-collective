@@ -46,7 +46,7 @@ class CardOrg extends Component {
   }
 
   render() {
-    let {id, name, website, location, donation_link} = this.props.org
+    let {id, name, website, tagline, location, donation_link} = this.props.org
     let orgsTags = this.findOrgsTags().map((tag) => {
       return <Tag key={tag.id} tag={tag} handleCategory={this.props.handleCategory} />
     })
@@ -58,6 +58,8 @@ class CardOrg extends Component {
           <h4 className="card">{location}</h4>
           <h2 className="card">{name}</h2>
           </Link>
+
+          <p className="card">{this.truncateString(tagline, 125)}</p>
 
           {/* <div className="btn-group">
             <button className="card-button"><a href={website} target="blank" className="card-button">Website</a></button>
