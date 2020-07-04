@@ -58,10 +58,15 @@ a.header-link.active:hover, a.header-link:hover {
   opacity: 0.2;
 }
 
-#twitter.social-icon {
+.social-icon {
   width: 34px !important;
   height: 34px !important;
-  margin: 10px 0px;
+  margin: 10px 10px 10px 0px;
+  transition: 0.3s;
+}
+
+.social-icon:hover {
+  opacity: 0.75;
 }
 
 g.social-svg-mask {
@@ -346,7 +351,7 @@ button.filter-button:hover {
 
 .org-tile {
   flex: 0 1 27%;
-  background-color: rgb(215, 152, 119);
+  background-color: rgb(226, 179, 154);
   color: rgb(255, 252, 248) !important; 
   margin: 0px 0px 40px 0px;
   padding: 16px 30px 30px 30px;

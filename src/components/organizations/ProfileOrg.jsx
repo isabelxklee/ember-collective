@@ -66,7 +66,7 @@ class ProfileOrg extends Component {
   }
 
   render() {
-    let {name, website, donation_link, description, location} = this.props.org
+    let {name, website, donation_link, description, location, twitter, instagram, facebook} = this.props.org
 
     let orgsTags = this.findOrgsTags().map((tag) => {
       return <Tag key={tag.id} tag={tag}/>
@@ -87,12 +87,12 @@ class ProfileOrg extends Component {
         <div className="btn-group">
           <button className="card-button"><a href={website} target="blank" className="card-button">Website</a></button>
           <button className="card-button"><a href={donation_link} target="blank" className="card-button">Donate</a></button>
-          
+          {twitter ? <SocialIcon url={twitter} target="blank"/> : null}
+          {facebook ? <SocialIcon url={facebook} target="blank"/> : null}
+          {instagram ? <SocialIcon url={instagram} target="blank"/> : null}
+
           { this.verifyToggle() }
-
         </div>
-
-        <SocialIcon url="https://twitter.com/CUAPBMpls" target="blank" id="twitter"/>
        
        <div className="org-body">
 
