@@ -46,7 +46,7 @@ class CardOrg extends Component {
   }
 
   render() {
-    let {id, name, website, tagline, location, donation_link} = this.props.org
+    let {id, name, tagline, location} = this.props.org
     let orgsTags = this.findOrgsTags().map((tag) => {
       return <Tag key={tag.id} tag={tag} handleCategory={this.props.handleCategory} />
     })

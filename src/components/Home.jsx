@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import FilterOrgs from './organizations/FilterOrgs.jsx'
 import OrgContainer from '../components/organizations/OrgContainer'
-import Pluralize from 'react-pluralize'
 
 class Home extends Component {
   state = {
@@ -89,7 +88,7 @@ class Home extends Component {
     let arr = []
 
     orgs.filter((org) => {
-      joiners.filter((joiner) => {
+      return joiners.filter((joiner) => {
         return joiner.org_id === org.id ? arr.push(org) : null
       })
     })
@@ -97,7 +96,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.state.selectedTag)
     return (
       <div className="App">
         <h1 className="welcome">Welcome to the Ember Collective <span role="img" aria-label="flame">🔥</span></h1>
