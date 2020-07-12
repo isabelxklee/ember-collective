@@ -13,7 +13,7 @@ export default class Tag extends Component {
 
   render() {
     return (
-      <button className="tag" onClick={this.handleChange} value={this.renderContent()}>#{this.renderContent()}</button>
+      <button className="card-button" onClick={this.handleChange} value={this.renderContent()}>#{this.renderContent()}</button>
     )
   }
 }
