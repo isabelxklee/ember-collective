@@ -442,12 +442,7 @@ button.tag {
   cursor: pointer;
 }
 
-div.tag-container {
-  display: flex;
-  margin-bottom: 20px;
-}
-
-div#org.tag-container {
+div#org.btn-group {
   pointer-events: none;
 }
 

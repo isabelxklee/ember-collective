@@ -79,11 +79,12 @@ class ProfileOrg extends Component {
     return (
       <div className="container">
         <div className="org-header">
-          <div className="tag-container" id="org">{orgsTags}</div>
+          <div className="btn-group" id="org">{orgsTags}</div>
           <h1 className="org-profile">{name}</h1>
           <h4>{location}</h4>
         </div>
-
+       
+       <div className="org-body">
         <div className="btn-group">
           <button className="card-button"><a href={website} target="blank" className="card-button">Website</a></button>
           <button className="card-button"><a href={donation_link} target="blank" className="card-button">Donate</a></button>
@@ -93,8 +94,6 @@ class ProfileOrg extends Component {
 
           { this.verifyToggle() }
         </div>
-       
-       <div className="org-body">
 
           <h2>Description</h2>
           <p>{description}</p>        
