@@ -353,7 +353,7 @@ button.filter-button:hover {
   margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: end;
+  justify-content: flex-start;
 }
 
 .org-tile {

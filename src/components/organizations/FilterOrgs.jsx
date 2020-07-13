@@ -33,7 +33,7 @@ class FilterOrgs extends Component {
   render() {    
     return (
       <div className="filter">
-        <label><h3>Find an organization to support</h3></label>
+        <label><h3>Find an organization to support</h3>
         <input
           className="filter-input"
           type="text"
@@ -42,15 +42,16 @@ class FilterOrgs extends Component {
           autoComplete="off"
           value={this.props.searchTerm}
           onChange={this.handleSearch}
-        /><br />
+        /></label>
+        <br />
 
-        <label><h3>Filter by category</h3></label>
+        <label><h3>Filter by category</h3>
         <select value={this.state.selectedTag} onChange={this.handleCategoryChange} name="selectedTag">
           <option key="100" value="">#all</option>)
           { this.props.tags.map((tag) =>
             <option key={tag.id} value={tag.content}>#{tag.content}</option>)
           }
-        </select>
+        </select></label>
         <br />
 
         <button onClick={this.handleReset} className="filter-button">Clear search terms</button>
