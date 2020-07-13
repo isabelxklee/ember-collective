@@ -31,6 +31,11 @@ class PoliceBrutalityTracker extends Component {
     .then((resources) => {
       this.props.setAllResources(resources)
     })
+    fetch("http://localhost:3000/loved_ones")
+    .then(r => r.json())
+    .then((lovedOnes) => {
+      this.props.setAllLovedOnes(lovedOnes)
+    })
   }
 
   findCategoryID = (string) => {
@@ -109,6 +114,8 @@ class PoliceBrutalityTracker extends Component {
       return <Resource key={resource.id} resource={resource} />
     })
 
+    console.log(this.props.loved_ones)
+
     return (
       <>
       <div className="container" id="police-brutality">
@@ -125,11 +132,16 @@ class PoliceBrutalityTracker extends Component {
         </p>
 
         <p>  
-          We must work towards prison abolition just as we should dismantle the police as an institution.
+          Here are some educational resources on police and prison abolition, and organizations you can support that fight for these causes. 
         </p>
       </div>
 
       <div className="container">
+      <h2>Stopping police violence</h2>
+        <div className="org-container" id="flex">
+          {resourcesArr_1}
+        </div>
+
         <h2>Learn about prison abolition</h2>
         <div className="org-container" id="flex">
           {resourcesArr_1}
@@ -145,13 +157,37 @@ class PoliceBrutalityTracker extends Component {
           
         </div>
 
-        <h2>Support organizations that help incarcerated people and are fighting for prison abolition</h2>
+        <h2>Support organizations that help incarcerated people and fight for prison abolition</h2>
         <div className="org-container" id="flex">
-          
+        </div>
       </div>
+
+      <div className="police-brutality-resources-intro">
+        <h2>Honoring those we lost to police violence</h2>
+        <p>
+          Say their names. Remember their stories. Fight for a future free of police violence and incarceration.
+        </p>
+
+        <div className="org-container" id="flex">
+          <div className="profile-card">
+            <img src="https://thegrio.com/wp-content/uploads/2020/05/breonnataylor.jpg" className="profile-card"></img>
+            <div className="card-info">
+              <h2 className="card">Breonna Taylor</h2>
+              <p>Breonna Taylor, a 26-year-old African-American emergency medical technician, was fatally shot by Louisville Metro Police Department (LMPD) officers on March 13, 2020.</p>
+              <button className="small-button" target="blank">Gofundme</button>
+            </div>
+          </div>
+        </div>
       </div>
       </>
     )
+  }
+}
+
+let setAllLovedOnes = (loved_ones) => {
+  return {
+    type: "SET_ALL_LOVED_ONES",
+    payload: loved_ones
   }
 }
 
@@ -187,7 +223,8 @@ let mapDispatchToProps = {
   setAllEvents: setAllEvents,
   setAllCategories: setAllCategories,
   setAllCategoryJoiners: setAllCategoryJoiners,
-  setAllResources: setAllResources
+  setAllResources: setAllResources,
+  setAllLovedOnes: setAllLovedOnes
 }
 
 let mapStateToProps = (globalState) => {
@@ -195,7 +232,8 @@ let mapStateToProps = (globalState) => {
     events: globalState.eventInformation.events,
     categories: globalState.categoryInformation.categories,
     category_joiners: globalState.categoryInformation.category_joiners,
-    resources: globalState.resourceInformation.resources
+    resources: globalState.resourceInformation.resources,
+    loved_ones: globalState.lovedOnes.loved_ones
   }
 }
 

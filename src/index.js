@@ -48,6 +48,22 @@ let initialCategoryState = {
   category_joiners: []
 }
 
+let initialLovedOneState = {
+  loved_ones: []
+}
+
+let lovedOnesReducer = (state = initialLovedOneState, action) => {
+  switch(action.type) {
+    case "SET_ALL_LOVED_ONES":
+      return {
+        ...state,
+        loved_ones: action.payload
+      }
+    default:
+      return state
+  }
+}
+
 let categoryReducer = (state = initialCategoryState, action) => {
   switch(action.type) {
     case "SET_ALL_CATEGORIES":
@@ -208,7 +224,8 @@ let singleObject = {
   tagInfo: tagReducer,
   resourceInformation: resourceReducer,
   eventInformation: eventReducer,
-  categoryInformation: categoryReducer
+  categoryInformation: categoryReducer,
+  lovedOnes: lovedOnesReducer
 }
 
 let rootReducer = combineReducers(singleObject)
