@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import Map from './Map.jsx'
 import Resource from './Resource.jsx'
+import ProfileCard from './ProfileCard.jsx'
 
 class PoliceBrutalityTracker extends Component {
   componentDidMount() {
@@ -114,7 +115,9 @@ class PoliceBrutalityTracker extends Component {
       return <Resource key={resource.id} resource={resource} />
     })
 
-    console.log(this.props.loved_ones)
+    let lovedOnes = this.props.loved_ones.map((loved_one) => {
+      return <ProfileCard key={loved_one.id} loved_one={loved_one} />
+    }) 
 
     return (
       <>
@@ -169,14 +172,7 @@ class PoliceBrutalityTracker extends Component {
         </p>
 
         <div className="org-container" id="flex">
-          <div className="profile-card">
-            <img src="https://thegrio.com/wp-content/uploads/2020/05/breonnataylor.jpg" className="profile-card"></img>
-            <div className="card-info">
-              <h2 className="card">Breonna Taylor</h2>
-              <p>Breonna Taylor, a 26-year-old African-American emergency medical technician, was fatally shot by Louisville Metro Police Department (LMPD) officers on March 13, 2020.</p>
-              <button className="small-button" target="blank">Gofundme</button>
-            </div>
-          </div>
+          {lovedOnes}
         </div>
       </div>
       </>
