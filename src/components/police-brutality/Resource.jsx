@@ -13,8 +13,8 @@ class Resource extends Component {
 
     return (
       <div className="police-brutality-resource">
-        <a href={link} target="blank" className="small-button"><h2>{title}</h2></a>
-        <h4>By {author}</h4>
+        <a href={link} target="blank" className="small-button"><h3 className="username">{title}</h3></a>
+        <h4 id="police-brutality">By {author}</h4>
         <p className="card">{this.truncateString(description, 200)}</p>
       </div>
     )

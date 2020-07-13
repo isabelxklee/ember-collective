@@ -153,6 +153,10 @@ h4 {
   margin: 20px 0px
 }
 
+h4#police-brutality {
+  color: rgb(131, 46, 0)
+}
+
 h4.card, h2.card, p.card {
   color: rgb(43, 40, 40);
 }
@@ -551,4 +555,15 @@ div.police-brutality-resource {
 
 .police-brutality-resource:hover {
   box-shadow: 0 2px 16px 0 rgba(70, 26, 0, 0.2);
+}
+
+div.police-brutality-resources-intro {
+  background-color: rgb(45, 45, 45);
+  padding: 100px 140px;
+  color: rgb(255, 252, 248);
+  margin: 0px 0px 20px 0px;
+}
+
+#police-brutality {
+  margin-bottom: 40px;
 }
