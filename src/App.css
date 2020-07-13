@@ -531,3 +531,24 @@ div.thin-rule {
   border: 3px solid rgb(45, 45, 45);
   margin: 20px 0px 20px 0px
 }
+
+#flex {
+  margin: 40px 0px 0px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+div.police-brutality-resource {
+  flex: 0 1 25%;
+  background-color: rgb(255, 252, 248);
+  margin: 0px 20px 40px 0px;
+  padding: 16px 30px 30px 30px;
+  border-radius: 6px;
+  transition: 0.3s;
+  height: 100%;
+}
+
+.police-brutality-resource:hover {
+  box-shadow: 0 2px 16px 0 rgba(70, 26, 0, 0.2);
+}
