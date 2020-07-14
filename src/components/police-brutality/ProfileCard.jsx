@@ -6,7 +6,7 @@ export default class ProfileCard extends Component {
 
     return (
       <div className="profile-card">
-        <img src={img_url} className="profile-card"></img>
+        <img src={img_url} className="profile-card" alt={name}></img>
         <div className="card-info">
           <h2 className="card">{name}</h2>
           <h4 className="card">Passed away on {date}</h4>

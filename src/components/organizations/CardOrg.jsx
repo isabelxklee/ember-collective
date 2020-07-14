@@ -57,7 +57,7 @@ class CardOrg extends Component {
           <div className="thin-rule"/>
           <h4 className="card">{location}</h4>
           <h2 className="card">{name}</h2>
-          </Link>
+        </Link>
 
           <p className="card">{this.truncateString(tagline, 125)}</p>
 

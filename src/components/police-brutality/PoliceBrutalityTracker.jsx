@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import Map from './Map.jsx'
 import Resource from './Resource.jsx'
 import ProfileCard from './ProfileCard.jsx'
+import Org from './Org.jsx'
 
 class PoliceBrutalityTracker extends Component {
   componentDidMount() {
@@ -37,29 +38,72 @@ class PoliceBrutalityTracker extends Component {
     .then((lovedOnes) => {
       this.props.setAllLovedOnes(lovedOnes)
     })
-  }
-
-  findCategoryID = (string) => {
-    let selectedCategoryID = 0
-    this.props.categories.forEach((category) => {
-      return category.content === string ? selectedCategoryID = category.id : null
+    fetch("http://localhost:3000/tags")
+    .then(r => r.json())
+    .then((tags) => {
+      this.props.setAllTags(tags)
     })
-
-    return selectedCategoryID
+    fetch("http://localhost:3000/tag_joiners")
+    .then(r => r.json())
+    .then((tagJoiners) => {
+      this.props.setAllTagJoiners(tagJoiners)
+    })
+    fetch("http://localhost:3000/organizations")
+    .then(r => r.json())
+    .then((orgs) => {
+      this.props.setAllOrganizations(orgs)
+    })
   }
 
   findTagID = (string) => {
     let selectedTagID = 0
     this.props.tags.forEach((tag) => {
-      return tag.content === string ? selectedCategoryID = tag.id : null
+      return tag.content === string ? selectedTagID = tag.id : null
     })
 
     return selectedTagID
   }
 
-  findPACategoryJoiners = () => {
+  findTagJoiners = (string) => {
     let arr = []
-    let categoryID = this.findCategoryID("prison abolition")
+    let tagID = this.findTagID(string)
+
+    if (tagID !== 0) {
+      this.props.tag_joiners.filter((joiner) => {
+        return joiner.tag_id === tagID ? arr.push(joiner) : null
+      })
+    }
+
+    return arr
+  }
+
+  findOrganizations = (string) => {
+    let joiners = this.findTagJoiners(string)
+    let arr = []
+
+    joiners.forEach((joiner) => {
+      return this.props.orgs.filter((org) => {
+        return org.id === joiner.org_id ? arr.push(org) : null
+      })
+    })
+
+    return arr
+  }
+
+  findCategoryID = (string) => {
+    let selectedCategoryID = 0
+    if (this.props.categories.length !== 0) {
+      this.props.categories.forEach((category) => {
+        return category.content === string ? selectedCategoryID = category.id : null
+      })
+    }
+
+    return selectedCategoryID
+  }
+
+  findCategoryJoiners = (string) => {
+    let arr = []
+    let categoryID = this.findCategoryID(string)
 
     if (categoryID !== 0) {
       this.props.category_joiners.filter((joiner) => {
@@ -70,58 +114,33 @@ class PoliceBrutalityTracker extends Component {
     return arr
   }
 
-  findIncarcerationCategoryJoiners = () => {
+  findResources = (string) => {
+    let joiners = this.findCategoryJoiners(string)
     let arr = []
-    let categoryID = this.findCategoryID("incarceration")
-
-    if (categoryID !== 0) {
-      this.props.category_joiners.filter((joiner) => {
-        return joiner.category_id === categoryID ? arr.push(joiner) : null
-      })
-    }
-
-    return arr
-  }
-
-  findPAResources = () => {
-    let arr = []
-    let joiners = this.findPACategoryJoiners()
 
     joiners.forEach((joiner) => {
-      this.props.resources.filter((resource) => {
-        if (resource.id === joiner.resource_id) {
-          arr.push(resource)
-        }
+      return this.props.resources.filter((resource) => {
+        return resource.id === joiner.resource_id ? arr.push(resource) : null
       })
     })
 
     return arr
   }
 
-  findIncarcerationResources = () => {
-    let arr = []
-    let joiners = this.findIncarcerationCategoryJoiners()
-
-    joiners.forEach((joiner) => {
-      this.props.resources.filter((resource) => {
-        if (resource.id === joiner.resource_id) {
-          arr.push(resource)
-        }
-      })
-    })
-
-    return arr
-  }
-  
   render() {
-    let resourcesArr_1 = this.findPAResources()
-    resourcesArr_1 = resourcesArr_1.map((resource) => {
+    let prisonAbolitionResources = this.findResources("prison abolition")
+    prisonAbolitionResources = prisonAbolitionResources.map((resource) => {
       return <Resource key={resource.id} resource={resource} />
     })
 
-    let resourcesArr_2 = this.findIncarcerationResources()
-    resourcesArr_2 = resourcesArr_2.map((resource) => {
+    let incarcerationResources = this.findResources("incarceration")
+    incarcerationResources = incarcerationResources.map((resource) => {
       return <Resource key={resource.id} resource={resource} />
+    })
+
+    let incarcerationOrgs = this.findOrganizations("incarceration")
+    incarcerationOrgs = incarcerationOrgs.map((org) => {
+      return <Org key={org.id} org={org} />
     })
 
     let lovedOnes = this.props.loved_ones.map((loved_one) => {
@@ -156,16 +175,16 @@ class PoliceBrutalityTracker extends Component {
         <div className="org-container" id="flex">{}</div>
 
         <h2>Learn about prison abolition</h2>
-        <div className="org-container" id="flex">{resourcesArr_1}</div>
+        <div className="org-container" id="flex">{prisonAbolitionResources}</div>
 
         <h2>Resources for helping incarcerated people</h2>
-        <div className="org-container" id="flex">{resourcesArr_2}</div>
+        <div className="org-container" id="flex">{incarcerationResources}</div>
 
         <h2>History of the American police force</h2>
         <div className="org-container" id="flex"></div>
 
         <h2>Support organizations that help incarcerated people and fight for prison abolition</h2>
-        <div className="org-container" id="flex"></div>
+        <div className="org-container" id="flex">{incarcerationOrgs}</div>
       </div>
 
       <div className="police-brutality-resources-intro">
@@ -211,10 +230,31 @@ let setAllCategoryJoiners = (category_joiners) => {
   }
 }
 
+let setAllTags = (tags) => {
+  return {
+    type: "SET_ALL_TAGS",
+    payload: tags
+  }
+}
+
+let setAllTagJoiners = (tag_joiners) => {
+  return {
+    type: "SET_ALL_TAG_JOINERS",
+    payload: tag_joiners
+  }
+}
+
 let setAllResources = (resources) => {
   return {
     type: "SET_ALL_RESOURCES",
     payload: resources
+  }
+}
+
+let setAllOrganizations = (orgs) => {
+  return {
+    type: "SET_ALL_ORGS",
+    payload: orgs
   }
 }
 
@@ -223,7 +263,10 @@ let mapDispatchToProps = {
   setAllCategories: setAllCategories,
   setAllCategoryJoiners: setAllCategoryJoiners,
   setAllResources: setAllResources,
-  setAllLovedOnes: setAllLovedOnes
+  setAllLovedOnes: setAllLovedOnes,
+  setAllTags: setAllTags,
+  setAllTagJoiners: setAllTagJoiners,
+  setAllOrganizations: setAllOrganizations
 }
 
 let mapStateToProps = (globalState) => {
@@ -232,7 +275,10 @@ let mapStateToProps = (globalState) => {
     categories: globalState.categoryInformation.categories,
     category_joiners: globalState.categoryInformation.category_joiners,
     resources: globalState.resourceInformation.resources,
-    loved_ones: globalState.lovedOnes.loved_ones
+    loved_ones: globalState.lovedOnes.loved_ones,
+    tags: globalState.tagInfo.tags,
+    tag_joiners: globalState.tagInfo.tag_joiners,
+    orgs: globalState.orgInformation.orgs,
   }
 }
 
