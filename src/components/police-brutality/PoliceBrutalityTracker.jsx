@@ -48,6 +48,15 @@ class PoliceBrutalityTracker extends Component {
     return selectedCategoryID
   }
 
+  findTagID = (string) => {
+    let selectedTagID = 0
+    this.props.tags.forEach((tag) => {
+      return tag.content === string ? selectedCategoryID = tag.id : null
+    })
+
+    return selectedTagID
+  }
+
   findPACategoryJoiners = () => {
     let arr = []
     let categoryID = this.findCategoryID("prison abolition")
@@ -140,33 +149,27 @@ class PoliceBrutalityTracker extends Component {
       </div>
 
       <div className="container">
-      <h2>Stopping police violence</h2>
-        <div className="org-container" id="flex">
-          {resourcesArr_1}
-        </div>
+        <h2>Ending police violence</h2>
+        <div className="org-container" id="flex">{}</div>
+
+        <h2>Alternatives to calling the police</h2>
+        <div className="org-container" id="flex">{}</div>
 
         <h2>Learn about prison abolition</h2>
-        <div className="org-container" id="flex">
-          {resourcesArr_1}
-        </div>
+        <div className="org-container" id="flex">{resourcesArr_1}</div>
 
         <h2>Resources for helping incarcerated people</h2>
-        <div className="org-container" id="flex">
-          {resourcesArr_2}
-        </div>
+        <div className="org-container" id="flex">{resourcesArr_2}</div>
 
         <h2>History of the American police force</h2>
-        <div className="org-container" id="flex">
-          
-        </div>
+        <div className="org-container" id="flex"></div>
 
         <h2>Support organizations that help incarcerated people and fight for prison abolition</h2>
-        <div className="org-container" id="flex">
-        </div>
+        <div className="org-container" id="flex"></div>
       </div>
 
       <div className="police-brutality-resources-intro">
-        <h2>Honoring those we lost to police violence <span role="img" aria-label="candle">🕯</span></h2>
+        <h2>Honoring those we've lost to police violence <span role="img" aria-label="candle">🕯</span></h2>
         <p>
           Say their names. Remember their stories. Fight for a future free of police violence and incarceration.
         </p>

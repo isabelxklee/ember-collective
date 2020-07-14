@@ -569,7 +569,7 @@ div.police-brutality-resources-intro {
 }
 
 div.profile-card {
-  flex: 0 1 44%;
+  flex: 0 1 45%;
   background-color: rgb(255, 252, 248);
   color: rgb(45, 45, 45);
   border-radius: 6px;
@@ -577,7 +577,7 @@ div.profile-card {
 }
 
 div.card-info {
-  padding: 10px 20px;
+  padding: 10px 34px;
 }
 
 img.profile-card {
