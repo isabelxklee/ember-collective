@@ -166,7 +166,7 @@ class PoliceBrutalityTracker extends Component {
       </div>
 
       <div className="police-brutality-resources-intro">
-        <h2>Honoring those we lost to police violence</h2>
+        <h2>Honoring those we lost to police violence <span role="img" aria-label="candle">🕯</span></h2>
         <p>
           Say their names. Remember their stories. Fight for a future free of police violence and incarceration.
         </p>

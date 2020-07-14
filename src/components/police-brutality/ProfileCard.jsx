@@ -9,7 +9,7 @@ export default class ProfileCard extends Component {
         <img src={img_url} className="profile-card"></img>
         <div className="card-info">
           <h2 className="card">{name}</h2>
-          <h4 className="card">{date}</h4>
+          <h4 className="card">Passed away on {date}</h4>
           <p>{story}</p>
           <button className="small-button" target="blank"><a href={link} target="blank" className="profile-card">{button_label}</a></button>
         </div>
