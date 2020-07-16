@@ -10,8 +10,8 @@ export default class ProfileCard extends Component {
         <div className="card-info">
           <h2 className="card">{name}</h2>
           <h4 className="card">Passed away on {date}</h4>
-          <p>{story}</p>
-          <button className="small-button" target="blank"><a href={link} target="blank" className="profile-card">{button_label}</a></button>
+          <p className="card">{story}</p>
+          {link ? <button className="card-button" target="blank"><a href={link} target="blank" className="profile-card">{button_label}</a></button> : null}
         </div>
       </div>
     )

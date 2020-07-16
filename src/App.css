@@ -154,7 +154,8 @@ h4 {
 }
 
 h4#police-brutality {
-  color: rgb(131, 46, 0)
+  color: rgb(131, 46, 0);
+  margin-bottom: 20px;
 }
 
 h4.card, h2.card, p.card {
@@ -179,7 +180,7 @@ p {
 
 p.card {
   font-size: 18px;
-  line-height: 22px;
+  line-height: 24px;
   margin-bottom: 20px;
 }
 
@@ -536,7 +537,7 @@ div.thin-rule {
   margin: 20px 0px 20px 0px
 }
 
-#flex {
+#flex-container {
   margin: 40px 0px 0px 0px;
   display: flex;
   flex-wrap: wrap;
@@ -547,7 +548,7 @@ div.police-brutality-resource {
   flex: 0 1 25%;
   background-color: rgb(255, 252, 248);
   margin: 0px 20px 40px 0px;
-  padding: 16px 30px 30px 30px;
+  padding: 16px 30px 16px 30px;
   border-radius: 6px;
   transition: 0.3s;
   height: 100%;
@@ -569,15 +570,15 @@ div.police-brutality-resources-intro {
 }
 
 div.profile-card {
-  flex: 0 1 45%;
+  flex: 0 1 30%;
   background-color: rgb(255, 252, 248);
   color: rgb(45, 45, 45);
   border-radius: 6px;
-  margin: 40px 40px 0px 0px;
+  margin: 40px 20px 0px 0px;
 }
 
 div.card-info {
-  padding: 10px 34px;
+  padding: 10px 24px;
 }
 
 img.profile-card {

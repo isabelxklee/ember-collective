@@ -138,6 +138,11 @@ class PoliceBrutalityTracker extends Component {
       return <Resource key={resource.id} resource={resource} />
     })
 
+    let antiPoliceResources = this.findResources("anti-police")
+    antiPoliceResources = antiPoliceResources.map((resource) => {
+      return <Resource key={resource.id} resource={resource} />
+    })
+
     let incarcerationOrgs = this.findOrganizations("incarceration")
     incarcerationOrgs = incarcerationOrgs.map((org) => {
       return <Org key={org.id} org={org} />
@@ -169,22 +174,22 @@ class PoliceBrutalityTracker extends Component {
 
       <div className="container">
         <h2>Ending police violence</h2>
-        <div className="org-container" id="flex">{}</div>
+        <div id="flex-container">{}</div>
 
         <h2>Alternatives to calling the police</h2>
-        <div className="org-container" id="flex">{}</div>
+        <div id="flex-container">{antiPoliceResources}</div>
 
         <h2>Learn about prison abolition</h2>
-        <div className="org-container" id="flex">{prisonAbolitionResources}</div>
+        <div id="flex-container">{prisonAbolitionResources}</div>
 
         <h2>Resources for helping incarcerated people</h2>
-        <div className="org-container" id="flex">{incarcerationResources}</div>
+        <div id="flex-container">{incarcerationResources}</div>
 
         <h2>History of the American police force</h2>
-        <div className="org-container" id="flex"></div>
+        <div id="flex-container"></div>
 
         <h2>Support organizations that help incarcerated people and fight for prison abolition</h2>
-        <div className="org-container" id="flex">{incarcerationOrgs}</div>
+        <div id="flex-container">{incarcerationOrgs}</div>
       </div>
 
       <div className="police-brutality-resources-intro">
@@ -193,7 +198,7 @@ class PoliceBrutalityTracker extends Component {
           Say their names. Remember their stories. Fight for a future free of police violence and incarceration.
         </p>
 
-        <div className="org-container" id="flex">
+        <div id="flex-container">
           {lovedOnes}
         </div>
       </div>
