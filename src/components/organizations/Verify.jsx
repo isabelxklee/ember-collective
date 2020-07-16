@@ -10,13 +10,19 @@ class Verify extends Component {
     tagline: this.props.org.tagline,
     description: this.props.org.description,
     location: this.props.org.location,
+    instagram: this.props.org.instagram,
+    twitter: this.props.org.twitter,
+    facebook: this.props.org.facebook,
     backToProfile: false,
 
     errors: {
       website: "",
       donation_link: "",
       tagline: "",
-      description: ""
+      description: "",
+      facebook: "",
+      instagram: "",
+      twitter: ""
     }
   }
 
@@ -39,6 +45,27 @@ class Verify extends Component {
         event.target.value.match(this.regex)
             ? ''
             : 'Website must be a valid format. Example: www.example.com'
+        break
+
+        case 'facebook': 
+        errors.facebook = 
+        event.target.value.match(this.regex)
+            ? ''
+            : 'Facebook link must be a valid format. Example: www.facebook.com/test'
+        break
+
+      case 'twitter': 
+        errors.twitter = 
+        event.target.value.match(this.regex)
+            ? ''
+            : 'Twitter link must be a valid format. Example: www.twitter.com/test'
+        break
+
+      case 'instagram': 
+        errors.instagram = 
+        event.target.value.match(this.regex)
+            ? ''
+            : 'Instagram link must be a valid format. Example: www.instagram.com/test'
         break
 
       case 'tagline': 
@@ -148,6 +175,51 @@ class Verify extends Component {
         <br />
         {errors.donation_link.length > 0 && 
           <p className='error'>{errors.donation_link}</p>
+        }
+        <br />
+
+        <label>Facebook link (optional)</label>
+          <br />
+
+          <input
+            name="facebook"
+            type="text"
+            autoComplete="off"
+            value={this.state.facebook}
+            onChange={this.handleChange} />
+        <br />
+        {errors.facebook.length > 0 && 
+          <p className='error'>{errors.facebook}</p>
+        }
+        <br />
+
+        <label>Twitter Link (optional)</label>
+          <br />
+
+          <input
+            name="twitter"
+            type="text"
+            autoComplete="off"
+            value={this.state.twitter}
+            onChange={this.handleChange} />
+        <br />
+        {errors.twitter.length > 0 && 
+          <p className='error'>{errors.twitter}</p>
+        }
+        <br />
+
+        <label>Instagram Link (optional)</label>
+          <br />
+
+          <input
+            name="instagram"
+            type="text"
+            autoComplete="off"
+            value={this.state.instagram}
+            onChange={this.handleChange} />
+        <br />
+        {errors.instagram.length > 0 && 
+          <p className='error'>{errors.instagram}</p>
         }
         <br />
 
