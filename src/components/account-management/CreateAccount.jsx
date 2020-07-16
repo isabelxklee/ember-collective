@@ -17,7 +17,7 @@ class CreateAccount extends Component {
   }
 
   email_regex = /([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})/i
-  username_regex = /^(?=.{1,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9_]+(?<![_.])$/i
+  username_regex = /^(?=.{1,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9_]+$/i
 
   handleChange = (event) => {
     let errors = this.state.errors

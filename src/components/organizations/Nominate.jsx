@@ -18,7 +18,7 @@ class Nominate extends Component {
     }
   }
 
-  expression = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi
+  expression = /[-a-zA-Z0-9@:%._~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_.~#?&//=]*)?/gi
   regex = new RegExp(this.expression)
 
   handleChange = (event) => {
@@ -88,13 +88,23 @@ class Nominate extends Component {
       },
       body: JSON.stringify(this.state)
     })
-    .then(r => r.json())
+    .then((response) => {
+      if (response.ok) {
+        return response.json()
+      } else {
+        throw Error(response.statusText)
+      }
+    })
     .then((newOrg) => {
+      alert("You've successfully nominated a new organization!")
       this.props.createOrg(newOrg)
       this.createNomination(newOrg)
       this.props.history.push("/")
     })
-    console.log("You've successfully nominated a new organization!")
+    .catch((error) => {
+      alert("You were not able to nominate an organization. Check your information and try again.")
+      console.log(error)
+    })
   }
 
   createNomination = (newOrg) => {
