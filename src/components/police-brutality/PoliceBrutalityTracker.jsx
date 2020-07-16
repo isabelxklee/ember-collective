@@ -143,6 +143,16 @@ class PoliceBrutalityTracker extends Component {
       return <Resource key={resource.id} resource={resource} />
     })
 
+    let policeBrutalityResources = this.findResources("police brutality")
+    policeBrutalityResources = policeBrutalityResources.map((resource) => {
+      return <Resource key={resource.id} resource={resource} />
+    })
+
+    let historyResources = this.findResources("history")
+    historyResources = historyResources.map((resource) => {
+      return <Resource key={resource.id} resource={resource} />
+    })
+
     let incarcerationOrgs = this.findOrganizations("incarceration")
     incarcerationOrgs = incarcerationOrgs.map((org) => {
       return <Org key={org.id} org={org} />
@@ -162,37 +172,7 @@ class PoliceBrutalityTracker extends Component {
       </div>
 
       <div className="police-brutality-resources-intro">
-        <h2>How do we stop police violence?</h2>
-        <p>
-          Police violence in America is intimately tied to anti-Black racism and the prison-industrial complex. We must dismantle the police as an institution and change the idea of police being enforcers of the law and public safety. This mission also goes hand-in-hand with prison abolition, a movement to end the American carceral state. Different organizations have varying definitions of prison abolition, but it generally means dismantling state and private prisons, ending the forced labor of incarcerated people, and investing in new systems for public safety and conflict resolution.
-        </p>
-
-        <p>  
-          Here are some educational resources on police and prison abolition, and organizations you can support that fight for these causes. 
-        </p>
-      </div>
-
-      <div className="container">
-        <h2>Ending police violence</h2>
-        <div id="flex-container">{}</div>
-
-        <h2>Alternatives to calling the police</h2>
-        <div id="flex-container">{antiPoliceResources}</div>
-
-        <h2>Learn about prison abolition</h2>
-        <div id="flex-container">{prisonAbolitionResources}</div>
-
-        <h2>Resources for helping incarcerated people</h2>
-        <div id="flex-container">{incarcerationResources}</div>
-
-        <h2>History of the American police force</h2>
-        <div id="flex-container"></div>
-
-        <h2>Support organizations that help incarcerated people and fight for prison abolition</h2>
-        <div id="flex-container">{incarcerationOrgs}</div>
-      </div>
-
-      <div className="police-brutality-resources-intro">
+        <div className="section-divider"></div>
         <h2>Honoring those we've lost to police violence <span role="img" aria-label="candle">🕯</span></h2>
         <p>
           Say their names. Remember their stories. Fight for a future free of police violence and incarceration.
@@ -202,6 +182,36 @@ class PoliceBrutalityTracker extends Component {
           {lovedOnes}
         </div>
       </div>
+
+      <div className="police-brutality-resources-intro">
+        <div className="section-divider"></div>
+        <h2>How do we stop police violence?</h2>
+        <p>
+          Police violence in America is intimately tied to anti-Black racism and the prison-industrial complex. We must dismantle the police as an institution and change the idea of police being enforcers of the law and public safety. This mission also goes hand-in-hand with prison abolition, a movement to end the American carceral state. Different organizations have varying definitions of prison abolition, but it generally means dismantling state and private prisons, ending the forced labor of incarcerated people, and investing in new systems for public safety and conflict resolution.
+        </p>
+
+        <p>  
+          Here are some educational resources on police and prison abolition, and organizations you can support that fight for these causes. 
+        </p>
+
+        <h2 className="section">Ending police violence</h2>
+        <div id="flex-container">{policeBrutalityResources}</div>
+
+        <h2 className="section">Alternatives to calling the police</h2>
+        <div id="flex-container">{antiPoliceResources}</div>
+
+        <h2 className="section">History of the American police force</h2>
+        <div id="flex-container">{historyResources}</div>
+
+        <h2 className="section">Learn about prison abolition</h2>
+        <div id="flex-container">{prisonAbolitionResources}</div>
+
+        <h2 className="section">Resources for helping incarcerated people</h2>
+        <div id="flex-container">{incarcerationResources}</div>
+
+        <h2 className="section">Support organizations that help incarcerated people and fight for prison abolition</h2>
+        <div id="flex-container">{incarcerationOrgs}</div>
+        </div>
       </>
     )
   }
