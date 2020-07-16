@@ -13,6 +13,7 @@ import PoliceBrutalityTracker from './components/police-brutality/PoliceBrutalit
 import About from './components/About.jsx'
 import Footer from './components/Footer.jsx'
 import Verify from './components/organizations/Verify.jsx'
+import Nominate from './components/organizations/Nominate.jsx'
 import Settings from './components/account-management/Settings.jsx'
 import OtherProfile from './components/account-management/OtherProfile.jsx'
 
@@ -102,6 +103,7 @@ class App extends Component {
         <Route path="/login"> <Login handleLoginSubmit={this.handleLoginSubmit}/> </Route>
         <Route path="/about"> <About/> </Route>
         <Route path="/profile"> <Profile/> </Route>
+        <Route path="/nominate"> <Nominate/> </Route>
         <Route path="/account-settings">
           <Settings
             id={this.props.id}

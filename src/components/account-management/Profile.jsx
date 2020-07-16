@@ -73,7 +73,10 @@ class Profile extends Component {
     let join_date = moment(created_at)
     let now = moment()
 
-    return now.diff(join_date, 'days') >= 2 ? <div className="donations"><Nominate/></div> : null
+    return now.diff(join_date, 'days') >= 2 ?
+      <button className="card-button"><Link to={`/nominate`} className="card">Nominate Organization</Link></button>
+      :
+      null
   }
 
   render() {
@@ -88,9 +91,11 @@ class Profile extends Component {
           {/* <h5>✅ Verified {verifications.length} organizations</h5> */}
           <h5><span role="img" aria-label="confetti">🎉</span> Nominated <Pluralize singular={'organization'} count={this.usersNominations()} /></h5>
           <h5><span role="img" aria-label="money">💵</span> Sent <Pluralize singular={'challenge'} count={this.usersDonationChallenges()} donation match challenges/></h5>
-          <Link to={`/account-settings`}>
-            <button className="card-button">Account Settings</button>
-          </Link>
+          
+          <div className="btn-group">
+            <button className="card-button"><Link to={`/account-settings`} className="card">Account Settings</Link></button>
+            {this.nominateToggle()}
+          </div>
         </div>
 
         <div className="donations">
@@ -104,9 +109,6 @@ class Profile extends Component {
             senders={this.props.senders}
           />
         </div>
-
-        { this.nominateToggle() }
-
       </div>
     )
   }  

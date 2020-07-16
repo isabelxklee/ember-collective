@@ -155,12 +155,13 @@ class Nominate extends Component {
     let {errors} = this.state
 
     return (
+      <div className="container">
       <div className="send-challenge">
-        <h2>Organization's Name</h2>
+        <h1>Nominate an Organization</h1>
         <p>This feature is only available for users who have been on the Ember Collective for at least 2 days.</p>
         <form onSubmit={this.handleSubmit}>
         
-          <label>Name of Organization</label>
+          <label>Organization's Name</label>
           <br />
           
           <input
@@ -286,6 +287,7 @@ class Nominate extends Component {
 
         <button type="submit" className="submit-button">Add organization</button>
       </form>
+      </div>
       </div>
     )
   }

@@ -121,6 +121,10 @@ a.welcome {
   color: rgb(45, 45, 45)
 }
 
+a.card {
+  color: rgb(255, 252, 248);
+}
+
 h2.welcome {
   margin: 60px 200px 80px 160px;
   font-weight: 700;
