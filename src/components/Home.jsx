@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
 import FilterOrgs from './organizations/FilterOrgs.jsx'
 import OrgContainer from '../components/organizations/OrgContainer'
 
