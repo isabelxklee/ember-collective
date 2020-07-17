@@ -118,7 +118,7 @@ a, a:visited, a:active {
 }
 
 a.welcome {
-  color: rgb(45, 45, 45)
+  color: rgb(131, 46, 0)
 }
 
 a.card {
@@ -167,8 +167,13 @@ h4#police-brutality {
   margin-bottom: 20px;
 }
 
-h4.card, h2.card, p.card {
+h4.card, h2.card {
   color: rgb(43, 40, 40);
+}
+
+a#username {
+  color: rgb(43, 40, 40);
+  font-weight: 900;
 }
 
 h2.card {
@@ -187,10 +192,10 @@ p {
   line-height: 26px;
 }
 
-p.card {
-  font-size: 18px;
-  line-height: 24px;
-  margin-bottom: 20px;
+p.donation-stat {
+  margin: 10px 0px;
+  color: rgb(43, 40, 40);
+  line-height: normal;
 }
 
 p.results {
@@ -226,7 +231,7 @@ a.card-button:link, a.card-button:visited {
 
 textarea {
   height: 100px;
-  width: 30%;
+  width: 50%;
   border-radius: 4px;
   padding: 10px 14px;
   font-size: 14px;
@@ -425,6 +430,10 @@ div.donations {
   margin: 40px 0px;
   padding: 20px;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
+}
+
+div.donation-stat {
+  margin: 30px 0px;
 }
 
 select {

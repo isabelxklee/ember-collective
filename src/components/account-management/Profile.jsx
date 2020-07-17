@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 import moment from 'moment'
 import Pluralize from 'react-pluralize'
 import DonationChallenge from '../donations/DonationChallenge'
-import Nominate from '../organizations/Nominate.jsx'
 
 class Profile extends Component {
   componentDidMount() {

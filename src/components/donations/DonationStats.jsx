@@ -70,12 +70,12 @@ class DonationStats extends Component {
 
   render() {
     return (
-      <>
-        <h4>
-          From <Link to={this.senderSlug()} className="welcome">@{this.senderLoggedInStatus()}</Link> To <Link to={this.receiverSlug()} className="welcome">@{this.receiverLoggedInStatus()}</Link> 
-        </h4> 
-        <p>Donate ${this.props.challenge.amount} to <Link to={`/organizations/${this.renderOrgID()}`} className="welcome"> {this.renderOrgName()}</Link></p>
-      </>
+      <div className="donation-stat">
+        <p className="donation-stat">
+          From <Link to={this.senderSlug()} id="username">@{this.senderLoggedInStatus()}</Link> To <Link to={this.receiverSlug()} id="username">@{this.receiverLoggedInStatus()}</Link> 
+        </p> 
+        <p className="donation-stat">Donate ${this.props.challenge.amount} to <Link to={`/organizations/${this.renderOrgID()}`} id="username"> {this.renderOrgName()}</Link></p>
+      </div>
     )
   }
 }
