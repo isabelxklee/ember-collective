@@ -87,7 +87,7 @@ h1 {
 
 h1.welcome {
   font-size: 90px;
-  margin: 40px 180px 20px 160px;
+  margin: 60px 180px 20px 160px;
 }
 
 h1.profile {
@@ -96,7 +96,7 @@ h1.profile {
 }
 
 h1.org-profile {
-  margin: 0px 0px 20px 0px;
+  margin: 20px 0px 20px 0px;
 }
 
 h2 {
@@ -126,7 +126,7 @@ a.card {
 }
 
 h2.welcome {
-  margin: 60px 200px 80px 160px;
+  margin: 60px 200px 100px 160px;
   font-weight: 700;
   font-size: 32px;
   font-family: "Karla", sans-serif
@@ -319,7 +319,7 @@ button {
   background-color: rgb(45, 45, 45);
   color: rgb(255, 252, 248);
   border: none;
-  margin: 14px 0px
+  margin: 10px 0px;
 }
 
 button.danger {

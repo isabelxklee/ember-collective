@@ -16,34 +16,32 @@ class About extends Component {
         <h1>About the Ember Collective</h1><br/>
         <div className="resources-filter">
         <h3 className="welcome">
-          Hi there! My name is Isabel K. Lee and I'm a creative technologist. My background is primarily in technology, but I've been involved in politics and activism since I was a student at McGill University.
+          Hi there! Thank you for checking out Ember Collective. My name is Isabel K. Lee and I'm a creative technologist. My background is primarily in technology, but I'm also passionate about politics and activism.
         </h3>
 
         <p>
-          As a non-Black person of color, I built Ember Collective as a place to consolidate anti-racism resources and support the Black Lives Matter movement. I hope that you come away from this site with more knowledge and energy to continue fighting for Black people.
+          As a non-Black person of color, I built Ember Collective as a place to consolidate anti-racism resources and support the Black Lives Matter movement. I hope that you come away from this site with more knowledge and energy to continue showing up for Black people.
         </p>
 
         <p>
-          There are small and large ways that we can all contribute to this ongoing revolution. The educational materials in the <Link to="/resources" className="welcome"> Resources</Link> section are probably more eloquent than anything I could say, but I truly believe that the revolution starts with us and ends with enacting drastic systemic changes.
+          There are small and large ways that we can all contribute to this ongoing revolution. The educational materials in the <Link to="/resources" id="username"> Resources</Link> section are probably more eloquent than anything I could say, but I truly believe that the revolution starts with us and ends with enacting drastic systemic changes.
         </p>        
 
-        <p>
         <h3 className="welcome">
           So, what does that look like?
         </h3>
           <ul>
             <li>Reflect on your own privileges and biases.</li>
             <li>Let yourself be uncomfortable and challenge yourself to unlearn those racist, sexist, transphobic, etc. beliefs.</li>
-            <li>Call in family members and friends when they say or do racist things. Have engaging, uncomfortable conversations with your loved ones.</li>
-            <li>Read up on the history of America, slavery, prison abolition, police brutality, feminism, gender theory, trans history, etc. Action is important, but education will give your action purpose and context.</li>
+            <li><a href="https://vimeo.com/343772324" id="username">Call in family members and friends</a> when they say or do racist things. Have engaging, uncomfortable conversations with your loved ones.</li>
+            <li>Read up on the history of America, slavery, colonialism, the prison-industrial complex, and intersectional feminism. Action is important, but education will give you necessary context.</li>
             <li>Make recurring donations to non-profit organizations, especially local ones and mutual aid funds.</li>
-            <li>Mutual aid is radical. Join your local mutual aid organization and help advocate for marginalized neighbors. Get to know the history of your neighborhood and who came before you.</li>
+            <li><a href="https://foundationbeyondbelief.org/news/mutual-aid" id="username">Mutual aid is radical.</a> Join your local mutual aid organization and help advocate for marginalized neighbors. Get to know the history of your neighborhood and who came before you.</li>
             <li>Volunteer for political campaigns that you believe in. Especially ones that promise to abolish ICE and disband the police.</li>
             <li>Stand up for Black people at work. Fight for more diverse hiring practices, fight for equal pay, fight for better management training, fight for a more inclusive culture, and speak up if you see Black co-workers being marginalized.</li>
-            <li>Attend protests and rallies. If you are a white person, protect Black people by standing between them and the police.</li>
+            <li>Attend protests and rallies. If you are a white person, protect Black people by using your body as a barrier.</li>
             <li>Listen to Black trans women. Cherish Black trans women. Respect Black trans women. Protect Black trans women!</li>
           </ul>
-        </p>
 
         <p>Love,</p>
         <p>Isabel K. Lee</p>

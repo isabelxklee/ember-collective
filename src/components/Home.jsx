@@ -100,7 +100,7 @@ class Home extends Component {
       <div className="App">
         <h1 className="welcome">Welcome to the Ember Collective <span role="img" aria-label="flame">🔥</span></h1>
         <h2 className="welcome">
-          This is a place to consolidate information and resources supporting the Black Lives Matter movement. If you are a non-Black person in America, you must commit to Black liberation and fight for the freedom of Black folks. <Link to="/resources" className="welcome"> Here are some more resources</Link> on fighting racism, protesting safely, and ending the carceral state.
+          This is a place to consolidate resources and support organizations related to the Black Lives Matter movement. Join the fight to end racism, dismantle the carceral state, and stand up for Black people.
         </h2>
         <FilterOrgs
           searchTerm={this.state.searchTerm}
