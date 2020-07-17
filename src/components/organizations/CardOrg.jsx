@@ -59,7 +59,7 @@ class CardOrg extends Component {
           <h2 className="card">{name}</h2>
         </Link>
 
-          <p className="card">{this.truncateString(tagline, 125)}</p>
+          <p className="donation-stat">{this.truncateString(tagline, 150)}</p>
 
           {/* <div className="btn-group">
             <button className="card-button"><a href={website} target="blank" className="card-button">Website</a></button>
