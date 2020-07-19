@@ -646,6 +646,11 @@ div.section-divider {
     margin: 60px 0px 20px 0px;
   }
 
+  h2.resource {
+    font-size: 36px;
+    line-height: 38px;
+  }
+
   h3.username {
     font-size: 24px;
   }
@@ -655,7 +660,7 @@ div.section-divider {
   }
 
   h4.card, h4#police-brutality {
-    margin: 0;
+    margin: 20px 0px;
   }
 
   p.card {
@@ -731,5 +736,21 @@ div.section-divider {
 
   #org.btn-group {
     margin: 20px;
+  }
+
+  img.resource-img {
+    width: 100%;
+    float: none;
+    margin-bottom: -10px;
+    border-radius: 6px 6px 0px 0px;
+  }
+
+  div.image-replacement {
+    display: none;
+  }
+
+  div.resource-tile {
+    margin: 0px 0px 20px 0px;
+    padding: 30px;
   }
 }
