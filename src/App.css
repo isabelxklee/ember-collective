@@ -613,3 +613,60 @@ div.section-divider {
   border: 4px solid rgb(255, 252, 248);
   width: 6%;
 }
+
+@media only screen and (max-width: 892px) {
+  div.header {
+    margin: 40px;
+    padding: 0px;
+  }
+
+  h1.welcome {
+    margin: 40px;
+    font-size: 60px;
+    line-height: 60px;
+  }
+
+  h2.welcome {
+    margin: 40px;
+    font-size: 24px;
+  }
+
+  .header {
+    display: table;
+  }
+
+  a.header-link.active, a.header-link {
+    padding: 0px;
+    width: 100%;
+  }
+
+  div.filter {
+    margin: 20px;
+  }
+
+  div.org-container {
+    margin: 20px;
+    display: block;
+  }
+
+  div.org-tile {
+    margin: 0px 0px 20px 0px;
+  }
+
+  div.footer {
+    padding: 0px 20px 20px 20px;
+    display: table;
+    width: 100%;
+  }
+
+  a.footer-left {
+    margin-bottom: 0;
+    padding: 0px 10px;
+  }
+
+  a.footer-right {
+    float: left;
+    margin-bottom: 0;
+    padding: 0px 10px ;
+  }
+}
