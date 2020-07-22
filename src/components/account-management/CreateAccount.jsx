@@ -87,9 +87,7 @@ class CreateAccount extends Component {
     .then(r => r.json())
     .then((response) => {
       this.props.handleResponse(response)
-      this.props.history.push(`/profile`)
     })
-    console.log("You've successfully created an account!")
   }
 
   render() {
