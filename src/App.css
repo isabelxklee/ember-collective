@@ -710,20 +710,12 @@ div.section-divider {
   }
 
   div.footer {
-    padding: 0px 20px 20px 20px;
-    display: table;
-    width: 100%;
+    justify-content: center;
+    padding: 10px 20px;
   }
-
-  a.footer-left {
-    margin-bottom: 0;
-    padding: 0px 10px;
-  }
-
-  a.footer-right {
-    float: left;
-    margin-bottom: 0;
-    padding: 0px 10px ;
+  
+  a.footer-left, a.footer-right {
+    float: none;
   }
 
   input, select {

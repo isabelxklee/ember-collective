@@ -41,21 +41,6 @@ class App extends Component {
     }
   }
 
-  handleLoginSubmit = (userInfo) => {
-    fetch("http://localhost:3000/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(userInfo)
-    })
-    .then(r => r.json())
-    .then((response) => {
-      this.handleResponse(response)
-      this.props.history.push(`/profile`) 
-    })
-  }
-
   handleResponse = (response) => {
     if (response.user) {
       localStorage.token = response.token
@@ -100,7 +85,7 @@ class App extends Component {
         <Route exact path="/police-brutality-tracker"> <PoliceBrutalityTracker/> </Route>
         <Route path="/resources"> <Resources/> </Route>
         <Route path="/create-account"> <CreateAccount handleResponse={this.handleResponse}/> </Route>
-        <Route path="/login"> <Login handleLoginSubmit={this.handleLoginSubmit}/> </Route>
+        <Route path="/login"> <Login handleResponse={this.handleResponse}/> </Route>
         <Route path="/about"> <About/> </Route>
         <Route path="/profile"> <Profile/> </Route>
         <Route path="/nominate"> <Nominate/> </Route>
