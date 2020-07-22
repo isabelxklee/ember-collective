@@ -43,14 +43,13 @@ a.footer-right {
 }
 
 a.header-link.active, a.header-link {
-  float: left;
-  color: rgb(45, 45, 45);
-  padding: 4px 40px 4px 0px;
   text-decoration: none;
-  font-size: 18px; 
-  line-height: 25px;
-  font-weight: 700;
   transition: 0.3s;
+  color: rgb(45, 45, 45);
+  /* font-size: 18px; 
+  padding: 4px 40px 4px 0px;
+  line-height: 25px;
+  font-weight: 700; */
 }
 
 a.header-link.active:hover, a.header-link:hover {
@@ -614,18 +613,12 @@ div.section-divider {
 }
 
 @media only screen and (max-width: 892px) {
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    background-color: rgb(255, 252, 248);
-    margin: 0;
+  a.header-link.active, a.header-link {
+    color: rgb(45, 45, 45);
   }
 
-  td, th {
-    border-bottom: 3px solid rgb(131, 46, 0);
-    text-align: left;
-    padding: 14px 20px 14px 40px;
-    font-size: 18px;
+  a.navbar-link.active, a.navbar-link {
+    color: rgb(255, 252, 248);
   }
 
   h1.welcome {
@@ -675,10 +668,10 @@ div.section-divider {
     font-size: 18px;
   }
 
-  a.header-link.active, a.header-link {
+  /* a.header-link.active, a.header-link {
     padding: 0px;
     width: 100%;
-  }
+  } */
 
   div.filter {
     margin: 20px;

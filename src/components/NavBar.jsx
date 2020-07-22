@@ -41,22 +41,42 @@ function NavBar() {
       { isMobile? (
         <>
         <Navbar.Wrapper>
-          <Navbar.Item>Create Account</Navbar.Item>
-          <Navbar.Item>Login</Navbar.Item>
+          <Navbar.Item>
+            <NavLink to="/create-account" exact className="header-link">Create Account</NavLink>
+          </Navbar.Item>
+          <Navbar.Item>
+            <NavLink to="/login" exact className="header-link">Login</NavLink>
+          </Navbar.Item>
         </Navbar.Wrapper>
         <MobileNavbar.Wrapper>
-          <MobileNavbar.Item>Home</MobileNavbar.Item>
-          <MobileNavbar.Item>Police Brutality</MobileNavbar.Item>
-          <MobileNavbar.Item>Resources</MobileNavbar.Item>
+          <MobileNavbar.Item>
+            <NavLink to="/" exact className="navbar-link">Home</NavLink>
+          </MobileNavbar.Item>
+          <MobileNavbar.Item>
+            <NavLink to="/police-brutality-tracker" exact className="navbar-link">Police Brutality</NavLink>
+          </MobileNavbar.Item>
+          <MobileNavbar.Item>
+            <NavLink to="/resources" exact className="navbar-link">Resources</NavLink>
+          </MobileNavbar.Item>
         </MobileNavbar.Wrapper>
         </>
       ) : (
         <Navbar.Wrapper>
-          <Navbar.Item>Home</Navbar.Item>
-          <Navbar.Item>Police Brutality</Navbar.Item>
-          <Navbar.Item>Resources</Navbar.Item>
-          <Navbar.Item>Create Account</Navbar.Item>
-          <Navbar.Item>Login</Navbar.Item>
+          <Navbar.Item>
+            <NavLink to="/" exact className="header-link">Home</NavLink>
+          </Navbar.Item>
+          <Navbar.Item>
+            <NavLink to="/police-brutality-tracker" exact className="header-link">Police Brutality</NavLink>
+          </Navbar.Item>
+          <Navbar.Item>
+            <NavLink to="/resources" exact className="header-link">Resources</NavLink>
+          </Navbar.Item>
+          <Navbar.Item>
+            <NavLink to="/create-account" exact className="header-link">Create Account</NavLink>
+          </Navbar.Item>
+          <Navbar.Item>
+            <NavLink to="/login" exact className="header-link">Login</NavLink>
+          </Navbar.Item>
         </Navbar.Wrapper>
       )}
       </div>
@@ -84,13 +104,6 @@ let mapStateToProps = (globalState) => {
 let MagicalComponent = withRouter(NavBar)
 
 export default connect(mapStateToProps, mapDispatchToProps)(MagicalComponent)
-
-{/* <NavLink to="/" exact className="header-link">Home</NavLink><br/>
-        <NavLink to="/police-brutality-tracker" exact className="header-link">Police Brutality Tracker</NavLink><br/>
-        <NavLink to="/resources" exact className="header-link">Resources</NavLink><br/>
-        <NavLink to="/create-account" exact className="header-link">Create Account</NavLink><br/>
-        <NavLink to="/login" exact className="header-link">Login</NavLink><br/> */}
-
 
 const Navbar = {
   Wrapper: styled.nav`
