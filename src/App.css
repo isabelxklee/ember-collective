@@ -612,6 +612,8 @@ div.section-divider {
   width: 6%;
 }
 
+/* mobile styles */
+
 @media only screen and (max-width: 892px) {
   a.header-link.active, a.header-link {
     color: rgb(45, 45, 45);
@@ -622,7 +624,7 @@ div.section-divider {
   }
 
   h1.welcome {
-    margin: 40px;
+    margin: 80px 40px 40px 40px;
     font-size: 60px;
     line-height: 60px;
   }
@@ -667,11 +669,6 @@ div.section-divider {
   p.card {
     font-size: 18px;
   }
-
-  /* a.header-link.active, a.header-link {
-    padding: 0px;
-    width: 100%;
-  } */
 
   div.filter {
     margin: 20px;
@@ -729,6 +726,10 @@ div.section-divider {
 
   input.filter-input {
     width: 90%;
+  }
+
+  input.account {
+    width: 80%;
   }
 
   #org.btn-group {
