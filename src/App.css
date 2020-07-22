@@ -6,7 +6,6 @@ body {
 
 .header {
   overflow: hidden;
-  padding: 40px 140px;
   display: flex;
 }
 
@@ -615,9 +614,18 @@ div.section-divider {
 }
 
 @media only screen and (max-width: 892px) {
-  div.header {
-    margin: 40px;
-    padding: 0px;
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: rgb(255, 252, 248);
+    margin: 0;
+  }
+
+  td, th {
+    border-bottom: 3px solid rgb(131, 46, 0);
+    text-align: left;
+    padding: 14px 20px 14px 40px;
+    font-size: 18px;
   }
 
   h1.welcome {
@@ -665,10 +673,6 @@ div.section-divider {
 
   p.card {
     font-size: 18px;
-  }
-
-  .header {
-    display: table;
   }
 
   a.header-link.active, a.header-link {
@@ -743,6 +747,7 @@ div.section-divider {
     float: none;
     margin-bottom: -10px;
     border-radius: 6px 6px 0px 0px;
+    box-shadow: none;
   }
 
   div.image-replacement {
