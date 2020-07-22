@@ -87,6 +87,7 @@ class CreateAccount extends Component {
     .then(r => r.json())
     .then((response) => {
       this.props.handleResponse(response)
+      this.props.history.push(`/profile`) 
     })
   }
 
@@ -100,6 +101,7 @@ class CreateAccount extends Component {
         <label>Username</label>
         <br />
         <input
+          className="account"
           name="username"
           type="text"
           autoComplete="off"
@@ -113,6 +115,7 @@ class CreateAccount extends Component {
         
         <label>Email Address</label><br />
         <input
+          className="account"
           name="email_address"
           type="text"
           autoComplete="off"
@@ -127,6 +130,7 @@ class CreateAccount extends Component {
         <label>Password</label>
         <br />
         <input
+          className="account"
           name="password"
           type="password"
           autoComplete="off"
@@ -141,6 +145,7 @@ class CreateAccount extends Component {
         <label>Confirm Password</label>
         <br />
           <input
+            className="account"
             name="password_confirmation"
             type="password"
             autoComplete="off"

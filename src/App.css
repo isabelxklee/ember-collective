@@ -621,13 +621,17 @@ div.section-divider {
   }
 
   h1.welcome {
-    margin: 40px;
+    margin: 80px 40px 40px 40px;
     font-size: 60px;
     line-height: 60px;
   }
 
-  h1, h1.org-profile {
-    margin: 20px;
+  h1.org-profile {
+    margin: 40px 20px 20px 20px;
+  }
+
+  h1 {
+    margin: 80px 20px 20px 20px;
     font-size: 60px;
     line-height: 60px;
   }
@@ -726,6 +730,23 @@ div.section-divider {
     width: 90%;
   }
 
+  input.account {
+    width: 80%;
+    margin: 10px 0px;
+  }
+
+  textarea {
+    width: 80%;
+  }
+
+  form {
+    margin: 40px 20px;
+  }
+
+  button.submit-button#invalid, button.submit-button {
+    width: 40%;
+  }
+
   #org.btn-group {
     margin: 20px;
   }
@@ -744,5 +765,13 @@ div.section-divider {
   div.resource-tile {
     margin: 0px 0px 20px 0px;
     padding: 30px;
+  }
+
+  p.description {
+    padding: 0px 20px
+  }
+
+  button#verify.card-button {
+    float: none;
   }
 }

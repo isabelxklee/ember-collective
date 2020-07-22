@@ -45,7 +45,6 @@ class App extends Component {
     if (response.user) {
       localStorage.token = response.token
       this.props.setUserInfo(response)  
-      this.props.history.push(`/profile`) 
     } else {
       alert(response.message)
     }

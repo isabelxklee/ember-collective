@@ -127,11 +127,12 @@ class Verify extends Component {
     return (
       <div className="container">
         <h1>Verify this organization's information</h1>
-        <p>We'd love your help on keeping our community up-to-date with their favorite organizations. If you're aware of any changes that an organization has made recently, like their status on accepting donations, office location, etc. please fill out this form.</p>
+        <p className="description">We'd love your help on keeping our community up-to-date with their favorite organizations. If you're aware of any changes that an organization has made recently, like their status on accepting donations, office location, etc. please fill out this form.</p>
         
         <form onSubmit={this.handleSubmit}>
         <label>Name</label><br />
         <input
+            className="account"
             name="name"
             type="text"
             autoComplete="off"
@@ -142,6 +143,7 @@ class Verify extends Component {
           <label>Location</label>
           <br />
           <input
+            className="account"
             name="location"
             type="text"
             autoComplete="off"
@@ -153,6 +155,7 @@ class Verify extends Component {
           <br />
 
           <input
+            className="account"
             name="website"
             type="text"
             autoComplete="off"
@@ -167,6 +170,7 @@ class Verify extends Component {
         <label>Donation Link</label>
         <br />
         <input
+          className="account"
           name="donation_link"
           type="text"
           autoComplete="off"
@@ -182,6 +186,7 @@ class Verify extends Component {
           <br />
 
           <input
+            className="account"
             name="facebook"
             type="text"
             autoComplete="off"
@@ -197,6 +202,7 @@ class Verify extends Component {
           <br />
 
           <input
+            className="account" 
             name="twitter"
             type="text"
             autoComplete="off"
@@ -212,6 +218,7 @@ class Verify extends Component {
           <br />
 
           <input
+            className="account"
             name="instagram"
             type="text"
             autoComplete="off"
@@ -226,6 +233,7 @@ class Verify extends Component {
         <label>Tag Line</label>
         <br />
         <textarea
+          className="account"
           name="tagline"
           type="text"
           autoComplete="off"
@@ -241,6 +249,7 @@ class Verify extends Component {
         <br />
 
         <textarea
+          className="account"
           name="description"
           autoComplete="off"
           value={this.state.description}
@@ -251,7 +260,11 @@ class Verify extends Component {
         }
         <br />
 
-        <button type="submit" className="submit-button">Save changes</button>
+        { errors.website.length > 0 || errors.donation_link.length > 0 || errors.tagline.length > 0 || errors.description.length > 0 || errors.facebook.length > 0 || errors.instagram.length > 0 || errors.twitter.length > 0 ?
+          <button type="submit" className="submit-button" id="invalid" disabled>Save Changes</button>
+          :
+          <button type="submit" className="submit-button">Save Changes</button>
+        }
       </form>
       
       </div>
