@@ -437,6 +437,10 @@ div.donation-stat {
 }
 
 select {
+  background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+) no-repeat 95% 50%;
+	-moz-appearance: none; 
+	-webkit-appearance: none; 
+	appearance: none;
   height: 54px;
   width: 32%;
   border-radius: 4px;
@@ -447,6 +451,7 @@ select {
   border: 2px solid rgb(131, 46, 0);
   font-weight: 900;
   color: rgb(45, 45, 45);
+  background-color: white;
 }
 
 div.received-challenges, div.send-challenge {
@@ -732,7 +737,7 @@ div.section-divider {
 
   input.account {
     width: 80%;
-    margin: 10px 0px;
+    margin: 20px 0px;
   }
 
   textarea {
@@ -743,8 +748,12 @@ div.section-divider {
     margin: 40px 20px;
   }
 
+  form.donation {
+    margin: 0;
+  }
+
   button.submit-button#invalid, button.submit-button {
-    width: 40%;
+    width: 100%;
   }
 
   #org.btn-group {
@@ -773,5 +782,13 @@ div.section-divider {
 
   button#verify.card-button {
     float: none;
+  }
+
+  div.donations {
+    padding: 40px;
+  }
+
+  div.send-challenge, div.received-challenges {
+    padding: 0;
   }
 }

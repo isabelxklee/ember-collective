@@ -95,11 +95,12 @@ class DonationChallenge extends Component {
         <h2>Donation Match Challenge</h2>
         <p>Challenge your friends to match your donation!</p>
 
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="donation">
 
           <label>Donation Amount</label>
           <br />
           <input
+            className="account"
             name="amount"
             type="text"
             autoComplete="off"
