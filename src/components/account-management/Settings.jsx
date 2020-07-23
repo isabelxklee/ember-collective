@@ -150,6 +150,7 @@ class Settings extends Component {
         
         <label>Email Address</label><br />
         <input
+        className="account"
           name="email_address"
           type="text"
           autoComplete="off"
@@ -164,6 +165,7 @@ class Settings extends Component {
         <label>Password</label>
         <br />
         <input
+        className="account"
           name="password"
           type="password"
           autoComplete="off"
@@ -178,6 +180,7 @@ class Settings extends Component {
         <label>Confirm Password</label>
         <br />
           <input
+          className="account"
             name="password_confirmation"
             type="password"
             autoComplete="off"
