@@ -19,12 +19,12 @@ class Settings extends Component {
   email_regex = /([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})/i
 
   componentDidMount() {
-    fetch(`${this.props.local}/donation_challenges`)
+    fetch(`${ this.props.deploy}/donation_challenges`)
     .then(r => r.json())
     .then((donations) => {
       this.props.setAllDonations(donations)
     })
-    fetch(`${this.props.local}/users`)
+    fetch(`${ this.props.deploy}/users`)
     .then(r => r.json())
     .then((users) => {
       this.props.setAllUsers(users)
@@ -68,7 +68,7 @@ class Settings extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     
-    fetch(`${this.props.local}/users/${this.props.id}`, {
+    fetch(`${ this.props.deploy}/users/${this.props.id}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json"
@@ -83,7 +83,7 @@ class Settings extends Component {
   }
 
   handleDelete = () => {
-    fetch(`${this.props.local}/users/${this.props.id}`, {
+    fetch(`${ this.props.deploy}/users/${this.props.id}`, {
       method: "DELETE"
     })
     .then(r => r.json())
@@ -100,7 +100,7 @@ class Settings extends Component {
     let receivedDonations = this.receivedDonations()
 
     sentDonations.forEach((donation) => {
-      fetch(`${this.props.local}/donation_challenges/${donation.id}`, {
+      fetch(`${ this.props.deploy}/donation_challenges/${donation.id}`, {
         method: "DELETE"
       })
       .then(r => r.json())
@@ -108,7 +108,7 @@ class Settings extends Component {
     })
 
     receivedDonations.forEach((donation) => {
-      fetch(`${this.props.local}/donation_challenges/${donation.id}`, {
+      fetch(`${ this.props.deploy}/donation_challenges/${donation.id}`, {
         method: "DELETE"
       })
       .then(r => r.json())

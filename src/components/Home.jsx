@@ -10,17 +10,17 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    fetch(`${this.props.local}/organizations`)
+    fetch(`${ this.props.deploy}/organizations`)
     .then(r => r.json())
     .then((orgs) => {
       this.props.setAllOrgs(orgs)
     })
-    fetch(`${this.props.local}/tags`)
+    fetch(`${ this.props.deploy}/tags`)
     .then(r => r.json())
     .then((tags) => {
       this.props.setAllTags(tags)
     })
-    fetch(`${this.props.local}/tag_joiners`)
+    fetch(`${ this.props.deploy}/tag_joiners`)
     .then(r => r.json())
     .then((tag_joiners) => {
       this.props.setAllTagJoiners(tag_joiners)
@@ -102,7 +102,7 @@ class Home extends Component {
           This is a place to consolidate resources and support organizations related to the Black Lives Matter movement. Join the fight to end racism, dismantle the carceral state, and stand up for Black people.
         </h2>
         <FilterOrgs
-          local={this.props.local} deploy={this.props.deploy}
+          local={ this.props.deploy} deploy={this.props.deploy}
           searchTerm={this.state.searchTerm}
           handleSearchTerm={this.handleSearchTerm}
           handleCategory={this.handleCategory}
@@ -112,8 +112,8 @@ class Home extends Component {
         {/* <p className="results">Showing <Pluralize singular={'organization'} count={this.filterBySearch().length} /></p> */}
 
         {this.state.selectedTag === "" ?
-          <OrgContainer orgs={this.filterBySearch()} handleCategory={this.handleCategory} local={this.props.local} deploy={this.props.deploy}/>
-          : <OrgContainer orgs={this.filterByCategory()} handleCategory={this.handleCategory} local={this.props.local} deploy={this.props.deploy}/>
+          <OrgContainer orgs={this.filterBySearch()} handleCategory={this.handleCategory} local={ this.props.deploy} deploy={this.props.deploy}/>
+          : <OrgContainer orgs={this.filterByCategory()} handleCategory={this.handleCategory} local={ this.props.deploy} deploy={this.props.deploy}/>
         }
       </div>
     )

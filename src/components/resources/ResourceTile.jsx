@@ -5,12 +5,12 @@ import {connect} from 'react-redux'
 
 class ResourceTile extends Component {
   componentDidMount() {
-    fetch(`${this.props.local}/categories`)
+    fetch(`${ this.props.deploy}/categories`)
     .then(r => r.json())
     .then((categories) => {
       this.props.setAllCategories(categories)
     })
-    fetch(`${this.props.local}/category_joiners`)
+    fetch(`${ this.props.deploy}/category_joiners`)
     .then(r => r.json())
     .then((category_joiners) => {
       this.props.setAllCategoryJoiners(category_joiners)

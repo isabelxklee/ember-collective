@@ -13,7 +13,7 @@ class DonationChallenge extends Component {
   }
 
   componentDidMount() {
-    fetch(`${this.props.local}/organizations`)
+    fetch(`${ this.props.deploy}/organizations`)
     .then(r => r.json())
     .then((orgs) => {
       this.props.setAllOrganizations(orgs)
@@ -47,7 +47,7 @@ class DonationChallenge extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    fetch(`${this.props.local}/donation_challenges`, {
+    fetch(`${ this.props.deploy}/donation_challenges`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"
@@ -73,7 +73,7 @@ class DonationChallenge extends Component {
   renderReceivers = () => {
     return this.props.receivers.length > 0 ?
       this.props.receivers.map((challenge) => {
-        return <DonationStats key={challenge.id} challenge={challenge} local={this.props.local} deploy={this.props.deploy}/>
+        return <DonationStats key={challenge.id} challenge={challenge} local={ this.props.deploy} deploy={this.props.deploy}/>
       })
       :
       <p>This user hasn't received any donation match challenges yet.</p>
@@ -82,7 +82,7 @@ class DonationChallenge extends Component {
   renderSenders = () => {
     return this.props.senders.length > 0 ?
       this.props.senders.map((challenge) => {
-        return <DonationStats key={challenge.id} challenge={challenge} local={this.props.local} deploy={this.props.deploy}/>
+        return <DonationStats key={challenge.id} challenge={challenge} local={ this.props.deploy} deploy={this.props.deploy}/>
       })
       :
       <p>This user hasn't sent any donation match challenges yet.</p>

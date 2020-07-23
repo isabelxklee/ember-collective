@@ -78,7 +78,7 @@ class CreateAccount extends Component {
       password_confirmation: ""
     })
 
-    fetch(`${this.props.local}/users`, {
+    fetch(`${ this.props.deploy}/users`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"

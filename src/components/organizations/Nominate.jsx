@@ -109,7 +109,7 @@ class Nominate extends Component {
       description: ""
     })
 
-    fetch(`${this.props.local}/organizations`, {
+    fetch(`${ this.props.deploy}/organizations`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"
@@ -136,7 +136,7 @@ class Nominate extends Component {
   }
 
   createNomination = (newOrg) => {
-    fetch(`${this.props.local}/nominations`, {
+    fetch(`${ this.props.deploy}/nominations`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"

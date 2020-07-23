@@ -5,12 +5,12 @@ import CategoryTag from './CategoryTag.jsx'
 
 class FilterResources extends Component {
   componentDidMount() {
-    fetch(`${this.props.local}/categories`)
+    fetch(`${ this.props.deploy}/categories`)
     .then(r => r.json())
     .then((categories) => {
       this.props.setAllCategories(categories)
     })
-    fetch(`${this.props.local}/category_joiners`)
+    fetch(`${ this.props.deploy}/category_joiners`)
     .then(r => r.json())
     .then((category_joiners) => {
       this.props.setAllCategoryJoiners(category_joiners)
@@ -23,7 +23,7 @@ class FilterResources extends Component {
 
   render() {
     let categories = this.props.categories.map((category) => {
-      return <CategoryTag key={category.id} category={category} handleCategoryFilter={this.props.handleCategoryFilter} local={this.props.local} deploy={this.props.deploy}/>
+      return <CategoryTag key={category.id} category={category} handleCategoryFilter={this.props.handleCategoryFilter} local={ this.props.deploy} deploy={this.props.deploy}/>
     })
 
     return (

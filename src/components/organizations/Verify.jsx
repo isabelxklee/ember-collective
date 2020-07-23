@@ -103,7 +103,7 @@ class Verify extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     
-    fetch(`${this.props.local}/organizations/${this.props.org.id}`, {
+    fetch(`${ this.props.deploy}/organizations/${this.props.org.id}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json"

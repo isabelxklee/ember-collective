@@ -7,22 +7,22 @@ import DonationStats from '../donations/DonationStats'
 
 class OtherProfile extends Component {
   componentDidMount() {
-    fetch(`${this.props.local}/nominations`)
+    fetch(`${ this.props.deploy}/nominations`)
     .then(r => r.json())
     .then((nominations) => {
       this.props.setAllNominations(nominations)
     })
-    fetch(`${this.props.local}/users`)
+    fetch(`${ this.props.deploy}/users`)
     .then(r => r.json())
     .then((users) => {
       this.props.setAllUsers(users)
     })
-    fetch(`${this.props.local}/organizations`)
+    fetch(`${ this.props.deploy}/organizations`)
     .then(r => r.json())
     .then((orgs) => {
       this.props.setAllOrganizations(orgs)
     })
-    fetch(`${this.props.local}/donation_challenges`)
+    fetch(`${ this.props.deploy}/donation_challenges`)
     .then(r => r.json())
     .then((donations) => {
       this.props.setAllDonations(donations)
@@ -60,7 +60,7 @@ class OtherProfile extends Component {
   renderReceivers = () => {
     return this.props.user.receivers.length > 0 ?
       this.props.user.receivers.map((challenge) => {
-        return <DonationStats key={challenge.id} challenge={challenge} local={this.props.local} deploy={this.props.deploy}/>
+        return <DonationStats key={challenge.id} challenge={challenge} local={ this.props.deploy} deploy={this.props.deploy}/>
       })
       :
       <p>This user hasn't received any donation match challenges yet.</p>
@@ -69,7 +69,7 @@ class OtherProfile extends Component {
   renderSenders = () => {
     return this.props.user.senders.length > 0 ?
       this.props.user.senders.map((challenge) => {
-        return <DonationStats key={challenge.id} challenge={challenge} local={this.props.local} deploy={this.props.deploy}/>
+        return <DonationStats key={challenge.id} challenge={challenge} local={ this.props.deploy} deploy={this.props.deploy}/>
       })
       :
       <p>This user hasn't sent any donation match challenges yet.</p>

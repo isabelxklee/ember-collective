@@ -54,7 +54,7 @@ class Login extends Component {
       username: "",
       password: ""
     })
-    fetch(`${this.props.local}/login`, {
+    fetch(`${ this.props.deploy}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

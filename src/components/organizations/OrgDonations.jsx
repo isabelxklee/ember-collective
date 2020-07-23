@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 
 class OrgDonations extends Component {
   componentDidMount() {
-    fetch(`${this.props.local}/users`)
+    fetch(`${ this.props.deploy}/users`)
     .then(r => r.json())
     .then((users) => {
       this.props.setAllUsers(users)

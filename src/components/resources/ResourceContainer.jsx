@@ -11,17 +11,17 @@ class Resources extends Component {
   }
 
   componentDidMount() {
-    fetch(`${this.props.local}/resources`)
+    fetch(`${ this.props.deploy}/resources`)
     .then(r => r.json())
     .then((resources) => {
       this.props.setAllResources(resources)
     })
-    fetch(`${this.props.local}/categories`)
+    fetch(`${ this.props.deploy}/categories`)
     .then(r => r.json())
     .then((categories) => {
       this.props.setAllCategories(categories)
     })
-    fetch(`${this.props.local}/category_joiners`)
+    fetch(`${ this.props.deploy}/category_joiners`)
     .then(r => r.json())
     .then((category_joiners) => {
       this.props.setAllCategoryJoiners(category_joiners)
@@ -81,7 +81,7 @@ class Resources extends Component {
   render() {
     let resourcesArr = this.filterResources()
     resourcesArr = resourcesArr.map((resource) => {
-      return <ResourceTile key={resource.id} resource={resource} resources={this.props.resources} handleCategoryFilter={this.handleCategoryFilter} local={this.props.local} deploy={this.props.deploy}/>
+      return <ResourceTile key={resource.id} resource={resource} resources={this.props.resources} handleCategoryFilter={this.handleCategoryFilter} local={ this.props.deploy} deploy={this.props.deploy}/>
     })
 
     return (
@@ -89,7 +89,7 @@ class Resources extends Component {
         <h1>Resources</h1>
         <FilterResources
           handleCategoryFilter={this.handleCategoryFilter}
-          local={this.props.local}
+          local={ this.props.deploy}
           deploy={this.props.deploy}
         />
         <p><strong>Showing <Pluralize singular={'resource'} count={resourcesArr.length} /></strong></p>

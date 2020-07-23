@@ -8,22 +8,22 @@ import DonationChallenge from '../donations/DonationChallenge'
 
 class Profile extends Component {
   componentDidMount() {
-    fetch(`${this.props.local}/nominations`)
+    fetch(`${ this.props.deploy}/nominations`)
     .then(r => r.json())
     .then((nominations) => {
       this.props.setAllNominations(nominations)
     })
-    fetch(`${this.props.local}/users`)
+    fetch(`${ this.props.deploy}/users`)
     .then(r => r.json())
     .then((users) => {
       this.props.setAllUsers(users)
     })
-    fetch(`${this.props.local}/organizations`)
+    fetch(`${ this.props.deploy}/organizations`)
     .then(r => r.json())
     .then((orgs) => {
       this.props.setAllOrganizations(orgs)
     })
-    fetch(`${this.props.local}/donation_challenges`)
+    fetch(`${ this.props.deploy}/donation_challenges`)
     .then(r => r.json())
     .then((donations) => {
       this.props.setAllDonations(donations)
@@ -100,7 +100,7 @@ class Profile extends Component {
 
         <div className="donations">
           <DonationChallenge
-            local={this.props.local} deploy={this.props.deploy}
+            local={ this.props.deploy} deploy={this.props.deploy}
             id={this.props.id}
             firstUserId={this.renderFirstUser()}
             firstOrgId={this.renderFirstOrg()}

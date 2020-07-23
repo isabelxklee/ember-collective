@@ -6,12 +6,12 @@ import Tag from './Tag.jsx'
 
 class CardOrg extends Component {
   componentDidMount() {
-    fetch(`${this.props.local}/tags`)
+    fetch(`${ this.props.deploy}/tags`)
     .then(r => r.json())
     .then((tags) => {
       this.props.setAllTags(tags)
     })
-    fetch(`${this.props.local}/tag_joiners`)
+    fetch(`${ this.props.deploy}/tag_joiners`)
     .then(r => r.json())
     .then((tag_joiners) => {
       this.props.setAllTagJoiners(tag_joiners)
@@ -48,7 +48,7 @@ class CardOrg extends Component {
   render() {
     let {id, name, tagline, location} = this.props.org
     let orgsTags = this.findOrgsTags().map((tag) => {
-      return <Tag key={tag.id} tag={tag} handleCategory={this.props.handleCategory} local={this.props.local} deploy={this.props.deploy}/>
+      return <Tag key={tag.id} tag={tag} handleCategory={this.props.handleCategory} local={ this.props.deploy} deploy={this.props.deploy}/>
     })
 
     return (
