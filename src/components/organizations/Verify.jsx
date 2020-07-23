@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Redirect} from 'react-router-dom'
+ 
 
 class Verify extends Component {
   state = {
@@ -102,7 +103,7 @@ class Verify extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     
-    fetch(`http://localhost:3000/organizations/${this.props.org.id}`, {
+    fetch(`${this.props.local}/organizations/${this.props.org.id}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json"

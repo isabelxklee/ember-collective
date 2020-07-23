@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {withRouter } from 'react-router-dom'
 import DonationStats from './DonationStats.jsx'
+ 
 
 class DonationChallenge extends Component {
   state = {
@@ -12,7 +13,7 @@ class DonationChallenge extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/organizations")
+    fetch(`${this.props.local}/organizations`)
     .then(r => r.json())
     .then((orgs) => {
       this.props.setAllOrganizations(orgs)
@@ -46,7 +47,7 @@ class DonationChallenge extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    fetch("http://localhost:3000/donation_challenges", {
+    fetch(`${this.props.local}/donation_challenges`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"
@@ -72,7 +73,7 @@ class DonationChallenge extends Component {
   renderReceivers = () => {
     return this.props.receivers.length > 0 ?
       this.props.receivers.map((challenge) => {
-        return <DonationStats key={challenge.id} challenge={challenge}/>
+        return <DonationStats key={challenge.id} challenge={challenge} local={this.props.local} deploy={this.props.deploy}/>
       })
       :
       <p>This user hasn't received any donation match challenges yet.</p>
@@ -81,7 +82,7 @@ class DonationChallenge extends Component {
   renderSenders = () => {
     return this.props.senders.length > 0 ?
       this.props.senders.map((challenge) => {
-        return <DonationStats key={challenge.id} challenge={challenge}/>
+        return <DonationStats key={challenge.id} challenge={challenge} local={this.props.local} deploy={this.props.deploy}/>
       })
       :
       <p>This user hasn't sent any donation match challenges yet.</p>

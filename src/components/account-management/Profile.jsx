@@ -4,25 +4,26 @@ import {Link} from 'react-router-dom'
 import moment from 'moment'
 import Pluralize from 'react-pluralize'
 import DonationChallenge from '../donations/DonationChallenge'
+ 
 
 class Profile extends Component {
   componentDidMount() {
-    fetch("http://localhost:3000/nominations")
+    fetch(`${this.props.local}/nominations`)
     .then(r => r.json())
     .then((nominations) => {
       this.props.setAllNominations(nominations)
     })
-    fetch("http://localhost:3000/users")
+    fetch(`${this.props.local}/users`)
     .then(r => r.json())
     .then((users) => {
       this.props.setAllUsers(users)
     })
-    fetch("http://localhost:3000/organizations")
+    fetch(`${this.props.local}/organizations`)
     .then(r => r.json())
     .then((orgs) => {
       this.props.setAllOrganizations(orgs)
     })
-    fetch("http://localhost:3000/donation_challenges")
+    fetch(`${this.props.local}/donation_challenges`)
     .then(r => r.json())
     .then((donations) => {
       this.props.setAllDonations(donations)
@@ -99,6 +100,7 @@ class Profile extends Component {
 
         <div className="donations">
           <DonationChallenge
+            local={this.props.local} deploy={this.props.deploy}
             id={this.props.id}
             firstUserId={this.renderFirstUser()}
             firstOrgId={this.renderFirstOrg()}

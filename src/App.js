@@ -20,18 +20,18 @@ import OtherProfile from './components/account-management/OtherProfile.jsx'
 class App extends Component {
 
   componentDidMount() {
-    fetch("http://localhost:3000/organizations")
+    fetch(`${this.localUrl}/organizations`)
     .then(r => r.json())
     .then((orgs) => {
       this.props.setAllOrganizations(orgs)
     })
-    fetch("http://localhost:3000/users")
+    fetch(`${this.localUrl}/users`)
     .then(r => r.json())
     .then((users) => {
       this.props.setAllUsers(users)
     })
     if (localStorage.token) {
-      fetch("http://localhost:3000/users/stay_logged_in", {
+      fetch(`${this.localUrl}/users/stay_logged_in`, {
         headers: {
           "Authorization": localStorage.token
         }
@@ -54,7 +54,7 @@ class App extends Component {
     let orgs = this.props.orgs
     let allRoutes = []
     allRoutes = orgs.map((org) => {
-      return <Route exact path={`/organizations/${org.id}`} key={org.id}> <ProfileOrg key={org.id} org={org}/> </Route>
+      return <Route exact path={`/organizations/${org.id}`} key={org.id}> <ProfileOrg key={org.id} org={org} local={this.localUrl} deploy={this.deployUrl}/> </Route>
     })
     return allRoutes
   }
@@ -63,7 +63,7 @@ class App extends Component {
     let orgs = this.props.orgs
     let allEditRoutes = []
     allEditRoutes = orgs.map((org) => {
-      return <Route exact path={`/organizations/${org.id}/edit`} key={org.id}> <Verify key={org.id} org={org}/> </Route>
+      return <Route exact path={`/organizations/${org.id}/edit`} key={org.id}> <Verify key={org.id} org={org} local={this.localUrl} deploy={this.deployUrl}/> </Route>
     })
     return allEditRoutes
   }
@@ -72,29 +72,34 @@ class App extends Component {
     let users = this.props.users
     let allUsers = []
     allUsers = users.map((user) => {
-      return <Route exact path={`/users/${user.username}`} key={user.id}> <OtherProfile key={user.id} user={user}/> </Route>
+      return <Route exact path={`/users/${user.username}`} key={user.id}> <OtherProfile key={user.id} user={user} local={this.localUrl} deploy={this.deployUrl}/> </Route>
     })
     return allUsers
   }
+
+  deployUrl = `https://ember-collective.herokuapp.com`
+  localUrl = `http://localhost:3000`
 
   render () {
     return (
       <div className="app">
         <NavBar handleResponse={this.handleResponse}/>
-        <Route exact path="/"> <Home/> </Route>
-        <Route exact path="/police-brutality-tracker"> <PoliceBrutalityTracker/> </Route>
-        <Route path="/resources"> <Resources/> </Route>
-        <Route path="/create-account"> <CreateAccount handleResponse={this.handleResponse}/> </Route>
-        <Route path="/login"> <Login handleResponse={this.handleResponse}/> </Route>
-        <Route path="/about"> <About/> </Route>
-        <Route path="/profile"> <Profile/> </Route>
-        <Route path="/nominate"> <Nominate/> </Route>
+        <Route exact path="/"> <Home local={this.localUrl} deploy={this.deployUrl}/> </Route>
+        <Route exact path="/police-brutality-tracker"> <PoliceBrutalityTracker local={this.localUrl} deploy={this.deployUrl}/> </Route>
+        <Route path="/resources"> <Resources local={this.localUrl} deploy={this.deployUrl}/> </Route>
+        <Route path="/create-account"> <CreateAccount handleResponse={this.handleResponse} local={this.localUrl} deploy={this.deployUrl}/> </Route>
+        <Route path="/login"> <Login handleResponse={this.handleResponse} local={this.localUrl} deploy={this.deployUrl}/> </Route>
+        <Route path="/about"> <About local={this.localUrl} deploy={this.deployUrl}/> </Route>
+        <Route path="/profile"> <Profile local={this.localUrl} deploy={this.deployUrl}/> </Route>
+        <Route path="/nominate"> <Nominate local={this.localUrl} deploy={this.deployUrl}/> </Route>
         <Route path="/account-settings">
           <Settings
             id={this.props.id}
             username={this.props.username}
             email_address={this.props.email_address}
             created_at={this.props.created_at}
+            local={this.localUrl}
+            deploy={this.deployUrl}
           />
         </Route>
         {this.renderOrgRoutes()}

@@ -3,25 +3,26 @@ import {connect} from 'react-redux'
 import moment from 'moment'
 import Pluralize from 'react-pluralize'
 import DonationStats from '../donations/DonationStats'
+ 
 
 class OtherProfile extends Component {
   componentDidMount() {
-    fetch("http://localhost:3000/nominations")
+    fetch(`${this.props.local}/nominations`)
     .then(r => r.json())
     .then((nominations) => {
       this.props.setAllNominations(nominations)
     })
-    fetch("http://localhost:3000/users")
+    fetch(`${this.props.local}/users`)
     .then(r => r.json())
     .then((users) => {
       this.props.setAllUsers(users)
     })
-    fetch("http://localhost:3000/organizations")
+    fetch(`${this.props.local}/organizations`)
     .then(r => r.json())
     .then((orgs) => {
       this.props.setAllOrganizations(orgs)
     })
-    fetch("http://localhost:3000/donation_challenges")
+    fetch(`${this.props.local}/donation_challenges`)
     .then(r => r.json())
     .then((donations) => {
       this.props.setAllDonations(donations)
@@ -59,7 +60,7 @@ class OtherProfile extends Component {
   renderReceivers = () => {
     return this.props.user.receivers.length > 0 ?
       this.props.user.receivers.map((challenge) => {
-        return <DonationStats key={challenge.id} challenge={challenge}/>
+        return <DonationStats key={challenge.id} challenge={challenge} local={this.props.local} deploy={this.props.deploy}/>
       })
       :
       <p>This user hasn't received any donation match challenges yet.</p>
@@ -68,7 +69,7 @@ class OtherProfile extends Component {
   renderSenders = () => {
     return this.props.user.senders.length > 0 ?
       this.props.user.senders.map((challenge) => {
-        return <DonationStats key={challenge.id} challenge={challenge}/>
+        return <DonationStats key={challenge.id} challenge={challenge} local={this.props.local} deploy={this.props.deploy}/>
       })
       :
       <p>This user hasn't sent any donation match challenges yet.</p>

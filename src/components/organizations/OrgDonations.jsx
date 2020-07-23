@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+ 
 
 class OrgDonations extends Component {
   componentDidMount() {
-    fetch("http://localhost:3000/users")
+    fetch(`${this.props.local}/users`)
     .then(r => r.json())
     .then((users) => {
       this.props.setAllUsers(users)

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom'
+ 
 
 class CreateAccount extends Component {
   state = {
@@ -77,7 +78,7 @@ class CreateAccount extends Component {
       password_confirmation: ""
     })
 
-    fetch("http://localhost:3000/users", {
+    fetch(`${this.props.local}/users`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"

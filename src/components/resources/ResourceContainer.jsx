@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import ResourceTile from './ResourceTile.jsx'
 import FilterResources from './FilterResources.jsx'
 import Pluralize from 'react-pluralize'
+ 
 
 class Resources extends Component {
   state = {
@@ -10,17 +11,17 @@ class Resources extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/resources")
+    fetch(`${this.props.local}/resources`)
     .then(r => r.json())
     .then((resources) => {
       this.props.setAllResources(resources)
     })
-    fetch("http://localhost:3000/categories")
+    fetch(`${this.props.local}/categories`)
     .then(r => r.json())
     .then((categories) => {
       this.props.setAllCategories(categories)
     })
-    fetch("http://localhost:3000/category_joiners")
+    fetch(`${this.props.local}/category_joiners`)
     .then(r => r.json())
     .then((category_joiners) => {
       this.props.setAllCategoryJoiners(category_joiners)
@@ -80,7 +81,7 @@ class Resources extends Component {
   render() {
     let resourcesArr = this.filterResources()
     resourcesArr = resourcesArr.map((resource) => {
-      return <ResourceTile key={resource.id} resource={resource} resources={this.props.resources} handleCategoryFilter={this.handleCategoryFilter}/>
+      return <ResourceTile key={resource.id} resource={resource} resources={this.props.resources} handleCategoryFilter={this.handleCategoryFilter} local={this.props.local} deploy={this.props.deploy}/>
     })
 
     return (
@@ -88,6 +89,8 @@ class Resources extends Component {
         <h1>Resources</h1>
         <FilterResources
           handleCategoryFilter={this.handleCategoryFilter}
+          local={this.props.local}
+          deploy={this.props.deploy}
         />
         <p><strong>Showing <Pluralize singular={'resource'} count={resourcesArr.length} /></strong></p>
           <div className="resource-container">

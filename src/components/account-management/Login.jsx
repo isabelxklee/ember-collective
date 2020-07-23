@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom'
+ 
 
 class Login extends Component {
   state = {
@@ -53,7 +54,7 @@ class Login extends Component {
       username: "",
       password: ""
     })
-    fetch("http://localhost:3000/login", {
+    fetch(`${this.props.local}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

@@ -4,6 +4,7 @@ import Map from './Map.jsx'
 import Resource from './Resource.jsx'
 import ProfileCard from './ProfileCard.jsx'
 import Org from './Org.jsx'
+ 
 
 class PoliceBrutalityTracker extends Component {
   componentDidMount() {
@@ -18,37 +19,37 @@ class PoliceBrutalityTracker extends Component {
       this.props.setAllEvents(mapArr)
       // alert("Trigger warning: This page includes content relating to racial violence, murder, police violence, police brutality, and racism.")
     })
-    fetch("http://localhost:3000/categories")
+    fetch(`${this.props.local}/categories`)
     .then(r => r.json())
     .then((categories) => {
       this.props.setAllCategories(categories)
     })
-    fetch("http://localhost:3000/category_joiners")
+    fetch(`${this.props.local}/category_joiners`)
     .then(r => r.json())
     .then((category_joiners) => {
       this.props.setAllCategoryJoiners(category_joiners)
     })
-    fetch("http://localhost:3000/resources")
+    fetch(`${this.props.local}/resources`)
     .then(r => r.json())
     .then((resources) => {
       this.props.setAllResources(resources)
     })
-    fetch("http://localhost:3000/loved_ones")
+    fetch(`${this.props.local}/loved_ones`)
     .then(r => r.json())
     .then((lovedOnes) => {
       this.props.setAllLovedOnes(lovedOnes)
     })
-    fetch("http://localhost:3000/tags")
+    fetch(`${this.props.local}/tags`)
     .then(r => r.json())
     .then((tags) => {
       this.props.setAllTags(tags)
     })
-    fetch("http://localhost:3000/tag_joiners")
+    fetch(`${this.props.local}/tag_joiners`)
     .then(r => r.json())
     .then((tagJoiners) => {
       this.props.setAllTagJoiners(tagJoiners)
     })
-    fetch("http://localhost:3000/organizations")
+    fetch(`${this.props.local}/organizations`)
     .then(r => r.json())
     .then((orgs) => {
       this.props.setAllOrganizations(orgs)

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {withRouter } from 'react-router-dom'
+ 
 
 class Nominate extends Component {
   state = {
@@ -108,7 +109,7 @@ class Nominate extends Component {
       description: ""
     })
 
-    fetch("http://localhost:3000/organizations", {
+    fetch(`${this.props.local}/organizations`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"
@@ -135,7 +136,7 @@ class Nominate extends Component {
   }
 
   createNomination = (newOrg) => {
-    fetch("http://localhost:3000/nominations", {
+    fetch(`${this.props.local}/nominations`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"

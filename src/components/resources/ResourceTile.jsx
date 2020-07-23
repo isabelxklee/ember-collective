@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import CategoryTag from './CategoryTag.jsx'
 import {connect} from 'react-redux'
+ 
 
 class ResourceTile extends Component {
   componentDidMount() {
-    fetch("http://localhost:3000/categories")
+    fetch(`${this.props.local}/categories`)
     .then(r => r.json())
     .then((categories) => {
       this.props.setAllCategories(categories)
     })
-    fetch("http://localhost:3000/category_joiners")
+    fetch(`${this.props.local}/category_joiners`)
     .then(r => r.json())
     .then((category_joiners) => {
       this.props.setAllCategoryJoiners(category_joiners)

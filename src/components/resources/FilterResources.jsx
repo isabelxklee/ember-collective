@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import CategoryTag from './CategoryTag.jsx'
+ 
 
 class FilterResources extends Component {
   componentDidMount() {
-    fetch("http://localhost:3000/categories")
+    fetch(`${this.props.local}/categories`)
     .then(r => r.json())
     .then((categories) => {
       this.props.setAllCategories(categories)
     })
-    fetch("http://localhost:3000/category_joiners")
+    fetch(`${this.props.local}/category_joiners`)
     .then(r => r.json())
     .then((category_joiners) => {
       this.props.setAllCategoryJoiners(category_joiners)
@@ -22,7 +23,7 @@ class FilterResources extends Component {
 
   render() {
     let categories = this.props.categories.map((category) => {
-      return <CategoryTag key={category.id} category={category} handleCategoryFilter={this.props.handleCategoryFilter}/>
+      return <CategoryTag key={category.id} category={category} handleCategoryFilter={this.props.handleCategoryFilter} local={this.props.local} deploy={this.props.deploy}/>
     })
 
     return (

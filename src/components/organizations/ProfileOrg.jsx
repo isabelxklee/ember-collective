@@ -5,20 +5,21 @@ import { SocialIcon } from 'react-social-icons'
 import Tag from './Tag.jsx'
 import OrgDonations from './OrgDonations.jsx'
 import moment from 'moment'
+ 
 
 class ProfileOrg extends Component {
   componentDidMount() {
-    fetch("http://localhost:3000/tags")
+    fetch(`${this.props.local}/tags`)
     .then(r => r.json())
     .then((tags) => {
       this.props.setAllTags(tags)
     })
-    fetch("http://localhost:3000/tag_joiners")
+    fetch(`${this.props.local}/tag_joiners`)
     .then(r => r.json())
     .then((tag_joiners) => {
       this.props.setAllTagJoiners(tag_joiners)
     })
-    fetch("http://localhost:3000/donation_challenges")
+    fetch(`${this.props.local}/donation_challenges`)
     .then(r => r.json())
     .then((challenges) => {
       this.props.setAllDonations(challenges)
@@ -69,11 +70,11 @@ class ProfileOrg extends Component {
     let {name, website, donation_link, description, location, twitter, instagram, facebook} = this.props.org
 
     let orgsTags = this.findOrgsTags().map((tag) => {
-      return <Tag key={tag.id} tag={tag}/>
+      return <Tag key={tag.id} tag={tag} local={this.props.local} deploy={this.props.deploy}/>
     })
 
     let donationStats = this.renderOrgsDonations().map((challenge) => {
-      return <OrgDonations key={challenge.id} challenge={challenge}/>
+      return <OrgDonations key={challenge.id} challenge={challenge} local={this.props.local} deploy={this.props.deploy}/>
     })
 
     return (
