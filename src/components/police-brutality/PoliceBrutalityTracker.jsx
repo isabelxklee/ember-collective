@@ -32,11 +32,6 @@ class PoliceBrutalityTracker extends Component {
     .then((resources) => {
       this.props.setAllResources(resources)
     })
-    fetch(`${ this.props.deploy}/loved_ones`)
-    .then(r => r.json())
-    .then((lovedOnes) => {
-      this.props.setAllLovedOnes(lovedOnes)
-    })
     fetch(`${ this.props.deploy}/tags`)
     .then(r => r.json())
     .then((tags) => {
@@ -200,13 +195,6 @@ class PoliceBrutalityTracker extends Component {
   }
 }
 
-let setAllLovedOnes = (loved_ones) => {
-  return {
-    type: "SET_ALL_LOVED_ONES",
-    payload: loved_ones
-  }
-}
-
 let setAllEvents = (events) => {
   return {
     type: "SET_ALL_EVENTS",
@@ -261,7 +249,6 @@ let mapDispatchToProps = {
   setAllCategories: setAllCategories,
   setAllCategoryJoiners: setAllCategoryJoiners,
   setAllResources: setAllResources,
-  setAllLovedOnes: setAllLovedOnes,
   setAllTags: setAllTags,
   setAllTagJoiners: setAllTagJoiners,
   setAllOrganizations: setAllOrganizations
@@ -273,7 +260,6 @@ let mapStateToProps = (globalState) => {
     categories: globalState.categoryInformation.categories,
     category_joiners: globalState.categoryInformation.category_joiners,
     resources: globalState.resourceInformation.resources,
-    loved_ones: globalState.lovedOnes.loved_ones,
     tags: globalState.tagInfo.tags,
     tag_joiners: globalState.tagInfo.tag_joiners,
     orgs: globalState.orgInformation.orgs,
