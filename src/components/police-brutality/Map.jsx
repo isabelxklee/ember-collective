@@ -12,7 +12,8 @@ class Map extends PureComponent {
       height: 600,
       latitude: 39.0626831,
       longitude: -101.642682,
-      zoom: 2
+      zoom: 2,
+      disableTokenWarning: true,
     }
   }
 
