@@ -13,6 +13,7 @@ class NavBar extends Component {
       return <div className="header">
         <NavLink to="/" exact className="header-link">Home</NavLink><br/>
         <NavLink to="/police-brutality-tracker" exact className="header-link">Police Brutality Tracker</NavLink><br/>
+        <NavLink to="/memorial" exact className="header-link">Memorial</NavLink><br/>
         <NavLink to="/resources" exact className="header-link">Resources</NavLink><br/>
         <NavLink to={`/profile`} exact className="header-link">Profile</NavLink><br/>
         <NavLink to='/' onClick={this.handleLogout} className="header-link">Logout</NavLink>
@@ -23,6 +24,7 @@ class NavBar extends Component {
       <div className="header">
         <NavLink to="/" exact className="header-link">Home</NavLink><br/>
         <NavLink to="/police-brutality-tracker" exact className="header-link">Police Brutality Tracker</NavLink><br/>
+        <NavLink to="/memorial" exact className="header-link">Memorial</NavLink><br/>
         <NavLink to="/resources" exact className="header-link">Resources</NavLink><br/>
         <NavLink to="/create-account" exact className="header-link">Create Account</NavLink><br/>
         <NavLink to="/login" exact className="header-link">Login</NavLink><br/>

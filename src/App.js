@@ -10,6 +10,7 @@ import Profile from './components/account-management/Profile.jsx'
 import Resources from './components/resources/ResourceContainer.jsx'
 import ProfileOrg from './components/organizations/ProfileOrg.jsx'
 import PoliceBrutalityTracker from './components/police-brutality/PoliceBrutalityTracker.jsx'
+import Memorial from './components/police-brutality/Memorial.jsx'
 import About from './components/About.jsx'
 import Footer from './components/Footer.jsx'
 import Verify from './components/organizations/Verify.jsx'
@@ -54,7 +55,7 @@ class App extends Component {
     let orgs = this.props.orgs
     let allRoutes = []
     allRoutes = orgs.map((org) => {
-      return <Route exact path={`/organizations/${org.id}`} key={org.id}> <ProfileOrg key={org.id} org={org} local={ this.deployUrl} deploy={this.deployUrl}/> </Route>
+      return <Route exact path={`/organizations/${org.id}`} key={org.id}> <ProfileOrg key={org.id} org={org} local={this.localUrl} deploy={this.deployUrl}/> </Route>
     })
     return allRoutes
   }
@@ -63,7 +64,7 @@ class App extends Component {
     let orgs = this.props.orgs
     let allEditRoutes = []
     allEditRoutes = orgs.map((org) => {
-      return <Route exact path={`/organizations/${org.id}/edit`} key={org.id}> <Verify key={org.id} org={org} local={ this.deployUrl} deploy={this.deployUrl}/> </Route>
+      return <Route exact path={`/organizations/${org.id}/edit`} key={org.id}> <Verify key={org.id} org={org} local={this.localUrl} deploy={this.deployUrl}/> </Route>
     })
     return allEditRoutes
   }
@@ -72,7 +73,7 @@ class App extends Component {
     let users = this.props.users
     let allUsers = []
     allUsers = users.map((user) => {
-      return <Route exact path={`/users/${user.username}`} key={user.id}> <OtherProfile key={user.id} user={user} local={ this.deployUrl} deploy={this.deployUrl}/> </Route>
+      return <Route exact path={`/users/${user.username}`} key={user.id}> <OtherProfile key={user.id} user={user} local={this.localUrl} deploy={this.deployUrl}/> </Route>
     })
     return allUsers
   }
@@ -84,21 +85,22 @@ class App extends Component {
     return (
       <div className="app">
         <NavBar handleResponse={this.handleResponse}/>
-        <Route exact path="/"> <Home local={ this.deployUrl} deploy={this.deployUrl}/> </Route>
-        <Route exact path="/police-brutality-tracker"> <PoliceBrutalityTracker local={ this.deployUrl} deploy={this.deployUrl}/> </Route>
-        <Route path="/resources"> <Resources local={ this.deployUrl} deploy={this.deployUrl}/> </Route>
-        <Route path="/create-account"> <CreateAccount handleResponse={this.handleResponse} local={ this.deployUrl} deploy={this.deployUrl}/> </Route>
-        <Route path="/login"> <Login handleResponse={this.handleResponse} local={ this.deployUrl} deploy={this.deployUrl}/> </Route>
-        <Route path="/about"> <About local={ this.deployUrl} deploy={this.deployUrl}/> </Route>
-        <Route path="/profile"> <Profile local={ this.deployUrl} deploy={this.deployUrl}/> </Route>
-        <Route path="/nominate"> <Nominate local={ this.deployUrl} deploy={this.deployUrl}/> </Route>
+        <Route exact path="/"> <Home local={this.localUrl} deploy={this.deployUrl}/> </Route>
+        <Route exact path="/police-brutality-tracker"> <PoliceBrutalityTracker local={this.localUrl} deploy={this.deployUrl}/> </Route>
+        <Route exact path="/memorial"> <Memorial local={this.localUrl} deploy={this.deployUrl}/> </Route>
+        <Route path="/resources"> <Resources local={this.localUrl} deploy={this.deployUrl}/> </Route>
+        <Route path="/create-account"> <CreateAccount handleResponse={this.handleResponse} local={this.localUrl} deploy={this.deployUrl}/> </Route>
+        <Route path="/login"> <Login handleResponse={this.handleResponse} local={this.localUrl} deploy={this.deployUrl}/> </Route>
+        <Route path="/about"> <About local={this.localUrl} deploy={this.deployUrl}/> </Route>
+        <Route path="/profile"> <Profile local={this.localUrl} deploy={this.deployUrl}/> </Route>
+        <Route path="/nominate"> <Nominate local={this.localUrl} deploy={this.deployUrl}/> </Route>
         <Route path="/account-settings">
           <Settings
             id={this.props.id}
             username={this.props.username}
             email_address={this.props.email_address}
             created_at={this.props.created_at}
-            local={ this.deployUrl}
+            local={this.localUrl}
             deploy={this.deployUrl}
           />
         </Route>

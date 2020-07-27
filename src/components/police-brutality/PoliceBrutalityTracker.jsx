@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import Map from './Map.jsx'
 import Resource from './Resource.jsx'
-import ProfileCard from './ProfileCard.jsx'
 import Org from './Org.jsx'
  
-
 class PoliceBrutalityTracker extends Component {
   componentDidMount() {
     fetch("../map_data_geocoded.json", {
@@ -159,10 +157,6 @@ class PoliceBrutalityTracker extends Component {
       return <Org key={org.id} org={org} />
     })
 
-    let lovedOnes = this.props.loved_ones.map((loved_one) => {
-      return <ProfileCard key={loved_one.id} loved_one={loved_one} />
-    }) 
-
     return (
       <>
       <div className="container" id="police-brutality">
@@ -170,18 +164,6 @@ class PoliceBrutalityTracker extends Component {
         <h2 className="welcome" id="police-brutality">Police brutality is a rampant problem in America. Every year, the police kill approximately 1,000 people. Black people are disproportionately targeted and attacked by the police, and are 3x as likely to be killed than white people. However, most incidents go unreported and unexamined, and police officers are rarely tried for their crimes.</h2>
         
         <Map events={this.props.events} />        
-      </div>
-
-      <div className="police-brutality-resources-intro">
-        <div className="section-divider"></div>
-        <h2>Honoring those we've lost to police violence <span role="img" aria-label="candle">🕯</span></h2>
-        <p>
-          Say their names. Remember their stories. Fight for a future free of police violence and incarceration.
-        </p>
-
-        <div id="flex-container">
-          {lovedOnes}
-        </div>
       </div>
 
       <div className="police-brutality-resources-intro">
