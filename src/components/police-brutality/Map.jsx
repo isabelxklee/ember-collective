@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import ReactMapGL, {Marker, NavigationControl} from 'react-map-gl'
 import moment from 'moment'
+const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_API_KEY
 
 class Map extends PureComponent {
   state = {
@@ -101,7 +102,7 @@ class Map extends PureComponent {
 
         <ReactMapGL
           {...this.state.viewport}
-          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API_KEY}
+          mapboxApiAccessToken={MAPBOX_TOKEN}
           onViewportChange={(viewport) => this.setState({viewport})
           }
         >
