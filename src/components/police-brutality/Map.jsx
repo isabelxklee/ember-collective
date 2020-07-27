@@ -12,8 +12,7 @@ class Map extends PureComponent {
       height: 600,
       latitude: 39.0626831,
       longitude: -101.642682,
-      zoom: 2,
-      disableTokenWarning: true,
+      zoom: 2
     }
   }
 
@@ -103,6 +102,7 @@ class Map extends PureComponent {
 
         <ReactMapGL
           {...this.state.viewport}
+          disableTokenWarning={true}
           mapboxApiAccessToken={MAPBOX_TOKEN}
           onViewportChange={(viewport) => this.setState({viewport})
           }
