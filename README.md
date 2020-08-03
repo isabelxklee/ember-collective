@@ -75,3 +75,4 @@ Coming soon...
 * [Moment.js](https://momentjs.com): Parse, validate, manipulate, and display dates and times in JavaScript.
 * [Pluralize](https://www.npmjs.com/package/react-pluralize): Display plural or singular form of a word based on a count.
 * [React Router](https://reacttraining.com/react-router/web/guides/quick-start): React Router is a collection of navigational components that compose declaratively with your application.
+* [React Scroll to Top Button](https://www.npmjs.com/package/react-scroll-up-button): React Component for a fixed scroll to top button. 
