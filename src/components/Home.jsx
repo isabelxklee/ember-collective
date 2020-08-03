@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import FilterOrgs from './organizations/FilterOrgs.jsx'
 import OrgContainer from '../components/organizations/OrgContainer'
+import ScrollUpButton from "react-scroll-up-button"
 
 class Home extends Component {
   state = {
@@ -97,6 +98,7 @@ class Home extends Component {
   render() {
     return (
       <div className="App">
+        <ScrollUpButton />
         <h1 className="welcome">Welcome to the Ember Collective <span role="img" aria-label="flame">🔥</span></h1>
         <h2 className="welcome">
           This is a place to consolidate resources and support organizations related to the Black Lives Matter movement. Join the fight to end racism, dismantle the carceral state, and stand up for Black people.

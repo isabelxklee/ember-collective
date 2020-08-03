@@ -797,4 +797,18 @@ div.section-divider {
   div.send-challenge, div.received-challenges {
     padding: 0;
   }
+
+  div#memorial.container {
+    margin: 0;
+    padding: 20px;
+  }
+
+  .memorial {
+    margin: 40px 20px;
+  }
+
+  div.profile-card {
+    margin: 40px 20px;
+    width: 90%;
+  }
 }

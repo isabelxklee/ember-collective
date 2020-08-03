@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ProfileCard from './ProfileCard.jsx'
 import {connect} from 'react-redux'
+import ScrollUpButton from "react-scroll-up-button"
 
 class Memorial extends Component {
   componentDidMount() {
@@ -18,8 +19,9 @@ class Memorial extends Component {
 
     return (
       <div className="container" id="memorial">
-        <h1>Honoring those we've lost to racial violence and police brutality <span role="img" aria-label="candle">🕯</span></h1>
-        <p>
+        <ScrollUpButton />
+        <h1 className="memorial">Honoring those we've lost to racial violence and police brutality <span role="img" aria-label="candle">🕯</span></h1>
+        <p className="memorial">
           Say their names. Remember their stories. Fight for a future free of police violence and incarceration.
         </p>
 

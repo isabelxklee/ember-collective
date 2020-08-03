@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import ResourceTile from './ResourceTile.jsx'
 import FilterResources from './FilterResources.jsx'
 import Pluralize from 'react-pluralize'
- 
+import ScrollUpButton from "react-scroll-up-button" 
 
 class Resources extends Component {
   state = {
@@ -86,6 +86,7 @@ class Resources extends Component {
 
     return (
       <div className="container">
+        <ScrollUpButton />
         <h1>Resources</h1>
         <FilterResources
           handleCategoryFilter={this.handleCategoryFilter}

@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import Map from './Map.jsx'
 import Resource from './Resource.jsx'
 import Org from './Org.jsx'
+import ScrollUpButton from "react-scroll-up-button"
  
 class PoliceBrutalityTracker extends Component {
   componentDidMount() {
@@ -155,6 +156,7 @@ class PoliceBrutalityTracker extends Component {
     return (
       <>
       <div className="container" id="police-brutality">
+        <ScrollUpButton />
         <h1>Police Brutality Tracker</h1>
         <h2 className="welcome" id="police-brutality">Police brutality is a rampant problem in America. Every year, the police kill approximately 1,000 people. Black people are disproportionately targeted and attacked by the police, and are 3x as likely to be killed than white people. However, most incidents go unreported and unexamined, and police officers are rarely tried for their crimes.</h2>
         
