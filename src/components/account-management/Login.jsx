@@ -63,8 +63,18 @@ class Login extends Component {
     })
     .then(r => r.json())
     .then((userInfo) => {
-      this.props.handleResponse(userInfo)
+      this.handleResponse(userInfo)
     })
+  }
+
+  handleResponse = (response) => {
+    if (response.user) {
+      localStorage.token = response.token
+      this.props.setUserInfo(response)
+      this.props.history.push(`/profile`)  
+    } else {
+      alert(response.message)
+    }
   }
 
   render() {

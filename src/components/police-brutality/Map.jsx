@@ -102,7 +102,6 @@ class Map extends PureComponent {
 
         <ReactMapGL
           {...this.state.viewport}
-          // disableTokenWarning={true}
           mapboxApiAccessToken={MAPBOX_TOKEN}
           onViewportChange={(viewport) => this.setState({viewport})
           }

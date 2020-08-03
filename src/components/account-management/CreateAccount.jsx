@@ -87,8 +87,18 @@ class CreateAccount extends Component {
     })
     .then(r => r.json())
     .then((response) => {
-      this.props.handleResponse(response)
+      this.handleResponse(response)
     })
+  }
+
+  handleResponse = (response) => {
+    if (response.user) {
+      localStorage.token = response.token
+      this.props.setUserInfo(response)
+      this.props.history.push(`/profile`)  
+    } else {
+      alert(response.message)
+    }
   }
 
   render() {
@@ -169,6 +179,13 @@ class CreateAccount extends Component {
   }
 }
 
+let setUserInfo = (response) => {
+  return {
+    type: "SET_USER_INFO",
+    payload: response
+  }
+}
+
 let createUser = (user) => {
   return {
     type: "CREATE_USER",
@@ -177,7 +194,8 @@ let createUser = (user) => {
 }
 
 let mapDispatchToProps = {
-  propsCreateUser: createUser
+  propsCreateUser: createUser,
+  setUserInfo: setUserInfo
 }
 
 let MagicalComponent = withRouter(CreateAccount)
