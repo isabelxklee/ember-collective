@@ -55,9 +55,6 @@ Ember Collective is an educational resource for anti-racism and supporting the B
 
 ![Profile Page](https://i.imgur.com/SuPPdCz.png)
 
-## Domain Model
-Coming soon...
-
 ## Tech Stack
 * React.js
 * Redux
