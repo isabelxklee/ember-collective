@@ -158,14 +158,15 @@ class Nominate extends Component {
     return (
       <div className="container">
       <div className="send-challenge">
-        <h1>Nominate an Organization</h1>
-        <p>This feature is only available for users who have been on the Ember Collective for at least 2 days.</p>
+        <h1>Nominate Organization</h1>
+        <p className="memorial">This feature is only available for users who have been on the Ember Collective for at least 2 days. Nominating an organization will add it to the home page with the list of other organizations.</p>
         <form onSubmit={this.handleSubmit}>
         
           <label>Organization's Name</label>
           <br />
           
           <input
+            className="account"
             name="name"
             type="text"
             autoComplete="off"
@@ -176,6 +177,7 @@ class Nominate extends Component {
           <label>Location</label>
           <br />
           <input
+            className="account"
             name="location"
             type="text"
             autoComplete="off"
@@ -187,6 +189,7 @@ class Nominate extends Component {
           <br />
 
           <input
+            className="account"
             name="website"
             type="text"
             autoComplete="off"
@@ -201,6 +204,7 @@ class Nominate extends Component {
         <label>Donation Link</label>
         <br />
         <input
+          className="account"
           name="donation_link"
           type="text"
           autoComplete="off"
@@ -216,6 +220,7 @@ class Nominate extends Component {
           <br />
 
           <input
+            className="account"
             name="facebook"
             type="text"
             autoComplete="off"
@@ -231,6 +236,7 @@ class Nominate extends Component {
           <br />
 
           <input
+            className="account"
             name="twitter"
             type="text"
             autoComplete="off"
@@ -246,6 +252,7 @@ class Nominate extends Component {
           <br />
 
           <input
+            className="account"
             name="instagram"
             type="text"
             autoComplete="off"
@@ -261,6 +268,7 @@ class Nominate extends Component {
         <p className="form-description">If this organization doesn't have a readily accessible tag line, it can be the first couple sentences of the org's description.</p>
         <br />
         <textarea
+          className="account"
           name="tagline"
           type="text"
           autoComplete="off"
@@ -276,6 +284,7 @@ class Nominate extends Component {
         <br />
 
         <textarea
+          className="account"
           name="description"
           autoComplete="off"
           value={this.state.description}
@@ -286,7 +295,11 @@ class Nominate extends Component {
         }
         <br />
 
-        <button type="submit" className="submit-button">Add organization</button>
+        { errors.website.length > 0 || errors.donation_link.length > 0 || errors.tagline.length > 0 || errors.description.length > 0 ?
+          <button type="submit" className="submit-button" id="invalid" disabled>Add organization</button>
+          :
+          <button type="submit" className="submit-button">Add organization</button>
+        }
       </form>
       </div>
       </div>

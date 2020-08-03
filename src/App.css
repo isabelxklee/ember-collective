@@ -17,6 +17,12 @@ div.container {
   min-height: 100vh;
 }
 
+h1.memorial {
+  font-size: 66px;
+  line-height: 68px;
+  margin: 40px 0px;
+}
+
 div#memorial.container {
   background-color: rgb(45, 45, 45);
   color: rgb(255, 252, 248);
@@ -647,6 +653,12 @@ div.section-divider {
     line-height: 60px;
   }
 
+  h1.memorial {
+    font-size: 50px;
+    line-height: 56px;
+    margin: 40px 20px;
+  }
+
   h2.welcome {
     margin: 40px;
     font-size: 24px;
@@ -758,7 +770,7 @@ div.section-divider {
     margin: 0;
   }
 
-  button.submit-button#invalid, button.submit-button {
+  button.submit-button#invalid, button.submit-button, button.filter-button, button#verify.card-button, button.card-button {
     width: 100%;
   }
 
@@ -810,5 +822,9 @@ div.section-divider {
   div.profile-card {
     margin: 40px 20px;
     width: 90%;
+  }
+
+  p.form-description {
+    width: 100%;
   }
 }
