@@ -74,7 +74,7 @@ class Profile extends Component {
     let now = moment()
 
     return now.diff(join_date, 'days') >= 2 ?
-      <button className="card-button"><Link to={`/nominate`} className="card">Nominate Organization</Link></button>
+      <button className="filter-button"><Link to={`/nominate`} className="card">Nominate Organization</Link></button>
       :
       null
   }
@@ -93,7 +93,7 @@ class Profile extends Component {
           <h5><span role="img" aria-label="money">💵</span> Sent <Pluralize singular={'challenge'} count={this.usersDonationChallenges()} donation match challenges/></h5>
           
           <div className="btn-group">
-            <button className="card-button"><Link to={`/account-settings`} className="card">Account Settings</Link></button>
+            <button className="filter-button"><Link to={`/account-settings`} className="card">Account Settings</Link></button>
             {this.nominateToggle()}
           </div>
         </div>

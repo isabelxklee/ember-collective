@@ -770,7 +770,7 @@ div.section-divider {
     margin: 0;
   }
 
-  button.submit-button#invalid, button.submit-button, button.filter-button, button#verify.card-button, button.card-button {
+  button.submit-button#invalid, button.submit-button, button.filter-button, button#verify.card-button, button.danger {
     width: 100%;
   }
 

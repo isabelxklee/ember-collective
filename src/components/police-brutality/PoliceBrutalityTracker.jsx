@@ -16,7 +16,7 @@ class PoliceBrutalityTracker extends Component {
     .then(r => r.json())
     .then((mapArr) => {
       this.props.setAllEvents(mapArr)
-      // alert("Trigger warning: This page includes content relating to racial violence, murder, police violence, police brutality, and racism.")
+      alert("Trigger warning: This page includes content relating to racial violence, murder, police violence, police brutality, and racism.")
     })
     fetch(`${ this.props.deploy}/categories`)
     .then(r => r.json())
