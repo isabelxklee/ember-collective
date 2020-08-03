@@ -64,7 +64,6 @@ class Login extends Component {
     .then(r => r.json())
     .then((userInfo) => {
       this.props.handleResponse(userInfo)
-      this.props.history.push(`/profile`) 
     })
   }
 
