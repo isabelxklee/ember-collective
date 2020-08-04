@@ -3,7 +3,7 @@ Ember Collective 🔥
 
 Ember Collective is an educational resource for anti-racism and supporting the Black Lives Matter movement. You can browse non-profit organizations to support, interact with the Police Brutality Tracker, and send donation match challenges to other users.
 
-Live demo: https://plant-flashcards.netlify.app
+Live demo: https://embercollective.org
 
 [Link to backend](https://github.com/isabelxklee/ember-collective-backend)
 
@@ -76,4 +76,4 @@ Live demo: https://plant-flashcards.netlify.app
 * [React Scroll to Top Button](https://www.npmjs.com/package/react-scroll-up-button): React Component for a fixed scroll to top button. 
 
 ## Live demo
-https://plant-flashcards.netlify.app
+https://embercollective.org
