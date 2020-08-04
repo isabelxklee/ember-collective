@@ -1,9 +1,19 @@
 import React, { PureComponent } from 'react'
-import ReactMapGL, {Source, Layer, Marker, NavigationControl} from 'react-map-gl'
+import {Marker} from 'react-map-gl'
+import ReactMapboxGl from 'react-mapbox-gl'
+import {ReactMapboxGlCluster} from 'react-mapbox-gl-cluster'
+import {data} from './data'
 import moment from 'moment'
-import {clusterLayer, clusterCountLayer, unclusteredPointLayer} from './layers'
 
-const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_API_KEY
+const MapComponent = ReactMapboxGl({
+  accessToken: process.env.REACT_APP_MAPBOX_API_KEY
+})
+ 
+const mapProps = {
+  center: [-95.7129, 37.0902],
+  zoom: [2],
+  style: 'mapbox://styles/mapbox/streets-v8',
+}
 
 class Map extends PureComponent {
   state = {
@@ -15,6 +25,19 @@ class Map extends PureComponent {
       latitude: 39.0626831,
       longitude: -101.642682,
       zoom: 2
+    }
+  }
+
+  getEventHandlers() {
+    return {
+      onClick: (properties, coords, offset) =>
+        console.log(`Receive event onClick at properties: ${properties}, coords: ${coords}, offset: ${offset}`),
+      onMouseEnter: (properties, coords, offset) =>
+        console.log(`Receive event onMouseEnter at properties: ${properties}, coords: ${coords}, offset: ${offset}`),
+      onMouseLeave: (properties, coords, offset) =>
+        console.log(`Receive event onMouseLeave at properties: ${properties}, coords: ${coords}, offset: ${offset}`),
+      onClusterClick: (properties, coords, offset) =>
+        console.log(`Receive event onClusterClick at properties: ${properties}, coords: ${coords}, offset: ${offset}`),
     }
   }
 
@@ -102,30 +125,25 @@ class Map extends PureComponent {
 
         {this.resultsNumber()}
 
-        <ReactMapGL
+        <div className="App">
+          <MapComponent {...mapProps} onStyleLoad={this.onStyleLoad}>
+            <ReactMapboxGlCluster data={data} {...this.getEventHandlers()} />
+          </MapComponent>
+        </div>
+
+        {/* <ReactMapGL
           {...this.state.viewport}
           mapboxApiAccessToken={MAPBOX_TOKEN}
           onViewportChange={(viewport) => this.setState({viewport})
           }
         >
-        <Source
-          type="geojson"
-          data="https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson"
-          cluster={true}
-          clusterMaxZoom={14}
-          clusterRadius={50}
-          ref={this._sourceRef}
-        >
-          <Layer {...clusterLayer} />
-          <Layer {...clusterCountLayer} />
-          <Layer {...unclusteredPointLayer} />
-        </Source>
-
         <div style={{position: 'absolute', right: 0}}>
           <NavigationControl showCompass={false}/>
         </div>
 
-        </ReactMapGL>
+        {this.renderEvents()}
+
+        </ReactMapGL> */}
         
       </div>
     )
