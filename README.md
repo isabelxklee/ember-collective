@@ -27,7 +27,7 @@ Ember Collective is an educational resource for anti-racism and supporting the B
 
 ## Features
 
-![Police Brutality Tracker](https://i.imgur.com/D710TdX.png)
+![Police Brutality Tracker](https://i.imgur.com/hH7mFOg.png)
 
 ### Police Brutality Tracker
 * Displays an interactive map using the Mapbox API
