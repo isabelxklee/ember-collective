@@ -3,6 +3,8 @@ Ember Collective 🔥
 
 Ember Collective is an educational resource for anti-racism and supporting the Black Lives Matter movement. You can browse non-profit organizations to support, interact with the Police Brutality Tracker, and send donation match challenges to other users.
 
+Live demo: https://plant-flashcards.netlify.app
+
 [Link to backend](https://github.com/isabelxklee/ember-collective-backend)
 
 [Project tracker](https://github.com/isabelxklee/ember-collective/projects/1)
@@ -72,3 +74,6 @@ Ember Collective is an educational resource for anti-racism and supporting the B
 * [Pluralize](https://www.npmjs.com/package/react-pluralize): Display plural or singular form of a word based on a count.
 * [React Router](https://reacttraining.com/react-router/web/guides/quick-start): React Router is a collection of navigational components that compose declaratively with your application.
 * [React Scroll to Top Button](https://www.npmjs.com/package/react-scroll-up-button): React Component for a fixed scroll to top button. 
+
+## Live demo
+https://plant-flashcards.netlify.app
