@@ -8,7 +8,7 @@ Ember Collective is an educational resource for anti-racism and supporting the B
 
 [Project tracker](https://github.com/isabelxklee/ember-collective/projects/1)
 
-![Ember Collective Homepage](https://i.imgur.com/Rd25Q3W.png)
+![Ember Collective Homepage](https://i.imgur.com/buewPGc.png)
 
 ## Getting started
 1. Install the [Rails backend](https://github.com/isabelxklee/ember-collective-backend)
@@ -27,7 +27,7 @@ Ember Collective is an educational resource for anti-racism and supporting the B
 
 ## Features
 
-![Police Brutality Tracker](https://i.imgur.com/D710TdX.png)
+![Police Brutality Tracker](https://i.imgur.com/hH7mFOg.png)
 
 ### Police Brutality Tracker
 * Displays an interactive map using the Mapbox API
@@ -53,10 +53,7 @@ Ember Collective is an educational resource for anti-racism and supporting the B
 * Designed 10 database models that have `has_many`, `belongs_to` and `has_many through` associations
 * Used ActiveModelSerializers, which turns model attributes into JSON object keys
 
-![Profile Page](https://i.imgur.com/SuPPdCz.png)
-
-## Domain Model
-Coming soon...
+![Profile Page](https://i.imgur.com/UFgIXmi.png)
 
 ## Tech Stack
 * React.js
@@ -75,3 +72,4 @@ Coming soon...
 * [Moment.js](https://momentjs.com): Parse, validate, manipulate, and display dates and times in JavaScript.
 * [Pluralize](https://www.npmjs.com/package/react-pluralize): Display plural or singular form of a word based on a count.
 * [React Router](https://reacttraining.com/react-router/web/guides/quick-start): React Router is a collection of navigational components that compose declaratively with your application.
+* [React Scroll to Top Button](https://www.npmjs.com/package/react-scroll-up-button): React Component for a fixed scroll to top button. 
