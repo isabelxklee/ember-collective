@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react'
-import ReactMapGL, {Marker, NavigationControl} from 'react-map-gl'
+import ReactMapGL, {Source, Layer, Marker, NavigationControl} from 'react-map-gl'
 import moment from 'moment'
+import {clusterLayer, clusterCountLayer, unclusteredPointLayer} from './layers'
+
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_API_KEY
 
 class Map extends PureComponent {
@@ -106,11 +108,23 @@ class Map extends PureComponent {
           onViewportChange={(viewport) => this.setState({viewport})
           }
         >
-          <div style={{position: 'absolute', right: 0}}>
-            <NavigationControl showCompass={false}/>
-          </div>
+        <Source
+          type="geojson"
+          data="https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson"
+          cluster={true}
+          clusterMaxZoom={14}
+          clusterRadius={50}
+          ref={this._sourceRef}
+        >
+          <Layer {...clusterLayer} />
+          <Layer {...clusterCountLayer} />
+          <Layer {...unclusteredPointLayer} />
+        </Source>
 
-        {this.renderEvents()}
+        <div style={{position: 'absolute', right: 0}}>
+          <NavigationControl showCompass={false}/>
+        </div>
+
         </ReactMapGL>
         
       </div>
