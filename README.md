@@ -53,7 +53,7 @@ Ember Collective is an educational resource for anti-racism and supporting the B
 * Designed 10 database models that have `has_many`, `belongs_to` and `has_many through` associations
 * Used ActiveModelSerializers, which turns model attributes into JSON object keys
 
-![Profile Page](https://i.imgur.com/SuPPdCz.png)
+![Profile Page](https://i.imgur.com/UFgIXmi.png)
 
 ## Tech Stack
 * React.js
