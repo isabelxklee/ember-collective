@@ -9,7 +9,15 @@ Live demo: https://embercollective.org
 
 [Project tracker](https://github.com/isabelxklee/ember-collective/projects/1)
 
+## Table of contents
+* [Getting started](#getting-started)
+* [Features](#features)
+* [Tech stack](#tech-stack)
+* [Tools](#tools)
+
 ![Ember Collective Homepage](https://i.imgur.com/buewPGc.png)
+
+<a name="getting-started"/>
 
 ## Getting started
 1. Install the [Rails backend](https://github.com/isabelxklee/ember-collective-backend)
@@ -25,6 +33,8 @@ Live demo: https://embercollective.org
 5. Make sure the Rails server is running and then run the app
 
     ```$ npm start```
+    
+<a name="features"/>
 
 ## Features
 
@@ -56,6 +66,8 @@ Live demo: https://embercollective.org
 
 ![Profile Page](https://i.imgur.com/UFgIXmi.png)
 
+<a name="tech-stack"/>
+
 ## Tech Stack
 * React.js
 * Redux
@@ -63,6 +75,8 @@ Live demo: https://embercollective.org
 * PostgreSQL
 * HTML/CSS
 * Active Record
+
+<a name="tools"/>
 
 ## Tools
 * [Rack CORS](https://github.com/cyu/rack-cors)
