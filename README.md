@@ -8,7 +8,7 @@ Ember Collective is an educational resource for anti-racism and supporting the B
 
 [Project tracker](https://github.com/isabelxklee/ember-collective/projects/1)
 
-![Ember Collective Homepage](https://i.imgur.com/Rd25Q3W.png)
+![Ember Collective Homepage](https://i.imgur.com/buewPGc.png)
 
 ## Getting started
 1. Install the [Rails backend](https://github.com/isabelxklee/ember-collective-backend)
