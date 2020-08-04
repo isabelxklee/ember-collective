@@ -298,6 +298,23 @@ input.filter-input {
   opacity: 0.75;
 }
 
+
+.footer-button {
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 12px 14px;
+  background-color: rgb(45, 45, 45);
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  margin: 14px 0px;
+  transition: 0.3s
+}
+
+.footer-button:hover {
+  opacity: 0.75;
+}
+
 .submit-button#invalid {
   font-family: "Karla", sans-serif;
   font-weight: 700;
