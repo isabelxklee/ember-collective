@@ -96,7 +96,7 @@ class Map extends PureComponent {
             <button onClick={this.handleChange} name="selectedGender" value="Female" className="card-button">Female</button>
           </div>
 
-          <p>Map data source: <a href="https://mappingpoliceviolence.org/" target="blank" id="username">Mapping Police Violence</a></p>
+          <p>Map data source: <a href="https://mappingpoliceviolence.org/" target="_blank" rel="noopener noreferrer" id="username">Mapping Police Violence</a></p>
         </div>
 
         {this.resultsNumber()}

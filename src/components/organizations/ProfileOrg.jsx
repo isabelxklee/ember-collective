@@ -87,11 +87,11 @@ class ProfileOrg extends Component {
        
        <div className="org-body">
         <div className="btn-group">
-          <button className="card-button"><a href={website} target="blank" className="card-button">Website</a></button>
-          <button className="card-button"><a href={donation_link} target="blank" className="card-button">Donate</a></button>
-          {twitter ? <SocialIcon url={twitter} target="blank"/> : null}
-          {facebook ? <SocialIcon url={facebook} target="blank"/> : null}
-          {instagram ? <SocialIcon url={instagram} target="blank"/> : null}
+          <button className="card-button"><a href={website} target="_blank" rel="noopener noreferrer" className="card-button">Website</a></button>
+          <button className="card-button"><a href={donation_link} target="_blank" rel="noopener noreferrer"className="card-button">Donate</a></button>
+          {twitter ? <SocialIcon url={twitter} target="_blank" rel="noopener noreferrer"/> : null}
+          {facebook ? <SocialIcon url={facebook} target="_blank" rel="noopener noreferrer"/> : null}
+          {instagram ? <SocialIcon url={instagram} target="_blank" rel="noopener noreferrer"/> : null}
 
           { this.verifyToggle() }
         </div>

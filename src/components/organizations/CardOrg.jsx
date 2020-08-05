@@ -61,13 +61,6 @@ class CardOrg extends Component {
 
           <p className="donation-stat">{this.truncateString(tagline, 150)}</p>
 
-          {/* <div className="btn-group">
-            <button className="card-button"><a href={website} target="blank" className="card-button">Website</a></button>
-            <button className="card-button"><a href={donation_link} target="blank" className="card-button">Donate</a></button>
-          </div> */}
-
-          {/* <div className="thin-rule"/> */}
-
           <div className="btn-group">
             {orgsTags}
           </div>

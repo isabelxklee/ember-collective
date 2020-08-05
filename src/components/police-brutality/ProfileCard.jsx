@@ -11,7 +11,7 @@ export default class ProfileCard extends Component {
           <h2 className="card">{name}</h2>
           <h4 className="card">Passed away on {date}</h4>
           <p className="card">{story}</p>
-          {link ? <button className="card-button" target="blank"><a href={link} target="blank" className="profile-card">{button_label}</a></button> : null}
+          {link ? <button className="card-button"><a href={link} target="_blank" rel="noopener noreferrer" className="profile-card">{button_label}</a></button> : null}
         </div>
       </div>
     )

@@ -33,10 +33,10 @@ class About extends Component {
           <ul>
             <li>Reflect on your own privileges and biases.</li>
             <li>Let yourself be uncomfortable and challenge yourself to unlearn those racist, sexist, transphobic, etc. beliefs.</li>
-            <li><a href="https://vimeo.com/343772324" id="username" target="blank">Call in family members and friends</a> when they say or do racist things. Have engaging, uncomfortable conversations with your loved ones.</li>
+            <li><a href="https://vimeo.com/343772324" id="username" target="_blank" rel="noopener noreferrer">Call in family members and friends</a> when they say or do racist things. Have engaging, uncomfortable conversations with your loved ones.</li>
             <li>Read up on the history of America, slavery, colonialism, the prison-industrial complex, and intersectional feminism. Action is important, but education will give you the necessary context and depth to give your acts meaning.</li>
             <li>Make recurring donations to non-profit organizations, especially local ones and mutual aid funds.</li>
-            <li><a href="https://foundationbeyondbelief.org/news/mutual-aid" id="username" target="blank">Mutual aid is radical.</a> Join your local mutual aid organization and help advocate for marginalized neighbors. Get to know the history of your neighborhood and who came before you.</li>
+            <li><a href="https://foundationbeyondbelief.org/news/mutual-aid" id="username" target="_blank" rel="noopener noreferrer">Mutual aid is radical.</a> Join your local mutual aid organization and help advocate for marginalized neighbors. Get to know the history of your neighborhood and who came before you.</li>
             <li>Volunteer for political campaigns that you believe in. Especially ones that promise to abolish ICE and disband the police.</li>
             <li>Stand up for Black people at work. Fight for more diverse hiring practices, fight for equal pay, fight for better management training, fight for a more inclusive culture, and speak up if you see Black co-workers being marginalized.</li>
             <li>Attend protests and rallies. If you are a white person, protect Black people by using your body as a barrier.</li>
