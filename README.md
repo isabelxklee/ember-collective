@@ -38,18 +38,23 @@ Live demo: https://embercollective.org
 
 ## Features
 
-![Police Brutality Tracker](https://i.imgur.com/hH7mFOg.png)
+![Police brutality tracker](https://i.imgur.com/hH7mFOg.png)
 
-### Police Brutality Tracker
+### Police brutality tracker
 * Displays an interactive map using the Mapbox API
 * Pulls data about police brutality events from an external dataset provided by [Mapping Police Violence](https://mappingpoliceviolence.org)
 * Converted +7,000 lines of data from a CSV file to a JSON file
 
-### Donation Match Challenges
+### Browse organizations
+* View a list of non-profit organizations and mutual aid funds that support the Black Lives Matter movement
+* Filter organizations by tag or search for keywords, titles, and locations
+* Users with accounts over 2-days old can nominate new organizations and verify existing organizations' information
+
+### Donation match challenges
 * Users can challenge each other to match donations to an existing organization on the site
 * Built self-referential relationships to join the logged in user with another user
 
-### Education Resources
+### Education resources
 * Browse anti-racism and police abolition resources by tags
 
 ### Global state management
@@ -60,7 +65,7 @@ Live demo: https://embercollective.org
 * Implemented inverse data flow to send props down and up between parent components and child components
 * Used asynchronous fetches to pull data from the Rails backend
 
-### ActiveRecord Associations
+### ActiveRecord associations
 * Designed 10 database models that have `has_many`, `belongs_to` and `has_many through` associations
 * Used ActiveModelSerializers, which turns model attributes into JSON object keys
 
@@ -68,7 +73,7 @@ Live demo: https://embercollective.org
 
 <a name="tech-stack"/>
 
-## Tech Stack
+## Tech stack
 * React.js
 * Redux
 * Ruby on Rails API (Backend: https://github.com/isabelxklee/ember-collective-backend)
