@@ -20,7 +20,7 @@ class Memorial extends Component {
     return (
       <div className="container" id="memorial">
         <ScrollUpButton />
-        <h1 className="memorial">Honoring those we've lost to racial violence and police brutality <span role="img" aria-label="candle">🕯</span></h1>
+        <h1 className="memorial">Honoring the Black people that we've lost to racial violence and police brutality <span role="img" aria-label="candle">🕯</span></h1>
         <p className="memorial">
           Say their names. Remember their stories. Fight for a future free of police violence and incarceration.
         </p>

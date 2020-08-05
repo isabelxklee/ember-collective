@@ -183,6 +183,11 @@ h4.card, h2.card, p.card {
   color: rgb(43, 40, 40);
 }
 
+p.card {
+  font-size: 16px;
+  line-height: 20px;
+}
+
 a#username {
   color: rgb(43, 40, 40);
   font-weight: 900;
@@ -676,6 +681,10 @@ div.section-divider {
     margin: 40px 20px;
   }
 
+  h2 {
+    line-height: 42px;
+  }
+
   h2.welcome {
     margin: 40px;
     font-size: 24px;
@@ -684,6 +693,7 @@ div.section-divider {
   h2#police-brutality.welcome {
     margin: 40px 20px;
     font-size: 24px;
+    line-height: 26px;
   }
 
   h2.section {

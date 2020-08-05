@@ -88,7 +88,7 @@ class Map extends PureComponent {
           </div>
 
           <h3><strong>Filter by gender</strong></h3>
-          <p>This data does not accurately represent genderqueer people, especially trans folks, as police reports and criminal intake forms do not reflect gender options outside of the male/female binary.</p>
+          <p className="card">This data does not accurately represent genderqueer people, especially trans folks, as police reports and criminal intake forms do not reflect gender options outside of the male/female binary.</p>
 
           <div className="btn-group">
             <button onClick={this.handleChange} name="selectedGender" value="All" className="card-button">All</button>
