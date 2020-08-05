@@ -57,6 +57,10 @@ Live demo: https://embercollective.org
 ### Education resources
 * Browse anti-racism and police abolition resources by tags
 
+### Memorial
+* Remember all the Black people we have lost to police brutality and racial violence.
+* Learn their stories and support their families' gofundmes and foundations.
+
 ### Global state management
 * Used Redux to globally manage the application state
 
