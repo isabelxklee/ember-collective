@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 
 class About extends Component {
-  peopleArr = ["Gabrielle Noel", "Xavier Carty", "Sylwia Vargas", "Eric Kim", "Annie Souza", "Randy Herasme", "Paras Memon", "Stephen Song", "Julius Tarng", "Ryan Nylander", "Justina Villanueva", "Sabrina Hall", "Katie Puccio", "Paula Chew"]
+  peopleArr = ["Gabrielle Noel", "Xavier Carty", "Sylwia Vargas", "Eric Kim", "Annie Souza", "Randy Herasme", "Paras Memon", "Stephen Song", "Julius Tarng", "Ryan Nylander", "Justina Villanueva", "Sabrina Hall", "Katie Puccio", "Paula Chew", "Matthew Famularo"]
 
   renderAcknowledgements = () => {
     return this.peopleArr.map((person, index) => {
