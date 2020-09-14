@@ -30,7 +30,7 @@ class OtherProfile extends Component {
   }
 
   accountAge = () => {
-    let created_at = this.props.created_at
+    let created_at = this.props.user.created_at
     let join_date = moment(created_at)
     let now = moment()
 
