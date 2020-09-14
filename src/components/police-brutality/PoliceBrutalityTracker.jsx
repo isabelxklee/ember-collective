@@ -4,9 +4,11 @@ import Map from './Map.jsx'
 import Resource from './Resource.jsx'
 import Org from './Org.jsx'
 import ScrollUpButton from "react-scroll-up-button"
+import { trackPromise } from 'react-promise-tracker'
  
 class PoliceBrutalityTracker extends Component {
   componentDidMount() {
+    trackPromise(
     fetch("../map_data_geocoded.json", {
       headers : { 
         'Content-Type': 'application/json',
@@ -17,37 +19,49 @@ class PoliceBrutalityTracker extends Component {
     .then((mapArr) => {
       this.props.setAllEvents(mapArr)
       alert("Trigger warning: This page includes content relating to racial violence, murder, police violence, police brutality, and racism.")
-    })
+    }))
+
+    trackPromise(
     fetch(`${ this.props.deploy}/categories`)
     .then(r => r.json())
     .then((categories) => {
       this.props.setAllCategories(categories)
-    })
+    }))
+
+    trackPromise(
     fetch(`${ this.props.deploy}/category_joiners`)
     .then(r => r.json())
     .then((category_joiners) => {
       this.props.setAllCategoryJoiners(category_joiners)
-    })
+    }))
+
+    trackPromise(
     fetch(`${ this.props.deploy}/resources`)
     .then(r => r.json())
     .then((resources) => {
       this.props.setAllResources(resources)
-    })
+    }))
+
+    trackPromise(
     fetch(`${ this.props.deploy}/tags`)
     .then(r => r.json())
     .then((tags) => {
       this.props.setAllTags(tags)
-    })
+    }))
+
+    trackPromise(
     fetch(`${ this.props.deploy}/tag_joiners`)
     .then(r => r.json())
     .then((tagJoiners) => {
       this.props.setAllTagJoiners(tagJoiners)
-    })
+    }))
+    
+    trackPromise(
     fetch(`${ this.props.deploy}/organizations`)
     .then(r => r.json())
     .then((orgs) => {
       this.props.setAllOrganizations(orgs)
-    })
+    }))
   }
 
   findTagID = (string) => {

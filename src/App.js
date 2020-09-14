@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Route, withRouter } from 'react-router-dom'
 import './App.css'
 import {connect} from 'react-redux'
+import { trackPromise } from 'react-promise-tracker'
 import Home from './components/Home.jsx'
 import NavBar from './components/NavBar.jsx'
 import CreateAccount from './components/account-management/CreateAccount.jsx'
@@ -21,16 +22,20 @@ import OtherProfile from './components/account-management/OtherProfile.jsx'
 class App extends Component {
 
   componentDidMount() {
+    trackPromise(
     fetch(`${ this.deployUrl}/organizations`)
     .then(r => r.json())
     .then((orgs) => {
       this.props.setAllOrganizations(orgs)
-    })
+    }))
+
+    trackPromise(
     fetch(`${ this.deployUrl}/users`)
     .then(r => r.json())
     .then((users) => {
       this.props.setAllUsers(users)
-    })
+    }))
+    
     if (localStorage.token) {
       fetch(`${ this.deployUrl}/users/stay_logged_in`, {
         headers: {

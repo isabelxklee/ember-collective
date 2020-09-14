@@ -6,6 +6,15 @@ import {Provider} from 'react-redux'
 import {BrowserRouter} from 'react-router-dom'
 import App from './App'
 import ScrollToTop from './ScrollToTop.jsx'
+import { usePromiseTracker } from "react-promise-tracker"
+
+const LoadingIndicator = props => {
+  const { promiseInProgress } = usePromiseTracker()
+  return (
+    promiseInProgress && 
+    <h1>Hey some async call in progress ! </h1>
+  )
+}
 
 let initialOrgState = {
   orgs: []
@@ -237,6 +246,7 @@ ReactDOM.render(
     <BrowserRouter>
         <ScrollToTop />
         <App />
+        <LoadingIndicator/>
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')
