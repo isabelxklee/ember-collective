@@ -30,7 +30,7 @@ Live demo: https://embercollective.org
 
     ```
     $ npm install
-5. Make sure the Rails server is running and then run the app
+5. Make sure the Rails server is already running and open up a new terminal to run this app
 
     ```
     $ npm start
