@@ -23,14 +23,17 @@ Live demo: https://embercollective.org
 1. Install the [Rails backend](https://github.com/isabelxklee/ember-collective-backend)
 2. Install [Node.js and npm](https://www.npmjs.com/get-npm)
 
-    ```$ brew install node
+    ```
+    $ brew install node
 3. Clone this repo and cd into the directory
 4. Install all dependencies
 
-    ```$ npm install
+    ```
+    $ npm install
 5. Make sure the Rails server is running and then run the app
 
-    ```$ npm start
+    ```
+    $ npm start
 <a name="features"/>
 
 ## Features
