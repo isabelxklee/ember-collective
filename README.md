@@ -3,7 +3,7 @@ Ember Collective 🔥
 
 Ember Collective is an educational resource for anti-racism and supporting the Black Lives Matter movement. You can browse non-profit organizations to support, interact with the Police Brutality Tracker, and send donation match challenges to other users.
 
-Live demo: https://embercollective.org
+https://embercollective.netlify.app/
 
 [Link to backend](https://github.com/isabelxklee/ember-collective-backend)
 
